@@ -1,13 +1,16 @@
 import os
 import psycopg2
+from psycopg2 import sql
 
 conn = psycopg2.connect(os.environ["DATABASE_URL"])
 
 with conn.cursor() as cur:
-    cur.execute("SELECT now()")
+    cur.execute(sql.SQL("Select * from konghin.users"))
     res = cur.fetchall()
     conn.commit()
     print(res)
+
+
 
 # import os
 # from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
