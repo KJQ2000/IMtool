@@ -16,7 +16,10 @@ def authenticate(email,password):
         cur.execute(query, (email,password))
         res = cur.fetchone()
         conn.commit()
-        return True
+        if res:
+            return True
+        else:
+            return False
 
 
 @app.route("/")
