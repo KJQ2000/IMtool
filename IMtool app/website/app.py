@@ -9,6 +9,21 @@ app = Flask(__name__)
 
 conn = psycopg2.connect(os.environ["DATABASE_URL"])
 
+<<<<<<< HEAD
+=======
+def authenticate(email,password):
+
+    with conn.cursor() as cur:
+        query = sql.SQL("SELECT * FROM konghin.users WHERE email = %s AND password = %s;")
+        cur.execute(query, (email,password))
+        res = cur.fetchone()
+        conn.commit()
+        if res:
+            return True
+        else:
+            return False
+
+>>>>>>> 81e86d33f4d0c0eac02791453b6daaf27432adaf
 
 @app.route("/")
 def home():
