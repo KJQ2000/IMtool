@@ -5,6 +5,26 @@ import logging
 import dictionary as dic
 
 
+SEQUENCES = {
+    'users': dic.USER_SEQ,
+    'booking': dic.BOOKING_SEQ,
+    'customer': dic.CUSTOMER_SEQ,
+    'stock': dic.STOCK_SEQ,
+    'sale': dic.SALE_SEQ,
+    'salesman': dic.SALESMAN_SEQ,
+    'purchase': dic.PURCHASE_SEQ
+}
+
+PREFIX = {
+    'users': 'USR',
+    'booking': 'BOOK',
+    'customer': 'CUST',
+    'stock': 'STK',
+    'sale': 'SALE',
+    'salesman': 'SLM',
+    'purchase': 'PUR'
+}
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class Database:
@@ -38,10 +58,12 @@ class Database:
             logging.info(f"Results: {results}")
             return results
         except psycopg2.Error as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
             logging.error(f"Error details: {e.diag.message_detail}")
             return None
         except Exception as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Unexpected error: {e}")
             return None
 
@@ -50,16 +72,25 @@ class Database:
             schema=sql.Identifier(self.schema),
             table=sql.Identifier(table)
         )
+        
+        seq = self.get_nextval(SEQUENCES.get(table))
+
+        pk = str(PREFIX.get(table))+'_'+str(seq)
 
         if columns:
-            query = base_query + sql.SQL(" ({columns}) VALUES ({values})").format(
+            query = base_query + sql.SQL(" ({id_col}, {columns}) VALUES ({id}, {values})").format(
+                id_col = sql.Identifier(str(PREFIX.get(table))+'_id'),
                 columns=sql.SQL(', ').join(map(sql.Identifier, columns)),
+                id = sql.Placeholder(),
                 values=sql.SQL(', ').join(sql.Placeholder() * len(values))
             )
         else:
-            query = base_query + sql.SQL(" VALUES ({values})").format(
+            query = base_query + sql.SQL(" VALUES ({id}, {values})").format(
+                id = sql.Placeholder(),
                 values=sql.SQL(', ').join(sql.Placeholder() * len(values))
             )
+
+        values = [pk] + values
 
         try:
             self.cursor.execute(query, values)
@@ -68,10 +99,12 @@ class Database:
             logging.info(f"Query: {query.as_string(self.conn)}")
             logging.info(f"Values: {values}")
         except (psycopg2.Error, psycopg2.DatabaseError) as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
             logging.error(f"Error details: {e.diag.message_detail}")
             self.conn.rollback()
         except Exception as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Unexpected error: {e}")
             self.conn.rollback()
 
@@ -94,10 +127,12 @@ class Database:
             logging.info(f"Query: {query.as_string(self.conn)}")
             logging.info(f"Values: {set_values}")
         except psycopg2.Error as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
             logging.error(f"Error details: {e.diag.message_detail}")
             self.conn.rollback()
         except Exception as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Unexpected error: {e}")
             self.conn.rollback()
 
@@ -114,10 +149,12 @@ class Database:
             logging.info(f"Successfully deleted data from {self.schema}.{table}.")
             logging.info(f"Query: {query.as_string(self.conn)}")
         except psycopg2.Error as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
             logging.error(f"Error details: {e.diag.message_detail}")
             self.conn.rollback()
         except Exception as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Unexpected error: {e}")
             self.conn.rollback()
 
@@ -133,10 +170,12 @@ class Database:
             logging.info(f"Next value of sequence {sequence_name}: {result}")
             return result
         except psycopg2.Error as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
             logging.error(f"Error details: {e.diag.message_detail}")
             return None
         except Exception as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Unexpected error: {e}")
             return None
 
@@ -148,12 +187,11 @@ class Database:
 
 if __name__ == '__main__':
     db = Database(os.environ["DATABASE_URL"])
+    
     # Example usage
-    # db.insert(table='users', values=[3, 'abcd@gmail.com', '121212', 'abcd'])
+    # db.insert(table='users', values=['kjunqiang@gmail.com', '11115354', 'JunQiang'])
+    # db.insert(table='users', values=['yckng00@gmail.com', '00121800', 'YinChew'])
     # db.update('users', set_columns=['username'], set_values=['qwer'], where='id=3')
     # db.select('users')
     # db.select('users', columns=['username'], where='id=3')
     # db.delete('users', where='id=3')
-
-    results=db.get_nextval(dic.USER_SEQ)
-    print(results)
