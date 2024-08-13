@@ -3,6 +3,7 @@ import psycopg2
 from psycopg2 import sql
 import logging
 import dictionary as dic
+import numpy as np
 
 
 SEQUENCES = {
@@ -108,6 +109,7 @@ class Database:
             logging.error(f"Unexpected error: {e}")
             self.conn.rollback()
 
+
     def update(self, table: str, set_columns: list, set_values: list, where: str) -> None:
         set_clause = sql.SQL(', ').join(
             sql.SQL("{col} = {val}").format(col=sql.Identifier(col), val=sql.Placeholder())
@@ -179,11 +181,55 @@ class Database:
             logging.error(f"Unexpected error: {e}")
             return None
 
+    def batch_insert(self, table: str, values: list, columns: list = None) -> None:
+        base_query = "INSERT INTO {schema}.{table}".format(
+            schema=self.schema,
+            table=table
+        )
+
+        if columns:
+            query = base_query + " ({id_col}, {columns}) VALUES ".format(
+                id_col = str(PREFIX.get(table))+'_id',
+                columns=', '.join(columns)
+            )
+        else:
+            query = base_query + " VALUES "
+            
+        values_statement = ''
+
+        for row in range(len(values)):
+            seq = self.get_nextval(SEQUENCES.get(table))
+
+            pk = str(PREFIX.get(table))+'_'+str(seq)
+            formatted_string = ', '.join(f"'{item}'" for item in values[row])
+            values_statement += "('" + pk +"',"+ formatted_string+"),"
+
+        values_statement = values_statement[:-1]
+        
+        insert_query = (query+values_statement).replace("'nan'",'null')
+
+
+        try:
+            self.cursor.execute(insert_query)
+            self.conn.commit()
+            logging.info(f"Successfully inserted data into {self.schema}.{table}.")
+            logging.info(f"Query: {insert_query}")
+        except (psycopg2.Error, psycopg2.DatabaseError) as e:
+            logging.error(f"Query: {insert_query}")
+            logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
+            logging.error(f"Error details: {e.diag.message_detail}")
+            self.conn.rollback()
+        except Exception as e:
+            logging.error(f"Query: {insert_query}")
+            logging.error(f"Unexpected error: {e}")
+            self.conn.rollback()
+    
     def __del__(self):
         if self.cursor:
             self.cursor.close()
         if self.conn:
             self.conn.close()
+    
 
 if __name__ == '__main__':
     db = Database(os.environ["DATABASE_URL"])
@@ -195,3 +241,4 @@ if __name__ == '__main__':
     # db.select('users')
     # db.select('users', columns=['username'], where='id=3')
     # db.delete('users', where='id=3')
+    # db.batch_insert(table='users', values=[['abcd@gmail.com', '1234567', 'abcd'], ['efgh@gmail.com', 'abcdefg', 'efgh'], ['ijkl@gmail.com', 'abcd1234', 'abcdefgh1234']])

@@ -9,3 +9,9 @@ STOCK_SEQ = 'stk_id_seq'
 SALE_SEQ = 'sale_id_seq'
 SALESMAN_SEQ = 'slm_id_seq'
 PURCHASE_SEQ = 'pur_id_seq'
+
+
+IMPORT_DIR = r'./IMTool/Import/'
+SUCCESS_IMPORT_DIR = r'./IMTool/Import/ARCHIVED/SUCCESS/'
+FAILED_IMPORT_DIR = r'./IMTool/Import/ARCHIVED/FAILED/'
+BATCH_INSERT_LIMIT = 1000
