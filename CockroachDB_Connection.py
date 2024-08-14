@@ -4,6 +4,8 @@ from psycopg2 import sql
 import logging
 import dictionary as dic
 import numpy as np
+from datetime import datetime
+import pandas as pd
 
 
 SEQUENCES = {
@@ -26,7 +28,9 @@ PREFIX = {
     'purchase': 'PUR'
 }
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+log_file = dic.LOG_DIR+str(datetime.now().strftime("%Y_%m_%d"))+'.log'
+
+logging.basicConfig(filename=log_file,level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class Database:
     def __init__(self, database_url: str):
@@ -56,7 +60,7 @@ class Database:
             results = self.cursor.fetchall()
             logging.info(f"Successfully selected data from {self.schema}.{table}.")
             logging.info(f"Query: {query.as_string(self.conn)}")
-            logging.info(f"Results: {results}")
+            # logging.info(f"Results: {results}")
             return results
         except psycopg2.Error as e:
             logging.error(f"Query: {query.as_string(self.conn)}")
@@ -73,8 +77,15 @@ class Database:
             schema=sql.Identifier(self.schema),
             table=sql.Identifier(table)
         )
-        
-        seq = self.get_nextval(SEQUENCES.get(table))
+
+        sequence_name = SEQUENCES.get(table.lower())
+
+        if sequence_name ==None:
+            logging.error(f"Table not found. Please ensure u entered correct table name.")
+            self.conn.rollback()
+            return None
+        else:
+            seq = self.get_nextval(SEQUENCES.get(sequence_name))
 
         pk = str(PREFIX.get(table))+'_'+str(seq)
 
@@ -235,10 +246,11 @@ if __name__ == '__main__':
     db = Database(os.environ["DATABASE_URL"])
     
     # Example usage
-    # db.insert(table='users', values=['kjunqiang@gmail.com', '11115354', 'JunQiang'])
+    # db.insert(table='abcd', values=['kjunqiang@gmail.com', '11115354', 'JunQiang'])
     # db.insert(table='users', values=['yckng00@gmail.com', '00121800', 'YinChew'])
     # db.update('users', set_columns=['username'], set_values=['qwer'], where='id=3')
-    # db.select('users')
+    stock = db.select('stock')
+    print(pd.DataFrame(stock))
     # db.select('users', columns=['username'], where='id=3')
     # db.delete('users', where='id=3')
     # db.batch_insert(table='users', values=[['abcd@gmail.com', '1234567', 'abcd'], ['efgh@gmail.com', 'abcdefg', 'efgh'], ['ijkl@gmail.com', 'abcd1234', 'abcdefgh1234']])

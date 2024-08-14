@@ -31,14 +31,12 @@ for file in files_to_import:
     for index, row in df.iterrows():
         value_tuple = str(tuple(row))
         if len(', '.join(str(insert_values)) + value_tuple) > char_limit:
-            db.batch_insert(table='users',values=insert_values)
+            db.batch_insert(table='stock',values=insert_values)
             insert_values = []
         value_tuple = list(tuple(row))
         insert_values.append(value_tuple)
     try:
         db.batch_insert(table='users',values=insert_values)
-        logging.info("Successfully import data from {file}".format(file=file))
         shutil.move(file, dic.SUCCESS_IMPORT_DIR+str(file.split('/')[-1])) 
     except Exception as e:
-        logging.error(f"Unexpected error: {e}")
         shutil.move(file, dic.FAILED_IMPORT_DIR+str(file.split('/')[-1])) 
