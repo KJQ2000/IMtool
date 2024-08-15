@@ -11,9 +11,9 @@ SALESMAN_SEQ = 'slm_id_seq'
 PURCHASE_SEQ = 'pur_id_seq'
 
 
-IMPORT_DIR = r'./IMTool/system_files/Import/'
-SUCCESS_IMPORT_DIR = r'./IMTool/system_files/Import/ARCHIVED/SUCCESS/'
-FAILED_IMPORT_DIR = r'./IMTool/system_files/Import/ARCHIVED/FAILED/'
+IMPORT_DIR = r'./IMTool app/system_files/Import/'
+SUCCESS_IMPORT_DIR = r'./IMTool app/system_files/Import/ARCHIVED/SUCCESS/'
+FAILED_IMPORT_DIR = r'./IMTool app/system_files/Import/ARCHIVED/FAILED/'
 BATCH_INSERT_LIMIT = 1000
 
-LOG_DIR = r'./IMTool/system_files/Log/'
+LOG_DIR = r'./IMTool app/system_files/Log/'
