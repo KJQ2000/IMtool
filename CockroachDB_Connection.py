@@ -6,6 +6,7 @@ import dictionary as dic
 import numpy as np
 from datetime import datetime
 import pandas as pd
+import json
 
 
 SEQUENCES = {
@@ -73,7 +74,7 @@ class Database:
         self.cursor = self.conn.cursor()
         self.schema = 'konghin'
 
-    def select(self, table: str, columns: list = None, where: str = None, json: bool = False):
+    def select(self, table: str, columns: list = None, where: str = None, js: bool = False):
         """
         Selects data from a specified table.
 
@@ -109,8 +110,8 @@ class Database:
             df.columns = colnames
             logging.info(f"Successfully selected data from {self.schema}.{table}.")
             logging.info(f"Query: {query.as_string(self.conn)}")
-            if json:
-                return df.to_json(orient='records')
+            if js:
+                return json.loads(df.to_json(orient='records'))
             else:
                 return df
         except psycopg2.Error as e:
@@ -372,7 +373,7 @@ if __name__ == '__main__':
     db = Database(os.environ["DATABASE_URL"])
     
 #     # Example usage
-    db.insert(table='abcd', values=['kjunqiang@gmail.com', '11115354', 'JunQiang'])
+    # db.insert(table='abcd', values=['kjunqiang@gmail.com', '11115354', 'JunQiang'])
 #     # db.insert(table='users', values=['yckng00@gmail.com', '00121800', 'YinChew'])
 #     # db.update('users', set_columns=['username'], set_values=['qwer'], where='id=3')
 #     stock = db.select('stock')

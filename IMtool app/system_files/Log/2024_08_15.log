@@ -75,3 +75,47 @@ SELECT * FROM "konghin"."stock" WHERE 1=1 limit=1
 2024-08-15 21:03:36,871 - INFO - Query: SELECT * FROM "konghin"."stock"
 2024-08-15 21:12:37,381 - INFO - Successfully selected data from konghin.stock.
 2024-08-15 21:12:37,382 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-15 21:21:02,566 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:21:02,567 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-15 21:22:06,716 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:22:06,716 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-15 21:22:20,661 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:22:20,661 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-15 21:22:33,364 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:22:33,365 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-15 21:24:36,247 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:24:36,247 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-15 21:24:36,248 - ERROR - Query: SELECT * FROM "konghin"."stock"
+2024-08-15 21:24:36,248 - ERROR - Unexpected error: 'bool' object has no attribute 'loads'
+2024-08-15 21:24:55,226 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:24:55,227 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-15 21:24:55,227 - ERROR - Query: SELECT * FROM "konghin"."stock"
+2024-08-15 21:24:55,227 - ERROR - Unexpected error: 'bool' object has no attribute 'loads'
+2024-08-15 21:25:39,523 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:25:39,524 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-15 21:28:18,504 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:28:18,505 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-15 21:28:45,493 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:28:45,494 - INFO - Query: SELECT "stk_pur_date" FROM "konghin"."stock"
+2024-08-15 21:29:02,695 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:29:02,695 - INFO - Query: SELECT "stk_pur_date" FROM "konghin"."stock"
+2024-08-15 21:29:53,459 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:29:53,459 - INFO - Query: SELECT "stk_pur_date" FROM "konghin"."stock"
+2024-08-15 21:30:31,597 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:30:31,598 - INFO - Query: SELECT "stk_pur_date" FROM "konghin"."stock"
+2024-08-15 21:30:38,958 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:30:38,959 - INFO - Query: SELECT "stk_pur_date" FROM "konghin"."stock"
+2024-08-15 21:30:45,580 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:30:45,580 - INFO - Query: SELECT "stk_pur_date" FROM "konghin"."stock"
+2024-08-15 21:31:56,649 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:31:56,649 - INFO - Query: SELECT "stk_pur_date" FROM "konghin"."stock"
+2024-08-15 21:32:19,431 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:32:19,432 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE 1=1 limit 1
+2024-08-15 21:32:38,016 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:32:38,016 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE 1=1 limit 1
+2024-08-15 21:36:33,544 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:36:33,545 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE 1=1 limit 1
+2024-08-15 21:36:48,529 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:36:48,530 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE 1=1 limit 1
+2024-08-15 21:37:06,387 - INFO - Successfully selected data from konghin.stock.
+2024-08-15 21:37:06,388 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE 1=1 limit 1

@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Inventory Management App</title>
+{% endblock %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css"> -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.1.3/css/dataTables.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+
+{% block content %}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Stocks</h1>
+
+        <form method="POST" enctype="multipart/form-data" action="/">
+            <input type="file" name="file" accept=".csv, .xlsx">
+            <button type="submit">Upload</button>
+        </form>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="card mb-4">
+                    <div class="card-header">New Stock</div>
+                    <div class="card-body">
+                        <form action="/products/" method="POST" id="product_form">
+                            <label for="product_name" class="col-form-label">Product Name</label>
+                            <input type="text" name="product_name" id="product_name">
+                            <input id="submitProduct" value="Add Product" class="btn btn-primary">
+                        </form>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                <!-- <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                    Stocks Table
+                </div> -->
+                <div class="table-responsive">
+                    {% if stocks|length < 1 %}
+                    <h4>There are no Stocks, add one above</h4>
+                    {% else %}
+                    <table class="table table-striped" id="stockdataTable">
+                        <thead>
+                            <tr>
+                                <th>Stock ID</th>
+                                <th>Stock Gold Type</th>
+                                <th>Stock Type</th>
+                                <th>Stock Pattern</th>
+                                <th>Stock Weight</th>
+                                <th>Stock Size</th>
+                                <th>Stock Length</th>
+                                <th>Stock Labor Cost</th>
+                                <th>Stock Labor Sell</th>
+                                <th>Stock Purchase Date</th>
+                                <th>Stock Sell Date</th>
+                                <th>Stock Gold Cost</th>
+                                <th>Stock Gold Sell</th>
+                                <th>Stock Status</th>
+                                <th>Stock Profit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for stock in stocks %}
+                            <tr>
+                                <td>{{ stock.stk_id }}</td>
+                                <td>{{ stock.stk_gold_type }}</td>
+                                <td>{{ stock.stk_type }}</td>
+                                <td>{{ stock.stk_pattern }}</td>
+                                <td>{{ stock.stk_weight }}</td>
+                                <td>{{ stock.stk_size }}</td>
+                                <td>{{ stock.stk_length }}</td>
+                                <td>{{ stock.stk_labor_cost }}</td>
+                                <td>{{ stock.stk_labor_sell }}</td>
+                                <td id="PurDate">{{ stock.stk_pur_date}}</td>
+                                <td id="SellDate">{{ stock.stk_sell_date}}</td>
+                                <td>{{ stock.stk_gold_cost }}</td>
+                                <td>{{ stock.stk_gold_sell }}</td>
+                                <td>{{ stock.stk_status }}</td>
+                                <td>{{ stock.stk_profit }}</td>
+                                <td>
+                                    <a href="/delete-product/{{ stock.stk_id }}">Delete</a>
+                                    <br>
+                                    <a href="/update-product/{{ stock.stk_id }}">Update</a>  
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% endif %}
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.1.3/js/dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script> -->
+    <script>
+        $(document).ready(function() {
+            $('#stockdataTable').DataTable();
+        });
+    </script>
+    <script>
+        // Function to format the date string
+        function formatDate(dateTimeLocal) {
+            // Convert the datetime-local input to a Date object
+            const date = new Date(dateTimeLocal);
+
+            // Format the date as YYYY-MM-DD
+            const year = date.getFullYear();
+            const month = ('0' + (date.getMonth() + 1)).slice(-2);
+            const day = ('0' + date.getDate()).slice(-2);
+
+            return `${year}-${month}-${day}`;
+        }
+
+        // Get the date string from the element
+        const PurDateElement = document.getElementById('PurDate');
+        const SellDateElement = document.getElementById('SellDate');
+        const originalDateString = startDateElement.textContent;
+
+        // Format the date and update the element
+        if (originalDateString) {
+            const formattedDate = formatDate(originalDateString);
+            startDateElement.textContent = formattedDate;
+        }
+    </script>
+    
+</main>
+{% endblock %}

@@ -3,7 +3,7 @@ import pandas as pd
 import sys
 import openpyxl as opxl
 import dictionary as dic
-from CockroachDB_Connection import Database
+from models import Database
 import logging
 
 db = Database(os.environ["DATABASE_URL"])

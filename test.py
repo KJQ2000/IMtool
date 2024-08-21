@@ -6,6 +6,6 @@ import pandas as pd
 
 db = Database(os.environ["DATABASE_URL"])
 
-result = db.select('stock',json=True)
+result = db.select('stock',where='1=1 limit 1')
 
-print(result)
+print(json.loads(result.to_json(orient='records',date_format='iso')))
