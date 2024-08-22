@@ -388,3 +388,314 @@
 
 2024-08-21 20:41:30,964 - ERROR - Error details: None
 2024-08-21 20:41:31,044 - INFO - 127.0.0.1 - - [21/Aug/2024 20:41:31] "POST / HTTP/1.1" 200 -
+2024-08-21 23:00:52,598 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-21 23:00:52,598 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-21 23:00:52,600 - INFO -  * Restarting with stat
+2024-08-21 23:00:53,343 - WARNING -  * Debugger is active!
+2024-08-21 23:00:53,343 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:01:03,044 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:03] "GET / HTTP/1.1" 200 -
+2024-08-21 23:01:03,189 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:03] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2024-08-21 23:01:03,208 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-08-21 23:01:08,119 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:01:08.119050
+2024-08-21 23:01:08,163 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:01:08,163 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:01:08,221 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:08] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:01:08,236 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:08] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:01:08,240 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:08] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:01:08,240 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:08] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:01:08,244 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:08] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:01:13,845 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:13] "[35m[1mGET /export_csv HTTP/1.1[0m" 500 -
+2024-08-21 23:01:13,855 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:13] "GET /export_csv?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-08-21 23:01:13,856 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:13] "GET /export_csv?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-08-21 23:01:13,875 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:13] "GET /export_csv?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-08-21 23:01:13,882 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:13] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-21 23:01:53,910 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-21 23:01:53,989 - INFO -  * Restarting with stat
+2024-08-21 23:01:54,693 - WARNING -  * Debugger is active!
+2024-08-21 23:01:54,698 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:01:58,820 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:01:58.820602
+2024-08-21 23:01:58,851 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:01:58,851 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:01:58,867 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:58] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:01:58,894 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:58] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:01:58,898 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:58] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:01:58,900 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:58] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:01:58,956 - INFO - 127.0.0.1 - - [21/Aug/2024 23:01:58] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:02:00,478 - INFO - 127.0.0.1 - - [21/Aug/2024 23:02:00] "[35m[1mGET /export_csv HTTP/1.1[0m" 500 -
+2024-08-21 23:02:00,515 - INFO - 127.0.0.1 - - [21/Aug/2024 23:02:00] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-21 23:02:00,517 - INFO - 127.0.0.1 - - [21/Aug/2024 23:02:00] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-21 23:02:00,532 - INFO - 127.0.0.1 - - [21/Aug/2024 23:02:00] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-21 23:02:23,956 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-21 23:02:24,019 - INFO -  * Restarting with stat
+2024-08-21 23:02:24,904 - WARNING -  * Debugger is active!
+2024-08-21 23:02:24,909 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:02:25,780 - INFO - 127.0.0.1 - - [21/Aug/2024 23:02:25] "[35m[1mGET /export_csv HTTP/1.1[0m" 500 -
+2024-08-21 23:02:25,903 - INFO - 127.0.0.1 - - [21/Aug/2024 23:02:25] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-21 23:02:25,904 - INFO - 127.0.0.1 - - [21/Aug/2024 23:02:25] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-21 23:02:25,911 - INFO - 127.0.0.1 - - [21/Aug/2024 23:02:25] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-21 23:02:25,919 - INFO - 127.0.0.1 - - [21/Aug/2024 23:02:25] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-21 23:05:02,045 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-21 23:05:02,046 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-21 23:05:02,048 - INFO -  * Restarting with stat
+2024-08-21 23:05:02,660 - WARNING -  * Debugger is active!
+2024-08-21 23:05:02,675 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:05:08,229 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:05:08.229426
+2024-08-21 23:05:08,263 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:05:08,263 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:05:08,295 - INFO - 127.0.0.1 - - [21/Aug/2024 23:05:08] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:05:08,316 - INFO - 127.0.0.1 - - [21/Aug/2024 23:05:08] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:05:08,317 - INFO - 127.0.0.1 - - [21/Aug/2024 23:05:08] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:05:08,318 - INFO - 127.0.0.1 - - [21/Aug/2024 23:05:08] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:05:08,374 - INFO - 127.0.0.1 - - [21/Aug/2024 23:05:08] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:05:10,828 - INFO - 127.0.0.1 - - [21/Aug/2024 23:05:10] "[35m[1mGET /export_csv HTTP/1.1[0m" 500 -
+2024-08-21 23:05:10,843 - INFO - 127.0.0.1 - - [21/Aug/2024 23:05:10] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-21 23:05:10,849 - INFO - 127.0.0.1 - - [21/Aug/2024 23:05:10] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-21 23:05:10,856 - INFO - 127.0.0.1 - - [21/Aug/2024 23:05:10] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-21 23:05:24,902 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-21 23:05:24,971 - INFO -  * Restarting with stat
+2024-08-21 23:05:25,649 - WARNING -  * Debugger is active!
+2024-08-21 23:05:25,654 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:05:25,867 - INFO - 127.0.0.1 - - [21/Aug/2024 23:05:25] "[35m[1mGET /export_csv HTTP/1.1[0m" 500 -
+2024-08-21 23:05:25,990 - INFO - 127.0.0.1 - - [21/Aug/2024 23:05:25] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-21 23:05:25,991 - INFO - 127.0.0.1 - - [21/Aug/2024 23:05:25] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-21 23:05:25,997 - INFO - 127.0.0.1 - - [21/Aug/2024 23:05:25] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-21 23:05:26,004 - INFO - 127.0.0.1 - - [21/Aug/2024 23:05:26] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-21 23:07:12,489 - INFO - 127.0.0.1 - - [21/Aug/2024 23:07:12] "[35m[1mGET /export_csv HTTP/1.1[0m" 500 -
+2024-08-21 23:07:12,499 - INFO - 127.0.0.1 - - [21/Aug/2024 23:07:12] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-21 23:07:12,501 - INFO - 127.0.0.1 - - [21/Aug/2024 23:07:12] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-21 23:07:12,506 - INFO - 127.0.0.1 - - [21/Aug/2024 23:07:12] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-21 23:07:12,511 - INFO - 127.0.0.1 - - [21/Aug/2024 23:07:12] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-21 23:07:25,353 - INFO - 127.0.0.1 - - [21/Aug/2024 23:07:25] "[35m[1mGET /export_csv HTTP/1.1[0m" 500 -
+2024-08-21 23:07:25,363 - INFO - 127.0.0.1 - - [21/Aug/2024 23:07:25] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-21 23:07:25,366 - INFO - 127.0.0.1 - - [21/Aug/2024 23:07:25] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-21 23:07:25,373 - INFO - 127.0.0.1 - - [21/Aug/2024 23:07:25] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-21 23:07:25,379 - INFO - 127.0.0.1 - - [21/Aug/2024 23:07:25] "[36mGET /export_csv?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-21 23:13:42,050 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-21 23:13:42,135 - INFO -  * Restarting with stat
+2024-08-21 23:13:42,884 - WARNING -  * Debugger is active!
+2024-08-21 23:13:42,885 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:14:15,181 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-21 23:14:15,251 - INFO -  * Restarting with stat
+2024-08-21 23:14:15,957 - WARNING -  * Debugger is active!
+2024-08-21 23:14:15,962 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:14:20,930 - INFO - 127.0.0.1 - - [21/Aug/2024 23:14:20] "[31m[1mGET /export_csv HTTP/1.1[0m" 405 -
+2024-08-21 23:14:32,123 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-21 23:14:32,176 - INFO -  * Restarting with stat
+2024-08-21 23:14:33,723 - WARNING -  * Debugger is active!
+2024-08-21 23:14:33,729 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:14:47,759 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-21 23:14:47,759 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-21 23:14:47,761 - INFO -  * Restarting with stat
+2024-08-21 23:14:48,464 - WARNING -  * Debugger is active!
+2024-08-21 23:14:48,473 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:14:50,954 - INFO - 127.0.0.1 - - [21/Aug/2024 23:14:50] "GET / HTTP/1.1" 200 -
+2024-08-21 23:14:51,025 - INFO - 127.0.0.1 - - [21/Aug/2024 23:14:51] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2024-08-21 23:14:59,097 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:14:59.097780
+2024-08-21 23:14:59,128 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:14:59,128 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:14:59,159 - INFO - 127.0.0.1 - - [21/Aug/2024 23:14:59] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:14:59,185 - INFO - 127.0.0.1 - - [21/Aug/2024 23:14:59] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:14:59,189 - INFO - 127.0.0.1 - - [21/Aug/2024 23:14:59] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:14:59,191 - INFO - 127.0.0.1 - - [21/Aug/2024 23:14:59] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:14:59,193 - INFO - 127.0.0.1 - - [21/Aug/2024 23:14:59] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:15:01,254 - INFO - 127.0.0.1 - - [21/Aug/2024 23:15:01] "POST /export_csv HTTP/1.1" 200 -
+2024-08-21 23:15:07,259 - INFO - 127.0.0.1 - - [21/Aug/2024 23:15:07] "POST /export_csv HTTP/1.1" 200 -
+2024-08-21 23:15:32,847 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-21 23:15:32,915 - INFO -  * Restarting with stat
+2024-08-21 23:15:33,657 - WARNING -  * Debugger is active!
+2024-08-21 23:15:33,664 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:15:35,294 - INFO - 127.0.0.1 - - [21/Aug/2024 23:15:35] "POST /export_csv HTTP/1.1" 200 -
+2024-08-21 23:18:49,826 - INFO - 127.0.0.1 - - [21/Aug/2024 23:18:49] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:23:20,380 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-21 23:23:20,440 - INFO -  * Restarting with stat
+2024-08-21 23:23:21,238 - WARNING -  * Debugger is active!
+2024-08-21 23:23:21,238 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:23:27,281 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-21 23:23:27,353 - INFO -  * Restarting with stat
+2024-08-21 23:23:28,091 - WARNING -  * Debugger is active!
+2024-08-21 23:23:28,099 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:23:40,962 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:23:40.962014
+2024-08-21 23:23:40,994 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:23:40,994 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:23:41,025 - INFO - 127.0.0.1 - - [21/Aug/2024 23:23:41] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:23:41,060 - INFO - 127.0.0.1 - - [21/Aug/2024 23:23:41] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:23:41,064 - INFO - 127.0.0.1 - - [21/Aug/2024 23:23:41] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:23:41,067 - INFO - 127.0.0.1 - - [21/Aug/2024 23:23:41] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:23:41,234 - INFO - 127.0.0.1 - - [21/Aug/2024 23:23:41] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:23:42,347 - INFO - 127.0.0.1 - - [21/Aug/2024 23:23:42] "[31m[1mPOST /export_excel HTTP/1.1[0m" 400 -
+2024-08-21 23:24:38,721 - INFO - 127.0.0.1 - - [21/Aug/2024 23:24:38] "[31m[1mPOST /export_excel HTTP/1.1[0m" 400 -
+2024-08-21 23:24:43,974 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:24:43.959152
+2024-08-21 23:24:43,991 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:24:43,991 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:24:44,008 - INFO - 127.0.0.1 - - [21/Aug/2024 23:24:44] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:24:44,024 - INFO - 127.0.0.1 - - [21/Aug/2024 23:24:44] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:24:44,024 - INFO - 127.0.0.1 - - [21/Aug/2024 23:24:44] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:24:44,024 - INFO - 127.0.0.1 - - [21/Aug/2024 23:24:44] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:24:44,024 - INFO - 127.0.0.1 - - [21/Aug/2024 23:24:44] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:24:51,603 - INFO - 127.0.0.1 - - [21/Aug/2024 23:24:51] "[31m[1mPOST /export_excel HTTP/1.1[0m" 400 -
+2024-08-21 23:25:03,398 - INFO - 127.0.0.1 - - [21/Aug/2024 23:25:03] "[31m[1mPOST /export_excel HTTP/1.1[0m" 400 -
+2024-08-21 23:25:44,912 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:25:44.912136
+2024-08-21 23:25:44,948 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:25:44,948 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:25:44,959 - INFO - 127.0.0.1 - - [21/Aug/2024 23:25:44] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:25:44,975 - INFO - 127.0.0.1 - - [21/Aug/2024 23:25:44] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:25:44,976 - INFO - 127.0.0.1 - - [21/Aug/2024 23:25:44] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:25:44,977 - INFO - 127.0.0.1 - - [21/Aug/2024 23:25:44] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:25:44,980 - INFO - 127.0.0.1 - - [21/Aug/2024 23:25:44] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:25:48,625 - INFO - 127.0.0.1 - - [21/Aug/2024 23:25:48] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:26:48,357 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:26:48.357458
+2024-08-21 23:26:48,388 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:26:48,388 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:26:48,420 - INFO - 127.0.0.1 - - [21/Aug/2024 23:26:48] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:26:48,445 - INFO - 127.0.0.1 - - [21/Aug/2024 23:26:48] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:26:48,447 - INFO - 127.0.0.1 - - [21/Aug/2024 23:26:48] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:26:48,450 - INFO - 127.0.0.1 - - [21/Aug/2024 23:26:48] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:26:48,453 - INFO - 127.0.0.1 - - [21/Aug/2024 23:26:48] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:26:49,461 - INFO - 127.0.0.1 - - [21/Aug/2024 23:26:49] "[31m[1mPOST /export_excel HTTP/1.1[0m" 400 -
+2024-08-21 23:29:02,460 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:29:02.460091
+2024-08-21 23:29:02,492 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:29:02,492 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:29:02,509 - INFO - 127.0.0.1 - - [21/Aug/2024 23:29:02] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:29:02,528 - INFO - 127.0.0.1 - - [21/Aug/2024 23:29:02] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:29:02,529 - INFO - 127.0.0.1 - - [21/Aug/2024 23:29:02] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:29:02,530 - INFO - 127.0.0.1 - - [21/Aug/2024 23:29:02] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:29:02,534 - INFO - 127.0.0.1 - - [21/Aug/2024 23:29:02] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:29:02,642 - INFO - 127.0.0.1 - - [21/Aug/2024 23:29:02] "[35m[1mPOST /export_excel HTTP/1.1[0m" 500 -
+2024-08-21 23:31:07,193 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:31:07.193513
+2024-08-21 23:31:07,227 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:31:07,227 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:31:07,242 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:07] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:31:07,264 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:07] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:31:07,268 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:07] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:31:07,269 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:07] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:31:07,273 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:07] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:31:07,396 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:07] "[35m[1mPOST /export_excel HTTP/1.1[0m" 500 -
+2024-08-21 23:31:10,060 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:31:10.060339
+2024-08-21 23:31:10,255 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:31:10,257 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:31:10,258 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:10] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:31:10,279 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:10] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:31:10,282 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:10] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:31:10,286 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:10] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:31:10,288 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:10] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:31:10,409 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:10] "[35m[1mPOST /export_excel HTTP/1.1[0m" 500 -
+2024-08-21 23:31:25,544 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:31:25.544480
+2024-08-21 23:31:25,591 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:31:25,593 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:31:25,593 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:25] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:31:25,626 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:25] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:31:25,630 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:25] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:31:25,632 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:25] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:31:25,633 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:25] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:31:25,764 - INFO - 127.0.0.1 - - [21/Aug/2024 23:31:25] "[35m[1mPOST /export_excel HTTP/1.1[0m" 500 -
+2024-08-21 23:38:03,709 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:38:03.709084
+2024-08-21 23:38:03,726 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:38:03,726 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:38:03,757 - INFO - 127.0.0.1 - - [21/Aug/2024 23:38:03] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:38:03,783 - INFO - 127.0.0.1 - - [21/Aug/2024 23:38:03] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:38:03,783 - INFO - 127.0.0.1 - - [21/Aug/2024 23:38:03] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:38:03,784 - INFO - 127.0.0.1 - - [21/Aug/2024 23:38:03] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:38:03,784 - INFO - 127.0.0.1 - - [21/Aug/2024 23:38:03] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:40:08,971 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-21 23:40:08,972 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-21 23:40:08,973 - INFO -  * Restarting with stat
+2024-08-21 23:40:09,678 - WARNING -  * Debugger is active!
+2024-08-21 23:40:09,682 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:40:16,916 - INFO - 127.0.0.1 - - [21/Aug/2024 23:40:16] "GET / HTTP/1.1" 200 -
+2024-08-21 23:40:17,034 - INFO - 127.0.0.1 - - [21/Aug/2024 23:40:17] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2024-08-21 23:40:17,807 - INFO - 127.0.0.1 - - [21/Aug/2024 23:40:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-08-21 23:40:24,157 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:40:24.157729
+2024-08-21 23:40:24,244 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:40:24,244 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:40:24,266 - INFO - 127.0.0.1 - - [21/Aug/2024 23:40:24] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:40:24,287 - INFO - 127.0.0.1 - - [21/Aug/2024 23:40:24] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:40:24,296 - INFO - 127.0.0.1 - - [21/Aug/2024 23:40:24] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:40:24,297 - INFO - 127.0.0.1 - - [21/Aug/2024 23:40:24] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:40:24,297 - INFO - 127.0.0.1 - - [21/Aug/2024 23:40:24] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:40:26,563 - INFO - 127.0.0.1 - - [21/Aug/2024 23:40:26] "POST /export_excel HTTP/1.1" 200 -
+2024-08-21 23:44:55,090 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:44:55.090727
+2024-08-21 23:44:55,109 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:44:55,109 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:44:55,156 - INFO - 127.0.0.1 - - [21/Aug/2024 23:44:55] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:44:55,165 - INFO - 127.0.0.1 - - [21/Aug/2024 23:44:55] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:44:55,165 - INFO - 127.0.0.1 - - [21/Aug/2024 23:44:55] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:44:55,165 - INFO - 127.0.0.1 - - [21/Aug/2024 23:44:55] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:44:55,168 - INFO - 127.0.0.1 - - [21/Aug/2024 23:44:55] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:44:56,408 - INFO - 127.0.0.1 - - [21/Aug/2024 23:44:56] "POST /export_excel HTTP/1.1" 200 -
+2024-08-21 23:45:49,408 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:45:49.408536
+2024-08-21 23:45:49,443 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:45:49,443 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:45:49,457 - INFO - 127.0.0.1 - - [21/Aug/2024 23:45:49] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:45:49,472 - INFO - 127.0.0.1 - - [21/Aug/2024 23:45:49] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:45:49,474 - INFO - 127.0.0.1 - - [21/Aug/2024 23:45:49] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:45:49,474 - INFO - 127.0.0.1 - - [21/Aug/2024 23:45:49] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:45:49,477 - INFO - 127.0.0.1 - - [21/Aug/2024 23:45:49] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:45:50,644 - INFO - 127.0.0.1 - - [21/Aug/2024 23:45:50] "POST /export_excel HTTP/1.1" 200 -
+2024-08-21 23:46:12,530 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:46:12.530322
+2024-08-21 23:46:12,578 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:46:12,578 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:46:12,611 - INFO - 127.0.0.1 - - [21/Aug/2024 23:46:12] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:46:12,625 - INFO - 127.0.0.1 - - [21/Aug/2024 23:46:12] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:46:12,625 - INFO - 127.0.0.1 - - [21/Aug/2024 23:46:12] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:46:12,625 - INFO - 127.0.0.1 - - [21/Aug/2024 23:46:12] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:46:12,625 - INFO - 127.0.0.1 - - [21/Aug/2024 23:46:12] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:46:13,920 - INFO - 127.0.0.1 - - [21/Aug/2024 23:46:13] "POST /export_excel HTTP/1.1" 200 -
+2024-08-21 23:47:50,486 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:47:50.486602
+2024-08-21 23:47:50,516 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:47:50,516 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:47:50,575 - INFO - 127.0.0.1 - - [21/Aug/2024 23:47:50] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2024-08-21 23:47:50,590 - INFO - 127.0.0.1 - - [21/Aug/2024 23:47:50] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-21 23:47:50,594 - INFO - 127.0.0.1 - - [21/Aug/2024 23:47:50] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-21 23:47:50,614 - INFO - 127.0.0.1 - - [21/Aug/2024 23:47:50] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-21 23:47:50,622 - INFO - 127.0.0.1 - - [21/Aug/2024 23:47:50] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-21 23:48:36,548 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-21 23:48:36,653 - INFO -  * Restarting with stat
+2024-08-21 23:48:37,342 - WARNING -  * Debugger is active!
+2024-08-21 23:48:37,346 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:48:43,702 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:48:43.702082
+2024-08-21 23:48:43,749 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:48:43,749 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:48:43,789 - INFO - 127.0.0.1 - - [21/Aug/2024 23:48:43] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:48:43,802 - INFO - 127.0.0.1 - - [21/Aug/2024 23:48:43] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:48:43,803 - INFO - 127.0.0.1 - - [21/Aug/2024 23:48:43] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:48:43,805 - INFO - 127.0.0.1 - - [21/Aug/2024 23:48:43] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:48:43,867 - INFO - 127.0.0.1 - - [21/Aug/2024 23:48:43] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:48:45,542 - INFO - 127.0.0.1 - - [21/Aug/2024 23:48:45] "POST /export_excel HTTP/1.1" 200 -
+2024-08-21 23:49:59,692 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:49:59.692264
+2024-08-21 23:49:59,725 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:49:59,725 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:49:59,755 - INFO - 127.0.0.1 - - [21/Aug/2024 23:49:59] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:49:59,776 - INFO - 127.0.0.1 - - [21/Aug/2024 23:49:59] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:49:59,777 - INFO - 127.0.0.1 - - [21/Aug/2024 23:49:59] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:49:59,778 - INFO - 127.0.0.1 - - [21/Aug/2024 23:49:59] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:49:59,779 - INFO - 127.0.0.1 - - [21/Aug/2024 23:49:59] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:50:00,819 - INFO - 127.0.0.1 - - [21/Aug/2024 23:50:00] "POST /export_excel HTTP/1.1" 200 -
+2024-08-21 23:51:41,934 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:51:41.934373
+2024-08-21 23:51:41,952 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:51:41,952 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:51:42,009 - INFO - 127.0.0.1 - - [21/Aug/2024 23:51:42] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:51:42,018 - INFO - 127.0.0.1 - - [21/Aug/2024 23:51:42] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:51:42,019 - INFO - 127.0.0.1 - - [21/Aug/2024 23:51:42] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:51:42,020 - INFO - 127.0.0.1 - - [21/Aug/2024 23:51:42] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:51:42,021 - INFO - 127.0.0.1 - - [21/Aug/2024 23:51:42] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:51:50,226 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-21 23:51:50,352 - INFO -  * Restarting with stat
+2024-08-21 23:51:51,058 - WARNING -  * Debugger is active!
+2024-08-21 23:51:51,058 - INFO -  * Debugger PIN: 310-690-463
+2024-08-21 23:52:08,300 - INFO - kjunqiang@gmail.com successfully login at 2024-08-21 23:52:08.300943
+2024-08-21 23:52:08,344 - INFO - Successfully selected data from konghin.stock.
+2024-08-21 23:52:08,344 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-21 23:52:08,363 - INFO - 127.0.0.1 - - [21/Aug/2024 23:52:08] "POST /login HTTP/1.1" 200 -
+2024-08-21 23:52:08,380 - INFO - 127.0.0.1 - - [21/Aug/2024 23:52:08] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-21 23:52:08,382 - INFO - 127.0.0.1 - - [21/Aug/2024 23:52:08] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-21 23:52:08,382 - INFO - 127.0.0.1 - - [21/Aug/2024 23:52:08] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-21 23:52:08,520 - INFO - 127.0.0.1 - - [21/Aug/2024 23:52:08] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:52:36,513 - INFO - 127.0.0.1 - - [21/Aug/2024 23:52:36] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-21 23:53:18,890 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-21 23:53:18,939 - INFO -  * Restarting with stat
+2024-08-21 23:53:19,566 - WARNING -  * Debugger is active!
+2024-08-21 23:53:19,572 - INFO -  * Debugger PIN: 310-690-463

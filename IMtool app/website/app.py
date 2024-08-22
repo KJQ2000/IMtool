@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect, flash,send_file
+from flask import Flask, render_template, request, session, redirect, flash,send_file, Response, jsonify
 import os, re, logging
 from datetime import datetime
 import psycopg2
@@ -9,6 +9,7 @@ import subprocess
 from io import BytesIO
 from werkzeug.utils import secure_filename
 import pandas as pd
+import io
 
 UPLOAD_FOLDER = dic.IMPORT_DIR
 ALLOWED_EXTENSIONS = {'csv','xlsx'}
@@ -173,6 +174,16 @@ def uploadFile():
         print('Return Code:', result.returncode)
         return 'File Uploaded Successful'
     return 'FAILED'
+
+@app.route('/your-endpoint', methods=['POST'])
+def handle_data():
+    data = request.json
+    print('Received data:', data)
+    
+    # Process the data as needed
+
+    return jsonify({"status": "success", "data": data})
+
 
 if __name__ == "__main__":
     app.run(debug=True)
