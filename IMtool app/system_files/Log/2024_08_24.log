@@ -1,0 +1,349 @@
+2024-08-24 11:30:49,756 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-24 11:30:49,756 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-24 11:30:49,758 - INFO -  * Restarting with stat
+2024-08-24 11:30:50,480 - WARNING -  * Debugger is active!
+2024-08-24 11:30:50,485 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 11:31:58,638 - INFO - 127.0.0.1 - - [24/Aug/2024 11:31:58] "GET / HTTP/1.1" 200 -
+2024-08-24 11:31:58,731 - INFO - 127.0.0.1 - - [24/Aug/2024 11:31:58] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2024-08-24 11:31:59,402 - INFO - 127.0.0.1 - - [24/Aug/2024 11:31:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-08-24 11:32:04,926 - INFO - kjunqiang@gmail.com successfully login at 2024-08-24 11:32:04.926571
+2024-08-24 11:32:04,955 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 11:32:04,955 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 11:32:05,056 - INFO - 127.0.0.1 - - [24/Aug/2024 11:32:05] "POST /login HTTP/1.1" 200 -
+2024-08-24 11:32:05,081 - INFO - 127.0.0.1 - - [24/Aug/2024 11:32:05] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 11:32:05,083 - INFO - 127.0.0.1 - - [24/Aug/2024 11:32:05] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 11:32:05,083 - INFO - 127.0.0.1 - - [24/Aug/2024 11:32:05] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 11:32:05,086 - INFO - 127.0.0.1 - - [24/Aug/2024 11:32:05] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 11:32:18,169 - INFO - 127.0.0.1 - - [24/Aug/2024 11:32:18] "POST /add-product HTTP/1.1" 200 -
+2024-08-24 11:32:18,184 - INFO - 127.0.0.1 - - [24/Aug/2024 11:32:18] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 11:32:18,187 - INFO - 127.0.0.1 - - [24/Aug/2024 11:32:18] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 11:32:18,187 - INFO - 127.0.0.1 - - [24/Aug/2024 11:32:18] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 11:32:18,191 - INFO - 127.0.0.1 - - [24/Aug/2024 11:32:18] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 11:35:29,780 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-24 11:35:29,833 - INFO -  * Restarting with stat
+2024-08-24 11:35:30,644 - WARNING -  * Debugger is active!
+2024-08-24 11:35:30,649 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 11:36:35,876 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 11:36:35,876 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 11:36:35,909 - INFO - 127.0.0.1 - - [24/Aug/2024 11:36:35] "POST /add-stock HTTP/1.1" 200 -
+2024-08-24 11:36:35,926 - INFO - 127.0.0.1 - - [24/Aug/2024 11:36:35] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 11:36:35,932 - INFO - 127.0.0.1 - - [24/Aug/2024 11:36:35] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 11:36:35,934 - INFO - 127.0.0.1 - - [24/Aug/2024 11:36:35] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 11:36:36,105 - INFO - 127.0.0.1 - - [24/Aug/2024 11:36:36] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 11:37:24,920 - INFO - 127.0.0.1 - - [24/Aug/2024 11:37:24] "POST /add-product HTTP/1.1" 200 -
+2024-08-24 11:37:24,951 - INFO - 127.0.0.1 - - [24/Aug/2024 11:37:24] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 11:37:24,951 - INFO - 127.0.0.1 - - [24/Aug/2024 11:37:24] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 11:37:24,953 - INFO - 127.0.0.1 - - [24/Aug/2024 11:37:24] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 11:37:24,955 - INFO - 127.0.0.1 - - [24/Aug/2024 11:37:24] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 11:37:28,740 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 11:37:28,740 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 11:37:28,746 - INFO - 127.0.0.1 - - [24/Aug/2024 11:37:28] "GET /stocks HTTP/1.1" 200 -
+2024-08-24 11:37:28,762 - INFO - 127.0.0.1 - - [24/Aug/2024 11:37:28] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 11:37:28,770 - INFO - 127.0.0.1 - - [24/Aug/2024 11:37:28] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 11:37:28,772 - INFO - 127.0.0.1 - - [24/Aug/2024 11:37:28] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 11:37:28,774 - INFO - 127.0.0.1 - - [24/Aug/2024 11:37:28] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 11:42:05,361 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-24 11:42:05,417 - INFO -  * Restarting with stat
+2024-08-24 11:42:06,333 - WARNING -  * Debugger is active!
+2024-08-24 11:42:06,337 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 11:42:08,343 - INFO - 127.0.0.1 - - [24/Aug/2024 11:42:08] "POST /add-product HTTP/1.1" 200 -
+2024-08-24 11:42:08,356 - INFO - 127.0.0.1 - - [24/Aug/2024 11:42:08] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 11:42:08,359 - INFO - 127.0.0.1 - - [24/Aug/2024 11:42:08] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 11:42:08,360 - INFO - 127.0.0.1 - - [24/Aug/2024 11:42:08] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 11:42:08,430 - INFO - 127.0.0.1 - - [24/Aug/2024 11:42:08] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 11:42:58,722 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 11:42:58,722 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 11:42:58,731 - INFO - 127.0.0.1 - - [24/Aug/2024 11:42:58] "POST /add-stock HTTP/1.1" 200 -
+2024-08-24 11:42:58,742 - INFO - 127.0.0.1 - - [24/Aug/2024 11:42:58] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 11:42:58,746 - INFO - 127.0.0.1 - - [24/Aug/2024 11:42:58] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 11:42:58,748 - INFO - 127.0.0.1 - - [24/Aug/2024 11:42:58] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 11:42:58,750 - INFO - 127.0.0.1 - - [24/Aug/2024 11:42:58] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 11:46:04,215 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-24 11:46:04,266 - INFO -  * Restarting with stat
+2024-08-24 11:46:05,112 - WARNING -  * Debugger is active!
+2024-08-24 11:46:05,118 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 11:46:08,319 - INFO - 127.0.0.1 - - [24/Aug/2024 11:46:08] "POST /add-product HTTP/1.1" 200 -
+2024-08-24 11:46:08,331 - INFO - 127.0.0.1 - - [24/Aug/2024 11:46:08] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 11:46:08,333 - INFO - 127.0.0.1 - - [24/Aug/2024 11:46:08] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 11:46:08,336 - INFO - 127.0.0.1 - - [24/Aug/2024 11:46:08] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 11:46:08,402 - INFO - 127.0.0.1 - - [24/Aug/2024 11:46:08] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 11:46:36,601 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 11:46:36,602 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 11:46:36,612 - INFO - 127.0.0.1 - - [24/Aug/2024 11:46:36] "POST /add-stock HTTP/1.1" 200 -
+2024-08-24 11:46:36,628 - INFO - 127.0.0.1 - - [24/Aug/2024 11:46:36] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 11:46:36,632 - INFO - 127.0.0.1 - - [24/Aug/2024 11:46:36] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 11:46:36,633 - INFO - 127.0.0.1 - - [24/Aug/2024 11:46:36] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 11:46:36,638 - INFO - 127.0.0.1 - - [24/Aug/2024 11:46:36] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 11:50:13,041 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-24 11:50:13,108 - INFO -  * Restarting with stat
+2024-08-24 11:50:14,029 - WARNING -  * Debugger is active!
+2024-08-24 11:50:14,033 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 11:50:15,053 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-24 11:50:15,101 - INFO -  * Restarting with stat
+2024-08-24 11:50:15,877 - WARNING -  * Debugger is active!
+2024-08-24 11:50:15,881 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 11:50:26,821 - INFO - 127.0.0.1 - - [24/Aug/2024 11:50:26] "POST /add-product HTTP/1.1" 200 -
+2024-08-24 11:50:26,830 - INFO - 127.0.0.1 - - [24/Aug/2024 11:50:26] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 11:50:26,833 - INFO - 127.0.0.1 - - [24/Aug/2024 11:50:26] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 11:50:26,837 - INFO - 127.0.0.1 - - [24/Aug/2024 11:50:26] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 11:50:26,903 - INFO - 127.0.0.1 - - [24/Aug/2024 11:50:26] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 11:51:00,215 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 11:51:00,216 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 11:51:00,229 - INFO - 127.0.0.1 - - [24/Aug/2024 11:51:00] "POST /add-stock HTTP/1.1" 200 -
+2024-08-24 11:51:00,246 - INFO - 127.0.0.1 - - [24/Aug/2024 11:51:00] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 11:51:00,247 - INFO - 127.0.0.1 - - [24/Aug/2024 11:51:00] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 11:51:00,250 - INFO - 127.0.0.1 - - [24/Aug/2024 11:51:00] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 11:51:00,254 - INFO - 127.0.0.1 - - [24/Aug/2024 11:51:00] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 11:52:14,333 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-24 11:52:14,397 - INFO -  * Restarting with stat
+2024-08-24 11:52:17,464 - WARNING -  * Debugger is active!
+2024-08-24 11:52:17,469 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 11:52:35,681 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-24 11:52:35,748 - INFO -  * Restarting with stat
+2024-08-24 11:52:36,510 - WARNING -  * Debugger is active!
+2024-08-24 11:52:36,514 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 11:52:38,553 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-24 11:52:38,629 - INFO -  * Restarting with stat
+2024-08-24 11:52:39,517 - WARNING -  * Debugger is active!
+2024-08-24 11:52:39,522 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 11:52:40,762 - INFO - 127.0.0.1 - - [24/Aug/2024 11:52:40] "[35m[1mPOST /add-stock HTTP/1.1[0m" 500 -
+2024-08-24 11:52:40,893 - INFO - 127.0.0.1 - - [24/Aug/2024 11:52:40] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-24 11:52:40,893 - INFO - 127.0.0.1 - - [24/Aug/2024 11:52:40] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-24 11:52:40,917 - INFO - 127.0.0.1 - - [24/Aug/2024 11:52:40] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-24 11:52:40,923 - INFO - 127.0.0.1 - - [24/Aug/2024 11:52:40] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-24 11:52:45,759 - INFO - 127.0.0.1 - - [24/Aug/2024 11:52:45] "[35m[1mPOST /add-stock HTTP/1.1[0m" 500 -
+2024-08-24 11:52:45,771 - INFO - 127.0.0.1 - - [24/Aug/2024 11:52:45] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-24 11:52:45,772 - INFO - 127.0.0.1 - - [24/Aug/2024 11:52:45] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-24 11:52:45,780 - INFO - 127.0.0.1 - - [24/Aug/2024 11:52:45] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-24 11:55:03,237 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-24 11:55:03,290 - INFO -  * Restarting with stat
+2024-08-24 11:55:04,023 - WARNING -  * Debugger is active!
+2024-08-24 11:55:04,027 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 11:56:44,929 - INFO - 127.0.0.1 - - [24/Aug/2024 11:56:44] "[35m[1mPOST /add-stock HTTP/1.1[0m" 500 -
+2024-08-24 11:56:45,252 - INFO - 127.0.0.1 - - [24/Aug/2024 11:56:45] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-24 11:56:45,285 - INFO - 127.0.0.1 - - [24/Aug/2024 11:56:45] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-24 11:56:45,300 - INFO - 127.0.0.1 - - [24/Aug/2024 11:56:45] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-24 11:57:02,455 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 11:57:02,519 - INFO -  * Restarting with stat
+2024-08-24 11:57:03,348 - WARNING -  * Debugger is active!
+2024-08-24 11:57:03,356 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 11:57:05,316 - INFO - 127.0.0.1 - - [24/Aug/2024 11:57:05] "[35m[1mPOST /add-stock HTTP/1.1[0m" 500 -
+2024-08-24 11:57:05,447 - INFO - 127.0.0.1 - - [24/Aug/2024 11:57:05] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-24 11:57:05,447 - INFO - 127.0.0.1 - - [24/Aug/2024 11:57:05] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-24 11:57:05,460 - INFO - 127.0.0.1 - - [24/Aug/2024 11:57:05] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-24 11:57:05,464 - INFO - 127.0.0.1 - - [24/Aug/2024 11:57:05] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-24 11:57:30,650 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 11:57:30,703 - INFO -  * Restarting with stat
+2024-08-24 11:57:31,493 - WARNING -  * Debugger is active!
+2024-08-24 11:57:31,499 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 11:57:32,226 - INFO - 127.0.0.1 - - [24/Aug/2024 11:57:32] "[35m[1mPOST /add-stock HTTP/1.1[0m" 500 -
+2024-08-24 11:57:32,365 - INFO - 127.0.0.1 - - [24/Aug/2024 11:57:32] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-24 11:57:32,365 - INFO - 127.0.0.1 - - [24/Aug/2024 11:57:32] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-24 11:57:32,372 - INFO - 127.0.0.1 - - [24/Aug/2024 11:57:32] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-24 11:57:32,377 - INFO - 127.0.0.1 - - [24/Aug/2024 11:57:32] "[36mGET /add-stock?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-24 11:59:47,054 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 11:59:47,122 - INFO -  * Restarting with stat
+2024-08-24 11:59:47,891 - WARNING -  * Debugger is active!
+2024-08-24 11:59:47,897 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 11:59:55,993 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-24 11:59:56,059 - INFO -  * Restarting with stat
+2024-08-24 11:59:56,818 - WARNING -  * Debugger is active!
+2024-08-24 11:59:56,822 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 11:59:59,027 - INFO - Next value of sequence stk_id_seq: 100035
+2024-08-24 11:59:59,040 - ERROR - Query: INSERT INTO "konghin"."stock" ("STK_id", "stk_gold_type", "stk_type", "stk_pattern", "stk_weight", "stk_size", "stk_length", "stk_labor_cost", "stk_labor_sell", "stk_pur_date", "stk_sell_date", "stk_gold_cost", "stk_gold_sell", "stk_status", "stk_profit") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+2024-08-24 11:59:59,040 - ERROR - Database error: 42703 - ERROR:  column "STK_id" does not exist
+
+2024-08-24 11:59:59,040 - ERROR - Error details: None
+2024-08-24 11:59:59,163 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 11:59:59,164 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 11:59:59,173 - INFO - 127.0.0.1 - - [24/Aug/2024 11:59:59] "POST /add-stock HTTP/1.1" 200 -
+2024-08-24 11:59:59,190 - INFO - 127.0.0.1 - - [24/Aug/2024 11:59:59] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 11:59:59,191 - INFO - 127.0.0.1 - - [24/Aug/2024 11:59:59] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 11:59:59,192 - INFO - 127.0.0.1 - - [24/Aug/2024 11:59:59] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 11:59:59,273 - INFO - 127.0.0.1 - - [24/Aug/2024 11:59:59] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 12:02:44,709 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 12:02:44,774 - INFO -  * Restarting with stat
+2024-08-24 12:02:45,681 - WARNING -  * Debugger is active!
+2024-08-24 12:02:45,688 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 12:02:48,738 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 12:02:48,785 - INFO -  * Restarting with stat
+2024-08-24 12:02:49,584 - WARNING -  * Debugger is active!
+2024-08-24 12:02:49,591 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 12:03:13,893 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 12:03:13,960 - INFO -  * Restarting with stat
+2024-08-24 12:03:14,701 - WARNING -  * Debugger is active!
+2024-08-24 12:03:14,705 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 12:03:16,747 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-24 12:03:16,799 - INFO -  * Restarting with stat
+2024-08-24 12:03:17,653 - WARNING -  * Debugger is active!
+2024-08-24 12:03:17,657 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 12:03:21,695 - INFO - 127.0.0.1 - - [24/Aug/2024 12:03:21] "POST /add-product HTTP/1.1" 200 -
+2024-08-24 12:03:21,708 - INFO - 127.0.0.1 - - [24/Aug/2024 12:03:21] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 12:03:21,710 - INFO - 127.0.0.1 - - [24/Aug/2024 12:03:21] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 12:03:21,712 - INFO - 127.0.0.1 - - [24/Aug/2024 12:03:21] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 12:03:21,778 - INFO - 127.0.0.1 - - [24/Aug/2024 12:03:21] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 12:04:34,411 - INFO - Next value of sequence stk_id_seq: 100036
+2024-08-24 12:04:34,420 - ERROR - Query: INSERT INTO "konghin"."stock" ("stk_id", "stk_gold_type", "stk_type", "stk_pattern", "stk_weight", "stk_size", "stk_length", "stk_labor_cost", "stk_labor_sell", "stk_pur_date", "stk_sell_date", "stk_gold_cost", "stk_gold_sell", "stk_status", "stk_profit") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+2024-08-24 12:04:34,421 - ERROR - Database error: 22P02 - ERROR:  could not parse "" as type decimal: parse mantissa: 
+
+2024-08-24 12:04:34,421 - ERROR - Error details: None
+2024-08-24 12:04:34,452 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 12:04:34,452 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 12:04:34,463 - INFO - 127.0.0.1 - - [24/Aug/2024 12:04:34] "POST /add-stock HTTP/1.1" 200 -
+2024-08-24 12:04:34,476 - INFO - 127.0.0.1 - - [24/Aug/2024 12:04:34] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 12:04:34,476 - INFO - 127.0.0.1 - - [24/Aug/2024 12:04:34] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 12:04:34,479 - INFO - 127.0.0.1 - - [24/Aug/2024 12:04:34] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 12:04:34,483 - INFO - 127.0.0.1 - - [24/Aug/2024 12:04:34] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 12:08:08,046 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 12:08:08,128 - INFO -  * Restarting with stat
+2024-08-24 12:08:08,912 - WARNING -  * Debugger is active!
+2024-08-24 12:08:08,916 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 12:08:12,964 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 12:08:13,037 - INFO -  * Restarting with stat
+2024-08-24 12:08:13,787 - WARNING -  * Debugger is active!
+2024-08-24 12:08:13,791 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 12:08:19,830 - INFO - 127.0.0.1 - - [24/Aug/2024 12:08:19] "POST /add-product HTTP/1.1" 200 -
+2024-08-24 12:08:19,843 - INFO - 127.0.0.1 - - [24/Aug/2024 12:08:19] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 12:08:19,845 - INFO - 127.0.0.1 - - [24/Aug/2024 12:08:19] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 12:08:19,845 - INFO - 127.0.0.1 - - [24/Aug/2024 12:08:19] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 12:08:19,914 - INFO - 127.0.0.1 - - [24/Aug/2024 12:08:19] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 12:08:57,042 - INFO - Next value of sequence stk_id_seq: 100037
+2024-08-24 12:08:57,058 - ERROR - Query: INSERT INTO "konghin"."stock" ("stk_id", "stk_gold_type", "stk_type", "stk_pattern", "stk_weight", "stk_size", "stk_length", "stk_labor_cost", "stk_labor_sell", "stk_pur_date", "stk_sell_date", "stk_gold_cost", "stk_gold_sell", "stk_status", "stk_profit") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+2024-08-24 12:08:57,058 - ERROR - Database error: 22P02 - ERROR:  could not parse "" as type decimal: parse mantissa: 
+
+2024-08-24 12:08:57,058 - ERROR - Error details: None
+2024-08-24 12:08:57,105 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 12:08:57,105 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 12:08:57,115 - INFO - 127.0.0.1 - - [24/Aug/2024 12:08:57] "POST /add-stock HTTP/1.1" 200 -
+2024-08-24 12:08:57,127 - INFO - 127.0.0.1 - - [24/Aug/2024 12:08:57] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 12:08:57,130 - INFO - 127.0.0.1 - - [24/Aug/2024 12:08:57] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 12:08:57,135 - INFO - 127.0.0.1 - - [24/Aug/2024 12:08:57] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 12:08:57,137 - INFO - 127.0.0.1 - - [24/Aug/2024 12:08:57] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 12:12:16,565 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 12:12:16,633 - INFO -  * Restarting with stat
+2024-08-24 12:12:17,348 - WARNING -  * Debugger is active!
+2024-08-24 12:12:17,353 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 12:12:21,410 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 12:12:21,460 - INFO -  * Restarting with stat
+2024-08-24 12:12:22,334 - WARNING -  * Debugger is active!
+2024-08-24 12:12:22,337 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 12:12:23,120 - INFO - 127.0.0.1 - - [24/Aug/2024 12:12:23] "POST /add-product HTTP/1.1" 200 -
+2024-08-24 12:12:23,129 - INFO - 127.0.0.1 - - [24/Aug/2024 12:12:23] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 12:12:23,131 - INFO - 127.0.0.1 - - [24/Aug/2024 12:12:23] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 12:12:23,134 - INFO - 127.0.0.1 - - [24/Aug/2024 12:12:23] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 12:12:23,201 - INFO - 127.0.0.1 - - [24/Aug/2024 12:12:23] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 12:13:26,655 - INFO - Next value of sequence stk_id_seq: 100038
+2024-08-24 12:13:26,663 - ERROR - Query: INSERT INTO "konghin"."stock" ("stk_id", "stk_gold_type", "stk_type", "stk_pattern", "stk_weight", "stk_size", "stk_length", "stk_labor_cost", "stk_labor_sell", "stk_pur_date", "stk_sell_date", "stk_gold_cost", "stk_gold_sell", "stk_status", "stk_profit") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+2024-08-24 12:13:26,663 - ERROR - Database error: 22007 - ERROR:  parsing as type date: could not parse "nan"
+
+2024-08-24 12:13:26,663 - ERROR - Error details: None
+2024-08-24 12:13:26,710 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 12:13:26,710 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 12:13:26,718 - INFO - 127.0.0.1 - - [24/Aug/2024 12:13:26] "POST /add-stock HTTP/1.1" 200 -
+2024-08-24 12:13:26,729 - INFO - 127.0.0.1 - - [24/Aug/2024 12:13:26] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 12:13:26,730 - INFO - 127.0.0.1 - - [24/Aug/2024 12:13:26] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 12:13:26,733 - INFO - 127.0.0.1 - - [24/Aug/2024 12:13:26] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 12:13:26,733 - INFO - 127.0.0.1 - - [24/Aug/2024 12:13:26] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 12:14:04,555 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 12:14:04,622 - INFO -  * Restarting with stat
+2024-08-24 12:14:05,884 - WARNING -  * Debugger is active!
+2024-08-24 12:14:05,887 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 12:14:09,942 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 12:14:10,024 - INFO -  * Restarting with stat
+2024-08-24 12:14:10,727 - WARNING -  * Debugger is active!
+2024-08-24 12:14:10,731 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 12:14:22,886 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 12:14:22,952 - INFO -  * Restarting with stat
+2024-08-24 12:14:23,811 - WARNING -  * Debugger is active!
+2024-08-24 12:14:23,818 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 12:14:26,373 - INFO - 127.0.0.1 - - [24/Aug/2024 12:14:26] "POST /add-product HTTP/1.1" 200 -
+2024-08-24 12:14:26,387 - INFO - 127.0.0.1 - - [24/Aug/2024 12:14:26] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 12:14:26,387 - INFO - 127.0.0.1 - - [24/Aug/2024 12:14:26] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 12:14:26,389 - INFO - 127.0.0.1 - - [24/Aug/2024 12:14:26] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 12:14:26,455 - INFO - 127.0.0.1 - - [24/Aug/2024 12:14:26] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 12:15:45,031 - INFO - Next value of sequence stk_id_seq: 100039
+2024-08-24 12:15:45,049 - ERROR - Query: INSERT INTO "konghin"."stock" ("stk_id", "stk_gold_type", "stk_type", "stk_pattern", "stk_weight", "stk_size", "stk_length", "stk_labor_cost", "stk_labor_sell", "stk_pur_date", "stk_sell_date", "stk_gold_cost", "stk_gold_sell", "stk_status", "stk_profit") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+2024-08-24 12:15:45,049 - ERROR - Database error: 22P02 - ERROR:  could not parse "null" as type decimal: parse mantissa: null
+
+2024-08-24 12:15:45,049 - ERROR - Error details: None
+2024-08-24 12:15:45,105 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 12:15:45,105 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 12:15:45,113 - INFO - 127.0.0.1 - - [24/Aug/2024 12:15:45] "POST /add-stock HTTP/1.1" 200 -
+2024-08-24 12:15:45,122 - INFO - 127.0.0.1 - - [24/Aug/2024 12:15:45] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 12:15:45,123 - INFO - 127.0.0.1 - - [24/Aug/2024 12:15:45] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 12:15:45,124 - INFO - 127.0.0.1 - - [24/Aug/2024 12:15:45] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 12:15:45,126 - INFO - 127.0.0.1 - - [24/Aug/2024 12:15:45] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 12:23:47,494 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 12:23:47,561 - INFO -  * Restarting with stat
+2024-08-24 12:23:48,504 - WARNING -  * Debugger is active!
+2024-08-24 12:23:48,510 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 12:23:55,155 - INFO - 127.0.0.1 - - [24/Aug/2024 12:23:55] "POST /add-product HTTP/1.1" 200 -
+2024-08-24 12:23:55,180 - INFO - 127.0.0.1 - - [24/Aug/2024 12:23:55] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 12:23:55,183 - INFO - 127.0.0.1 - - [24/Aug/2024 12:23:55] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 12:23:55,184 - INFO - 127.0.0.1 - - [24/Aug/2024 12:23:55] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 12:23:55,252 - INFO - 127.0.0.1 - - [24/Aug/2024 12:23:55] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 12:23:57,516 - INFO - 127.0.0.1 - - [24/Aug/2024 12:23:57] "POST /add-product HTTP/1.1" 200 -
+2024-08-24 12:23:57,530 - INFO - 127.0.0.1 - - [24/Aug/2024 12:23:57] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 12:23:57,533 - INFO - 127.0.0.1 - - [24/Aug/2024 12:23:57] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 12:23:57,535 - INFO - 127.0.0.1 - - [24/Aug/2024 12:23:57] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 12:23:57,539 - INFO - 127.0.0.1 - - [24/Aug/2024 12:23:57] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 12:24:23,404 - INFO - Next value of sequence stk_id_seq: 100040
+2024-08-24 12:24:23,419 - INFO - Successfully inserted data into konghin.stock.
+2024-08-24 12:24:23,419 - INFO - Query: INSERT INTO "konghin"."stock" ("stk_id", "stk_gold_type", "stk_type", "stk_pattern", "stk_weight", "stk_size", "stk_labor_cost", "stk_pur_date", "stk_gold_cost", "stk_status") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+2024-08-24 12:24:23,419 - INFO - Values: ['STK_100040', '916', 'Ring', 'Cartier', '1.98', '8', '50', '2024-08-24', '300', 'IN STOCK']
+2024-08-24 12:24:23,446 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 12:24:23,448 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 12:24:23,459 - INFO - 127.0.0.1 - - [24/Aug/2024 12:24:23] "POST /add-stock HTTP/1.1" 200 -
+2024-08-24 12:24:23,477 - INFO - 127.0.0.1 - - [24/Aug/2024 12:24:23] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 12:24:23,479 - INFO - 127.0.0.1 - - [24/Aug/2024 12:24:23] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 12:24:23,479 - INFO - 127.0.0.1 - - [24/Aug/2024 12:24:23] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 12:24:23,483 - INFO - 127.0.0.1 - - [24/Aug/2024 12:24:23] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 12:25:23,732 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 12:25:23,820 - INFO -  * Restarting with stat
+2024-08-24 12:25:24,566 - WARNING -  * Debugger is active!
+2024-08-24 12:25:24,570 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 12:25:29,637 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-24 12:25:29,696 - INFO -  * Restarting with stat
+2024-08-24 12:25:30,520 - WARNING -  * Debugger is active!
+2024-08-24 12:25:30,526 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 12:25:33,160 - INFO - 127.0.0.1 - - [24/Aug/2024 12:25:33] "POST /add-product HTTP/1.1" 200 -
+2024-08-24 12:25:33,171 - INFO - 127.0.0.1 - - [24/Aug/2024 12:25:33] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 12:25:33,173 - INFO - 127.0.0.1 - - [24/Aug/2024 12:25:33] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 12:25:33,174 - INFO - 127.0.0.1 - - [24/Aug/2024 12:25:33] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 12:25:33,241 - INFO - 127.0.0.1 - - [24/Aug/2024 12:25:33] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 12:26:15,176 - INFO - Next value of sequence stk_id_seq: 100041
+2024-08-24 12:26:15,202 - INFO - Successfully inserted data into konghin.stock.
+2024-08-24 12:26:15,202 - INFO - Query: INSERT INTO "konghin"."stock" ("stk_id", "stk_gold_type", "stk_type", "stk_pattern", "stk_weight", "stk_size", "stk_labor_cost", "stk_pur_date", "stk_gold_cost", "stk_status") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+2024-08-24 12:26:15,202 - INFO - Values: ['STK_100041', '916', 'Ring', 'Cartier', '200', '30', '200', '2024-08-24', '400', 'IN STOCK']
+2024-08-24 12:26:15,233 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 12:26:15,233 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 12:26:15,252 - INFO - 127.0.0.1 - - [24/Aug/2024 12:26:15] "POST /add-stock HTTP/1.1" 200 -
+2024-08-24 12:26:15,266 - INFO - 127.0.0.1 - - [24/Aug/2024 12:26:15] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 12:26:15,268 - INFO - 127.0.0.1 - - [24/Aug/2024 12:26:15] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 12:26:15,269 - INFO - 127.0.0.1 - - [24/Aug/2024 12:26:15] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 12:26:15,271 - INFO - 127.0.0.1 - - [24/Aug/2024 12:26:15] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 17:39:22,586 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-24 17:39:22,587 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-24 17:39:22,587 - INFO -  * Restarting with stat
+2024-08-24 17:39:23,327 - WARNING -  * Debugger is active!
+2024-08-24 17:39:23,331 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 17:39:36,600 - INFO - 127.0.0.1 - - [24/Aug/2024 17:39:36] "GET / HTTP/1.1" 200 -
+2024-08-24 17:39:36,705 - INFO - 127.0.0.1 - - [24/Aug/2024 17:39:36] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2024-08-24 17:39:37,286 - INFO - 127.0.0.1 - - [24/Aug/2024 17:39:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-08-24 17:39:45,747 - INFO - kjunqiang@gmail.com successfully login at 2024-08-24 17:39:45.747849
+2024-08-24 17:39:45,781 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 17:39:45,782 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 17:39:45,846 - INFO - 127.0.0.1 - - [24/Aug/2024 17:39:45] "POST /login HTTP/1.1" 200 -
+2024-08-24 17:39:45,858 - INFO - 127.0.0.1 - - [24/Aug/2024 17:39:45] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 17:39:45,863 - INFO - 127.0.0.1 - - [24/Aug/2024 17:39:45] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 17:39:45,863 - INFO - 127.0.0.1 - - [24/Aug/2024 17:39:45] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 17:39:45,867 - INFO - 127.0.0.1 - - [24/Aug/2024 17:39:45] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 17:39:52,138 - INFO - 127.0.0.1 - - [24/Aug/2024 17:39:52] "POST /your-endpoint HTTP/1.1" 200 -
+2024-08-24 17:42:53,573 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-24 17:42:53,573 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-24 17:42:53,575 - INFO -  * Restarting with stat
+2024-08-24 17:42:54,370 - WARNING -  * Debugger is active!
+2024-08-24 17:42:54,374 - INFO -  * Debugger PIN: 310-690-463

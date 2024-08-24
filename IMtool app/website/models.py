@@ -101,25 +101,28 @@ class Database:
             self.conn.rollback()
             return None
         else:
-            seq = self.get_nextval(SEQUENCES.get(sequence_name))
+            seq = self.get_nextval(sequence_name)
 
         pk = str(PREFIX.get(table))+'_'+str(seq)
 
         if columns:
+            columns = [item1 for item1, item2 in zip(columns, values) if item2 != '']
+            values = [item2 for item2 in values if item2 != '']
             query = base_query + sql.SQL(" ({id_col}, {columns}) VALUES ({id}, {values})").format(
-                id_col = sql.Identifier(str(PREFIX.get(table))+'_id'),
+                id_col = sql.Identifier(str(PREFIX.get(table)).lower()+'_id'),
                 columns=sql.SQL(', ').join(map(sql.Identifier, columns)),
                 id = sql.Placeholder(),
                 values=sql.SQL(', ').join(sql.Placeholder() * len(values))
             )
         else:
+            values = [item2 for item2 in values if item2 != '']
             query = base_query + sql.SQL(" VALUES ({id}, {values})").format(
                 id = sql.Placeholder(),
                 values=sql.SQL(', ').join(sql.Placeholder() * len(values))
             )
-
+        
         values = [pk] + values
-
+        
         try:
             self.cursor.execute(query, values)
             self.conn.commit()
@@ -188,6 +191,8 @@ class Database:
             self.conn.rollback()
 
     def get_nextval(self, sequence_name: str):
+        print('----------------HERE----------------')
+        print(sequence_name)
         query = sql.SQL("select nextval('{schema}.{seq}')").format(
             schema=sql.Identifier(dic.SCHEMA),
             seq=sql.Identifier(sequence_name)

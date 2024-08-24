@@ -24,10 +24,10 @@
                 <div class="card mb-4">
                     <div class="card-header">New Stock</div>
                     <div class="card-body">
-                        <form action="/products/" method="POST" id="product_form">
+                        <form action="{{ url_for('add_product') }}" method="POST" id="product_form">
                             <label for="product_name" class="col-form-label">Product Name</label>
                             <input type="text" name="product_name" id="product_name">
-                            <input id="submitProduct" value="Add Product" class="btn btn-primary">
+                            <input type="submit" value="Add Product" class="btn btn-primary">
                         </form>
                     </div>
                 </div>
@@ -80,7 +80,10 @@
                                 <td>{{ stock.stk_status }}</td>
                                 <td>{{ stock.stk_profit }}</td>
                                 <td>
-                                    <a href="/delete-product/{{ stock.stk_id }}">Delete</a>
+                                    <form action="/delete-product" method="POST" class="delete-form" style="display: inline;">
+                                        <input type="hidden" name="stk_id" value="{{ stock.stk_id }}">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
                                     <br>
                                     <a href="/update-product/{{ stock.stk_id }}">Update</a>  
                                 </td>
@@ -189,6 +192,19 @@
             });
         });
     </script>
-    
+    <script>
+        $(document).ready(function() {
+            // Attach click event handler to forms with class 'delete-form'
+            $('form.delete-form').on('submit', function(event) {
+                var form = $(this);
+                var stkId = form.find('input[name="stk_id"]').val();
+                var confirmation = confirm('Are you sure you want to delete stock with ID ' + stkId + '?');
+                
+                if (!confirmation) {
+                    event.preventDefault(); // Prevent form submission if user cancels
+                }
+            });
+        });
+    </script>
 </main>
 {% endblock %}

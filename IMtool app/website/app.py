@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect, flash,send_file, Response, jsonify
+from flask import Flask, render_template, request, session, redirect, flash,send_file, Response, jsonify, url_for
 import os, re, logging
 from datetime import datetime
 import psycopg2
@@ -25,6 +25,8 @@ logging.basicConfig(filename=log_file,level=logging.INFO, format='%(asctime)s - 
 
 conn = psycopg2.connect(os.environ["DATABASE_URL"])
 
+db = Database(os.environ["DATABASE_URL"])
+
 @app.route("/")
 def home():
     return render_template("login.html")
@@ -35,12 +37,12 @@ def login():
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
         email = request.form['email']
         password = request.form['password']
-        database = Database(os.environ["DATABASE_URL"])
+        db = Database(os.environ["DATABASE_URL"])
         if authenticate(email, password)==True:
             session['loggedin'] = True
             session['email'] = email
             logging.info(f"{email} successfully login at {datetime.now()}")
-            stocks = database.select('stock', js=True)
+            stocks = db.select('stock', js=True)
             # print(stocks)
             # stocks =[('STK_100001', 'Bracelet', Decimal('12.8'), Decimal('14.5'), None, Decimal('120'), None, datetime.date(2024, 1, 1), None, Decimal('345'), None, 'IN STOCK', None, 'cartier', '916')]
 
@@ -152,8 +154,8 @@ def stocks():
     # stocks as default home page
     if 'loggedin' in session:
         # User is loggedin show them the home page
-        database = Database(os.environ["DATABASE_URL"])
-        stocks = database.select('stock', js=True)
+        db = Database(os.environ["DATABASE_URL"])
+        stocks = db.select('stock', js=True)
         return render_template("stocks.html", stocks=stocks)
     # User is not loggedin redirect to login page
     return redirect('login.html')
@@ -183,6 +185,74 @@ def handle_data():
     # Process the data as needed
 
     return jsonify({"status": "success", "data": data})
+
+@app.route('/delete-product', methods=['POST'])
+def delete_product():
+    stk_id = request.form.get('stk_id')
+    if stk_id:
+        # Your logic to delete the product with the given stk_id
+        # Example:
+        # product = Product.query.filter_by(stk_id=stk_id).first()
+        # if product:
+        #     db.session.delete(product)
+        #     db.session.commit()
+        
+        # After deletion, redirect to the stocks page or any other appropriate page
+        db.delete('stock',where="stk_id='{stk_id}'".format(stk_id=stk_id))
+        stocks = db.select('stock', js=True)
+        return render_template("stocks.html", stocks=stocks)
+    return 'Stock ID is missing', 400
+
+@app.route('/add-product', methods=['GET', 'POST'])
+def add_product():
+    # if request.method == 'POST':
+    #     # Handle form submission logic here
+    #     # You can retrieve form data using request.form
+    #     # For example: product_name = request.form.get('product_name')
+    #     # After processing, redirect or render a different template
+    #     return redirect(url_for('stock_list'))  # Redirect to another route if needed
+    return render_template('addstocks.html')
+
+@app.route('/add-stock', methods=[ 'POST'])
+def add_stock():
+    if request.method == 'POST':
+        # # Extract form data
+        # stk_gold_type = request.form.get('stk_gold_type', '')
+        # stk_type = request.form.get('stk_type', '')
+        # stk_pattern = request.form.get('stk_pattern', '')
+        # stk_weight = request.form.get('stk_weight', '')
+        # stk_size = request.form.get('stk_size', '')
+        # stk_length = request.form.get('stk_length', '')
+        # stk_labor_cost = request.form.get('stk_labor_cost', '')
+        # stk_labor_sell = request.form.get('stk_labor_sell', '')
+        # stk_pur_date = request.form.get('stk_pur_date', '')
+        # stk_sell_date = request.form.get('stk_sell_date', '')  # Optional field
+        # stk_gold_cost = request.form.get('stk_gold_cost', '')
+        # stk_gold_sell = request.form.get('stk_gold_sell', '')
+        # stk_status = request.form.get('stk_status', '')
+        # stk_profit = request.form.get('stk_profit', '')
+
+        # # Convert fields to appropriate types, defaulting to None if empty
+        # try:
+        #     stk_weight = float(stk_weight) if stk_weight else None
+        #     stk_length = float(stk_length) if stk_length else None
+        #     stk_labor_cost = float(stk_labor_cost) if stk_labor_cost else None
+        #     stk_labor_sell = float(stk_labor_sell) if stk_labor_sell else None
+        #     stk_gold_cost = float(stk_gold_cost) if stk_gold_cost else None
+        #     stk_gold_sell = float(stk_gold_sell) if stk_gold_sell else None
+        #     stk_profit = float(stk_profit) if stk_profit else None
+        # except ValueError:
+        #     # Handle invalid numeric input
+        #     return "Invalid input. Please check your data and try again.", 400
+        
+        print(list(request.form.keys()))
+        print(list(request.form.values()))
+        try:
+            db.insert(table='stock',columns=list(request.form.keys()),values=list(request.form.values()))
+        except ValueError:
+            return "Invalid input. Please check your data and try again.", 400
+        stocks = db.select('stock', js=True)
+        return render_template("stocks.html", stocks=stocks)
 
 
 if __name__ == "__main__":
