@@ -15,7 +15,7 @@
 <main>
     
     <div class="container-fluid mt-4">
-        <h1 class="mb-4">Stocks</h1>
+        <h1 class="mb-4">Purchases</h1>
         
         <!-- Import buttons -->
         <div class="mb-3">
@@ -40,8 +40,8 @@
         <!-- DataTable Card -->
         <div class="card mb-4">
             <div class="card-body">
-                {% if stocks|length < 1 %}
-                <h4 class="text-center">There are no stocks. Add one above.</h4>
+                {% if purchases|length < 1 %}
+                <h4 class="text-center">There are no purchases. Add one above.</h4>
                 {% else %}
                 <div class="table-responsive">
                     <table class="table table-striped" id="stockdataTable"> <!--  table-bordered -->
@@ -66,7 +66,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for stock in stocks %}
+                            {% for purchase in purchases %}
                             <tr>
                                 <td>{{ stock.stk_id }}</td>
                                 <td>{{ stock.stk_gold_type }}</td>
@@ -89,20 +89,12 @@
                                         <div class="btn btn-warning btn-sm"><i class="fas fa-edit edit-icon"></i></div>
                                     </a>
                                     <!-- <a href="/delete-stock/{{ stock.stk_id }}" class="btn btn-danger btn-sm">Delete</a> -->
-                                    <!-- <a href="/delete-stock/{{ stock.stk_id }}">
+                                    <a href="/delete-stock/{{ stock.stk_id }}">
                                         <div class="btn btn-danger btn-sm"><i class="fas fa-trash trash-icon"></i></div>
-                                    </a> -->
-                                    <form id="delete-form-{{ stock.stk_id }}" action="/delete/{{ stock.stk_id }}" method="post" style="display: inline;">
-                                        <a onclick="confirmDelete('{{ stock.stk_id }}')">
-                                            <div class="btn btn-danger btn-sm"><i class="fas fa-trash trash-icon"></i></div>
-                                        </a>
-                                    </form>
-                                    <!-- <form id="delete-form-{{ stock.stk_id }}" action="/delete-stock/{{ stock.stk_id }}" method="post" style="display: inline;">
-                                        <button type="button" onclick="confirmDelete('{{ stock.stk_id }}')">Delete</button>
-                                    </form> -->
+                                    </a>
+                                    
                                 </td>
                             </tr>
-                            
                             {% endfor %}
                         </tbody>
                     </table>
@@ -178,7 +170,7 @@
                 let encodedUri = encodeURI(csvContent);
                 let link = document.createElement("a");
                 link.setAttribute("href", encodedUri);
-                link.setAttribute("download", "stocks_data.csv");
+                link.setAttribute("download", "purchases_data.csv");
                 document.body.appendChild(link); // Required for FF
                 link.click();
             });
@@ -204,13 +196,6 @@
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
-            }
-        }
-    </script>
-    <script>
-        function confirmDelete(stkId) {
-            if (confirm('Are you sure you want to delete the stock with stk_id="' + stkId + '"?')) {
-                document.getElementById('delete-form-' + stkId).submit();
             }
         }
     </script>

@@ -1,30 +1,26 @@
-from flask import Flask, render_template, request, session, redirect, flash,send_file, Response, jsonify, url_for
+from flask import Flask, render_template, request, session, redirect, flash, jsonify
 import os, re, logging
 from datetime import datetime
 import psycopg2
 from psycopg2 import sql
 from models import Database
 import dictionary as dic
-import subprocess
-from io import BytesIO
+from datetime import datetime
 from werkzeug.utils import secure_filename
-import pandas as pd
-import io
+import subprocess
 
 UPLOAD_FOLDER = dic.IMPORT_DIR
 ALLOWED_EXTENSIONS = {'csv','xlsx'}
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
 app.secret_key = b'k0ngh1n888'
 
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 log_file = dic.LOG_DIR+str(datetime.now().strftime("%Y_%m_%d"))+'.log'
 
 logging.basicConfig(filename=log_file,level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 conn = psycopg2.connect(os.environ["DATABASE_URL"])
-
 db = Database(os.environ["DATABASE_URL"])
 
 @app.route("/")
@@ -153,12 +149,114 @@ def register():
 def stocks():
     # stocks as default home page
     if 'loggedin' in session:
-        # User is loggedin show them the home page
         db = Database(os.environ["DATABASE_URL"])
         stocks = db.select('stock', js=True)
         return render_template("stocks.html", stocks=stocks)
+    
     # User is not loggedin redirect to login page
     return redirect('login.html')
+
+@app.route("/addstocks")
+def addstocks():
+    # stocks as default home page
+    if 'loggedin' in session:
+        return render_template("addstocks.html")
+
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route('/add-stock', methods=['POST'])
+def add_stock():
+    if 'loggedin' in session:
+        if request.method == 'POST':
+            # print(list(request.form.keys()))
+            # print(list(request.form.values()))
+            try:
+                db.insert(table='stock',columns=list(request.form.keys()),values=list(request.form.values()))
+            except ValueError:
+                return "Invalid input. Please check your data and try again.", 400
+            stocks = db.select('stock', js=True)
+            return render_template("stocks.html", stocks=stocks)
+    return redirect('login.html')
+    
+@app.route('/update-stock/<stock_id>', methods=['GET'])
+def edit_stock(stock_id):
+    if 'loggedin' in session:
+        db = Database(os.environ["DATABASE_URL"])
+        stock = db.select('stock', where="stk_id='{stk_id}'".format(stk_id=stock_id))
+        if stock[0]['stk_pur_date']:
+            pur_date_object = datetime.fromisoformat(stock[0].get('stk_pur_date').replace('Z', '+00:00'))
+            # datetime.fromisoformat(pur_date_string.replace('Z', '+00:00'))
+            stock[0]['stk_pur_date'] = pur_date_object.strftime('%Y-%m-%d')
+        if stock[0]['stk_sell_date']    :
+            stock[0]['stk_sell_date'] = datetime.fromisoformat(stock[0].get('stk_sell_date'))
+        return render_template('updatestock.html', stock=stock[0])
+    return redirect('login.html')
+
+@app.route('/updatestock', methods=['POST'])
+def update_stock_view():
+    print(request.form)
+    if 'loggedin' in session:
+        try:
+            db.update(table='stock',set_columns=list(request.form.keys()),set_values=list(request.form.values()), where="stk_id='{stk_id}'".format(stk_id=request.form['stk_id']))
+        except ValueError:
+            return "Invalid input. Please check your data and try again.", 400
+        stocks = db.select('stock', js=True)
+        return render_template("stocks.html", stocks=stocks)
+    return redirect('login.html')
+    # stock_id = request.form['stk_id']
+    # Retrieve other form data
+    # stock_data = {
+    #     'stk_gold_type': request.form['stk_gold_type'],
+    #     'stk_type': request.form['stk_type'],
+    #     'stk_pattern': request.form['stk_pattern'],
+    #     'stk_weight': request.form['stk_weight'],
+    #     'stk_size': request.form['stk_size'],
+    #     'stk_length': request.form['stk_length'],
+    #     'stk_labor_cost': request.form['stk_labor_cost'],
+    #     'stk_labor_sell': request.form['stk_labor_sell'],
+    #     'stk_pur_date': request.form['stk_pur_date'],
+    #     'stk_sell_date': request.form['stk_sell_date'],
+    #     'stk_gold_cost': request.form['stk_gold_cost'],
+    #     'stk_gold_sell': request.form['stk_gold_sell'],
+    #     'stk_status': request.form['stk_status'],
+    #     'stk_profit': request.form['stk_profit'],
+    # }
+    return 
+    # update_stock(stock_id, stock_data)  # Update stock data in database
+    # return redirect(url_for('stocks_list'))
+
+# @app.route('/delete-stock/<stock_id>', methods=['GET'])
+# def delete_stock(stock_id):
+#     if 'loggedin' in session:
+#         db = Database(os.environ["DATABASE_URL"])
+#         stock = db.select('stock', where="stk_id='{stk_id}'".format(stk_id=stock_id))
+#         if stock[0]['stk_pur_date']:
+#             pur_date_object = datetime.fromisoformat(stock[0].get('stk_pur_date').replace('Z', '+00:00'))
+#             # datetime.fromisoformat(pur_date_string.replace('Z', '+00:00'))
+#             stock[0]['stk_pur_date'] = pur_date_object.strftime('%Y-%m-%d')
+#         if stock[0]['stk_sell_date']    :
+#             stock[0]['stk_sell_date'] = datetime.fromisoformat(stock[0].get('stk_sell_date'))
+#         return render_template('updatestock.html', stock=stock[0])
+#     return redirect('login.html')
+
+@app.route('/delete/<stock_id>', methods=['POST'])
+def deletestock(stock_id):
+    # stk_id = request.form.get('stk_id')
+    stk_id = stock_id
+    if stk_id:
+        # Your logic to delete the product with the given stk_id
+        # Example:
+        # product = Product.query.filter_by(stk_id=stk_id).first()
+        # if product:
+        #     db.session.delete(product)
+        #     db.session.commit()
+        
+        # After deletion, redirect to the stocks page or any other appropriate page
+        db.delete('stock',where="stk_id='{stk_id}'".format(stk_id=stk_id))
+        stocks = db.select('stock', js=True)
+        return render_template("stocks.html", stocks=stocks)
+    return 'Stock ID is missing', 400
 
 @app.route('/batch-import', methods=['GET', 'POST'])
 def uploadFile():
@@ -180,51 +278,17 @@ def uploadFile():
 @app.route('/your-endpoint', methods=['POST'])
 def handle_data():
     data = request.json
-    print('Received data:', data)
-    
-    # Process the data as needed
-
     return jsonify({"status": "success", "data": data})
 
-@app.route('/delete-product', methods=['POST'])
-def delete_product():
-    stk_id = request.form.get('stk_id')
-    if stk_id:
-        # Your logic to delete the product with the given stk_id
-        # Example:
-        # product = Product.query.filter_by(stk_id=stk_id).first()
-        # if product:
-        #     db.session.delete(product)
-        #     db.session.commit()
-        
-        # After deletion, redirect to the stocks page or any other appropriate page
-        db.delete('stock',where="stk_id='{stk_id}'".format(stk_id=stk_id))
-        stocks = db.select('stock', js=True)
-        return render_template("stocks.html", stocks=stocks)
-    return 'Stock ID is missing', 400
-
-# @app.route('/add-product', methods=['GET', 'POST'])
-# def add_product():
-#     # if request.method == 'POST':
-#     #     # Handle form submission logic here
-#     #     # You can retrieve form data using request.form
-#     #     # For example: product_name = request.form.get('product_name')
-#     #     # After processing, redirect or render a different template
-#     #     return redirect(url_for('stock_list'))  # Redirect to another route if needed
-#     return render_template('addstocks.html')
-
-@app.route('/add-stock', methods=[ 'POST'])
-def add_stock():
-    if request.method == 'POST':
-        print(list(request.form.keys()))
-        print(list(request.form.values()))
-        try:
-            db.insert(table='stock',columns=list(request.form.keys()),values=list(request.form.values()))
-        except ValueError:
-            return "Invalid input. Please check your data and try again.", 400
-        stocks = db.select('stock', js=True)
-        return render_template("stocks.html", stocks=stocks)
-
+@app.route("/purchases")
+def purchases():
+    if 'loggedin' in session:
+        db = Database(os.environ["DATABASE_URL"])
+        stocks = db.select('purchases', js=True)
+        return render_template("purchases.html", purchases=purchases)
+    
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

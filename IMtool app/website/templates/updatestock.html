@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<title>Add New Stock</title>
+<title>Update Stock</title>
 {% endblock %}
 
 <!-- Bootstrap CSS -->
@@ -10,7 +10,7 @@
 {% block content %}
 <main>
     <div class="container-fluid mt-4">
-        <h1 class="mb-4">Add New Stock</h1>
+        <h1 class="mb-4">Update Stock</h1>
         
         <div class="mb-3">
             <a class="btn btn-secondary" href="/stocks">Back to Stocks List</a>
@@ -18,85 +18,85 @@
 
         <div class="card mb-4">
             <div class="card-body">
-                <form method="POST" action="/add-stock">
+                <form method="POST" action="/updatestock">
                     <!-- Stock Status Section -->
                     <div class="mb-4">
                         <h5 class="card-title">Stock Status</h5>
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <!-- <label for="stk_status" class="form-label">Stock Status</label> -->
                                 <select class="form-select" id="stk_status" name="stk_status" required>
-                                    <option value="" disabled selected>Select Status</option>
-                                    <option value="IN STOCK">In Stock</option>
-                                    <option value="SOLD">Sold</option>
+                                    <option value="" disabled>Select Status</option>
+                                    <option value="IN STOCK" {% if stock.stk_status == 'IN STOCK' %}selected{% endif %}>In Stock</option>
+                                    <option value="SOLD" {% if stock.stk_status == 'SOLD' %}selected{% endif %}>Sold</option>
                                 </select>
                             </div>
                         </div>
                     </div>
 
                     <!-- Stock Details Section -->
-                    <div class="mb-4">
+                    <div class="mb-4" id="stock-details-section">
                         <h5 class="card-title">Stock Details</h5>
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="stk_gold_type" class="form-label">Stock Gold Type</label>
                                 <select class="form-select" id="stk_gold_type" name="stk_gold_type" required>
-                                    <option value="" disabled selected>Select Gold Type</option>
-                                    <option value="999">999</option>
-                                    <option value="916">916</option>
-                                    <option value="870">870</option>
-                                    <option value="725">725</option>
-                                    <option value="375">375</option>
+                                    <option value="" disabled>Select Gold Type</option>
+                                    <option value="999" {% if stock.stk_gold_type == '999' %}selected{% endif %}>999</option>
+                                    <option value="916" {% if stock.stk_gold_type == '916' %}selected{% endif %}>916</option>
+                                    <option value="870" {% if stock.stk_gold_type == '870' %}selected{% endif %}>870</option>
+                                    <option value="725" {% if stock.stk_gold_type == '725' %}selected{% endif %}>725</option>
+                                    <option value="375" {% if stock.stk_gold_type == '375' %}selected{% endif %}>375</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="stk_type" class="form-label">Stock Type</label>
                                 <select class="form-select" id="stk_type" name="stk_type" required>
-                                    <option value="" disabled selected>Select Stock Type</option>
-                                    <option value="RING">Ring</option>
-                                    <option value="BRACELET">Bracelet</option>
-                                    <option value="BANGLE">Bangle</option>
-                                    <option value="NECKLACE">Necklace</option>
-                                    <option value="EARING">Earing</option>
-                                    <option value="PENDANT">Pendant</option>
+                                    <option value="" disabled>Select Type</option>
+                                    <option value="RING" {% if stock.stk_type == 'RING' %}selected{% endif %}>Ring</option>
+                                    <option value="BRACELET" {% if stock.stk_type == 'BRACELET' %}selected{% endif %}>Bracelet</option>
+                                    <option value="BANGLE" {% if stock.stk_type == 'BANGLE' %}selected{% endif %}>Bangle</option>
+                                    <option value="NECKLACE" {% if stock.stk_type == 'NECKLACE' %}selected{% endif %}>Necklace</option>
+                                    <option value="EARING" {% if stock.stk_type == 'EARING' %}selected{% endif %}>Earing</option>
+                                    <option value="PENDANT" {% if stock.stk_type == 'PENDANT' %}selected{% endif %}>Pendant</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3" id="stk_size-section">
                                 <label for="stk_size" class="form-label">Stock Size</label>
-                                <input type="text" class="form-control" id="stk_size" name="stk_size">
+                                <input type="text" class="form-control" id="stk_size" name="stk_size" value="{{ stock.stk_size }}">
                             </div>
+                            
                             <div class="col-md-6 mb-3" id="stk_length-section">
                                 <label for="stk_length" class="form-label">Stock Length</label>
-                                <input type="number" step="0.01" class="form-control" id="stk_length" name="stk_length">
+                                <input type="number" step="0.01" class="form-control" id="stk_length" name="stk_length" value="{{ stock.stk_length }}">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="stk_pattern" class="form-label">Stock Pattern</label>
-                                <input type="text" class="form-control" id="stk_pattern" name="stk_pattern" required>
+                                <input type="text" class="form-control" id="stk_pattern" name="stk_pattern" value="{{ stock.stk_pattern }}" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="stk_weight" class="form-label">Stock Weight (g)</label>
-                                <input type="number" step="0.01" class="form-control" id="stk_weight" name="stk_weight" required>
+                                <input type="number" step="0.01" class="form-control" id="stk_weight" name="stk_weight" value="{{ stock.stk_weight }}" required>
                             </div>
                         </div>
                     </div>
 
                     <!-- Dimensions and Costs Section -->
-                    <div class="mb-4">
+                    <div class="mb-4" id="dimensions-costs-section">
                         <h5 class="card-title">Stock Costs</h5>
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="stk_labor_cost" class="form-label">Stock Labor Cost</label>
-                                <input type="number" step="0.01" class="form-control" id="stk_labor_cost" name="stk_labor_cost" required>
+                                <input type="number" step="0.01" class="form-control" id="stk_labor_cost" name="stk_labor_cost" value="{{ stock.stk_labor_cost }}" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="stk_pur_date" class="form-label">Stock Purchase Date</label>
-                                <input type="date" class="form-control" id="stk_pur_date" name="stk_pur_date" required>
+                                <input type="date" class="form-control" id="stk_pur_date" name="stk_pur_date" value="{{ stock.stk_pur_date }}" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="stk_gold_cost" class="form-label">Stock Gold Cost</label>
-                                <input type="number" step="0.01" class="form-control" id="stk_gold_cost" name="stk_gold_cost" required>
+                                <input type="number" step="0.01" class="form-control" id="stk_gold_cost" name="stk_gold_cost" value="{{ stock.stk_gold_cost }}" required>
                             </div>
                         </div>
                     </div>
@@ -107,24 +107,23 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="stk_sell_date" class="form-label">Stock Sell Date</label>
-                                <input type="date" class="form-control" id="stk_sell_date" name="stk_sell_date">
+                                <input type="date" class="form-control" id="stk_sell_date" name="stk_sell_date" value="{{ stock.stk_sell_date }}">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="stk_gold_sell" class="form-label">Stock Gold Sell</label>
-                                <input type="number" step="0.01" class="form-control" id="stk_gold_sell" name="stk_gold_sell">
+                                <input type="number" step="0.01" class="form-control" id="stk_gold_sell" name="stk_gold_sell" value="{{ stock.stk_gold_sell }}">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="stk_labor_sell" class="form-label">Stock Labor Sell</label>
-                                <input type="number" step="0.01" class="form-control" id="stk_labor_sell" name="stk_labor_sell">
+                                <input type="number" step="0.01" class="form-control" id="stk_labor_sell" name="stk_labor_sell" value="{{ stock.stk_labor_sell }}">
                             </div>
-                            <!-- <div class="col-md-6 mb-3">
-                                <label for="stk_profit" class="form-label">Stock Profit</label>
-                                <input type="number" step="0.01" class="form-control" id="stk_profit" name="stk_profit">
-                            </div> -->
                         </div>
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Add Stock</button>
+                    <div class="col-md-6 mb-3" id="stk_id-section">
+                        <label for="stk_id" class="form-label">Stock ID</label>
+                        <input type="text" class="form-control" id="stk_id" name="stk_id" value="{{ stock.stk_id }}">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Stock</button>
                 </form>
             </div>
         </div>
@@ -135,6 +134,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const statusSelect = document.getElementById('stk_status');
     const stockTypeSelect = document.getElementById('stk_type');
+    const stockDetailsSection = document.getElementById('stock-details-section');
+    const dimensionsCostsSection = document.getElementById('dimensions-costs-section');
     const salesProfitSection = document.getElementById('sales-profit-section');
     const stkSizeSection = document.getElementById('stk_size-section');
     const stkLengthSection = document.getElementById('stk_length-section');
@@ -146,14 +147,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const status = statusSelect.value;
         const stockType = stockTypeSelect.value;
 
-        // Show/Hide sales profit section and set required fields based on status
+        // Show/Hide sections based on status
         if (status === 'SOLD') {
+            stockDetailsSection.style.display = 'none';
+            dimensionsCostsSection.style.display = 'none';
             salesProfitSection.style.display = 'block';
+
+            // Make certain fields required if status is SOLD
             stkSellDate.required = true;
             stkGoldSell.required = true;
             stkLaborSell.required = true;
         } else {
+            stockDetailsSection.style.display = 'block';
+            dimensionsCostsSection.style.display = 'block';
             salesProfitSection.style.display = 'none';
+
+            // Remove required attribute if status is not SOLD
             stkSellDate.required = false;
             stkGoldSell.required = false;
             stkLaborSell.required = false;
@@ -166,16 +175,13 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (stockType === 'BRACELET' || stockType === 'NECKLACE') {
             stkSizeSection.style.display = 'none';
             stkLengthSection.style.display = 'block';
-        } else if (stockType === 'EARING' || stockType === 'PENDANT') {
-            stkSizeSection.style.display = 'none';
-            stkLengthSection.style.display = 'none';
         } else {
             stkSizeSection.style.display = 'none';
             stkLengthSection.style.display = 'none';
         }
     }
 
-    // Initialize visibility based on current selections
+    // Initialize visibility based on current selection
     updateVisibility();
 
     // Update visibility when status or type changes

@@ -375,7 +375,7 @@ if __name__ == '__main__':
 #     # Example usage
     # db.insert(table='abcd', values=['kjunqiang@gmail.com', '11115354', 'JunQiang'])
 #     # db.insert(table='users', values=['yckng00@gmail.com', '00121800', 'YinChew'])
-#     # db.update('users', set_columns=['username'], set_values=['qwer'], where='id=3')
+    db.update('users', set_columns=['username'], set_values=['qwer'], where='id=3')
 #     stock = db.select('stock')
 #     print(pd.DataFrame(stock))
 #     # db.select('users', columns=['username'], where='id=3')

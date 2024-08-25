@@ -140,7 +140,19 @@ class Database:
             self.conn.rollback()
 
 
+
     def update(self, table: str, set_columns: list, set_values: list, where: str) -> None:
+
+        set_columns = [item1 for item1, item2 in zip(set_columns, set_values) if item2 not in ('None', '')]
+        set_values = [item2 for item2 in set_values if item2 not in ('None', '')]
+
+
+        if table == 'stock' or 'purchase':
+            last_update = str(PREFIX.get(table)).lower()+'_last_update'
+            set_columns.append(last_update)
+            set_values.append(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            
+        
         set_clause = sql.SQL(', ').join(
             sql.SQL("{col} = {val}").format(col=sql.Identifier(col), val=sql.Placeholder())
             for col in set_columns
