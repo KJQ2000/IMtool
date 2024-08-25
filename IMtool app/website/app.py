@@ -160,7 +160,7 @@ def stocks():
     # User is not loggedin redirect to login page
     return redirect('login.html')
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/batch-import', methods=['GET', 'POST'])
 def uploadFile():
     if request.method == 'POST':
         f = request.files.get('file')
@@ -203,48 +203,19 @@ def delete_product():
         return render_template("stocks.html", stocks=stocks)
     return 'Stock ID is missing', 400
 
-@app.route('/add-product', methods=['GET', 'POST'])
-def add_product():
-    # if request.method == 'POST':
-    #     # Handle form submission logic here
-    #     # You can retrieve form data using request.form
-    #     # For example: product_name = request.form.get('product_name')
-    #     # After processing, redirect or render a different template
-    #     return redirect(url_for('stock_list'))  # Redirect to another route if needed
-    return render_template('addstocks.html')
+# @app.route('/add-product', methods=['GET', 'POST'])
+# def add_product():
+#     # if request.method == 'POST':
+#     #     # Handle form submission logic here
+#     #     # You can retrieve form data using request.form
+#     #     # For example: product_name = request.form.get('product_name')
+#     #     # After processing, redirect or render a different template
+#     #     return redirect(url_for('stock_list'))  # Redirect to another route if needed
+#     return render_template('addstocks.html')
 
 @app.route('/add-stock', methods=[ 'POST'])
 def add_stock():
     if request.method == 'POST':
-        # # Extract form data
-        # stk_gold_type = request.form.get('stk_gold_type', '')
-        # stk_type = request.form.get('stk_type', '')
-        # stk_pattern = request.form.get('stk_pattern', '')
-        # stk_weight = request.form.get('stk_weight', '')
-        # stk_size = request.form.get('stk_size', '')
-        # stk_length = request.form.get('stk_length', '')
-        # stk_labor_cost = request.form.get('stk_labor_cost', '')
-        # stk_labor_sell = request.form.get('stk_labor_sell', '')
-        # stk_pur_date = request.form.get('stk_pur_date', '')
-        # stk_sell_date = request.form.get('stk_sell_date', '')  # Optional field
-        # stk_gold_cost = request.form.get('stk_gold_cost', '')
-        # stk_gold_sell = request.form.get('stk_gold_sell', '')
-        # stk_status = request.form.get('stk_status', '')
-        # stk_profit = request.form.get('stk_profit', '')
-
-        # # Convert fields to appropriate types, defaulting to None if empty
-        # try:
-        #     stk_weight = float(stk_weight) if stk_weight else None
-        #     stk_length = float(stk_length) if stk_length else None
-        #     stk_labor_cost = float(stk_labor_cost) if stk_labor_cost else None
-        #     stk_labor_sell = float(stk_labor_sell) if stk_labor_sell else None
-        #     stk_gold_cost = float(stk_gold_cost) if stk_gold_cost else None
-        #     stk_gold_sell = float(stk_gold_sell) if stk_gold_sell else None
-        #     stk_profit = float(stk_profit) if stk_profit else None
-        # except ValueError:
-        #     # Handle invalid numeric input
-        #     return "Invalid input. Please check your data and try again.", 400
-        
         print(list(request.form.keys()))
         print(list(request.form.values()))
         try:

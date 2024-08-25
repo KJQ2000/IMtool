@@ -1,0 +1,44 @@
+2024-08-25 12:50:16,552 - INFO - Next value of sequence stk_id_seq: 100043
+2024-08-25 12:50:16,568 - INFO - Next value of sequence stk_id_seq: 100044
+2024-08-25 12:50:16,587 - INFO - Next value of sequence stk_id_seq: 100045
+2024-08-25 12:50:16,604 - INFO - Next value of sequence stk_id_seq: 100046
+2024-08-25 12:50:16,628 - INFO - Successfully inserted data into konghin.stock.
+2024-08-25 12:50:16,628 - INFO - Query: INSERT INTO konghin.stock VALUES ('STK_100043','Bracelet', '12.8', '14.5', null, '120', null, '1/1/2024', null, '345', null, 'IN STOCK', null, 'cartier', '916'),('STK_100044','Necklace', '23.45', null, '60.0', '150', null, '2/1/2024', null, '340', null, 'IN STOCK', null, 'candy', '916'),('STK_100045','Ring', '5.2', '7.0', null, '80', null, '3/15/2024', null, '150', null, 'IN STOCK', null, 'diamond', '916'),('STK_100046','Earrings', '4.8', '10.0', null, '90', null, '3/25/2024', null, '120', null, 'IN STOCK', null, 'hoop', '916')
+2024-08-25 12:50:16,652 - INFO - Next value of sequence stk_id_seq: 100047
+2024-08-25 12:50:16,664 - INFO - Next value of sequence stk_id_seq: 100048
+2024-08-25 12:50:16,675 - INFO - Next value of sequence stk_id_seq: 100049
+2024-08-25 12:50:16,694 - INFO - Successfully inserted data into konghin.stock.
+2024-08-25 12:50:16,694 - INFO - Query: INSERT INTO konghin.stock VALUES ('STK_100047','Bracelet', '15.6', '16.0', null, '140', '180.0', '4/1/2024', '4/15/2024', '370', '360.0', 'SOLD', '-116.0', 'classic', '916'),('STK_100048','Necklace', '30.0', null, '70.0', '180', null, '4/10/2024', null, '400', null, 'IN STOCK', null, 'rope', '916'),('STK_100049','Ring', '3.5', '5.5', null, '70', null, '4/20/2024', null, '140', null, 'IN STOCK', null, 'solitaire', '916')
+2024-08-25 12:50:16,717 - INFO - Next value of sequence stk_id_seq: 100050
+2024-08-25 12:50:16,729 - INFO - Next value of sequence stk_id_seq: 100051
+2024-08-25 12:50:16,744 - INFO - Next value of sequence stk_id_seq: 100052
+2024-08-25 12:50:16,766 - INFO - Successfully inserted data into konghin.stock.
+2024-08-25 12:50:16,767 - INFO - Query: INSERT INTO konghin.stock VALUES ('STK_100050','Earrings', '6.3', '12.0', null, '100', '120.0', '4/30/2024', '5/30/2024', '160', '170.0', 'SOLD', '30.0', 'drop', '916'),('STK_100051','Pendant', '7.5', null, '25.0', '110', null, '5/1/2024', null, '175', null, 'IN STOCK', null, 'heart', '916'),('STK_100052','Bangle', '14.9', '15.0', null, '135', null, '5/10/2024', null, '320', null, 'IN STOCK', null, 'twisted', '916')
+2024-08-25 12:50:16,787 - INFO - Next value of sequence stk_id_seq: 100053
+2024-08-25 12:50:16,801 - INFO - Next value of sequence stk_id_seq: 100054
+2024-08-25 12:50:16,893 - INFO - Next value of sequence stk_id_seq: 100055
+2024-08-25 12:50:16,993 - INFO - Next value of sequence stk_id_seq: 100056
+2024-08-25 12:50:17,175 - INFO - Successfully inserted data into konghin.stock.
+2024-08-25 12:50:17,175 - INFO - Query: INSERT INTO konghin.stock VALUES ('STK_100053','Chain', '25.0', null, '65.0', '175', null, '5/20/2024', null, '390', null, 'IN STOCK', null, 'snake', '916'),('STK_100054','Ring', '4.1', '6.5', null, '85', '120.0', '5/30/2024', '6/25/2024', '155', '200.0', 'SOLD', '20.0', 'eternity', '916'),('STK_100055','Anklet', '12.3', '14.0', null, '120', null, '6/5/2024', null, '345', null, 'IN STOCK', null, 'beaded', '916'),('STK_100056','Necklace', '35.0', null, '75.0', '200', null, '6/15/2024', null, '420', null, 'IN STOCK', null, 'twisted', '916')
+2024-08-25 12:50:17,194 - INFO - Next value of sequence stk_id_seq: 100057
+2024-08-25 12:50:17,209 - INFO - Next value of sequence stk_id_seq: 100058
+2024-08-25 12:50:17,226 - INFO - Next value of sequence stk_id_seq: 100059
+2024-08-25 12:50:17,244 - INFO - Successfully inserted data into konghin.stock.
+2024-08-25 12:50:17,244 - INFO - Query: INSERT INTO konghin.stock VALUES ('STK_100057','Ring', '2.9', '5.0', null, '65', '80.0', '6/25/2024', '7/31/2024', '130', '300.0', 'SOLD', '15.0', 'infinity', '916'),('STK_100058','Bracelet', '13.2', '15.0', null, '125', null, '7/1/2024', null, '350', null, 'IN STOCK', null, 'charm', '916'),('STK_100059','Pendant', '8.0', null, '28.0', '115', null, '7/10/2024', null, '180', null, 'IN STOCK', null, 'floral', '916')
+2024-08-25 12:50:17,263 - INFO - Next value of sequence stk_id_seq: 100060
+2024-08-25 12:50:17,274 - INFO - Next value of sequence stk_id_seq: 100061
+2024-08-25 12:50:17,284 - INFO - Next value of sequence stk_id_seq: 100062
+2024-08-25 12:50:17,328 - INFO - Successfully inserted data into konghin.stock.
+2024-08-25 12:50:17,328 - INFO - Query: INSERT INTO konghin.stock VALUES ('STK_100060','Earrings', '7.1', '12.5', null, '105', '120.0', '7/20/2024', '8/1/2024', '165', '220.0', 'SOLD', '35.0', 'stud', '916'),('STK_100061','Bangle', '16.8', '16.5', null, '145', null, '7/30/2024', null, '375', null, 'IN STOCK', null, 'engraved', '916'),('STK_100062','Chain', '27.0', null, '70.0', '185', null, '8/1/2024', null, '400', null, 'IN STOCK', null, 'cable', '916')
+2024-08-25 12:50:17,362 - INFO - Next value of sequence usr_id_seq: 100021
+2024-08-25 12:50:17,375 - INFO - Next value of sequence usr_id_seq: 100022
+2024-08-25 12:50:17,385 - INFO - Next value of sequence usr_id_seq: 100023
+2024-08-25 12:50:17,397 - INFO - Next value of sequence usr_id_seq: 100024
+2024-08-25 12:50:17,406 - ERROR - Query: INSERT INTO konghin.users VALUES ('USR_100021','Earrings', '7.1', '12.5', null, '105', '120.0', '7/20/2024', '8/1/2024', '165', '220.0', 'SOLD', '35.0', 'stud', '916'),('USR_100022','Bangle', '16.8', '16.5', null, '145', null, '7/30/2024', null, '375', null, 'IN STOCK', null, 'engraved', '916'),('USR_100023','Chain', '27.0', null, '70.0', '185', null, '8/1/2024', null, '400', null, 'IN STOCK', null, 'cable', '916'),('USR_100024','abcd@gmail.com', '1234567', 'abcd')
+2024-08-25 12:50:17,406 - ERROR - Database error: 42601 - ERROR:  INSERT has more expressions than target columns, 15 expressions for 4 targets
+
+2024-08-25 12:50:17,406 - ERROR - Error details: None
+2024-08-25 12:50:17,434 - INFO - Next value of sequence usr_id_seq: 100025
+2024-08-25 12:50:17,446 - INFO - Next value of sequence usr_id_seq: 100026
+2024-08-25 12:50:17,467 - INFO - Successfully inserted data into konghin.users.
+2024-08-25 12:50:17,467 - INFO - Query: INSERT INTO konghin.users VALUES ('USR_100025','efgh@gmail.com', 'abcdefg', 'efgh'),('USR_100026','ijkl@gmail.com', 'abcd1234', 'abcdefgh1234')

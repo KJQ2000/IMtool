@@ -191,8 +191,6 @@ class Database:
             self.conn.rollback()
 
     def get_nextval(self, sequence_name: str):
-        print('----------------HERE----------------')
-        print(sequence_name)
         query = sql.SQL("select nextval('{schema}.{seq}')").format(
             schema=sql.Identifier(dic.SCHEMA),
             seq=sql.Identifier(sequence_name)

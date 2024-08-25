@@ -347,3 +347,25 @@
 2024-08-24 17:42:53,575 - INFO -  * Restarting with stat
 2024-08-24 17:42:54,370 - WARNING -  * Debugger is active!
 2024-08-24 17:42:54,374 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 17:45:38,744 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-24 17:45:38,744 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-24 17:45:38,746 - INFO -  * Restarting with stat
+2024-08-24 17:45:39,525 - WARNING -  * Debugger is active!
+2024-08-24 17:45:39,529 - INFO -  * Debugger PIN: 310-690-463
+2024-08-24 17:45:47,926 - INFO - 127.0.0.1 - - [24/Aug/2024 17:45:47] "GET / HTTP/1.1" 200 -
+2024-08-24 17:45:48,046 - INFO - 127.0.0.1 - - [24/Aug/2024 17:45:48] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2024-08-24 17:45:48,065 - INFO - 127.0.0.1 - - [24/Aug/2024 17:45:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-08-24 17:45:53,756 - INFO - kjunqiang@gmail.com successfully login at 2024-08-24 17:45:53.756825
+2024-08-24 17:45:53,801 - INFO - Successfully selected data from konghin.stock.
+2024-08-24 17:45:53,801 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-24 17:45:53,816 - INFO - 127.0.0.1 - - [24/Aug/2024 17:45:53] "POST /login HTTP/1.1" 200 -
+2024-08-24 17:45:53,834 - INFO - 127.0.0.1 - - [24/Aug/2024 17:45:53] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 17:45:53,841 - INFO - 127.0.0.1 - - [24/Aug/2024 17:45:53] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 17:45:53,842 - INFO - 127.0.0.1 - - [24/Aug/2024 17:45:53] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 17:45:53,842 - INFO - 127.0.0.1 - - [24/Aug/2024 17:45:53] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-24 17:45:55,612 - INFO - 127.0.0.1 - - [24/Aug/2024 17:45:55] "POST /add-product HTTP/1.1" 200 -
+2024-08-24 17:45:55,623 - INFO - 127.0.0.1 - - [24/Aug/2024 17:45:55] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-24 17:45:55,628 - INFO - 127.0.0.1 - - [24/Aug/2024 17:45:55] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-24 17:45:55,631 - INFO - 127.0.0.1 - - [24/Aug/2024 17:45:55] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-24 17:45:55,636 - INFO - 127.0.0.1 - - [24/Aug/2024 17:45:55] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
