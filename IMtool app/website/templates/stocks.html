@@ -10,7 +10,34 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 <!-- Icon CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      cursor: pointer;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .filter-group {
+      margin-bottom: 20px;
+    }
+
+    .filter-group label {
+      margin-right: 10px;
+    }
+  </style>
 {% block content %}
 <main>
     
@@ -19,14 +46,14 @@
         
         <!-- Import buttons -->
         <div class="mb-3">
-            <a class="btn btn-secondary me-2" id="importButton" href="/addstocks">Import</a>
+            <a class="btn btn-secondary me-2" id="importButton" href="/add-stocks">Import</a>
             <!-- <input type="file" id="fileInput" > -->
             <!-- <button class="btn btn-secondary me-2" onclick="triggerFileInput()">Batch Import</button> -->
             <button class="btn btn-secondary me-2" id="batchImportBtn">Batch Import</button>
             <div id="batchImportModal" class="modal">
                 <div class="modal-content">
                     <span class="close" id="closeModal">&times;</span>
-                    <form method="POST" enctype="multipart/form-data" action="/batch-import">
+                    <form method="POST" enctype="multipart/form-data" action="/batch-import-stock">
                         <input type="file" name="file" accept=".csv, .xlsx" required>
                         <button type="submit">Upload</button>
                     </form>
@@ -36,7 +63,11 @@
             <button class="btn btn-secondary" id="exportBtn">Export to csv</button>
 
         </div>
-
+        <div class="filter-group">
+            <label><input type="checkbox" value="20" onclick="filterTable()"> 20</label>
+            <label><input type="checkbox" value="25" onclick="filterTable()"> 25</label>
+            <label><input type="checkbox" value="30" onclick="filterTable()"> 30</label>
+          </div>
         <!-- DataTable Card -->
         <div class="card mb-4">
             <div class="card-body">
@@ -51,17 +82,27 @@
                                 <th>Stock Gold Type</th>
                                 <th>Stock Type</th>
                                 <th>Stock Pattern</th>
-                                <th>Stock Weight</th>
+                                <th>Stock Weight (g)</th>
                                 <th>Stock Size</th>
-                                <th>Stock Length</th>
-                                <th>Stock Labor Cost</th>
-                                <th>Stock Labor Sell</th>
+                                <th>Stock Length (cm)</th>
+                                <th>Stock Description</th>
+                                <th>Stock Tag</th>
+                                <th>Stock Returned</th>
+                                <th>Stock Purchase ID</th>
                                 <th>Stock Purchase Date</th>
-                                <th>Stock Sell Date</th>
                                 <th>Stock Gold Cost</th>
-                                <th>Stock Gold Sell</th>
+                                <th>Stock Labor Cost</th>
                                 <th>Stock Status</th>
                                 <th>Stock Profit</th>
+                                <th>Stock Sale ID</th>
+                                <th>Stock Sell Date</th>
+                                <th>Stock Gold Sell</th>
+                                <th>Stock Labor Sell</th>
+                                <th>Stock Weight Sell</th>
+                                <th>Stock Booking ID</th>
+                                <th>Stock Gold Book</th>
+                                <th>Stock Labor Book</th>
+                                <th>Stock Weight Book</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -75,14 +116,24 @@
                                 <td>{{ stock.stk_weight }}</td>
                                 <td>{{ stock.stk_size }}</td>
                                 <td>{{ stock.stk_length }}</td>
-                                <td>{{ stock.stk_labor_cost }}</td>
-                                <td>{{ stock.stk_labor_sell }}</td>
+                                <td>{{ stock.stk_remark }}</td>
+                                <td>{{ stock.stk_tag }}</td>
+                                <td>{{ stock.stk_returned }}</td>
+                                <td>{{ stock.stk_pur_id }}</td>
                                 <td>{{ stock.stk_pur_date }}</td>
-                                <td>{{ stock.stk_sell_date }}</td>
                                 <td>{{ stock.stk_gold_cost }}</td>
-                                <td>{{ stock.stk_gold_sell }}</td>
+                                <td>{{ stock.stk_labor_cost }}</td>
                                 <td>{{ stock.stk_status }}</td>
                                 <td>{{ stock.stk_profit }}</td>
+                                <td>{{ stock.stk_sale_id }}</td>
+                                <td>{{ stock.stk_sell_date }}</td>
+                                <td>{{ stock.stk_gold_sell }}</td>
+                                <td>{{ stock.stk_labor_sell }}</td>
+                                <td>{{ stock.stk_weight_sell }}</td>
+                                <td>{{ stock.stk_book_id }}</td>
+                                <td>{{ stock.stk_gold_book }}</td>
+                                <td>{{ stock.stk_labor_book }}</td>
+                                <td>{{ stock.stk_weight_book }}</td>
                                 <td>
                                     <!-- <a href="/update-stock/{{ stock.stk_id }}" class="btn btn-warning btn-sm">Update</a> -->
                                     <a href="/update-stock/{{ stock.stk_id }}">

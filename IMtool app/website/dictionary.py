@@ -9,11 +9,13 @@ STOCK_SEQ = 'stk_id_seq'
 SALE_SEQ = 'sale_id_seq'
 SALESMAN_SEQ = 'slm_id_seq'
 PURCHASE_SEQ = 'pur_id_seq'
+BOOK_PAYMENT_SEQ = 'bp_id_seq'
+CPAT_SEQ = 'cpat_id_seq'
 
 
-IMPORT_DIR = r'./IMTool app/system_files/Import/'
-SUCCESS_IMPORT_DIR = r'./IMTool app/system_files/Import/ARCHIVED/SUCCESS/'
-FAILED_IMPORT_DIR = r'./IMTool app/system_files/Import/ARCHIVED/FAILED/'
+IMPORT_DIR = r'./system_files/Import/'
+SUCCESS_IMPORT_DIR = r'./system_files/Import/ARCHIVED/SUCCESS/'
+FAILED_IMPORT_DIR = r'./system_files/Import/ARCHIVED/FAILED/'
 BATCH_INSERT_LIMIT = 1000
 
-LOG_DIR = r'./IMTool app/system_files/Log/'
+LOG_DIR = r'../system_files/Log/'

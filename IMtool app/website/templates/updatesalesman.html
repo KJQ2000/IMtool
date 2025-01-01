@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Update Salesman Information</title>
+{% endblock %}
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+{% block content %}
+<main>
+    <div class="container-fluid mt-4">
+        <h1 class="mb-4">Update Salesman Information</h1>
+        
+        <div class="mb-3">
+            <a class="btn btn-secondary" href="/salesmen">Back to Salesmen List</a>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <form method="POST" action="/updatesalesman">
+
+                    <!-- Hidden field for Salesman ID -->
+                    <input type="hidden" name="slm_id" value="{{ salesman.slm_id }}">
+
+                    <!-- Stock Details Section -->
+                    <div class="mb-4">
+                        <h5 class="card-title">Supplier Company Details</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="slm_supplier_id" class="form-label">Supplier ID</label>
+                                <input type="text" class="form-control" id="slm_supplier_id" name="slm_supplier_id" value="{{ salesman.slm_supplier_id }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="slm_company_name" class="form-label">Supplier Company Name</label>
+                                <input type="text" class="form-control" id="slm_company_name" name="slm_company_name" value="{{ salesman.slm_company_name }}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="slm_address" class="form-label">Supplier Company Address</label>
+                            <textarea class="form-control" id="slm_address" name="slm_address" rows="3" required>{{ salesman.slm_address }}</textarea>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="slm_desc" class="form-label">Supplier Business Description</label>
+                            <textarea class="form-control" id="slm_desc" name="slm_desc" rows="3" required>{{ salesman.slm_desc }}</textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="slm_tin" class="form-label">Supplier TIN No</label>
+                            <input type="text" class="form-control" id="slm_tin" name="slm_tin" value="{{ salesman.slm_tin }}" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="slm_reg_no" class="form-label">Supplier Reg No</label>
+                            <input type="text" class="form-control" id="slm_reg_no" name="slm_reg_no" value="{{ salesman.slm_reg_no }}" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="slm_msic" class="form-label">Supplier MSIC Code</label>
+                            <input type="text" class="form-control" id="slm_msic" name="slm_msic" value="{{ salesman.slm_msic }}" required>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="card-title">Salesman Details</h5>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="slm_name" class="form-label">Salesman Name</label>
+                                <input type="text" class="form-control" id="slm_name" name="slm_name" value="{{ salesman.slm_name }}" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="slm_email_address" class="form-label">Salesman Email Address</label>
+                                <input type="text" class="form-control" id="slm_email_address" name="slm_email_address" value="{{ salesman.slm_email_address }}" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="slm_phone_number" class="form-label">Salesman Phone Number</label>
+                                <input type="text" class="form-control" id="slm_phone_number" name="slm_phone_number" value="{{ salesman.slm_phone_number }}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update Salesman</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

@@ -18,17 +18,29 @@
 
         <div class="card mb-4">
             <div class="card-body">
-                <form method="POST" action="/add-stock">
+                <form method="POST" action="/add-stocks">
                     <!-- Stock Status Section -->
                     <div class="mb-4">
                         <h5 class="card-title">Stock Status</h5>
                         <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <!-- <label for="stk_status" class="form-label">Stock Status</label> -->
-                                <select class="form-select" id="stk_status" name="stk_status" required>
+                            <div class="col-md-4 mb-3">
+                                <!-- <select class="form-select" id="stk_status" name="stk_status" required disabled>
                                     <option value="" disabled selected>Select Status</option>
-                                    <option value="IN STOCK">In Stock</option>
+                                    <option value="IN STOCK" selected>In Stock</option>
                                     <option value="SOLD">Sold</option>
+                                    <option value="BOOKED">Booked</option>
+                                </select> -->
+                                <!-- <label for="stk_size" class="form-label">Stock Size</label> -->
+                                <input type="text" class="form-control" id="stk_status" name="stk_status" value="IN STOCK" readonly>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="stk_returned" class="form-label">Returned Stock?</label>
+                                <select class="form-select" id="stk_returned" name="stk_returned" required>
+                                    <option value="" disabled selected>Select Type</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0" selected>No</option>
                                 </select>
                             </div>
                         </div>
@@ -38,18 +50,30 @@
                     <div class="mb-4">
                         <h5 class="card-title">Stock Details</h5>
                         <div class="row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
+                                <label for="stk_pur_id" class="form-label">Purchase ID</label>
+                                <select class="form-select" id="stk_pur_id" name="stk_pur_id" required>
+                                    <option value="" disabled>Select Purchase ID</option>
+                                    {% for purchase in purchases %}
+                                        <option value="{{ purchase.pur_id }}"
+                                            {% if purchase.pur_id == latest_purchase.pur_id %} selected {% endif %}>
+                                            {{ purchase.pur_id }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
                                 <label for="stk_gold_type" class="form-label">Stock Gold Type</label>
                                 <select class="form-select" id="stk_gold_type" name="stk_gold_type" required>
                                     <option value="" disabled selected>Select Gold Type</option>
                                     <option value="999">999</option>
-                                    <option value="916">916</option>
+                                    <option value="916" selected>916</option>
                                     <option value="870">870</option>
                                     <option value="725">725</option>
                                     <option value="375">375</option>
                                 </select>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="stk_type" class="form-label">Stock Type</label>
                                 <select class="form-select" id="stk_type" name="stk_type" required>
                                     <option value="" disabled selected>Select Stock Type</option>
@@ -59,6 +83,7 @@
                                     <option value="NECKLACE">Necklace</option>
                                     <option value="EARING">Earing</option>
                                     <option value="PENDANT">Pendant</option>
+                                    <option value="ANKLET">Anklet</option>
                                 </select>
                             </div>
                         </div>
@@ -79,6 +104,15 @@
                                 <label for="stk_weight" class="form-label">Stock Weight (g)</label>
                                 <input type="number" step="0.01" class="form-control" id="stk_weight" name="stk_weight" required>
                             </div>
+                            <!-- currently is not been stored in database, need to update -->
+                            <div class="col-md-6 mb-3">
+                                <label for="stk_remark" class="form-label">Stock Description</label>
+                                <input type="text" class="form-control" id="stk_remark" name="stk_remark" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="stk_tag" class="form-label">Stock Tag (e.g.: tag1,tag2)</label>
+                                <input type="text" class="form-control" id="stk_tag" name="stk_tag" required>
+                            </div>
                         </div>
                     </div>
 
@@ -91,10 +125,6 @@
                                 <input type="number" step="0.01" class="form-control" id="stk_labor_cost" name="stk_labor_cost" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="stk_pur_date" class="form-label">Stock Purchase Date</label>
-                                <input type="date" class="form-control" id="stk_pur_date" name="stk_pur_date" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
                                 <label for="stk_gold_cost" class="form-label">Stock Gold Cost</label>
                                 <input type="number" step="0.01" class="form-control" id="stk_gold_cost" name="stk_gold_cost" required>
                             </div>
@@ -105,22 +135,30 @@
                     <div class="mb-4" id="sales-profit-section">
                         <h5 class="card-title">Sales and Profit</h5>
                         <div class="row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
+                                <label for="sale_receipt_no" class="form-label">Sale Receipt No</label>
+                                <input type="text" class="form-control" id="sale_receipt_no" name="sale_receipt_no">
+                            </div>
+                            <div class="col-md-4 mb-3">
                                 <label for="stk_sell_date" class="form-label">Stock Sell Date</label>
                                 <input type="date" class="form-control" id="stk_sell_date" name="stk_sell_date">
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
+                                <label for="sale_cust_id" class="form-label">Sale Customer ID</label>
+                                <input type="text" class="form-control" id="sale_cust_id" name="sale_cust_id">
+                            </div>
+                            <div class="col-md-4 mb-3">
                                 <label for="stk_gold_sell" class="form-label">Stock Gold Sell</label>
                                 <input type="number" step="0.01" class="form-control" id="stk_gold_sell" name="stk_gold_sell">
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="stk_labor_sell" class="form-label">Stock Labor Sell</label>
                                 <input type="number" step="0.01" class="form-control" id="stk_labor_sell" name="stk_labor_sell">
                             </div>
-                            <!-- <div class="col-md-6 mb-3">
-                                <label for="stk_profit" class="form-label">Stock Profit</label>
-                                <input type="number" step="0.01" class="form-control" id="stk_profit" name="stk_profit">
-                            </div> -->
+                            <div class="col-md-4 mb-3">
+                                <label for="sale_price" class="form-label">Sale Price</label>
+                                <input type="number" step="0.01" class="form-control" id="sale_price" name="sale_price">
+                            </div>
                         </div>
                     </div>
 
@@ -141,6 +179,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const stkSellDate = document.getElementById('stk_sell_date');
     const stkGoldSell = document.getElementById('stk_gold_sell');
     const stkLaborSell = document.getElementById('stk_labor_sell');
+    const saleReceiptNo = document.getElementById('sale_receipt_no');
+    const saleCustId = document.getElementById('sale_cust_id');
+    const salePrice = document.getElementById('sale_price');
 
     function updateVisibility() {
         const status = statusSelect.value;
@@ -152,11 +193,17 @@ document.addEventListener('DOMContentLoaded', function() {
             stkSellDate.required = true;
             stkGoldSell.required = true;
             stkLaborSell.required = true;
+            saleReceiptNo.required = true;
+            saleCustId.required = true;
+            salePrice.required = true;
         } else {
             salesProfitSection.style.display = 'none';
             stkSellDate.required = false;
             stkGoldSell.required = false;
             stkLaborSell.required = false;
+            saleReceiptNo.required = false;
+            saleCustId.required = false;
+            salePrice.required = false;
         }
 
         // Show/Hide size/length based on stock type

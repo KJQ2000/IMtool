@@ -8,6 +8,11 @@ import dictionary as dic
 from datetime import datetime
 from werkzeug.utils import secure_filename
 import subprocess
+from barcode import BarcodeGenerator
+from werkzeug.datastructures import ImmutableMultiDict
+import pandas as pd
+import numpy as np
+from decimal import Decimal
 
 UPLOAD_FOLDER = dic.IMPORT_DIR
 ALLOWED_EXTENSIONS = {'csv','xlsx'}
@@ -33,7 +38,6 @@ def login():
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
         email = request.form['email']
         password = request.form['password']
-        db = Database(os.environ["DATABASE_URL"])
         if authenticate(email, password)==True:
             session['loggedin'] = True
             session['email'] = email
@@ -149,96 +153,98 @@ def register():
 def stocks():
     # stocks as default home page
     if 'loggedin' in session:
-        db = Database(os.environ["DATABASE_URL"])
         stocks = db.select('stock', js=True)
-        return render_template("stocks.html", stocks=stocks)
+        if stocks:
+            return render_template("stocks.html", stocks=stocks)
+        return render_template("stocks.html")
     
     # User is not loggedin redirect to login page
     return redirect('login.html')
 
-@app.route("/addstocks")
-def addstocks():
-    # stocks as default home page
+@app.route("/stocks/<category>/<pattern>", methods=["GET", "POST"])
+def stocksFilter(category, pattern):
+    # Check if the user is logged in
     if 'loggedin' in session:
-        return render_template("addstocks.html")
+        # Handle the POST request
+        if request.method == "POST":
+            if category and pattern:
+                stocks = db.select(table='stock', where="stk_type='{category}' AND stk_pattern='{pattern}'".format(category=category, pattern=pattern), js=True)
 
-    # User is not loggedin redirect to login page
+                # Check if stocks exist after filtering
+                if stocks:
+                    return render_template("stocks.html", stocks=stocks)
+                else:
+                    return render_template("stocks.html", message="No stocks found for the given criteria.")
+        
+        # Default GET request, fetch all stocks
+        stocks = db.select('stock', js=True)
+        if stocks:
+            return render_template("stocks.html", stocks=stocks)
+
+        return render_template("stocks.html", message="No stocks available.")
+    
+    # User is not logged in, redirect to the login page
     return redirect('login.html')
 
-@app.route('/add-stock', methods=['POST'])
+# @app.route("/addstocks")
+# def addstocks():
+#     # stocks as default home page
+#     if 'loggedin' in session:
+#         return render_template("addstocks.html")
+
+#     # User is not loggedin redirect to login page
+#     return redirect('login.html')
+
+@app.route('/add-stocks', methods=['GET', 'POST'])
 def add_stock():
     if 'loggedin' in session:
         if request.method == 'POST':
             # print(list(request.form.keys()))
             # print(list(request.form.values()))
+
+            # do here ... get the pur_date for the pur_id from purchase table to input into the stock table
+            # stk_pur_date
             try:
                 db.insert(table='stock',columns=list(request.form.keys()),values=list(request.form.values()))
             except ValueError:
                 return "Invalid input. Please check your data and try again.", 400
             stocks = db.select('stock', js=True)
             return render_template("stocks.html", stocks=stocks)
+        
+        purchases = db.select('purchase', js=True)
+        # update the logic to get the latest created at 
+        latest_purchase = db.select(table='purchase',columns=['pur_id', 'pur_date'],where='1=1 order by pur_created_at desc limit 1',js=True)[0]
+        # latest_purchase = Purchase.objects.order_by('-created_at').first()
+
+        return render_template("addstocks.html", purchases=purchases, latest_purchase=latest_purchase)
     return redirect('login.html')
     
 @app.route('/update-stock/<stock_id>', methods=['GET'])
 def edit_stock(stock_id):
     if 'loggedin' in session:
-        db = Database(os.environ["DATABASE_URL"])
         stock = db.select('stock', where="stk_id='{stk_id}'".format(stk_id=stock_id))
+        purchases = db.select('purchase', js=True)
         if stock[0]['stk_pur_date']:
             pur_date_object = datetime.fromisoformat(stock[0].get('stk_pur_date').replace('Z', '+00:00'))
             # datetime.fromisoformat(pur_date_string.replace('Z', '+00:00'))
             stock[0]['stk_pur_date'] = pur_date_object.strftime('%Y-%m-%d')
         if stock[0]['stk_sell_date']    :
             stock[0]['stk_sell_date'] = datetime.fromisoformat(stock[0].get('stk_sell_date'))
-        return render_template('updatestock.html', stock=stock[0])
+        return render_template('updatestock.html', stock=stock[0], purchases=purchases)
     return redirect('login.html')
 
 @app.route('/updatestock', methods=['POST'])
 def update_stock_view():
-    print(request.form)
+    # print(request.form)
     if 'loggedin' in session:
         try:
+            # do here ..., if the pur_id has updated then need to get the new pur_date from purchase table and update in stock table
             db.update(table='stock',set_columns=list(request.form.keys()),set_values=list(request.form.values()), where="stk_id='{stk_id}'".format(stk_id=request.form['stk_id']))
         except ValueError:
             return "Invalid input. Please check your data and try again.", 400
         stocks = db.select('stock', js=True)
         return render_template("stocks.html", stocks=stocks)
     return redirect('login.html')
-    # stock_id = request.form['stk_id']
-    # Retrieve other form data
-    # stock_data = {
-    #     'stk_gold_type': request.form['stk_gold_type'],
-    #     'stk_type': request.form['stk_type'],
-    #     'stk_pattern': request.form['stk_pattern'],
-    #     'stk_weight': request.form['stk_weight'],
-    #     'stk_size': request.form['stk_size'],
-    #     'stk_length': request.form['stk_length'],
-    #     'stk_labor_cost': request.form['stk_labor_cost'],
-    #     'stk_labor_sell': request.form['stk_labor_sell'],
-    #     'stk_pur_date': request.form['stk_pur_date'],
-    #     'stk_sell_date': request.form['stk_sell_date'],
-    #     'stk_gold_cost': request.form['stk_gold_cost'],
-    #     'stk_gold_sell': request.form['stk_gold_sell'],
-    #     'stk_status': request.form['stk_status'],
-    #     'stk_profit': request.form['stk_profit'],
-    # }
-    return 
-    # update_stock(stock_id, stock_data)  # Update stock data in database
-    # return redirect(url_for('stocks_list'))
-
-# @app.route('/delete-stock/<stock_id>', methods=['GET'])
-# def delete_stock(stock_id):
-#     if 'loggedin' in session:
-#         db = Database(os.environ["DATABASE_URL"])
-#         stock = db.select('stock', where="stk_id='{stk_id}'".format(stk_id=stock_id))
-#         if stock[0]['stk_pur_date']:
-#             pur_date_object = datetime.fromisoformat(stock[0].get('stk_pur_date').replace('Z', '+00:00'))
-#             # datetime.fromisoformat(pur_date_string.replace('Z', '+00:00'))
-#             stock[0]['stk_pur_date'] = pur_date_object.strftime('%Y-%m-%d')
-#         if stock[0]['stk_sell_date']    :
-#             stock[0]['stk_sell_date'] = datetime.fromisoformat(stock[0].get('stk_sell_date'))
-#         return render_template('updatestock.html', stock=stock[0])
-#     return redirect('login.html')
 
 @app.route('/delete/<stock_id>', methods=['POST'])
 def deletestock(stock_id):
@@ -258,7 +264,7 @@ def deletestock(stock_id):
         return render_template("stocks.html", stocks=stocks)
     return 'Stock ID is missing', 400
 
-@app.route('/batch-import', methods=['GET', 'POST'])
+@app.route('/batch-import-stock', methods=['GET', 'POST'])
 def uploadFile():
     if request.method == 'POST':
         f = request.files.get('file')
@@ -269,9 +275,9 @@ def uploadFile():
  
         session['uploaded_data_file_path'] = os.path.join(app.config['UPLOAD_FOLDER'],data_filename)
         result = subprocess.run(['python', r'./IMtool app/website/Import.py'], capture_output=True, text=True)
-        print('STDOUT:', result.stdout)
-        print('STDERR:', result.stderr)
-        print('Return Code:', result.returncode)
+        # print('STDOUT:', result.stdout)
+        # print('STDERR:', result.stderr)
+        # print('Return Code:', result.returncode)
         return 'File Uploaded Successful'
     return 'FAILED'
 
@@ -283,12 +289,832 @@ def handle_data():
 @app.route("/purchases")
 def purchases():
     if 'loggedin' in session:
-        db = Database(os.environ["DATABASE_URL"])
-        stocks = db.select('purchases', js=True)
+        purchases = db.select('purchase', js=True)
+        if purchases:
+            return render_template("purchases.html", purchases=purchases)
+        return render_template("purchases.html")
+    
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route("/addpurchases")
+def addpurchases():
+    if 'loggedin' in session:
+        return render_template("addpurchases.html")
+
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route("/add-purchases", methods = ['GET', 'POST'])
+def add_purchases():
+    if 'loggedin' in session:
+        if request.method == 'POST':
+            # perform add purchase
+            try:
+                db.insert(table='purchase',columns=list(request.form.keys()),values=list(request.form.values()))
+            except ValueError:
+                return "Invalid input. Please check your data and try again.", 400
+            purchases = db.select('purchase', js=True)
+            return render_template("purchases.html", purchases=purchases)
+
+        # else fetch salesman data
+        salesmen = db.select(table="salesman", js=True)
+        return render_template("addpurchases.html", salesmen=salesmen)
+
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route('/update-purchase/<pur_id>', methods=['GET'])
+def edit_purchase(pur_id):
+    if 'loggedin' in session:
+        purchase = db.select('purchase', where="pur_id='{pur_id}'".format(pur_id=pur_id))
+        if purchase[0]['pur_date']:
+            pur_date_object = datetime.fromisoformat(purchase[0].get('pur_date').replace('Z', '+00:00'))
+            # datetime.fromisoformat(pur_date_string.replace('Z', '+00:00'))
+            purchase[0]['pur_date'] = pur_date_object.strftime('%Y-%m-%d')
+        if purchase[0]['pur_billing_date']    :
+            purchase[0]['pur_billing_date'] = datetime.fromisoformat(purchase[0].get('pur_billing_date'))
+        salesmen = db.select(table="salesman", js=True)
+        return render_template('updatepurchase.html', purchase=purchase[0], salesmen=salesmen)
+    return redirect('login.html')
+
+@app.route('/updatepurchase', methods=['POST'])
+def update_purchase_view():
+    # print(request.form)
+    # print(request.form['pur_id'])
+    if 'loggedin' in session:
+        try:
+            db.update(table='purchase',set_columns=list(request.form.keys()),set_values=list(request.form.values()), where="pur_id='{pur_id}'".format(pur_id=request.form['pur_id']))
+        except ValueError:
+            return "Invalid input. Please check your data and try again.", 400
+        purchases = db.select('purchase', js=True)
         return render_template("purchases.html", purchases=purchases)
+    return redirect('login.html')
+
+@app.route('/delete-purchase/<pur_id>', methods=['POST'])
+def deletepurchase(pur_id):
+    if pur_id:
+        db.delete('purchase',where="pur_id='{pur_id}'".format(pur_id=pur_id))
+        purchases = db.select('purchase', js=True)
+        return render_template("purchases.html", purchases=purchases)
+    return 'Purchase ID is missing', 400
+
+@app.route("/sales")
+def sales():
+    if 'loggedin' in session:
+        sales = db.select('sale', js=True)
+        if sales:
+            return render_template("sales.html", sales=sales)
+        return render_template("sales.html")
+    
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route("/add-sales", methods = ['GET','POST'])
+def add_sales():
+    if 'loggedin' in session:
+        if request.method == 'POST':
+            # perform add salesman
+            try:
+                db.insert(table='sale',columns=list(request.form.keys()),values=list(request.form.values()))
+
+                # get data from sale table
+                keys_needed = ['sale_sold_date', 'sale_gold_sell', 'sale_labor_sell']
+                update_dict = {key:request.form[key] for key in keys_needed}
+                key_changes = {'sale_sold_date': 'stk_sell_date', 'sale_gold_sell': 'stk_gold_sell','sale_labor_sell': 'stk_labor_sell'}
+                new_update_dict = {key_changes.get(k, k): v for k, v in update_dict.items()}
+                
+                # Temporarily set as this stock id
+                # stk_id = 'STK_100004'
+                stk_id = request.form.get('stk_id')
+                stk_data = db.select('stock', columns=['stk_weight','stk_gold_cost','stk_labor_cost'], where=f"stk_id='{stk_id}'")
+                
+                # calculate profit
+                sold_price = request.form.get('sale_price')
+                stk_profit = float(sold_price) - ((float(stk_data[0]['stk_weight'])*float(stk_data[0]['stk_gold_cost']))+float(stk_data[0]['stk_labor_cost']))
+                
+                # add needed data to dictionary
+                new_update_dict['stk_status'] = 'SOLD'
+                new_update_dict['stk_profit'] = stk_profit
+                new_update_dict['stk_sale_id'] = str('SALE_'+str(db.get_currval(dic.SALE_SEQ)))
+                db.update(table = 'stock',set_columns=list(new_update_dict.keys()),set_values=list(new_update_dict.values()), where=f"stk_id='{stk_id}'")
+            except ValueError:
+                return "Invalid input. Please check your data and try again.", 400
+            sales = db.select('sale', js=True)
+            if sales:
+                return render_template("sales.html", sales=sales)
+            return render_template("sales.html")
+
+        customers = db.select('customer', js=True)
+        stocks = db.select('stock', where="stk_status='IN STOCK'", js=True)
+        return render_template("addsales.html", customers=customers, stocks=stocks, stockIds="stk01")
+
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route('/update-sale/<sale_id>', methods=['GET', 'POST'])
+def edit_sale(sale_id):
+    if 'loggedin' in session:
+        if request.method == 'POST':
+            try:
+                # Get data from the form
+                stk_ids = request.form.getlist('stk_id')
+                sale_gold_sell = request.form.getlist('sale_gold_sell')
+                sale_labor_sell = request.form.getlist('sale_labor_sell')
+                sale_weight = request.form.getlist('sale_weight')
+                sale_price = request.form.getlist('sale_price')
+                
+                sum_dict = {
+                    'sale_labor_sell_total': sum(float(value) for value in sale_labor_sell if value.strip()),
+                    'sale_weight_total': sum(float(value) for value in sale_weight if value.strip()),
+                    'sale_price_total': sum(float(value) for value in sale_price if value.strip())
+                }
+
+                # print(request.form.keys())
+
+                # print('sale_official_receipt:',request.form['sale_official_receipt'])
+                # print('sale_cust_id:',request.form['sale_cust_id'])
+                # print('sale_receipt_no:',request.form['sale_receipt_no'])
+                # print('sale_sold_date:',request.form['sale_sold_date'])
+                # print('stk_ids:',stk_ids)
+                # print('sale_gold_sell:',sale_gold_sell)
+                # print('sale_labor_sell:',sale_labor_sell)
+                # print('sale_weight:',sale_weight)
+                # print('sale_price:',sale_price)
+                
+                # reset old stocks to in stock if its been removed from update sale
+                old_stk_ids = list(map(lambda x: x['stk_id'], db.select(table='stock',columns=['stk_id'],where="stk_sale_id='{sale_id}'".format(sale_id = sale_id),js=True)))
+                new_stk_id = set(stk_ids)
+                result = [item for item in old_stk_ids if item not in new_stk_id]
+                
+                if len(result)>0:
+                    for stockID in result:
+                        db.update(table='stock',set_columns=['stk_status','stk_sale_id','stk_weight_sell','stk_labor_sell','stk_gold_sell','stk_sell_date','stk_profit'],set_values=['IN STOCK',None,None,None,None,None,None],where="stk_id='{stk_id}'".format(stk_id = stockID))
+
+                # update sale table
+                db.update(table='sale',set_columns=['sale_receipt_no','sale_cust_id','sale_sold_date','sale_labor_sell','sale_gold_sell','sale_price','sale_weight','sale_official_receipt']
+                        ,set_values=[request.form['sale_receipt_no'],request.form['sale_cust_id'],request.form['sale_sold_date'],sum_dict['sale_labor_sell_total'],sale_gold_sell[0],sum_dict['sale_price_total'],sum_dict['sale_weight_total'],request.form['sale_official_receipt']],
+                        where="sale_id='{sale_id}'".format(sale_id=sale_id))
+                
+                # update stock table to SOLD status
+                for i in range(len(stk_ids)):
+                    db.cursor.execute(f"select stk_weight*stk_gold_cost+stk_labor_cost from konghin.stock where stk_id = '{stk_ids[i]}'")
+                    cost = float(db.cursor.fetchone()[0])
+                    profit = (float(sale_weight[i])*float(sale_gold_sell[i])+float(sale_labor_sell[i]))-cost
+            
+                    
+                    db.update(table='stock'
+                            ,set_columns=['stk_status','stk_sale_id','stk_weight_sell','stk_labor_sell','stk_gold_sell','stk_sell_date','stk_profit']
+                            ,set_values=['SOLD',sale_id,sale_weight[i],sale_labor_sell[i],sale_gold_sell[i],request.form['sale_sold_date'],float(profit)]
+                            ,where="stk_id='{stk_id}'".format(stk_id = stk_ids[i]))
+            except ValueError:
+                return "Invalid input. Please check your data and try again.", 400
+            sales = db.select('sale', js=True)
+            return render_template("sales.html", sales=sales)
+        else:
+            sale = db.select('sale', where="sale_id='{sale_id}'".format(sale_id=sale_id))
+            if sale[0]['sale_sold_date']:
+                sale_date_object = datetime.fromisoformat(sale[0].get('sale_sold_date').replace('Z', '+00:00'))
+                sale[0]['sale_sold_date'] = sale_date_object.strftime('%Y-%m-%d')
+            customers = db.select(table="customer", js=True)
+            stock_entries = db.select('stock', where="stk_sale_id='{sale_id}'".format(sale_id=sale_id))
+            for i in range(len(stock_entries)):
+                stock_entries[i]['sale_price'] = (stock_entries[i]['stk_gold_sell']*stock_entries[i]['stk_weight_sell']) + stock_entries[i]['stk_labor_sell']
+
+            sold_stk_ids = [item['stk_id'] for item in stock_entries]
+            joined_ids = ', '.join(f"'{stk_id}'" for stk_id in sold_stk_ids)
+            stocks = db.select('stock', where=f"stk_status='IN STOCK' OR stk_id IN ({joined_ids})", js=True)
+            return render_template('updatesale.html', sale=sale[0], customers=customers, stocks=stocks, stock_entries=stock_entries)
+
+    return redirect('login.html')
+
+
+@app.route('/delete-sale/<sale_id>', methods=['POST'])
+def deletesale(sale_id):
+    if sale_id:
+        db.delete('sale',where="sale_id='{sale_id}'".format(sale_id=sale_id))
+        sales = db.select('sale', js=True)
+        return render_template("sales.html", sales=sales)
+    return 'Sale ID is missing', 400
+
+@app.route("/salesmen")
+def salesmen():
+    # stocks as default home page
+    if 'loggedin' in session:
+        salesmen = db.select('salesman', js=True)
+        if salesmen:
+            return render_template("salesmen.html", salesmen=salesmen)
+        return render_template("salesmen.html")
+    
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route("/add-salesman", methods = ['GET','POST'])
+def add_salesman():
+    if 'loggedin' in session:
+        if request.method == 'POST':
+            # perform add salesman
+            try:
+                db.insert(table='salesman',columns=list(request.form.keys()),values=list(request.form.values()))
+            except ValueError:
+                return "Invalid input. Please check your data and try again.", 400
+            salesmen = db.select('salesman', js=True)
+            return render_template("salesmen.html", salesmen=salesmen)
+
+        return render_template("addsalesmen.html")
+
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route('/update-salesman/<slm_id>', methods=['GET'])
+def edit_salesman(slm_id):
+    if 'loggedin' in session:
+        salesman = db.select('salesman', where="slm_id='{slm_id}'".format(slm_id=slm_id))
+
+        return render_template('updatesalesman.html', salesman=salesman[0])
+    return redirect('login.html')
+
+@app.route('/updatesalesman', methods=['POST'])
+def update_salesman_view():
+    if 'loggedin' in session:
+        try:
+            db.update(table='salesman',set_columns=list(request.form.keys()),set_values=list(request.form.values()), where="slm_id='{slm_id}'".format(slm_id=request.form['slm_id']))
+        except ValueError:
+            return "Invalid input. Please check your data and try again.", 400
+        salesmen = db.select('salesman', js=True)
+        return render_template("salesmen.html", salesmen=salesmen)
+    return redirect('login.html')
+
+@app.route('/delete-salesman/<slm_id>', methods=['POST'])
+def deletesalesman(slm_id):
+    if slm_id:
+        db.delete('salesman',where="slm_id='{slm_id}'".format(slm_id=slm_id))
+        salesmen = db.select('salesman', js=True)
+        return render_template("salesmen.html", salesmen=salesmen)
+    return 'Salesman ID is missing', 400
+
+@app.route("/customers")
+def customers():
+    # stocks as default home page
+    if 'loggedin' in session:
+        customers = db.select('customer', js=True)
+        if customers:
+            return render_template("customers.html", customers=customers)
+        return render_template("customers.html")
+    
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route("/add-customer", methods = ['GET','POST'])
+def add_customer():
+    if 'loggedin' in session:
+        if request.method == 'POST':
+            # perform add salesman
+            # print(request.form)
+            try:
+                db.insert(table='customer',columns=list(request.form.keys()),values=list(request.form.values()))
+            except ValueError:
+                return "Invalid input. Please check your data and try again.", 400
+            customers = db.select('customer', js=True)
+            return render_template("customers.html", customers=customers)
+
+        return render_template("addcustomers.html")
+
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route('/update-customer/<cust_id>', methods=['GET'])
+def edit_customer(cust_id):
+    if 'loggedin' in session:
+        customers = db.select('customer', where="cust_id='{cust_id}'".format(cust_id=cust_id))
+
+        return render_template('updatecustomer.html', customer=customers[0])
+    return redirect('login.html')
+
+@app.route('/updatecustomer', methods=['POST'])
+def update_customer_view():
+    if 'loggedin' in session:
+        try:
+            db.update(table='customer',set_columns=list(request.form.keys()),set_values=list(request.form.values()), where="cust_id='{cust_id}'".format(cust_id=request.form['cust_id']))
+        except ValueError:
+            return "Invalid input. Please check your data and try again.", 400
+        customers = db.select('customer', js=True)
+        return render_template("customers.html", customers=customers)
+    return redirect('login.html')
+
+@app.route('/delete-customer/<cust_id>', methods=['POST'])
+def deletecustomer(cust_id):
+    if cust_id:
+        db.delete('customer',where="cust_id='{cust_id}'".format(cust_id=cust_id))
+        customers = db.select('customer', js=True)
+        return render_template("customers.html", customers=customers)
+    return 'Customer ID is missing', 400
+
+@app.route("/bookings")
+def bookings():
+    # stocks as default home page
+    if 'loggedin' in session:
+        bookings = db.select('booking', js=True)
+        if bookings:
+            return render_template("bookings.html", bookings=bookings)
+        return render_template("bookings.html")
+    
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route("/add-booking", methods = ['GET','POST'])
+def add_booking():
+    if 'loggedin' in session:
+        if request.method == 'POST':
+            # perform add booking
+            # print("Hi")
+            # print(request.form)
+            # Define the specific fields you want to insert into the database
+            stk_ids = request.form.getlist('stk_id')
+            book_gold_prices = request.form.getlist('stk_gold_book')
+            book_labor_prices = request.form.getlist('stk_labor_book')
+            book_weights = request.form.getlist('stk_weight_book')
+            stk_book_prices = request.form.getlist('stk_book_price')
+            
+            
+            sum_dict = {
+                'book_labor_price_total': sum(float(value) for value in book_labor_prices if value.strip()),
+                'book_weight_total': sum(float(value) for value in book_weights if value.strip()),
+                'book_price_total': sum(float(value) for value in stk_book_prices if value.strip())
+            }
+            fields_to_insert_to_booking_table = ['book_cust_id', 'book_receipt_no', 'book_date', 'book_gold_price', 'book_labor_price', 'book_weight' ,'book_price', 'book_remaining']
+            
+            # Extract the values for the specified fields
+            # values_to_insert = [request.form[field] for field in fields_to_insert_to_booking_table]
+            values_to_insert = []
+            for field in fields_to_insert_to_booking_table:
+                if field == 'book_gold_price':
+                    values_to_insert.append(request.form['stk_gold_book'])
+                elif field not in ['book_labor_price', 'book_weight', 'book_price']:
+                    values_to_insert.append(request.form[field])
+                else:
+                    values_to_insert.append(sum_dict[f"{field}_total"])
+                        
+            # add book_status
+            fields_to_insert_to_booking_table.append('book_status')
+            values_to_insert.append('BOOKED')
+            # Insert the data into the booking table
+            
+            try:
+                # insert all information to booking table
+                db.insert(table='booking', columns=fields_to_insert_to_booking_table, values=values_to_insert)
+            except ValueError:
+                return "Invalid input. Please check your data and try again.", 400
+            
+            # add first payment record to book payment table
+
+
+            # edit here: update the book_id in stock table, change the stock status to "BOOKED" not "IN STOCK"
+            
+            booking_id = 'BOOK_'+ str(db.get_currval(dic.BOOKING_SEQ))
+            # booking_id = db.get_currval(dic.BOOKING_SEQ)
+            # print('booking_id: ',booking_id)
+            # book_receipt_no = request.form.get('book_receipt_no')
+            # book_cust_id = request.form.get('book_cust_id')
+            # book_date = request.form.get('book_date')
+            # booking_data = db.select('booking', columns=['book_id'], where=f"book_receipt_no='{book_receipt_no}' AND book_cust_id='{book_cust_id}' AND book_date='{book_date}'")
+            # # do ...
+            # Define the mapping
+            key_mapping = {
+                'bp_payment': 'bp_payment',
+                'book_date': 'bp_payment_date',
+                'booking_id': 'bp_book_id'
+            }
+
+            # Retrieve data from the form
+            form_data = request.form.to_dict()
+
+            # Transform the data using the mapping
+            payment_data = {
+                new_key: form_data[old_key] 
+                for old_key, new_key in key_mapping.items() 
+                if old_key in form_data
+            }
+            payment_data['bp_book_id'] = booking_id
+            payment_data['bp_status'] = 'PAID'
+            # print(payment_data)
+            # print(list(payment_data.keys()))
+            # print(list(payment_data.values()))
+            try:
+                # insert book payment table (bp_payment, bp_payment_date, bp_book_id, bp_last_update?, bp_created_at?)
+                db.insert(table='book_payment',columns=list(payment_data.keys()),values=list(payment_data.values()))
+                # db.insert(table='book_payment',columns=['bp_payment', 'bp_payment_date', 'bp_book_id'],values=['123', '2024-12-02', 'BOOK_None'])
+                # print('book payment insert complete')
+            except ValueError:
+                return "Invalid input. Please check your data and try again.", 400
+            # bookings = db.select('booking', js=True)
+
+            # # do ...
+            # try:
+            #     # update stock table (stk_book_date, stk_gold_sell, stk_status, stk_profit, stk_book_id)
+            #     db.insert(table='stock',columns=list(request.form.keys()),values=list(request.form.values()))
+            # except ValueError:
+            #     return "Invalid input. Please check your data and try again.", 400
+
+            # stock_data = {
+            #     'stk_gold_sell':request.form.get('book_gold_price'),
+            #     'stk_labor_sell':request.form.get('book_labor_price'),
+            #     'stk_status':'BOOKED',
+            #     'stk_book_id':booking_id
+            # }
+            # stk_ids = request.form.getlist('booking_stk_ids')
+            # print(stk_ids)
+
+            for i in range(len(stk_ids)):
+                try:
+                    stock_data = {
+                                    'stk_gold_book':book_gold_prices[i],
+                                    'stk_labor_book':book_labor_prices[i],
+                                    'stk_weight_book':book_weights[i],
+                                    'stk_book_price':stk_book_prices[i],
+                                    'stk_status':'BOOKED',
+                                    'stk_book_id':booking_id
+                                }
+                    # update stock table (stk_gold_sell, stk_labor_sell, stk_status, stk_book_id)
+                    db.update(table='stock',set_columns=list(stock_data.keys()),set_values=list(stock_data.values()),where=f"stk_id='{stk_ids[i]}'")
+                    # print(stk_id)
+                    # print('stock status update complete')
+                except ValueError:
+                    return "Invalid input. Please check your data and try again.", 400
+            
+            bookings = db.select('booking', js=True)
+            if bookings:
+                return render_template("bookings.html", bookings=bookings)
+            return render_template("bookings.html")
+
+        customers = db.select('customer', js=True)
+        stocks = db.select('stock', where="stk_status='IN STOCK'", js=True)
+        return render_template("addbookings.html", customers=customers, stocks=stocks)
+
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route('/update-booking/<book_id>', methods=['GET', 'POST'])
+def edit_book(book_id):
+    if 'loggedin' in session:
+        if request.method == 'POST':
+            # Get data from the form
+            stk_ids = request.form.getlist('stk_id')
+            stk_gold_book = request.form.getlist('stk_gold_book')
+            stk_labor_book = request.form.getlist('stk_labor_book')
+            stk_weight_book = request.form.getlist('stk_weight_book')
+            stk_book_price = request.form.getlist('stk_book_price')
+                        
+            # print('book_cust_id',request.form['book_cust_id'])
+            # print('book_receipt_no:',request.form['book_receipt_no'])
+            # print('book_date:',request.form['book_date'])
+            # print('stk_ids:',stk_ids)
+            # print('sale_gold_book:',stk_gold_book)
+            # print('sale_labor_sell:',stk_labor_book)
+            # print('sale_weight:',stk_weight_book)
+            # print('sale_price:',stk_book_price)
+            
+            # reset old stocks to in stock if its been removed from update booking
+            old_stk_ids = list(map(lambda x: x['stk_id'], db.select(table='stock',columns=['stk_id'],where="stk_book_id='{book_id}'".format(book_id = book_id),js=True)))
+            new_stk_id = set(stk_ids)
+            result = [item for item in old_stk_ids if item not in new_stk_id]
+            
+            for stockID in result:
+                db.update(table='stock',set_columns=['stk_status','stk_book_id','stk_weight_book','stk_labor_book','stk_gold_book','stk_book_price'],set_values=['IN STOCK',None,None,None,None,None],where="stk_id='{stk_id}'".format(stk_id = stockID))
+
+
+            # update booking table
+            sum_dict = {
+                'book_labor_price': sum(float(value) for value in stk_labor_book if value.strip()),
+                'book_weight': sum(float(value) for value in stk_weight_book if value.strip()),
+                'book_price': sum(float(value) for value in stk_book_price if value.strip())
+            }
+            
+            db.cursor.execute(f"select sum(bp_payment) from konghin.book_payment where bp_book_id = '{book_id}'")
+            bp_sum = float(db.cursor.fetchone()[0])
+            
+            book_remaining = sum_dict['book_price'] - bp_sum
+
+            
+            db.update(table='booking',set_columns=['book_gold_price','book_labor_price','book_weight','book_price','book_cust_id','book_receipt_no','book_remaining']
+                      ,set_values=[stk_gold_book[0],sum_dict['book_labor_price'],sum_dict['book_weight'],sum_dict['book_price'],request.form['book_cust_id'],request.form['book_receipt_no'],book_remaining],
+                      where="book_id='{book_id}'".format(book_id=book_id))
+            
+            # update stock table to BOOKED status
+            for i in range(len(stk_ids)):
+                db.update(table='stock'
+                          ,set_columns=['stk_status','stk_book_id','stk_weight_book','stk_labor_book','stk_gold_book','stk_book_price']
+                          ,set_values=['BOOKED',book_id,stk_weight_book[i],stk_labor_book[i],stk_gold_book[i],stk_book_price[i]]
+                          ,where="stk_id='{stk_id}'".format(stk_id = stk_ids[i]))
+            
+            bookings = db.select('booking', js=True)
+            if bookings:
+                return render_template("bookings.html", bookings=bookings)
+            return render_template("bookings.html")
+        else:
+            booking = db.select('booking', where="book_id='{book_id}'".format(book_id=book_id))
+            if booking[0]['book_date']:
+                book_date_object = datetime.fromisoformat(booking[0].get('book_date').replace('Z', '+00:00'))
+                # datetime.fromisoformat(pur_date_string.replace('Z', '+00:00'))
+                booking[0]['book_date'] = book_date_object.strftime('%Y-%m-%d')
+            customers = db.select(table="customer", js=True)
+            # stocks = db.select(table="stock", js=True)
+            stock_entries = db.select('stock', where="stk_book_id='{book_id}'".format(book_id=book_id))
+            booked_stk_ids = [item['stk_id'] for item in stock_entries]
+            joined_ids = ', '.join(f"'{stk_id}'" for stk_id in booked_stk_ids)
+            stocks = db.select('stock', where=f"stk_status='IN STOCK' OR stk_id IN ({joined_ids})", js=True)
+
+            return render_template('updatebooking.html', booking=booking[0], customers=customers, stocks=stocks, stock_entries=stock_entries)
+    return redirect('login.html')
+
+@app.route('/delete-booking/<book_id>', methods=['POST'])
+def deletebooking(book_id):
+    if book_id:
+        db.delete('booking',where="book_id='{book_id}'".format(book_id=book_id))
+        bookings = db.select('booking', js=True)
+        return render_template("bookings.html", bookings=bookings)
+    return 'Book ID is missing', 400
+
+@app.route("/bookpayments")
+def bookpayments():
+    # stocks as default home page
+    if 'loggedin' in session:
+        
+        return render_template("bookpayments.html")
+    
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route("/book-bookpayment/<book_id>", methods = ['GET'])
+def book_bookpayments(book_id):
+    if 'loggedin' in session:
+        bookpayments = db.select('book_payment', where="bp_book_id='{book_id}'".format(book_id=book_id), js=True)
+        bookings = db.select('booking', where="book_id='{book_id}'".format(book_id=book_id), js=True)
+        
+        if bookpayments:
+            return render_template("bookpayments.html", bookpayments=bookpayments, bookings=bookings)
+        return render_template("bookpayments.html")
+    
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route("/add-bookpayment/<book_id>", methods = ['GET', 'POST'])
+def add_bookpayments(book_id):
+    if 'loggedin' in session:
+        if request.method == 'POST':
+            # do ... need to update new_booking_payment to booking table and add one more row to to booking payment table with book id and update the book payment_status to completed 
+            # bookpayments = db.select('book_payment', where="bp_book_id='{book_id}'".format(book_id=book_id), js=True)
+            # if bookpayments:
+            #     return render_template("bookpayments.html", bookpayments=bookpayments)
+            return render_template("addbookpayment.html")
+        bookings = db.select('booking', where="book_id='{book_id}'".format(book_id=book_id), js=True)
+        return render_template("addbookpayment.html", bookings=bookings)
+    
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route('/cancel-bookpayment/<bp_book_id>', methods=['POST'])
+def cancelbookpayment(bp_book_id):
+    if bp_book_id:
+        # do ... update the bp_book_id booking table to the latest remaining values, and booking payment status to cancelled, then the front end can get if the booking payment status is cancelled then make the button to grey, cannot click.
+        # db.delete('booking',where="book_id='{book_id}'".format(bp_book_id=bp_book_id))
+        # bookpayments = db.select('booking', where bp_book_id =bp_book_id, js=True)
+        # then back to bookpayments.html with the list of latest bookpayments list for that bp_book_id
+        return render_template("bookpayments.html", bookpayments=bookpayments)
+    return 'Book ID is missing', 400
+
+@app.route('/close-booking/<book_id>', methods=['GET', 'POST'])
+def closebookpayment(book_id):
+    if request.method == 'POST':
+        # do ... add one row in book payment table, update the booking table with 0 remaining balance, update stock information from booked to sold
+        print(request.form)
+        # db.delete('booking',where="book_id='{book_id}'".format(bp_book_id=bp_book_id))
+        # bookpayments = db.select('booking', where bp_book_id =bp_book_id, js=True)
+        # then back to bookpayments.html with the list of latest bookpayments list for that bp_book_id
+        bookpayments = db.select('book_payment', where="bp_book_id='{book_id}'".format(book_id=book_id), js=True)
+        return render_template("bookpayments.html", bookpayments=bookpayments)
+    stocks = db.select('stock', where="book_id='{book_id}'".format(book_id=book_id), js=True)
+    bookings = db.select('booking', where="book_id='{book_id}'".format(book_id=book_id), js=True)
+    return render_template("closebookpayment.html", bookings=bookings, stocks=stocks)
+
+@app.route('/submit_sale', methods=['POST'])
+def submit_sale():
+    # Get data from the form
+    stk_ids = request.form.getlist('stk_id')
+    sale_gold_sell = request.form.getlist('sale_gold_sell')
+    sale_labor_sell = request.form.getlist('sale_labor_sell')
+    sale_weight = request.form.getlist('sale_weight')
+    sale_price = request.form.getlist('sale_price')
+    sum_dict = {
+        'sale_labor_sell_total': sum(float(value) for value in sale_labor_sell if value.strip()),
+        'sale_weight_total': sum(float(value) for value in sale_weight if value.strip()),
+        'sale_price_total': sum(float(value) for value in sale_price if value.strip())
+    }
+    columns = ['sale_official_receipt', 'sale_cust_id', 'sale_receipt_no', 'sale_sold_date', 'sale_gold_sell', 'sale_labor_sell', 'sale_weight', 'sale_price']
+    values = []
+    
+    # prepare data for sale table
+    for key in columns:
+        if key not in ['sale_labor_sell', 'sale_weight', 'sale_price']:
+            values.append(request.form[key])
+        else:
+            values.append(sum_dict[f"{key}_total"])
+            
+    try:
+        db.insert(table='sale',columns=columns,values=values)
+        # get data from sale table
+        
+        for i in range(len(stk_ids)):
+            
+            stk_dict = {
+                'stk_sell_date':request.form['sale_sold_date'],
+                'stk_gold_sell':sale_gold_sell[i],
+                'stk_labor_sell':sale_labor_sell[i],
+                'stk_weight_sell':sale_weight[i],
+            }
+            stk_data = db.select('stock', columns=['stk_weight','stk_gold_cost','stk_labor_cost'], where=f"stk_id='{stk_ids[i]}'")
+            # calculate profit
+            sold_price = sale_price[i]
+            stk_profit = float(sold_price) - ((float(stk_data[0]['stk_weight'])*float(stk_data[0]['stk_gold_cost']))+float(stk_data[0]['stk_labor_cost']))
+            
+            # add needed data to dictionary
+            stk_dict['stk_status'] = 'SOLD'
+            stk_dict['stk_profit'] = stk_profit
+            stk_dict['stk_sale_id'] = str('SALE_'+str(db.get_currval(dic.SALE_SEQ)))
+            
+            # print(i)
+            # print(stk_dict)
+            
+            db.update(table = 'stock',set_columns=list(stk_dict.keys()),set_values=list(stk_dict.values()), where=f"stk_id='{stk_ids[i]}'")
+            
+            # print('sold_price:',sold_price)
+            # print('stk_weight:',float(stk_data[0]['stk_weight']))
+            # print('stk_gold_cost:',float(stk_data[0]['stk_gold_cost']))
+            # print('stk_labor_cost:',float(stk_data[0]['stk_labor_cost']))
+            # print(stk_profit)
+            # print(stk_dict)
+            
+    except ValueError:
+        return "Invalid input. Please check your data and try again.", 400
+    
+    sales = db.select('sale', js=True)
+    if sales:
+        return render_template("sales.html", sales=sales)
+    return render_template("sales.html")
+
+@app.route("/dashboard")
+def dashboard():
+    # stocks as default home page
+    if 'loggedin' in session:
+        # categories = db.select('category_pattern_mapping',js=True)
+        categories = [
+            {'cpat_category': 'NECKLACE', 'cpat_image_path': '.\static\pattern\goldnecklace.jpg'},
+            {'cpat_category': 'RING', 'cpat_image_path': '.\static\pattern\goldring.jpg'},
+            {'cpat_category': 'BRACELET', 'cpat_image_path': '.\static\pattern\goldbracelet.jpg'},
+            {'cpat_category': 'BANGLE', 'cpat_image_path': '.\static\pattern\goldbangle.jpg'},
+            {'cpat_category': 'EARING', 'cpat_image_path': '.\static\pattern\goldearing.jpg'},
+            {'cpat_category': 'PENDANT', 'cpat_image_path': '.\static\pattern\goldpendant.jpg'},
+            {'cpat_category': 'ANKLET', 'cpat_image_path': '.\static\pattern\goldanklet.jpg'}
+            # Add more patterns as needed
+        ]
+        return render_template("dashboard.html", categories=categories)
+    
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+# Set the folder for uploaded files
+app.config['UPLOAD_FOLDER'] = r'.\static\pattern'
+app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
+
+# Function to check allowed file extensions
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+
+@app.route("/add-pattern", methods=["GET", "POST"])
+def add_pattern():
+    if 'loggedin' in session:
+        if request.method == "POST":
+            
+            image = request.files['cpat_image_path']
+            # Check if file is valid
+            if image and allowed_file(image.filename):
+                # Secure the filename
+                filename = secure_filename(image.filename)
+                imageName = request.form['cpat_category']+'_'+request.form['cpat_pattern']+'.'+image.filename.rsplit('.', 1)[1].lower()
+                image_path = os.path.join(app.config['UPLOAD_FOLDER'], imageName)
+                
+                # Save the image to the uploads folder
+                image.save(image_path)
+                
+                columns_to_insert = list(request.form.keys())
+                columns_to_insert.extend(request.files.keys())
+                values_to_insert  = list(request.form.values())
+                values_to_insert.append(image_path)
+                try:
+                    db.insert(table='category_pattern_mapping',columns=columns_to_insert,values=values_to_insert)
+                except ValueError:
+                    return "Invalid input. Please check your data and try again.", 400
+                    
+        return render_template("addpatterns.html")
+    
+    # If not logged in, redirect to login page
+    return redirect('/login')
+
+@app.route("/view-category/<category>", methods = ['POST'])
+def view_category(category):
+    if category:
+        patterns = db.select('category_pattern_mapping',where="cpat_category='{category}'".format(category=category))
+        return render_template("patternsDashboard.html", patterns=patterns)
+    return 'Category is missing', 400
+    
+@app.route("/patterns")
+def patterns():
+    # stocks as default home page
+    if 'loggedin' in session:
+        patterns = db.select('category_pattern_mapping',js=True)
+        # patterns = [
+        #     {'cpat_id': '1', 'category': 'Necklace', 'pattern': '水波', 'image': 'static/img/goldnecklace.jpg'},
+        #     {'cpat_id': '2', 'category': 'Necklace', 'pattern': '单扣', 'image': 'static/img/pattern2.jpg'},
+        #     {'cpat_id': '3', 'category': 'Necklace', 'pattern': '通单扣', 'image': 'static/img/pattern3.jpg'},
+        #     # Add more patterns as needed
+        # ]
+        return render_template("patterns.html", patterns=patterns)
+    
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+
+@app.route('/update-pattern/<pattern_id>', methods=['GET'])
+def edit_pattern(pattern_id):
+    
+    if 'loggedin' in session:
+        pattern = db.select('category_pattern_mapping', where="cpat_id='{ptn_id}'".format(ptn_id=pattern_id),js=True)
+        # print(pattern[0])
+
+        return render_template('updatepattern.html', pattern=pattern[0])
+    return redirect('login.html')
+
+@app.route('/updatepattern', methods=['POST'])
+def update_pattern_view():
+    # print(request.form)
+    if 'loggedin' in session:
+        try:
+            # Replace image
+            image = request.files['cpat_image_path']
+
+            # Check if file is valid
+            if image and allowed_file(image.filename):
+                # Secure the filename
+                filename = secure_filename(image.filename)
+                imageName = request.form['cpat_category']+'_'+request.form['cpat_pattern']+'.'+image.filename.rsplit('.', 1)[1].lower()
+                image_path = os.path.join(app.config['UPLOAD_FOLDER'], imageName)
+                
+                # Save the image to the uploads folder
+                image.save(image_path)
+                
+                old_image_path = list(db.select(table='category_pattern_mapping',columns=['cpat_image_path'],where="cpat_id='{cpat_id}'".format(cpat_id=request.form['cpat_id']),js=True)[0].values())[0]
+                os.remove(old_image_path)
+                
+                db.update(table='category_pattern_mapping',set_columns=['cpat_image_path'],set_values=[image_path],where = "cpat_id='{cpat_id}'".format(cpat_id=request.form['cpat_id']))             
+                # print(image_path)
+
+        except ValueError:
+            return "Invalid input. Please check your data and try again.", 400
+        patterns = db.select('category_pattern_mapping', js=True)
+        return render_template("patterns.html", patterns=patterns)
+    return redirect('login.html')
+
+@app.route("/try")
+def try1():
+    # stocks as default home page
+    if 'loggedin' in session:
+        # patterns = db.select('category_pattern_mapping',js=True)
+        # patterns = [
+        #     {'cpat_id': '1', 'category': 'Necklace', 'pattern': '水波', 'image': 'static/img/goldnecklace.jpg'},
+        #     {'cpat_id': '2', 'category': 'Necklace', 'pattern': '单扣', 'image': 'static/img/pattern2.jpg'},
+        #     {'cpat_id': '3', 'category': 'Necklace', 'pattern': '通单扣', 'image': 'static/img/pattern3.jpg'},
+        #     # Add more patterns as needed
+        # ]
+        return render_template("try.html")
+    
+    # User is not loggedin redirect to login page
+    return redirect('login.html')
+@app.route("/try2")
+def try2():
+    # stocks as default home page
+    if 'loggedin' in session:
+        # patterns = db.select('category_pattern_mapping',js=True)
+        # patterns = [
+        #     {'cpat_id': '1', 'category': 'Necklace', 'pattern': '水波', 'image': 'static/img/goldnecklace.jpg'},
+        #     {'cpat_id': '2', 'category': 'Necklace', 'pattern': '单扣', 'image': 'static/img/pattern2.jpg'},
+        #     {'cpat_id': '3', 'category': 'Necklace', 'pattern': '通单扣', 'image': 'static/img/pattern3.jpg'},
+        #     # Add more patterns as needed
+        # ]
+        return render_template("try2.html")
     
     # User is not loggedin redirect to login page
     return redirect('login.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+# stk_returned, stk_tag

@@ -19,14 +19,14 @@
         
         <!-- Import buttons -->
         <div class="mb-3">
-            <a class="btn btn-secondary me-2" id="importButton" href="/addstocks">Import</a>
+            <a class="btn btn-secondary me-2" id="importButton" href="/add-purchases">Import</a>
             <!-- <input type="file" id="fileInput" > -->
             <!-- <button class="btn btn-secondary me-2" onclick="triggerFileInput()">Batch Import</button> -->
             <button class="btn btn-secondary me-2" id="batchImportBtn">Batch Import</button>
             <div id="batchImportModal" class="modal">
                 <div class="modal-content">
                     <span class="close" id="closeModal">&times;</span>
-                    <form method="POST" enctype="multipart/form-data" action="/batch-import">
+                    <form method="POST" enctype="multipart/form-data" action="/batch-import-purchase">
                         <input type="file" name="file" accept=".csv, .xlsx" required>
                         <button type="submit">Upload</button>
                     </form>
@@ -44,54 +44,52 @@
                 <h4 class="text-center">There are no purchases. Add one above.</h4>
                 {% else %}
                 <div class="table-responsive">
-                    <table class="table table-striped" id="stockdataTable"> <!--  table-bordered -->
+                    <table class="table table-striped" id="purchasedataTable"> <!--  table-bordered -->
                         <thead>
                             <tr>
-                                <th>Stock ID</th>
-                                <th>Stock Gold Type</th>
-                                <th>Stock Type</th>
-                                <th>Stock Pattern</th>
-                                <th>Stock Weight</th>
-                                <th>Stock Size</th>
-                                <th>Stock Length</th>
-                                <th>Stock Labor Cost</th>
-                                <th>Stock Labor Sell</th>
-                                <th>Stock Purchase Date</th>
-                                <th>Stock Sell Date</th>
-                                <th>Stock Gold Cost</th>
-                                <th>Stock Gold Sell</th>
-                                <th>Stock Status</th>
-                                <th>Stock Profit</th>
+                                <th>Purchase ID</th>
+                                <th>Purchase Invoice No</th>
+                                <th>Purchase Salesman ID</th>
+                                <th>Purchase Date</th>
+                                <th>Purchase Weight (g)</th>
+                                <th>Purchase Gold Cost</th>
+                                <th>Purchase Labor Cost</th>
+                                <th>Purchase Method</th>
+                                <th>Purchase Official Invoice</th>
+                                <th>Purchase Billing Date</th>
+                                <th>Purchase Pay By Cash Amount</th>
+                                <th>Purchase Pay By Trade In Amount</th>
+                                <th>Purchase Total Amount</th>
+                                <th>Purchase Payment Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for purchase in purchases %}
                             <tr>
-                                <td>{{ stock.stk_id }}</td>
-                                <td>{{ stock.stk_gold_type }}</td>
-                                <td>{{ stock.stk_type }}</td>
-                                <td>{{ stock.stk_pattern }}</td>
-                                <td>{{ stock.stk_weight }}</td>
-                                <td>{{ stock.stk_size }}</td>
-                                <td>{{ stock.stk_length }}</td>
-                                <td>{{ stock.stk_labor_cost }}</td>
-                                <td>{{ stock.stk_labor_sell }}</td>
-                                <td>{{ stock.stk_pur_date }}</td>
-                                <td>{{ stock.stk_sell_date }}</td>
-                                <td>{{ stock.stk_gold_cost }}</td>
-                                <td>{{ stock.stk_gold_sell }}</td>
-                                <td>{{ stock.stk_status }}</td>
-                                <td>{{ stock.stk_profit }}</td>
+                                <td>{{ purchase.pur_id }}</td>
+                                <td>{{ purchase.pur_invoice_no }}</td>
+                                <td>{{ purchase.pur_slm_id }}</td>
+                                <td>{{ purchase.pur_date }}</td>
+                                <td>{{ purchase.pur_weight }}</td>
+                                <td>{{ purchase.pur_gold_cost }}</td>
+                                <td>{{ purchase.pur_labor_cost }}</td>
+                                <td>{{ purchase.pur_method }}</td>
+                                <td>{{ purchase.pur_official_invoice }}</td>
+                                <td>{{ purchase.pur_billing_date }}</td>
+                                <td>{{ purchase.pur_total_cash_amt }}</td>
+                                <td>{{ purchase.put_total_trade_in_amt }}</td>
+                                <td>{{ purchase.pur_total_amt }}</td>
+                                <td>{{ purchase.pur_payment_status }}</td>
                                 <td>
-                                    <!-- <a href="/update-stock/{{ stock.stk_id }}" class="btn btn-warning btn-sm">Update</a> -->
-                                    <a href="/update-stock/{{ stock.stk_id }}">
+                                    <a href="/update-purchase/{{ purchase.pur_id }}">
                                         <div class="btn btn-warning btn-sm"><i class="fas fa-edit edit-icon"></i></div>
                                     </a>
-                                    <!-- <a href="/delete-stock/{{ stock.stk_id }}" class="btn btn-danger btn-sm">Delete</a> -->
-                                    <a href="/delete-stock/{{ stock.stk_id }}">
-                                        <div class="btn btn-danger btn-sm"><i class="fas fa-trash trash-icon"></i></div>
-                                    </a>
+                                    <form id="delete-form-{{ purchase.pur_id }}" action="/delete-purchase/{{ purchase.pur_id }}" method="post" style="display: inline;">
+                                        <a onclick="confirmDelete('{{ purchase.pur_id }}')">
+                                            <div class="btn btn-danger btn-sm"><i class="fas fa-trash trash-icon"></i></div>
+                                        </a>
+                                    </form>
                                     
                                 </td>
                             </tr>
@@ -109,7 +107,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
-            var table = $('#stockdataTable').DataTable();
+            var table = $('#purchasedataTable').DataTable();
 
             // Function to send data to Flask
             function sendDataToFlask(data) {
@@ -133,18 +131,17 @@
             $('#exportBtn').click(function() {
                 // Initialize an array to hold the data
                 var data = [];
-
                 // Extract table headers
                 var headers = [];
-                $('#stockdataTable thead th').each(function(index) {
+                $('#purchasedataTable thead th').each(function(index) {
                     // Only push headers if it's not the last one
-                    if (index < $('#stockdataTable thead th').length - 1) {
+                    if (index < $('#purchasedataTable thead th').length - 1) {
                         headers.push($(this).text().trim());
                     }
                 });
 
                 // Extract table body data
-                $('#stockdataTable tbody tr').each(function() {
+                $('#purchasedataTable tbody tr').each(function() {
                     var row = {};
                     var $tdElements = $(this).find('td');
                     var tdCount = $tdElements.length;
@@ -196,6 +193,13 @@
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
+            }
+        }
+    </script>
+    <script>
+        function confirmDelete(purId) {
+            if (confirm('Are you sure you want to delete the purchase with pur_id="' + purId + '"?')) {
+                document.getElementById('delete-form-' + purId).submit();
             }
         }
     </script>

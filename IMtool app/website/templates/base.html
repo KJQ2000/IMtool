@@ -10,8 +10,8 @@
 </head>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-        <a class="navbar-brand" href="/">Inventory Managment App</a>
+        <!-- <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button> -->
+        <a class="navbar-brand" href="/">Inventory Management App</a>
     </nav>
     <!-- <nav class="sb-nav-fixed sb-topnav navtop">
         <div>
@@ -27,9 +27,17 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" href="/dashboard">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
                         <a class="nav-link" href="/stocks">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Stocks
+                        </a>
+                        <a class="nav-link" href="/patterns">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Patterns
                         </a>
                         <div class="sb-sidenav-menu-heading">Transactions</div>
                         <a class="nav-link" href="/purchases">
@@ -37,27 +45,35 @@
                             Purchases
                         </a>
                         <a class="nav-link" href="/sales">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-credit-card"></i></div>
                             Sales
                         </a>
                         <a class="nav-link" href="/bookings">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Bookings
                         </a>
-                        
+                        <!-- <div class="sb-sidenav-menu-heading">Accounting</div>
+                        <a class="nav-link" href="/customers">
+                          <div class="sb-nav-link-icon"><i class="fa fa-address-card"></i></div>
+                          Invoices
+                        </a>
+                        <a class="nav-link" href="/salesmen">
+                          <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                          Receipts
+                        </a> -->
                         <div class="sb-sidenav-menu-heading">User Management</div>
                         <a class="nav-link" href="/customers">
                           <div class="sb-nav-link-icon"><i class="fa fa-address-card"></i></div>
                           Customers
                         </a>
-                        <a class="nav-link" href="/salesmans">
-                          <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                          Salesmans
+                        <a class="nav-link" href="/salesmen">
+                          <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                          Salesmen
                         </a>
-                        <a class="nav-link" href="/users">
+                        <!-- <a class="nav-link" href="/users">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Users
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </nav>

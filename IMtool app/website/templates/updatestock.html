@@ -23,11 +23,20 @@
                     <div class="mb-4">
                         <h5 class="card-title">Stock Status</h5>
                         <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <select class="form-select" id="stk_status" name="stk_status" required>
+                            <div class="col-md-4 mb-3">
+                                <select class="form-select" id="stk_status" name="stk_status" required disabled>
                                     <option value="" disabled>Select Status</option>
                                     <option value="IN STOCK" {% if stock.stk_status == 'IN STOCK' %}selected{% endif %}>In Stock</option>
                                     <option value="SOLD" {% if stock.stk_status == 'SOLD' %}selected{% endif %}>Sold</option>
+                                    <option value="BOOKED" {% if stock.stk_status == 'BOOKED' %}selected{% endif %}>Booked</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="stk_returned" class="form-label">Returned Stock?</label>
+                                <select class="form-select" id="stk_returned" name="stk_returned" required>
+                                    <option value="" disabled>Select Type</option>
+                                    <option value="1" {% if stock.stk_returned == '1' %}selected{% endif %}>Yes</option>
+                                    <option value="0" {% if stock.stk_returned == '0' %}selected{% endif %}>No</option>
                                 </select>
                             </div>
                         </div>
@@ -58,6 +67,7 @@
                                     <option value="NECKLACE" {% if stock.stk_type == 'NECKLACE' %}selected{% endif %}>Necklace</option>
                                     <option value="EARING" {% if stock.stk_type == 'EARING' %}selected{% endif %}>Earing</option>
                                     <option value="PENDANT" {% if stock.stk_type == 'PENDANT' %}selected{% endif %}>Pendant</option>
+                                    <option value="ANKLET" {% if stock.stk_type == 'ANKLET' %}selected{% endif %}>Anklet</option>
                                 </select>
                             </div>
                         </div>
@@ -66,7 +76,6 @@
                                 <label for="stk_size" class="form-label">Stock Size</label>
                                 <input type="text" class="form-control" id="stk_size" name="stk_size" value="{{ stock.stk_size }}">
                             </div>
-                            
                             <div class="col-md-6 mb-3" id="stk_length-section">
                                 <label for="stk_length" class="form-label">Stock Length</label>
                                 <input type="number" step="0.01" class="form-control" id="stk_length" name="stk_length" value="{{ stock.stk_length }}">
@@ -86,17 +95,29 @@
                     <div class="mb-4" id="dimensions-costs-section">
                         <h5 class="card-title">Stock Costs</h5>
                         <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="stk_labor_cost" class="form-label">Stock Labor Cost</label>
-                                <input type="number" step="0.01" class="form-control" id="stk_labor_cost" name="stk_labor_cost" value="{{ stock.stk_labor_cost }}" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
+                            <!-- <div class="col-md-4 mb-3">
                                 <label for="stk_pur_date" class="form-label">Stock Purchase Date</label>
                                 <input type="date" class="form-control" id="stk_pur_date" name="stk_pur_date" value="{{ stock.stk_pur_date }}" required>
+                            </div> -->
+                            <div class="col-md-4 mb-3">
+                                <label for="stk_pur_id" class="form-label">Purchase ID</label>
+                                <select class="form-select" id="stk_pur_id" name="stk_pur_id" required>
+                                    <option value="" disabled>Select Purchase ID</option>
+                                    {% for purchase in purchases %}
+                                        <option value="{{ purchase.pur_id }}"
+                                            {% if purchase.pur_id == stock.stk_pur_id %} selected {% endif %}>
+                                            {{ purchase.pur_id }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="stk_gold_cost" class="form-label">Stock Gold Cost</label>
                                 <input type="number" step="0.01" class="form-control" id="stk_gold_cost" name="stk_gold_cost" value="{{ stock.stk_gold_cost }}" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="stk_labor_cost" class="form-label">Stock Labor Cost</label>
+                                <input type="number" step="0.01" class="form-control" id="stk_labor_cost" name="stk_labor_cost" value="{{ stock.stk_labor_cost }}" required>
                             </div>
                         </div>
                     </div>
@@ -105,24 +126,45 @@
                     <div class="mb-4" id="sales-profit-section">
                         <h5 class="card-title">Sales and Profit</h5>
                         <div class="row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="stk_sell_date" class="form-label">Stock Sell Date</label>
-                                <input type="date" class="form-control" id="stk_sell_date" name="stk_sell_date" value="{{ stock.stk_sell_date }}">
+                                <input type="date" class="form-control" id="stk_sell_date" name="stk_sell_date" value="{{ stock.stk_sell_date }}" disabled>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="stk_gold_sell" class="form-label">Stock Gold Sell</label>
-                                <input type="number" step="0.01" class="form-control" id="stk_gold_sell" name="stk_gold_sell" value="{{ stock.stk_gold_sell }}">
+                                <input type="number" step="0.01" class="form-control" id="stk_gold_sell" name="stk_gold_sell" value="{{ stock.stk_gold_sell }}" disabled>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="stk_labor_sell" class="form-label">Stock Labor Sell</label>
-                                <input type="number" step="0.01" class="form-control" id="stk_labor_sell" name="stk_labor_sell" value="{{ stock.stk_labor_sell }}">
+                                <input type="number" step="0.01" class="form-control" id="stk_labor_sell" name="stk_labor_sell" value="{{ stock.stk_labor_sell }}" disabled>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3" id="stk_id-section">
-                        <label for="stk_id" class="form-label">Stock ID</label>
-                        <input type="text" class="form-control" id="stk_id" name="stk_id" value="{{ stock.stk_id }}">
+
+                    <!-- Book and Profit Section -->
+                    <div class="mb-4" id="book-profit-section">
+                        <h5 class="card-title">Sales and Profit</h5>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="stk_book_date" class="form-label">Stock Booked Date</label>
+                                <input type="date" class="form-control" id="stk_book_date" name="stk_book_date" value="{{ stock.stk_book_date }}" disabled>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="stk_gold_book" class="form-label">Stock Gold Book</label>
+                                <input type="number" step="0.01" class="form-control" id="stk_gold_book" name="stk_gold_book" value="{{ stock.stk_gold_book }}" disabled>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="stk_labor_book" class="form-label">Stock Labor Book</label>
+                                <input type="number" step="0.01" class="form-control" id="stk_labor_book" name="stk_labor_book" value="{{ stock.stk_labor_book }}" disabled>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <div class="col-md-6 mb-3" id="stk_id-section">
+                        <!-- <label for="stk_id" class="form-label">Stock ID</label> -->
+                        <input type="hidden" class="form-control" id="stk_id" name="stk_id" value="{{ stock.stk_id }}">
+                    </div>
+                    
                     <button type="submit" class="btn btn-primary">Update Stock</button>
                 </form>
             </div>
@@ -137,11 +179,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const stockDetailsSection = document.getElementById('stock-details-section');
     const dimensionsCostsSection = document.getElementById('dimensions-costs-section');
     const salesProfitSection = document.getElementById('sales-profit-section');
+    const bookProfitSection = document.getElementById('book-profit-section');
     const stkSizeSection = document.getElementById('stk_size-section');
     const stkLengthSection = document.getElementById('stk_length-section');
     const stkSellDate = document.getElementById('stk_sell_date');
     const stkGoldSell = document.getElementById('stk_gold_sell');
     const stkLaborSell = document.getElementById('stk_labor_sell');
+    const saleReceiptNo = document.getElementById('sale_receipt_no');
+    const saleCustId = document.getElementById('sale_cust_id');
+    const salePrice = document.getElementById('sale_price');
 
     function updateVisibility() {
         const status = statusSelect.value;
@@ -149,20 +195,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Show/Hide sections based on status
         if (status === 'SOLD') {
-            stockDetailsSection.style.display = 'none';
-            dimensionsCostsSection.style.display = 'none';
+            stockDetailsSection.style.display = 'block';
+            dimensionsCostsSection.style.display = 'block';
             salesProfitSection.style.display = 'block';
+            bookProfitSection.style.display = 'none';
 
             // Make certain fields required if status is SOLD
-            stkSellDate.required = true;
-            stkGoldSell.required = true;
-            stkLaborSell.required = true;
+            // saleReceiptNo.required = true;
+            // saleCustId.required = true;
+            // salePrice.required = true;
+            // stkSellDate.required = true;
+            // stkGoldSell.required = true;
+            // stkLaborSell.required = true;
+        } else if (status === 'SOLD') {
+            stockDetailsSection.style.display = 'block';
+            dimensionsCostsSection.style.display = 'block';
+            salesProfitSection.style.display = 'none';
+            bookProfitSection.style.display = 'block';
+
+            // Make certain fields required if status is SOLD
+            // saleReceiptNo.required = true;
+            // saleCustId.required = true;
+            // salePrice.required = true;
+            // stkSellDate.required = true;
+            // stkGoldSell.required = true;
+            // stkLaborSell.required = true;
         } else {
             stockDetailsSection.style.display = 'block';
             dimensionsCostsSection.style.display = 'block';
             salesProfitSection.style.display = 'none';
 
             // Remove required attribute if status is not SOLD
+            saleReceiptNo.required = false;
+            saleCustId.required = false;
+            salePrice.required = false;
             stkSellDate.required = false;
             stkGoldSell.required = false;
             stkLaborSell.required = false;

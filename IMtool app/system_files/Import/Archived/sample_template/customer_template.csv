@@ -1,0 +1,6 @@
+cust_email_address,cust_phone_number,cust_address,cust_buyer_id,cust_sst_reg_no,cust_tin,cust_name
+john.doe@example.com,554-1234,"123 Elm Street, Springfield",,,,test
+jane.smith@example.com,555-5678,"456 Oak Avenue, Springfield",,,,test 1
+alice.johnson@example.com,555-8765,"789 Pine Road, Springfield",,,,test 2
+bob.brown@example.com,555-4321,"101 Maple Lane, Springfield",,,,test 3
+213@gmail.com,12,"No 18, Jalan Harmoni 8, Taman Harmoni, 84900, Tangkak, Johor.",123,123445,123455,Kuan

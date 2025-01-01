@@ -7,6 +7,7 @@ import numpy as np
 from datetime import datetime
 import pandas as pd
 import json
+from barcode import BarcodeGenerator
 
 
 SEQUENCES = {
@@ -16,7 +17,9 @@ SEQUENCES = {
     'stock': dic.STOCK_SEQ,
     'sale': dic.SALE_SEQ,
     'salesman': dic.SALESMAN_SEQ,
-    'purchase': dic.PURCHASE_SEQ
+    'purchase': dic.PURCHASE_SEQ,
+    'book_payment':dic.BOOK_PAYMENT_SEQ,
+    'category_pattern_mapping':dic.CPAT_SEQ
 }
 
 PREFIX = {
@@ -26,14 +29,16 @@ PREFIX = {
     'stock': 'STK',
     'sale': 'SALE',
     'salesman': 'SLM',
-    'purchase': 'PUR'
+    'purchase': 'PUR',
+    'book_payment':'BP',
+    'category_pattern_mapping':'CPAT'
 }
 
 log_file = dic.LOG_DIR+str(datetime.now().strftime("%Y_%m_%d"))+'.log'
 
 logging.basicConfig(filename=log_file,level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-class Database:
+class Database: 
     def __init__(self, database_url: str):
         self.conn = psycopg2.connect(database_url)
         self.cursor = self.conn.cursor()
@@ -104,6 +109,15 @@ class Database:
             seq = self.get_nextval(sequence_name)
 
         pk = str(PREFIX.get(table))+'_'+str(seq)
+        
+        if table.lower() == 'stock':
+            gp = values[columns.index('stk_gold_cost')]
+            labor = values[columns.index('stk_labor_cost')]
+            #generate stk_barcode
+            barcode_gen = BarcodeGenerator()
+            unique_key = barcode_gen.generate(gp,labor,str(seq))
+            columns = ['stk_barcode'] + columns
+            values = [unique_key] + values
 
         if columns:
             columns = [item1 for item1, item2 in zip(columns, values) if item2 != '']
@@ -122,6 +136,7 @@ class Database:
             )
         
         values = [pk] + values
+
         
         try:
             self.cursor.execute(query, values)
@@ -142,34 +157,45 @@ class Database:
 
 
     def update(self, table: str, set_columns: list, set_values: list, where: str) -> None:
-
-        set_columns = [item1 for item1, item2 in zip(set_columns, set_values) if item2 not in ('None', '')]
-        set_values = [item2 for item2 in set_values if item2 not in ('None', '')]
-
-
-        if table == 'stock' or 'purchase':
-            last_update = str(PREFIX.get(table)).lower()+'_last_update'
-            set_columns.append(last_update)
-            set_values.append(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-            
+        # Filter columns and values, allowing explicit NULLs
+        clean_columns, clean_values = [], []
+        for col, val in zip(set_columns, set_values):
+            if val not in ('None', ''):
+                clean_columns.append(col)
+                clean_values.append(val)
+            else:
+                clean_columns.append(col)
+                clean_values.append(None)  # Explicitly set value to None (for NULL in SQL)
         
+        if table != 'metadata':
+            last_update = str(PREFIX.get(table)).lower() + '_last_update'
+            clean_columns.append(last_update)
+            clean_values.append(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        
+        # Construct the SET clause with proper handling for NULL
         set_clause = sql.SQL(', ').join(
-            sql.SQL("{col} = {val}").format(col=sql.Identifier(col), val=sql.Placeholder())
-            for col in set_columns
+            sql.SQL("{col} = {val}").format(
+                col=sql.Identifier(col),
+                val=sql.SQL('NULL') if value is None else sql.Placeholder()
+            )
+            for col, value in zip(clean_columns, clean_values)
         )
+        
         query = sql.SQL("UPDATE {schema}.{table} SET {set_clause} WHERE {where}").format(
             schema=sql.Identifier(self.schema),
             table=sql.Identifier(table),
             set_clause=set_clause,
             where=sql.SQL(where)
         )
-
+        
         try:
-            self.cursor.execute(query, set_values)
+            # Filter out None values from clean_values, as they are not needed for placeholders
+            clean_values_for_execute = [val for val in clean_values if val is not None]
+            self.cursor.execute(query, clean_values_for_execute)
             self.conn.commit()
             logging.info(f"Successfully updated data in {self.schema}.{table}.")
             logging.info(f"Query: {query.as_string(self.conn)}")
-            logging.info(f"Values: {set_values}")
+            logging.info(f"Values: {clean_values_for_execute}")
         except psycopg2.Error as e:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
@@ -179,6 +205,7 @@ class Database:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Unexpected error: {e}")
             self.conn.rollback()
+
 
     def delete(self, table: str, where: str) -> None:
         query = sql.SQL("DELETE FROM {schema}.{table} WHERE {where}").format(
@@ -222,12 +249,77 @@ class Database:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Unexpected error: {e}")
             return None
+    
+    def get_currval(self, sequence_name: str):
+        query = sql.SQL("select currval('{schema}.{seq}')").format(
+            schema=sql.Identifier(dic.SCHEMA),
+            seq=sql.Identifier(sequence_name)
+        )
+
+        try:
+            self.cursor.execute(query)
+            result = self.cursor.fetchone()[0]
+            logging.info(f"current value of sequence {sequence_name}: {result}")
+            return result
+        except psycopg2.Error as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
+            logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
+            logging.error(f"Error details: {e.diag.message_detail}")
+            return None
+        except Exception as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
+            logging.error(f"Unexpected error: {e}")
+            return None
+    
+    def drop_seq(self, sequence_name:str):
+        query = sql.SQL("DROP SEQUENCE {schema}.{seq}").format(
+            schema=sql.Identifier(dic.SCHEMA),
+            seq=sql.Identifier(sequence_name)
+        )
+
+        try:
+            self.cursor.execute(query)
+            logging.info(f"sequence {sequence_name} dropped!")
+            return True
+        except psycopg2.Error as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
+            logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
+            logging.error(f"Error details: {e.diag.message_detail}")
+            return None
+        except Exception as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
+            logging.error(f"Unexpected error: {e}")
+            return None
+        
+    def create_stk_seq(self, sequence_name:str):
+        query = sql.SQL("CREATE SEQUENCE {schema}.{seq} INCREMENT BY 1 MINVALUE 1 MAXVALUE 999999 START 100001 NO CYCLE;").format(
+            schema=sql.Identifier(dic.SCHEMA),
+            seq=sql.Identifier(sequence_name)
+        )
+
+        try:
+            self.cursor.execute(query)
+            logging.info(f"sequence {sequence_name} created!")
+            return True
+        except psycopg2.Error as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
+            logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
+            logging.error(f"Error details: {e.diag.message_detail}")
+            return None
+        except Exception as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
+            logging.error(f"Unexpected error: {e}")
+            return None
+    
 
     def batch_insert(self, table: str, values: list, columns: list = None) -> None:
         base_query = "INSERT INTO {schema}.{table}".format(
             schema=self.schema,
             table=table
         )
+        
+        if table.lower() == 'stock' and columns:
+            columns = ['stk_barcode'] + columns
 
         if columns:
             query = base_query + " ({id_col}, {columns}) VALUES ".format(
@@ -241,6 +333,14 @@ class Database:
 
         for row in range(len(values)):
             seq = self.get_nextval(SEQUENCES.get(table))
+            
+            if table.lower() == 'stock':
+                gp = values[row][columns.index('stk_gold_cost')-1]
+                labor = values[row][columns.index('stk_labor_cost')-1]
+                #generate stk_barcode
+                barcode_gen = BarcodeGenerator()
+                barcode = barcode_gen.generate(gp,labor,str(seq))
+                values[row] = [barcode] + values[row]
 
             pk = str(PREFIX.get(table))+'_'+str(seq)
             formatted_string = ', '.join(f"'{item}'" for item in values[row])

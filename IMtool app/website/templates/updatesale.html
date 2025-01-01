@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Update Sales</title>
+{% endblock %}
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+{% block content %}
+<main>
+    <div class="container-fluid mt-4">
+        <h1 class="mb-4">Update Sales</h1>
+        
+        <div class="mb-3">
+            <a class="btn btn-secondary" href="/sales">Back to Sales List</a>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <form method="POST" action="/update-sale/{{ sale.sale_id }}">
+                    
+                    <!-- Hidden field for Sale ID -->
+                    <input type="hidden" name="sale_id" value="{{ sale.sale_id }}">
+
+                    <!-- Stock Details Section -->
+                    <div class="mb-4">
+                        <h5 class="card-title">Sale Details</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="sale_official_receipt" class="form-label">Sale Official Receipt</label>
+                                <select class="form-select" id="sale_official_receipt" name="sale_official_receipt" required>
+                                    <option value="" disabled>Select Option</option>
+                                    <option value="1" {% if sale.sale_official_receipt == 1 %}selected{% endif %}>Yes</option>
+                                    <option value="0" {% if sale.sale_official_receipt == 0 %}selected{% endif %}>No</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="sale_cust_id" class="form-label">Sale Customer</label>
+                                <select class="form-select" id="sale_cust_id" name="sale_cust_id" required>
+                                    <option value="" disabled>Select Customer</option>
+                                    {% for customer in customers %}
+                                        <option value="{{ customer.cus_id }}" {% if customer.cus_id == sale.sale_cust_id %}selected{% endif %}>{{ customer.cust_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="sale_receipt_no" class="form-label">Sale Receipt No</label>
+                                <input type="text" class="form-control" id="sale_receipt_no" name="sale_receipt_no" value="{{ sale.sale_receipt_no }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="sale_sold_date" class="form-label">Sold Date</label>
+                                <input type="date" class="form-control" id="sale_sold_date" name="sale_sold_date" value="{{ sale.sale_sold_date }}" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="old_sale_price" class="form-label">Current Sale Price</label>
+                                <input type="number" step="0.01" class="form-control" id="old_sale_price" name="old_sale_price" value="{{ sale.sale_price }}" required readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="total_sale_price" class="form-label">New Sale Price</label>
+                                <input type="number" step="0.01" class="form-control" id="total_sale_price" name="total_sale_price" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dimensions and Costs Section -->
+                    <!-- <div class="mb-4">
+                        <h5 class="card-title">Sale Revenue</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="sale_gold_sell" class="form-label">Sale Gold Cost</label>
+                                <input type="number" step="0.01" class="form-control" id="sale_gold_sell" name="sale_gold_sell" value="{{ sale.sale_gold_sell }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="sale_labor_sell" class="form-label">Sale Labor Cost</label>
+                                <input type="number" step="0.01" class="form-control" id="sale_labor_sell" name="sale_labor_sell" value="{{ sale.sale_labor_sell }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="sale_weight" class="form-label">Sale Weight (g)</label>
+                                <input type="number" step="0.01" class="form-control" id="sale_weight" name="sale_weight" value="{{ sale.sale_weight }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="sale_price" class="form-label">Sale Price</label>
+                                <input type="number" step="0.01" class="form-control" id="sale_price" name="sale_price" value="{{ sale.sale_price }}" required>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- Stock Sale Entry -->
+                    <h5 class="card-title">Stock Sale Entry</h5>
+                    <table id="stockTable" border="1">
+                        <thead>
+                            <tr>
+                                <th>Stock Id</th>
+                                <th>Gold Price</th>
+                                <th>Labor Price</th>
+                                <th>Weight (g)</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for stock_entry in stock_entries %}
+                            <tr>
+                                <td>
+                                    <input type="text" onkeyup="filterStockList(this)" placeholder="Search for stock ID..." 
+                                        class="stock-search">
+                                    <select name="stk_id" required>
+                                        <option value="">Select Stock</option>
+                                        {% for stock in stocks %}
+                                            <option value="{{ stock.stk_id }}" {% if stock.stk_id == stock_entry.stk_id %}selected{% endif %}>{{ stock.stk_id }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td><input type="number" name="sale_gold_sell" value="{{ stock_entry.stk_gold_sell }}" required oninput="calculateLaborPrice(this)"></td>
+                                <td><input type="number" name="sale_labor_sell" value="{{ stock_entry.stk_labor_sell }}" required readonly></td>
+                                <td><input type="number" step="0.01" name="sale_weight" value="{{ stock_entry.stk_weight_sell }}" required oninput="calculateLaborPrice(this)"></td>
+                                <td><input type="number" step="0.01" name="sale_price" value="{{ stock_entry.sale_price }}" required oninput="calculateLaborPrice(this)"></td>
+                                <td><button type="button" onclick="removeStockEntry(this)">Remove</button></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                
+                    <button type="button" onclick="addStockEntry()">Add Stock</button>
+                    <br><br>
+                    <button type="submit" class="btn btn-primary">Update Sale</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    // Function to add a new stock entry row
+    function addStockEntry() {
+        const table = document.getElementById("stockTable");
+        const row = table.insertRow(table.rows.length); // Add new row before the "Add" button row
+
+        // Insert cells for Stock Symbol, Quantity, Unit Price, and Remove button
+        const cell1 = row.insertCell(0);
+        const cell2 = row.insertCell(1);
+        const cell3 = row.insertCell(2);
+        const cell4 = row.insertCell(3);
+        const cell5 = row.insertCell(4);
+        const cell6 = row.insertCell(5);
+
+        // Create a dropdown (select) for stock symbol with a search box
+        cell1.innerHTML = `
+            <input type="text" onkeyup="filterStockList(this)" placeholder="Search for stock ID..." 
+                id="searchStock${row.rowIndex}" class="stock-search">
+            <select name="stk_id" required id="stockSelect${row.rowIndex}">
+                <option value="">Select Stock</option>
+                {% for stock in stocks %}
+                    <option value="{{ stock.stk_id }}">{{ stock.stk_id }}</option>
+                {% endfor %}
+            </select>
+        `;
+
+        cell2.innerHTML = `<input type="number" name="sale_gold_sell" required oninput="calculateLaborPrice(this)">`;
+        cell3.innerHTML = `<input type="number" name="sale_labor_sell" required readonly>`;
+        cell4.innerHTML = `<input type="number" step="0.01" name="sale_weight" required oninput="calculateLaborPrice(this)">`;
+        cell5.innerHTML = `<input type="number" step="0.01" name="sale_price" required oninput="calculateLaborPrice(this)">`;
+        cell6.innerHTML = `<button type="button" onclick="removeStockEntry(this)">Remove</button>`;
+    }
+
+        // Function to calculate the total price from all rows in the stock table
+    function calculateTotalFromTable() {
+        const rows = document.querySelectorAll('#stockTable tbody tr');
+        let total = 0;
+
+        // Loop through each row and sum the total price (column 5, index 4)
+        rows.forEach(row => {
+            const salePrice = parseFloat(row.querySelector('input[name="sale_price"]').value) || 0;
+            total += salePrice;
+        });
+
+        // Update the total price field with the calculated total
+        document.getElementById('total_sale_price').value = total.toFixed(2);
+    }
+
+    // Add event listeners to the relevant input fields in the table
+    document.getElementById('stockTable').addEventListener('input', function(e) {
+        if (e.target.matches('input[name="sale_price"]')) {
+            calculateTotalFromTable(); // Recalculate the total price whenever any sale price is changed
+        }
+    });
+
+    // Function to filter stock list based on input
+    function filterStockList(inputElement) {
+        const filter = inputElement.value.toUpperCase();
+        const select = inputElement.nextElementSibling;
+        const options = select.getElementsByTagName("option");
+
+        // Loop through all options and hide those that don't match the search
+        for (let i = 0; i < options.length; i++) {
+            const option = options[i];
+            if (option.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                option.style.display = "";
+            } else {
+                option.style.display = "none";
+            }
+        }
+    }
+
+    // Function to remove a stock entry row
+    function removeStockEntry(button) {
+        const row = button.closest('tr');
+        row.remove();
+    }
+
+    function calculateLaborPrice(inputElement) {
+    // Get the row of the current input field
+    const row = inputElement.closest('tr');
+    
+    // Get the relevant fields in the row
+    const goldPrice = parseFloat(row.querySelector('input[name="sale_gold_sell"]').value) || 0;
+    const weight = parseFloat(row.querySelector('input[name="sale_weight"]').value) || 0;
+    const totalPrice = parseFloat(row.querySelector('input[name="sale_price"]').value) || 0;
+    
+    // Calculate the Labor Price: totalPrice - (weight * goldPrice)
+    const laborPrice = totalPrice - (weight * goldPrice);
+    
+    // Set the calculated labor price in the relevant field
+    row.querySelector('input[name="sale_labor_sell"]').value = laborPrice.toFixed(2);
+}
+</script>
+{% endblock %}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Table with Sort, Filter, and Search</title>
+
+  <!-- CSS Styles -->
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      cursor: pointer;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .filter-group {
+      margin-bottom: 20px;
+    }
+
+    .filter-group label {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Data Table with Sort, Filter, and Search</h1>
+
+  <!-- Search Field -->
+  <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for names..">
+
+  <!-- Filter (Multiple Selection using checkboxes) -->
+  <div class="filter-group">
+    <label><input type="checkbox" value="20" onclick="filterTable()"> 20</label>
+    <label><input type="checkbox" value="25" onclick="filterTable()"> 25</label>
+    <label><input type="checkbox" value="30" onclick="filterTable()"> 30</label>
+  </div>
+
+  <!-- Table -->
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0)">Name</th>
+        <th onclick="sortTable(1)">Age</th>
+        <th onclick="sortTable(2)">City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>25</td>
+        <td>New York</td>
+      </tr>
+      <tr>
+        <td>Jane</td>
+        <td>30</td>
+        <td>London</td>
+      </tr>
+      <tr>
+        <td>Mike</td>
+        <td>20</td>
+        <td>San Francisco</td>
+      </tr>
+      <tr>
+        <td>Alice</td>
+        <td>25</td>
+        <td>Tokyo</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- JavaScript Code -->
+  <script>
+    // Sort the table by a column (index)
+    function sortTable(n) {
+      let table = document.getElementById("dataTable");
+      let rows = table.rows;
+      let switching = true;
+      let dir = "asc";
+      let switchCount = 0;
+
+      while (switching) {
+        switching = false;
+        let rowsArray = Array.from(rows).slice(1);
+        for (let i = 0; i < rowsArray.length - 1; i++) {
+          let x = rowsArray[i].getElementsByTagName("TD")[n];
+          let y = rowsArray[i + 1].getElementsByTagName("TD")[n];
+          let shouldSwitch = false;
+
+          if (dir === "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir === "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          rowsArray[i].parentNode.insertBefore(rowsArray[i + 1], rowsArray[i]);
+          switching = true;
+          switchCount++;
+        } else {
+          if (switchCount === 0 && dir === "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+
+    // Filter the table based on selected checkboxes
+    function filterTable() {
+      // Get all selected checkbox values
+      let filter = [];
+      let checkboxes = document.querySelectorAll('.filter-group input[type="checkbox"]:checked');
+      checkboxes.forEach(checkbox => {
+        filter.push(checkbox.value);
+      });
+
+      let table = document.getElementById("dataTable");
+      let rows = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < rows.length; i++) {
+        let age = rows[i].getElementsByTagName("td")[1];
+        if (age) {
+          let ageValue = age.innerHTML.trim();
+          // If no filter is selected, show all rows
+          if (filter.length === 0 || filter.includes(ageValue)) {
+            rows[i].style.display = "";
+          } else {
+            rows[i].style.display = "none";
+          }
+        }
+      }
+    }
+
+    // Search through the table rows
+    function searchTable() {
+      let input = document.getElementById("searchInput");
+      let filter = input.value.toLowerCase();
+      let table = document.getElementById("dataTable");
+      let rows = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < rows.length; i++) {
+        let cells = rows[i].getElementsByTagName("td");
+        let match = false;
+        for (let j = 0; j < cells.length; j++) {
+          let cell = cells[j];
+          if (cell) {
+            if (cell.innerHTML.toLowerCase().indexOf(filter) > -1) {
+              match = true;
+              break;
+            }
+          }
+        }
+        if (match) {
+          rows[i].style.display = "";
+        } else {
+          rows[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+</html>

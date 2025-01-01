@@ -10303,3 +10303,11 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
+
+.filter-group {
+  margin-bottom: 0px;
+}
+
+.filter-group label {
+  margin-right: 10px;
+}

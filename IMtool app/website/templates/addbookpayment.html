@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Update Booking</title>
+{% endblock %}
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+{% block content %}
+<main>
+    <div class="container-fluid mt-4">
+        <h1 class="mb-4">Add Booking Payment</h1>
+        {% for booking in bookings %}
+        <div class="mb-3">
+            <a class="btn btn-secondary" href="/book-bookpayment/{{ booking.book_id }}">Back to Book Payment History</a>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <form method="POST" action="/add-bookpayment/{{ booking.book_id }}">
+
+                    <!-- Booking Details Section -->
+                    <div class="mb-4">
+                        <h5 class="card-title">Book Payment Details</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="bp_payment_date" class="form-label">Booking Payment Date</label>
+                                <input type="date" class="form-control" id="bp_payment_date" name="bp_payment_date" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="bp_payment" class="form-label">Booking Payment Amount</label>
+                                <input type="number" step="0.01" class="form-control" id="bp_payment" name="bp_payment" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="new_book_remaining" class="form-label">Remaining Amount</label>
+                                <input type="number" step="0.01" class="form-control" id="new_book_remaining" name="new_book_remaining" value="{{ booking.new_book_remaining }}" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3" style="display:None">
+                                <label for="book_remaining" class="form-label">Remaining Amount</label>
+                                <input type="number" step="0.01" class="form-control" id="book_remaining" name="book_remaining" value="{{ booking.book_remaining }}" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add Booking Payment</button>
+                </form>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</main>
+
+<script>
+    document.getElementById('bp_payment').addEventListener('input', function () {
+        var paymentAmount = parseFloat(this.value) || 0;  // Get the booking payment amount
+        var currentRemaining = parseFloat(document.getElementById('book_remaining').value) || 0;  // Get the current remaining amount
+        
+        var newRemaining = currentRemaining - paymentAmount;  // Calculate new remaining amount
+        
+        document.getElementById('new_book_remaining').value = newRemaining.toFixed(2);  // Update the remaining amount field
+    });
+
+    // Set today's date as default for the booking date input
+    document.addEventListener('DOMContentLoaded', function() {
+        const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+        document.getElementById('bp_payment_date').value = today;
+    });
+</script>
+
+{% endblock %}

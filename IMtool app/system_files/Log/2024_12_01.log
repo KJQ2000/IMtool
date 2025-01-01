@@ -1,0 +1,335 @@
+2024-12-01 20:51:03,359 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-01 20:51:03,359 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-01 20:51:03,360 - INFO -  * Restarting with stat
+2024-12-01 20:51:04,691 - WARNING -  * Debugger is active!
+2024-12-01 20:51:04,695 - INFO -  * Debugger PIN: 310-690-463
+2024-12-01 20:51:19,200 - INFO - 127.0.0.1 - - [01/Dec/2024 20:51:19] "GET / HTTP/1.1" 200 -
+2024-12-01 20:51:19,293 - INFO - 127.0.0.1 - - [01/Dec/2024 20:51:19] "GET /static/css/bootstrap/login_style.css HTTP/1.1" 200 -
+2024-12-01 20:51:19,679 - INFO - 127.0.0.1 - - [01/Dec/2024 20:51:19] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-12-01 20:51:31,750 - INFO - 127.0.0.1 - - [01/Dec/2024 20:51:31] "POST /login HTTP/1.1" 200 -
+2024-12-01 20:51:31,763 - INFO - 127.0.0.1 - - [01/Dec/2024 20:51:31] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2024-12-01 20:51:41,271 - INFO - 127.0.0.1 - - [01/Dec/2024 20:51:41] "POST /login HTTP/1.1" 200 -
+2024-12-01 20:51:41,285 - INFO - 127.0.0.1 - - [01/Dec/2024 20:51:41] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2024-12-01 20:52:28,198 - INFO - kjunqiang@gmail.com successfully login at 2024-12-01 20:52:28.198579
+2024-12-01 20:52:28,562 - INFO - Successfully selected data from konghin.stock.
+2024-12-01 20:52:28,562 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-12-01 20:52:28,628 - INFO - 127.0.0.1 - - [01/Dec/2024 20:52:28] "POST /login HTTP/1.1" 200 -
+2024-12-01 20:52:28,654 - INFO - 127.0.0.1 - - [01/Dec/2024 20:52:28] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 20:52:28,656 - INFO - 127.0.0.1 - - [01/Dec/2024 20:52:28] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 20:52:28,657 - INFO - 127.0.0.1 - - [01/Dec/2024 20:52:28] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 20:52:28,662 - INFO - 127.0.0.1 - - [01/Dec/2024 20:52:28] "GET /static/css/bootstrap/styles.css HTTP/1.1" 200 -
+2024-12-01 21:00:17,224 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-12-01 21:00:17,289 - INFO -  * Restarting with stat
+2024-12-01 21:00:19,288 - WARNING -  * Debugger is active!
+2024-12-01 21:00:19,292 - INFO -  * Debugger PIN: 310-690-463
+2024-12-01 21:44:22,082 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\barcode.py', reloading
+2024-12-01 21:44:22,151 - INFO -  * Restarting with stat
+2024-12-01 21:44:23,722 - WARNING -  * Debugger is active!
+2024-12-01 21:44:23,726 - INFO -  * Debugger PIN: 310-690-463
+2024-12-01 22:06:01,034 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-01 22:06:01,034 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-01 22:06:01,036 - INFO -  * Restarting with stat
+2024-12-01 22:08:54,500 - ERROR - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key=barcode_header
+2024-12-01 22:08:54,501 - ERROR - Database error: 42703 - ERROR:  column "barcode_header" does not exist
+
+2024-12-01 22:08:54,501 - ERROR - Error details: None
+2024-12-01 22:09:17,383 - ERROR - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key=barcode_header
+2024-12-01 22:09:17,384 - ERROR - Database error: 42703 - ERROR:  column "barcode_header" does not exist
+
+2024-12-01 22:09:17,384 - ERROR - Error details: None
+2024-12-01 22:09:58,126 - ERROR - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key=barcode_header
+2024-12-01 22:09:58,126 - ERROR - Database error: 42703 - ERROR:  column "barcode_header" does not exist
+
+2024-12-01 22:09:58,127 - ERROR - Error details: None
+2024-12-01 22:10:11,728 - ERROR - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key=barcode_header
+2024-12-01 22:10:11,728 - ERROR - Database error: 42703 - ERROR:  column "barcode_header" does not exist
+
+2024-12-01 22:10:11,729 - ERROR - Error details: None
+2024-12-01 22:10:20,707 - ERROR - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key=barcode_header
+2024-12-01 22:10:20,707 - ERROR - Database error: 42703 - ERROR:  column "barcode_header" does not exist
+
+2024-12-01 22:10:20,708 - ERROR - Error details: None
+2024-12-01 22:12:32,636 - ERROR - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key="barcode_header"
+2024-12-01 22:12:32,636 - ERROR - Database error: 42703 - ERROR:  column "barcode_header" does not exist
+
+2024-12-01 22:12:32,636 - ERROR - Error details: None
+2024-12-01 22:12:55,635 - INFO - Successfully selected data from konghin.metadata.
+2024-12-01 22:12:55,635 - INFO - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key='barcode_header'
+2024-12-01 22:13:43,533 - INFO - Successfully selected data from konghin.metadata.
+2024-12-01 22:13:43,534 - INFO - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key='barcode_header'
+2024-12-01 22:13:52,486 - INFO - Successfully selected data from konghin.metadata.
+2024-12-01 22:13:52,487 - INFO - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key='barcode_header'
+2024-12-01 22:14:07,816 - INFO - Successfully selected data from konghin.metadata.
+2024-12-01 22:14:07,816 - INFO - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key='barcode_header'
+2024-12-01 22:14:46,435 - INFO - Successfully selected data from konghin.metadata.
+2024-12-01 22:14:46,436 - INFO - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key='barcode_header'
+2024-12-01 22:16:21,216 - INFO - Next value of sequence stk_id_seq: 100076
+2024-12-01 22:17:16,712 - INFO - Successfully selected data from konghin.metadata.
+2024-12-01 22:17:16,712 - INFO - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key='barcode_header'
+2024-12-01 22:17:16,841 - INFO - Next value of sequence stk_id_seq: 100077
+2024-12-01 22:17:40,305 - INFO - Successfully selected data from konghin.metadata.
+2024-12-01 22:17:40,305 - INFO - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key='barcode_header'
+2024-12-01 22:17:40,409 - INFO - Next value of sequence stk_id_seq: 100078
+2024-12-01 22:19:21,007 - INFO - Successfully selected data from konghin.metadata.
+2024-12-01 22:19:21,007 - INFO - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key='barcode_header'
+2024-12-01 22:19:21,068 - INFO - Next value of sequence stk_id_seq: 100079
+2024-12-01 22:45:10,648 - INFO - Successfully selected data from konghin.metadata.
+2024-12-01 22:45:10,649 - INFO - Query: SELECT "metadata_value" FROM "konghin"."metadata" WHERE metadata_key='barcode_header'
+2024-12-01 22:45:10,805 - INFO - Next value of sequence stk_id_seq: 100001
+2024-12-01 23:02:23,582 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-01 23:02:23,582 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-01 23:02:23,584 - INFO -  * Restarting with stat
+2024-12-01 23:02:25,121 - WARNING -  * Debugger is active!
+2024-12-01 23:02:25,125 - INFO -  * Debugger PIN: 310-690-463
+2024-12-01 23:02:31,326 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:31] "GET / HTTP/1.1" 200 -
+2024-12-01 23:02:31,426 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:31] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2024-12-01 23:02:31,444 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-12-01 23:02:38,961 - INFO - kjunqiang@gmail.com successfully login at 2024-12-01 23:02:38.961592
+2024-12-01 23:02:39,127 - INFO - Successfully selected data from konghin.stock.
+2024-12-01 23:02:39,127 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-12-01 23:02:39,149 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:39] "POST /login HTTP/1.1" 200 -
+2024-12-01 23:02:39,166 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:39] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:02:39,173 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:39] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 23:02:39,174 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:39] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:02:39,174 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:39] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:02:41,504 - INFO - Successfully selected data from konghin.booking.
+2024-12-01 23:02:41,505 - INFO - Query: SELECT * FROM "konghin"."booking"
+2024-12-01 23:02:41,566 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:41] "GET /bookings HTTP/1.1" 200 -
+2024-12-01 23:02:41,583 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:41] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:02:41,587 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:41] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:02:41,590 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:41] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 23:02:41,591 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:41] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:02:43,144 - INFO - Successfully selected data from konghin.customer.
+2024-12-01 23:02:43,144 - INFO - Query: SELECT * FROM "konghin"."customer"
+2024-12-01 23:02:43,291 - INFO - Successfully selected data from konghin.stock.
+2024-12-01 23:02:43,292 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_status='IN STOCK'
+2024-12-01 23:02:43,340 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:43] "GET /add-booking HTTP/1.1" 200 -
+2024-12-01 23:02:43,353 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:43] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:02:43,357 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:43] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:02:43,360 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:43] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:02:43,366 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:43] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 23:02:58,425 - INFO - Next value of sequence book_id_seq: 100041
+2024-12-01 23:02:58,459 - ERROR - Query: INSERT INTO "konghin"."booking" ("book_id", "booking_date", "booking_stk_ids", "booking_gold_price", "booking_labor_price", "booking_price", "booking_deposit", "booking_remaining") VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+2024-12-01 23:02:58,459 - ERROR - Database error: 42703 - ERROR:  column "booking_date" does not exist
+
+2024-12-01 23:02:58,460 - ERROR - Error details: None
+2024-12-01 23:02:58,629 - INFO - current value of sequence book_id_seq: 100041
+2024-12-01 23:02:58,643 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:58] "[35m[1mPOST /add-booking HTTP/1.1[0m" 500 -
+2024-12-01 23:02:58,657 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:58] "GET /add-booking?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-12-01 23:02:58,661 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:58] "GET /add-booking?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-12-01 23:02:58,683 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:58] "GET /add-booking?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-12-01 23:02:58,691 - INFO - 127.0.0.1 - - [01/Dec/2024 23:02:58] "[36mGET /add-booking?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-01 23:03:21,024 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-12-01 23:03:21,080 - INFO -  * Restarting with stat
+2024-12-01 23:03:22,541 - WARNING -  * Debugger is active!
+2024-12-01 23:03:22,548 - INFO -  * Debugger PIN: 310-690-463
+2024-12-01 23:05:30,947 - INFO - Next value of sequence book_id_seq: 100042
+2024-12-01 23:05:31,022 - ERROR - Query: INSERT INTO "konghin"."booking" ("book_id", "booking_date", "booking_stk_ids", "booking_gold_price", "booking_labor_price", "booking_price", "booking_deposit", "booking_remaining") VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+2024-12-01 23:05:31,022 - ERROR - Database error: 42703 - ERROR:  column "booking_date" does not exist
+
+2024-12-01 23:05:31,022 - ERROR - Error details: None
+2024-12-01 23:05:31,194 - INFO - current value of sequence book_id_seq: 100042
+2024-12-01 23:05:31,277 - INFO - Next value of sequence bp_id_seq: 100002
+2024-12-01 23:05:31,547 - INFO - Successfully inserted data into konghin.book_payment.
+2024-12-01 23:05:31,547 - INFO - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_payment", "bp_payment_date", "bp_book_id") VALUES (%s, %s, %s, %s)
+2024-12-01 23:05:31,547 - INFO - Values: ['BP_100002', '123', '2024-12-01', 'BOOK_100042']
+2024-12-01 23:05:31,913 - INFO - Successfully updated data in konghin.stock.
+2024-12-01 23:05:31,913 - INFO - Query: UPDATE "konghin"."stock" SET "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_status" = %s, "stk_book_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100017'
+2024-12-01 23:05:31,913 - INFO - Values: ['123', '123', 'BOOKED', 'BOOK_100042', '2024-12-01 23:05:31']
+2024-12-01 23:05:32,176 - INFO - Successfully selected data from konghin.booking.
+2024-12-01 23:05:32,176 - INFO - Query: SELECT * FROM "konghin"."booking"
+2024-12-01 23:05:32,192 - INFO - 127.0.0.1 - - [01/Dec/2024 23:05:32] "POST /add-booking HTTP/1.1" 200 -
+2024-12-01 23:05:32,214 - INFO - 127.0.0.1 - - [01/Dec/2024 23:05:32] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:05:32,217 - INFO - 127.0.0.1 - - [01/Dec/2024 23:05:32] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:05:32,221 - INFO - 127.0.0.1 - - [01/Dec/2024 23:05:32] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 23:05:32,448 - INFO - 127.0.0.1 - - [01/Dec/2024 23:05:32] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:05:36,993 - INFO - Successfully selected data from konghin.booking.
+2024-12-01 23:05:36,993 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100038'
+2024-12-01 23:05:37,079 - INFO - Successfully selected data from konghin.customer.
+2024-12-01 23:05:37,079 - INFO - Query: SELECT * FROM "konghin"."customer"
+2024-12-01 23:05:37,126 - INFO - 127.0.0.1 - - [01/Dec/2024 23:05:37] "[35m[1mGET /update-booking/BOOK_100038 HTTP/1.1[0m" 500 -
+2024-12-01 23:05:37,140 - INFO - 127.0.0.1 - - [01/Dec/2024 23:05:37] "GET /update-booking/BOOK_100038?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-12-01 23:05:37,141 - INFO - 127.0.0.1 - - [01/Dec/2024 23:05:37] "GET /update-booking/BOOK_100038?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-12-01 23:05:37,147 - INFO - 127.0.0.1 - - [01/Dec/2024 23:05:37] "GET /update-booking/BOOK_100038?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-12-01 23:05:37,153 - INFO - 127.0.0.1 - - [01/Dec/2024 23:05:37] "[36mGET /update-booking/BOOK_100038?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-12-01 23:07:44,181 - INFO - Successfully selected data from konghin.customer.
+2024-12-01 23:07:44,181 - INFO - Query: SELECT * FROM "konghin"."customer"
+2024-12-01 23:07:44,304 - INFO - Successfully selected data from konghin.stock.
+2024-12-01 23:07:44,304 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_status='IN STOCK'
+2024-12-01 23:07:44,318 - INFO - 127.0.0.1 - - [01/Dec/2024 23:07:44] "GET /add-booking HTTP/1.1" 200 -
+2024-12-01 23:07:44,341 - INFO - 127.0.0.1 - - [01/Dec/2024 23:07:44] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:07:44,342 - INFO - 127.0.0.1 - - [01/Dec/2024 23:07:44] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:07:44,345 - INFO - 127.0.0.1 - - [01/Dec/2024 23:07:44] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:07:44,348 - INFO - 127.0.0.1 - - [01/Dec/2024 23:07:44] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 23:08:08,558 - INFO - Next value of sequence book_id_seq: 100043
+2024-12-01 23:08:08,639 - ERROR - Query: INSERT INTO "konghin"."booking" ("book_id", "booking_date", "booking_stk_ids", "booking_gold_price", "booking_labor_price", "booking_price", "booking_deposit", "booking_remaining") VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+2024-12-01 23:08:08,639 - ERROR - Database error: 42703 - ERROR:  column "booking_date" does not exist
+
+2024-12-01 23:08:08,639 - ERROR - Error details: None
+2024-12-01 23:08:08,965 - INFO - current value of sequence book_id_seq: 100043
+2024-12-01 23:08:09,075 - INFO - Next value of sequence bp_id_seq: 100003
+2024-12-01 23:08:09,228 - INFO - Successfully inserted data into konghin.book_payment.
+2024-12-01 23:08:09,228 - INFO - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_payment", "bp_payment_date", "bp_book_id") VALUES (%s, %s, %s, %s)
+2024-12-01 23:08:09,230 - INFO - Values: ['BP_100003', '12', '2024-12-02', 'BOOK_100043']
+2024-12-01 23:08:09,624 - INFO - Successfully updated data in konghin.stock.
+2024-12-01 23:08:09,624 - INFO - Query: UPDATE "konghin"."stock" SET "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_status" = %s, "stk_book_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100018'
+2024-12-01 23:08:09,625 - INFO - Values: ['123', '123', 'BOOKED', 'BOOK_100043', '2024-12-01 23:08:09']
+2024-12-01 23:08:09,820 - INFO - Successfully selected data from konghin.booking.
+2024-12-01 23:08:09,821 - INFO - Query: SELECT * FROM "konghin"."booking"
+2024-12-01 23:08:09,824 - INFO - 127.0.0.1 - - [01/Dec/2024 23:08:09] "POST /add-booking HTTP/1.1" 200 -
+2024-12-01 23:08:09,849 - INFO - 127.0.0.1 - - [01/Dec/2024 23:08:09] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:08:09,851 - INFO - 127.0.0.1 - - [01/Dec/2024 23:08:09] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 23:08:09,855 - INFO - 127.0.0.1 - - [01/Dec/2024 23:08:09] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:08:09,858 - INFO - 127.0.0.1 - - [01/Dec/2024 23:08:09] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:11:17,487 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-12-01 23:11:17,589 - INFO -  * Restarting with stat
+2024-12-01 23:11:19,432 - WARNING -  * Debugger is active!
+2024-12-01 23:11:19,436 - INFO -  * Debugger PIN: 310-690-463
+2024-12-01 23:11:27,530 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-12-01 23:11:27,599 - INFO -  * Restarting with stat
+2024-12-01 23:11:28,970 - WARNING -  * Debugger is active!
+2024-12-01 23:11:28,975 - INFO -  * Debugger PIN: 310-690-463
+2024-12-01 23:11:33,904 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-01 23:11:33,904 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-01 23:11:33,906 - INFO -  * Restarting with stat
+2024-12-01 23:11:35,274 - WARNING -  * Debugger is active!
+2024-12-01 23:11:35,278 - INFO -  * Debugger PIN: 310-690-463
+2024-12-01 23:11:39,341 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:39] "GET / HTTP/1.1" 200 -
+2024-12-01 23:11:39,430 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:39] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2024-12-01 23:11:43,614 - INFO - kjunqiang@gmail.com successfully login at 2024-12-01 23:11:43.614769
+2024-12-01 23:11:43,815 - INFO - Successfully selected data from konghin.stock.
+2024-12-01 23:11:43,815 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-12-01 23:11:43,833 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:43] "POST /login HTTP/1.1" 200 -
+2024-12-01 23:11:43,851 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:43] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:11:43,854 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:43] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:11:43,855 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:43] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:11:43,857 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:43] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 23:11:46,504 - INFO - Successfully selected data from konghin.booking.
+2024-12-01 23:11:46,504 - INFO - Query: SELECT * FROM "konghin"."booking"
+2024-12-01 23:11:46,512 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:46] "GET /bookings HTTP/1.1" 200 -
+2024-12-01 23:11:46,532 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:46] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:11:46,536 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:46] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:11:46,538 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:46] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:11:46,541 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:46] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 23:11:47,684 - INFO - Successfully selected data from konghin.customer.
+2024-12-01 23:11:47,684 - INFO - Query: SELECT * FROM "konghin"."customer"
+2024-12-01 23:11:47,749 - INFO - Successfully selected data from konghin.stock.
+2024-12-01 23:11:47,750 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_status='IN STOCK'
+2024-12-01 23:11:47,776 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:47] "GET /add-booking HTTP/1.1" 200 -
+2024-12-01 23:11:47,790 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:47] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:11:47,795 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:47] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:11:47,796 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:47] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:11:47,800 - INFO - 127.0.0.1 - - [01/Dec/2024 23:11:47] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 23:12:07,032 - INFO - Next value of sequence book_id_seq: 100044
+2024-12-01 23:12:07,132 - ERROR - Query: INSERT INTO "konghin"."booking" ("book_id", "book_cust_id", "book_receipt_no", "book_date", "booking_stk_ids", "book_gold_price", "book_labor_price", "book_weight", "book_price", "bp_payment", "book_remaining") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+2024-12-01 23:12:07,133 - ERROR - Database error: 42703 - ERROR:  column "booking_stk_ids" does not exist
+
+2024-12-01 23:12:07,133 - ERROR - Error details: None
+2024-12-01 23:12:07,362 - INFO - current value of sequence book_id_seq: 100044
+2024-12-01 23:12:07,470 - INFO - Next value of sequence bp_id_seq: 100004
+2024-12-01 23:12:07,609 - ERROR - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_book_id") VALUES (%s, %s)
+2024-12-01 23:12:07,609 - ERROR - Database error: 23502 - ERROR:  null value in column "bp_payment" violates not-null constraint
+
+2024-12-01 23:12:07,610 - ERROR - Error details: None
+2024-12-01 23:12:08,078 - INFO - Successfully updated data in konghin.stock.
+2024-12-01 23:12:08,078 - INFO - Query: UPDATE "konghin"."stock" SET "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_status" = %s, "stk_book_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100019'
+2024-12-01 23:12:08,078 - INFO - Values: [None, None, 'BOOKED', 'BOOK_100044', '2024-12-01 23:12:07']
+2024-12-01 23:12:08,298 - INFO - Successfully selected data from konghin.booking.
+2024-12-01 23:12:08,298 - INFO - Query: SELECT * FROM "konghin"."booking"
+2024-12-01 23:12:08,300 - INFO - 127.0.0.1 - - [01/Dec/2024 23:12:08] "POST /add-booking HTTP/1.1" 200 -
+2024-12-01 23:12:08,326 - INFO - 127.0.0.1 - - [01/Dec/2024 23:12:08] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:12:08,331 - INFO - 127.0.0.1 - - [01/Dec/2024 23:12:08] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:12:08,334 - INFO - 127.0.0.1 - - [01/Dec/2024 23:12:08] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:12:08,338 - INFO - 127.0.0.1 - - [01/Dec/2024 23:12:08] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 23:20:40,398 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-12-01 23:20:40,477 - INFO -  * Restarting with stat
+2024-12-01 23:20:42,731 - WARNING -  * Debugger is active!
+2024-12-01 23:20:42,735 - INFO -  * Debugger PIN: 310-690-463
+2024-12-01 23:20:57,599 - INFO - Next value of sequence book_id_seq: 100045
+2024-12-01 23:20:57,672 - ERROR - Query: INSERT INTO "konghin"."booking" ("book_id", "book_cust_id", "book_receipt_no", "book_date", "booking_stk_ids", "book_gold_price", "book_labor_price", "book_weight", "book_price", "bp_payment", "book_remaining") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+2024-12-01 23:20:57,672 - ERROR - Database error: 42703 - ERROR:  column "booking_stk_ids" does not exist
+
+2024-12-01 23:20:57,672 - ERROR - Error details: None
+2024-12-01 23:20:57,844 - INFO - current value of sequence book_id_seq: 100045
+2024-12-01 23:20:57,983 - INFO - Next value of sequence bp_id_seq: 100005
+2024-12-01 23:20:58,108 - ERROR - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_book_id") VALUES (%s, %s)
+2024-12-01 23:20:58,109 - ERROR - Database error: 23502 - ERROR:  null value in column "bp_payment" violates not-null constraint
+
+2024-12-01 23:20:58,109 - ERROR - Error details: None
+2024-12-01 23:20:58,610 - INFO - Successfully updated data in konghin.stock.
+2024-12-01 23:20:58,610 - INFO - Query: UPDATE "konghin"."stock" SET "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_status" = %s, "stk_book_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100019'
+2024-12-01 23:20:58,610 - INFO - Values: [None, None, 'BOOKED', 'BOOK_100045', '2024-12-01 23:20:58']
+2024-12-01 23:20:58,916 - INFO - Successfully selected data from konghin.booking.
+2024-12-01 23:20:58,917 - INFO - Query: SELECT * FROM "konghin"."booking"
+2024-12-01 23:20:58,933 - INFO - 127.0.0.1 - - [01/Dec/2024 23:20:58] "POST /add-booking HTTP/1.1" 200 -
+2024-12-01 23:20:58,952 - INFO - 127.0.0.1 - - [01/Dec/2024 23:20:58] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:20:58,954 - INFO - 127.0.0.1 - - [01/Dec/2024 23:20:58] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:20:58,956 - INFO - 127.0.0.1 - - [01/Dec/2024 23:20:58] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 23:20:59,178 - INFO - 127.0.0.1 - - [01/Dec/2024 23:20:59] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:21:04,108 - INFO - Successfully selected data from konghin.customer.
+2024-12-01 23:21:04,108 - INFO - Query: SELECT * FROM "konghin"."customer"
+2024-12-01 23:21:04,328 - INFO - Successfully selected data from konghin.stock.
+2024-12-01 23:21:04,328 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_status='IN STOCK'
+2024-12-01 23:21:04,335 - INFO - 127.0.0.1 - - [01/Dec/2024 23:21:04] "GET /add-booking HTTP/1.1" 200 -
+2024-12-01 23:21:04,356 - INFO - 127.0.0.1 - - [01/Dec/2024 23:21:04] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:21:04,358 - INFO - 127.0.0.1 - - [01/Dec/2024 23:21:04] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:21:04,360 - INFO - 127.0.0.1 - - [01/Dec/2024 23:21:04] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:21:04,363 - INFO - 127.0.0.1 - - [01/Dec/2024 23:21:04] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 23:21:21,012 - INFO - Next value of sequence book_id_seq: 100046
+2024-12-01 23:21:21,163 - ERROR - Query: INSERT INTO "konghin"."booking" ("book_id", "book_cust_id", "book_receipt_no", "book_date", "booking_stk_ids", "book_gold_price", "book_labor_price", "book_weight", "book_price", "bp_payment", "book_remaining") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+2024-12-01 23:21:21,164 - ERROR - Database error: 42703 - ERROR:  column "booking_stk_ids" does not exist
+
+2024-12-01 23:21:21,164 - ERROR - Error details: None
+2024-12-01 23:21:21,598 - INFO - current value of sequence book_id_seq: 100046
+2024-12-01 23:21:21,699 - INFO - Next value of sequence bp_id_seq: 100006
+2024-12-01 23:21:21,921 - ERROR - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_book_id") VALUES (%s, %s)
+2024-12-01 23:21:21,921 - ERROR - Database error: 23502 - ERROR:  null value in column "bp_payment" violates not-null constraint
+
+2024-12-01 23:21:21,921 - ERROR - Error details: None
+2024-12-01 23:21:22,457 - INFO - Successfully updated data in konghin.stock.
+2024-12-01 23:21:22,457 - INFO - Query: UPDATE "konghin"."stock" SET "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_status" = %s, "stk_book_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100020'
+2024-12-01 23:21:22,458 - INFO - Values: [None, None, 'BOOKED', 'BOOK_100046', '2024-12-01 23:21:22']
+2024-12-01 23:21:22,793 - INFO - Successfully selected data from konghin.booking.
+2024-12-01 23:21:22,793 - INFO - Query: SELECT * FROM "konghin"."booking"
+2024-12-01 23:21:22,796 - INFO - 127.0.0.1 - - [01/Dec/2024 23:21:22] "POST /add-booking HTTP/1.1" 200 -
+2024-12-01 23:21:22,820 - INFO - 127.0.0.1 - - [01/Dec/2024 23:21:22] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:21:22,822 - INFO - 127.0.0.1 - - [01/Dec/2024 23:21:22] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:21:22,825 - INFO - 127.0.0.1 - - [01/Dec/2024 23:21:22] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:21:22,828 - INFO - 127.0.0.1 - - [01/Dec/2024 23:21:22] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 23:22:22,473 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-12-01 23:22:22,537 - INFO -  * Restarting with stat
+2024-12-01 23:22:23,916 - WARNING -  * Debugger is active!
+2024-12-01 23:22:23,920 - INFO -  * Debugger PIN: 310-690-463
+2024-12-01 23:22:26,294 - INFO - Successfully selected data from konghin.customer.
+2024-12-01 23:22:26,294 - INFO - Query: SELECT * FROM "konghin"."customer"
+2024-12-01 23:22:26,358 - INFO - Successfully selected data from konghin.stock.
+2024-12-01 23:22:26,358 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_status='IN STOCK'
+2024-12-01 23:22:26,372 - INFO - 127.0.0.1 - - [01/Dec/2024 23:22:26] "GET /add-booking HTTP/1.1" 200 -
+2024-12-01 23:22:26,403 - INFO - 127.0.0.1 - - [01/Dec/2024 23:22:26] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:22:26,405 - INFO - 127.0.0.1 - - [01/Dec/2024 23:22:26] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:22:26,407 - INFO - 127.0.0.1 - - [01/Dec/2024 23:22:26] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-12-01 23:22:26,481 - INFO - 127.0.0.1 - - [01/Dec/2024 23:22:26] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:22:40,270 - INFO - Next value of sequence book_id_seq: 100047
+2024-12-01 23:22:40,403 - ERROR - Query: INSERT INTO "konghin"."booking" ("book_id", "book_cust_id", "book_receipt_no", "book_date", "booking_stk_ids", "book_gold_price", "book_labor_price", "book_weight", "book_price", "bp_payment", "book_remaining") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+2024-12-01 23:22:40,403 - ERROR - Database error: 42703 - ERROR:  column "booking_stk_ids" does not exist
+
+2024-12-01 23:22:40,403 - ERROR - Error details: None
+2024-12-01 23:22:40,719 - INFO - current value of sequence book_id_seq: 100047
+2024-12-01 23:22:40,818 - INFO - Next value of sequence bp_id_seq: 100007
+2024-12-01 23:22:41,053 - INFO - Successfully inserted data into konghin.book_payment.
+2024-12-01 23:22:41,054 - INFO - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_payment", "bp_book_id") VALUES (%s, %s, %s)
+2024-12-01 23:22:41,054 - INFO - Values: ['BP_100007', '12', 'BOOK_100047']
+2024-12-01 23:22:41,435 - INFO - Successfully updated data in konghin.stock.
+2024-12-01 23:22:41,436 - INFO - Query: UPDATE "konghin"."stock" SET "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_status" = %s, "stk_book_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100021'
+2024-12-01 23:22:41,436 - INFO - Values: [None, None, 'BOOKED', 'BOOK_100047', '2024-12-01 23:22:41']
+2024-12-01 23:22:41,586 - INFO - Successfully selected data from konghin.booking.
+2024-12-01 23:22:41,587 - INFO - Query: SELECT * FROM "konghin"."booking"
+2024-12-01 23:22:41,596 - INFO - 127.0.0.1 - - [01/Dec/2024 23:22:41] "POST /add-booking HTTP/1.1" 200 -
+2024-12-01 23:22:41,621 - INFO - 127.0.0.1 - - [01/Dec/2024 23:22:41] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-12-01 23:22:41,625 - INFO - 127.0.0.1 - - [01/Dec/2024 23:22:41] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-12-01 23:22:41,625 - INFO - 127.0.0.1 - - [01/Dec/2024 23:22:41] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-12-01 23:22:41,628 - INFO - 127.0.0.1 - - [01/Dec/2024 23:22:41] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -

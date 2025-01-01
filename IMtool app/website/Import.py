@@ -16,13 +16,15 @@ insert_values = []
 char_limit = dic.BATCH_INSERT_LIMIT
 
 TABLE = {
-    'usr' : 'users',
-    'book' : 'booking',
-    'cust' : 'customer',
-    'stk' : 'stock',
-    'sale' : 'sale',
-    'slm' : 'salesman',
-    'pur' : 'purchase'
+    'usr'   : 'users',
+    'book'  : 'booking',
+    'cust'  : 'customer',
+    'stk'   : 'stock',
+    'sale'  : 'sale',
+    'slm'   : 'salesman',
+    'pur'   : 'purchase',
+    'bp'    :'book_payment',
+    'cpat'  :'category_pattern_mapping'
 }
 
 
@@ -40,15 +42,16 @@ for file in files_to_import:
         df = pd.read_excel(file)
 
     table = TABLE.get(str(df.columns[0].split('_')[0]).lower())
+    
     for index, row in df.iterrows():
         value_tuple = str(tuple(row))
         if len(', '.join(str(insert_values)) + value_tuple) > char_limit:
-            db.batch_insert(table=table,values=insert_values)
+            db.batch_insert(table=table,columns=list(df.columns),values=insert_values)
             insert_values = []
         value_tuple = list(tuple(row))
         insert_values.append(value_tuple)
     try:
-        db.batch_insert(table=table,values=insert_values)
+        db.batch_insert(table=table,columns=list(df.columns),values=insert_values)
         shutil.move(file, dic.SUCCESS_IMPORT_DIR+str(file.split('/')[-1])) 
     except Exception as e:
         shutil.move(file, dic.FAILED_IMPORT_DIR+str(file.split('/')[-1])) 

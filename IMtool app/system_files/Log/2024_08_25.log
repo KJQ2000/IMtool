@@ -165,3 +165,1020 @@
 2024-08-25 17:27:50,615 - INFO - 127.0.0.1 - - [25/Aug/2024 17:27:50] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
 2024-08-25 17:27:50,616 - INFO - 127.0.0.1 - - [25/Aug/2024 17:27:50] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
 2024-08-25 17:27:50,618 - INFO - 127.0.0.1 - - [25/Aug/2024 17:27:50] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 17:55:51,763 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-25 17:55:51,763 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-25 17:55:51,765 - INFO -  * Restarting with stat
+2024-08-25 17:55:52,474 - WARNING -  * Debugger is active!
+2024-08-25 17:55:52,478 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 17:55:52,520 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 17:55:52,521 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 17:55:52,535 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:52] "GET /stocks HTTP/1.1" 200 -
+2024-08-25 17:55:52,579 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:52] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 17:55:52,584 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:52] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 17:55:52,588 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:52] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 17:55:52,638 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:52] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 17:55:54,290 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 17:55:54,290 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 17:55:54,293 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:54] "GET /stocks HTTP/1.1" 200 -
+2024-08-25 17:55:54,304 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:54] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 17:55:54,308 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:54] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 17:55:54,309 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:54] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 17:55:54,312 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:54] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 17:55:56,686 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 17:55:56,686 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 17:55:56,711 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:56] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 17:55:56,736 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:56] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 17:55:56,736 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:56] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 17:55:56,738 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:56] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 17:55:56,740 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:56] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 17:55:58,954 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 17:55:58,955 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 17:55:58,959 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:58] "GET /stocks HTTP/1.1" 200 -
+2024-08-25 17:55:58,975 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:58] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 17:55:58,980 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:58] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 17:55:58,981 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:58] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 17:55:58,984 - INFO - 127.0.0.1 - - [25/Aug/2024 17:55:58] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 17:56:00,708 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 17:56:00,708 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 17:56:00,709 - INFO - 127.0.0.1 - - [25/Aug/2024 17:56:00] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 17:56:00,723 - INFO - 127.0.0.1 - - [25/Aug/2024 17:56:00] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 17:56:00,726 - INFO - 127.0.0.1 - - [25/Aug/2024 17:56:00] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 17:56:00,731 - INFO - 127.0.0.1 - - [25/Aug/2024 17:56:00] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 17:56:00,732 - INFO - 127.0.0.1 - - [25/Aug/2024 17:56:00] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:34:37,505 - INFO - 127.0.0.1 - - [25/Aug/2024 20:34:37] "[33mGET /addpurchases HTTP/1.1[0m" 404 -
+2024-08-25 20:37:07,304 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 20:37:07,356 - INFO -  * Restarting with stat
+2024-08-25 20:37:08,828 - WARNING -  * Debugger is active!
+2024-08-25 20:37:08,832 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 20:37:18,969 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 20:37:19,034 - INFO -  * Restarting with stat
+2024-08-25 20:37:19,818 - WARNING -  * Debugger is active!
+2024-08-25 20:37:19,822 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 20:38:25,635 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 20:38:25,722 - INFO -  * Restarting with stat
+2024-08-25 20:38:26,710 - WARNING -  * Debugger is active!
+2024-08-25 20:38:26,713 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 20:42:19,034 - INFO - 127.0.0.1 - - [25/Aug/2024 20:42:19] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:43:19,345 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:43:19,345 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:43:19,378 - INFO - 127.0.0.1 - - [25/Aug/2024 20:43:19] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:43:19,387 - INFO - 127.0.0.1 - - [25/Aug/2024 20:43:19] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:43:19,388 - INFO - 127.0.0.1 - - [25/Aug/2024 20:43:19] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:43:19,390 - INFO - 127.0.0.1 - - [25/Aug/2024 20:43:19] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:43:19,393 - INFO - 127.0.0.1 - - [25/Aug/2024 20:43:19] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:44:20,510 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:44:20,511 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:44:20,542 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:20] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:44:20,554 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:20] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:44:20,555 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:20] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:44:20,558 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:20] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:44:20,560 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:20] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:44:41,962 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:44:41,962 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:44:41,988 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:41] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:44:41,999 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:41] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:44:41,999 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:41] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:44:42,001 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:42] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:44:42,003 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:42] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:44:55,190 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:44:55,191 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:44:55,214 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:55] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:44:55,225 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:55] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:44:55,229 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:55] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:44:55,230 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:55] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:44:55,235 - INFO - 127.0.0.1 - - [25/Aug/2024 20:44:55] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:45:05,684 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:45:05,684 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:45:05,715 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:05] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:45:05,726 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:05] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:45:05,729 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:05] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:45:05,730 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:05] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:45:05,732 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:05] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:45:09,134 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:45:09,134 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:45:09,162 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:09] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:45:09,171 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:09] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:45:09,173 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:09] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:45:09,177 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:09] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:45:09,178 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:09] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:45:21,680 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:45:21,681 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:45:21,707 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:21] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:45:21,717 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:21] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:45:21,718 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:21] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:45:21,718 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:21] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:45:21,721 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:21] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:45:28,718 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:45:28,718 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:45:28,745 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:28] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:45:28,756 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:28] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:45:28,756 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:28] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:45:28,758 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:28] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:45:28,760 - INFO - 127.0.0.1 - - [25/Aug/2024 20:45:28] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:46:44,885 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:46:44,886 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:46:44,926 - INFO - 127.0.0.1 - - [25/Aug/2024 20:46:44] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:46:44,937 - INFO - 127.0.0.1 - - [25/Aug/2024 20:46:44] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:46:44,938 - INFO - 127.0.0.1 - - [25/Aug/2024 20:46:44] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:46:44,940 - INFO - 127.0.0.1 - - [25/Aug/2024 20:46:44] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:46:44,943 - INFO - 127.0.0.1 - - [25/Aug/2024 20:46:44] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:46:45,228 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:46:45,228 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:46:45,230 - INFO - 127.0.0.1 - - [25/Aug/2024 20:46:45] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:46:45,251 - INFO - 127.0.0.1 - - [25/Aug/2024 20:46:45] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:46:45,253 - INFO - 127.0.0.1 - - [25/Aug/2024 20:46:45] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:46:45,255 - INFO - 127.0.0.1 - - [25/Aug/2024 20:46:45] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:46:45,257 - INFO - 127.0.0.1 - - [25/Aug/2024 20:46:45] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:47:52,404 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:47:52,404 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:47:52,405 - INFO - 127.0.0.1 - - [25/Aug/2024 20:47:52] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:47:52,421 - INFO - 127.0.0.1 - - [25/Aug/2024 20:47:52] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:47:52,421 - INFO - 127.0.0.1 - - [25/Aug/2024 20:47:52] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:47:52,422 - INFO - 127.0.0.1 - - [25/Aug/2024 20:47:52] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:47:52,427 - INFO - 127.0.0.1 - - [25/Aug/2024 20:47:52] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:47:55,798 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 20:47:55,799 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 20:47:55,821 - INFO - 127.0.0.1 - - [25/Aug/2024 20:47:55] "GET /stocks HTTP/1.1" 200 -
+2024-08-25 20:47:55,837 - INFO - 127.0.0.1 - - [25/Aug/2024 20:47:55] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:47:55,840 - INFO - 127.0.0.1 - - [25/Aug/2024 20:47:55] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:47:55,844 - INFO - 127.0.0.1 - - [25/Aug/2024 20:47:55] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:47:55,846 - INFO - 127.0.0.1 - - [25/Aug/2024 20:47:55] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:48:00,203 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:48:00,204 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:48:00,206 - INFO - 127.0.0.1 - - [25/Aug/2024 20:48:00] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:48:00,229 - INFO - 127.0.0.1 - - [25/Aug/2024 20:48:00] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:48:00,233 - INFO - 127.0.0.1 - - [25/Aug/2024 20:48:00] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:48:00,235 - INFO - 127.0.0.1 - - [25/Aug/2024 20:48:00] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:48:00,237 - INFO - 127.0.0.1 - - [25/Aug/2024 20:48:00] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:50:35,841 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:50:35,841 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:50:35,873 - INFO - 127.0.0.1 - - [25/Aug/2024 20:50:35] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:50:35,885 - INFO - 127.0.0.1 - - [25/Aug/2024 20:50:35] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:50:35,886 - INFO - 127.0.0.1 - - [25/Aug/2024 20:50:35] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:50:35,891 - INFO - 127.0.0.1 - - [25/Aug/2024 20:50:35] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:50:35,894 - INFO - 127.0.0.1 - - [25/Aug/2024 20:50:35] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:50:38,276 - INFO - 127.0.0.1 - - [25/Aug/2024 20:50:38] "POST /your-endpoint HTTP/1.1" 200 -
+2024-08-25 20:50:44,709 - INFO - 127.0.0.1 - - [25/Aug/2024 20:50:44] "[33mGET /addpurchases HTTP/1.1[0m" 404 -
+2024-08-25 20:50:46,418 - INFO - 127.0.0.1 - - [25/Aug/2024 20:50:46] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:51:05,179 - INFO - 127.0.0.1 - - [25/Aug/2024 20:51:05] "[33mGET /update-purchase/a HTTP/1.1[0m" 404 -
+2024-08-25 20:52:32,596 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 20:52:32,596 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 20:52:32,599 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:32] "GET /stocks HTTP/1.1" 200 -
+2024-08-25 20:52:32,609 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:32] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:52:32,612 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:32] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:52:32,614 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:32] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:52:32,615 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:32] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:52:38,037 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:52:38,037 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:52:38,038 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:38] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:52:38,049 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:38] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:52:38,050 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:38] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:52:38,051 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:38] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:52:38,054 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:38] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:52:39,693 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 20:52:39,693 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 20:52:39,697 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:39] "GET /stocks HTTP/1.1" 200 -
+2024-08-25 20:52:39,710 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:39] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:52:39,711 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:39] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:52:39,711 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:39] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:52:39,712 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:39] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:52:44,335 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 20:52:44,335 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 20:52:44,336 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:44] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 20:52:44,346 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:44] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 20:52:44,348 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:44] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 20:52:44,350 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:44] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 20:52:44,351 - INFO - 127.0.0.1 - - [25/Aug/2024 20:52:44] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 20:53:24,508 - INFO - 127.0.0.1 - - [25/Aug/2024 20:53:24] "POST /your-endpoint HTTP/1.1" 200 -
+2024-08-25 21:02:37,698 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 21:02:37,766 - INFO -  * Restarting with stat
+2024-08-25 21:02:38,734 - WARNING -  * Debugger is active!
+2024-08-25 21:02:38,738 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 21:02:46,839 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 21:02:46,906 - INFO -  * Restarting with stat
+2024-08-25 21:02:47,773 - WARNING -  * Debugger is active!
+2024-08-25 21:02:47,778 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 21:03:01,217 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 21:03:01,218 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:03:01,253 - INFO - 127.0.0.1 - - [25/Aug/2024 21:03:01] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 21:03:01,265 - INFO - 127.0.0.1 - - [25/Aug/2024 21:03:01] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 21:03:01,268 - INFO - 127.0.0.1 - - [25/Aug/2024 21:03:01] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 21:03:01,271 - INFO - 127.0.0.1 - - [25/Aug/2024 21:03:01] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 21:03:01,454 - INFO - 127.0.0.1 - - [25/Aug/2024 21:03:01] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 21:03:04,989 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 21:03:05,064 - INFO -  * Restarting with stat
+2024-08-25 21:03:06,209 - WARNING -  * Debugger is active!
+2024-08-25 21:03:06,218 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 21:03:06,640 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 21:03:06,641 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:03:06,654 - INFO - 127.0.0.1 - - [25/Aug/2024 21:03:06] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 21:03:06,664 - INFO - 127.0.0.1 - - [25/Aug/2024 21:03:06] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 21:03:06,670 - INFO - 127.0.0.1 - - [25/Aug/2024 21:03:06] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 21:03:06,671 - INFO - 127.0.0.1 - - [25/Aug/2024 21:03:06] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 21:03:06,736 - INFO - 127.0.0.1 - - [25/Aug/2024 21:03:06] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 21:03:08,095 - INFO - 127.0.0.1 - - [25/Aug/2024 21:03:08] "[33mGET /delete-purchase/ HTTP/1.1[0m" 404 -
+2024-08-25 21:03:28,301 - INFO - 127.0.0.1 - - [25/Aug/2024 21:03:28] "[33mGET /delete-purchase/ HTTP/1.1[0m" 404 -
+2024-08-25 21:03:58,869 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 21:03:58,937 - INFO -  * Restarting with stat
+2024-08-25 21:04:00,158 - WARNING -  * Debugger is active!
+2024-08-25 21:04:00,162 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 21:04:08,284 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:08] "[33mGET /delete-purchase/ HTTP/1.1[0m" 404 -
+2024-08-25 21:04:10,908 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 21:04:10,910 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:04:10,923 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:10] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 21:04:10,935 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:10] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 21:04:10,936 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:10] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 21:04:10,936 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:10] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 21:04:11,033 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:11] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 21:04:11,845 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 21:04:11,846 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:04:11,847 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:11] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 21:04:11,861 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:11] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 21:04:11,864 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:11] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 21:04:11,867 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:11] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 21:04:11,868 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:11] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 21:04:13,580 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:13] "[33mGET /delete-purchase/ HTTP/1.1[0m" 404 -
+2024-08-25 21:04:19,435 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 21:04:19,523 - INFO -  * Restarting with stat
+2024-08-25 21:04:21,607 - WARNING -  * Debugger is active!
+2024-08-25 21:04:21,612 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 21:04:32,864 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 21:04:32,864 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:04:32,864 - ERROR - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:04:32,865 - ERROR - Unexpected error: Length mismatch: Expected axis has 1 elements, new values have 11 elements
+2024-08-25 21:04:32,898 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:32] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 21:04:32,912 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:32] "[35m[1mGET /purchases HTTP/1.1[0m" 500 -
+2024-08-25 21:04:33,047 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:33] "[36mGET /purchases?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-25 21:04:33,048 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:33] "[36mGET /purchases?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-25 21:04:33,072 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:33] "[36mGET /purchases?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 21:04:33,081 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:33] "[36mGET /purchases?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 21:04:38,008 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 21:04:38,008 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:04:38,010 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:38] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 21:04:38,026 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:38] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 21:04:38,027 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:38] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 21:04:38,028 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:38] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 21:04:38,031 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:38] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 21:04:55,450 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 21:04:55,450 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:04:55,453 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:55] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 21:04:55,466 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:55] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 21:04:55,468 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:55] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 21:04:55,468 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:55] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 21:04:55,471 - INFO - 127.0.0.1 - - [25/Aug/2024 21:04:55] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 21:05:05,122 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 21:05:05,229 - INFO -  * Restarting with stat
+2024-08-25 21:05:06,129 - WARNING -  * Debugger is active!
+2024-08-25 21:05:06,132 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 21:05:09,195 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 21:05:09,195 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:05:09,208 - INFO - 127.0.0.1 - - [25/Aug/2024 21:05:09] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 21:05:09,220 - INFO - 127.0.0.1 - - [25/Aug/2024 21:05:09] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 21:05:09,222 - INFO - 127.0.0.1 - - [25/Aug/2024 21:05:09] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 21:05:09,224 - INFO - 127.0.0.1 - - [25/Aug/2024 21:05:09] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 21:05:09,290 - INFO - 127.0.0.1 - - [25/Aug/2024 21:05:09] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 21:05:18,081 - INFO - 127.0.0.1 - - [25/Aug/2024 21:05:18] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 21:05:54,621 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 21:05:54,621 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:05:54,651 - INFO - 127.0.0.1 - - [25/Aug/2024 21:05:54] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 21:05:54,663 - INFO - 127.0.0.1 - - [25/Aug/2024 21:05:54] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 21:05:54,664 - INFO - 127.0.0.1 - - [25/Aug/2024 21:05:54] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 21:05:54,664 - INFO - 127.0.0.1 - - [25/Aug/2024 21:05:54] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 21:05:54,665 - INFO - 127.0.0.1 - - [25/Aug/2024 21:05:54] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 21:06:00,398 - INFO - Successfully deleted data from konghin.purchase.
+2024-08-25 21:06:00,398 - INFO - Query: DELETE FROM "konghin"."purchase" WHERE pur_id='a'
+2024-08-25 21:06:00,654 - ERROR - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:06:00,655 - ERROR - Unexpected error: Length mismatch: Expected axis has 1 elements, new values have 11 elements
+2024-08-25 21:06:00,681 - INFO - 127.0.0.1 - - [25/Aug/2024 21:06:00] "[35m[1mPOST /delete-purchase/a HTTP/1.1[0m" 500 -
+2024-08-25 21:06:00,690 - INFO - 127.0.0.1 - - [25/Aug/2024 21:06:00] "GET /delete-purchase/a?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-08-25 21:06:00,691 - INFO - 127.0.0.1 - - [25/Aug/2024 21:06:00] "GET /delete-purchase/a?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-08-25 21:06:00,701 - INFO - 127.0.0.1 - - [25/Aug/2024 21:06:00] "GET /delete-purchase/a?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-08-25 21:06:00,709 - INFO - 127.0.0.1 - - [25/Aug/2024 21:06:00] "[36mGET /delete-purchase/a?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 21:07:23,471 - ERROR - Query: DELETE FROM "konghin"."purchase" WHERE pur_id='a'
+2024-08-25 21:07:23,472 - ERROR - Database error: 40001 - ERROR:  restart transaction: TransactionRetryWithProtoRefreshError: WriteTooOldError: write for key /Tenant/7458/Table/108/14/"a"/0 at timestamp 1724591160.506248663,0 too old; must write at or above 1724591240.584672431,1: "sql txn" meta={id=8d74101c key=/Tenant/7458/Table/108/14/"a"/0 iso=Serializable pri=0.03814804 epo=0 ts=1724591240.584672431,1 min=1724591160.506248663,0 seq=1} lock=true stat=PENDING rts=1724591160.506248663,0 wto=false gul=1724591160.756248663,0
+HINT:  See: https://www.cockroachlabs.com/docs/v24.1/transaction-retry-error-reference.html
+
+2024-08-25 21:07:23,472 - ERROR - Error details: None
+2024-08-25 21:07:23,610 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 21:07:23,610 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:07:23,613 - INFO - 127.0.0.1 - - [25/Aug/2024 21:07:23] "POST /delete-purchase/a HTTP/1.1" 200 -
+2024-08-25 21:07:23,625 - INFO - 127.0.0.1 - - [25/Aug/2024 21:07:23] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 21:07:23,628 - INFO - 127.0.0.1 - - [25/Aug/2024 21:07:23] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 21:07:23,629 - INFO - 127.0.0.1 - - [25/Aug/2024 21:07:23] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 21:07:23,630 - INFO - 127.0.0.1 - - [25/Aug/2024 21:07:23] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 21:07:28,663 - INFO - Successfully deleted data from konghin.purchase.
+2024-08-25 21:07:28,663 - INFO - Query: DELETE FROM "konghin"."purchase" WHERE pur_id='a2'
+2024-08-25 21:07:28,681 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 21:07:28,681 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:07:28,683 - INFO - 127.0.0.1 - - [25/Aug/2024 21:07:28] "POST /delete-purchase/a2 HTTP/1.1" 200 -
+2024-08-25 21:07:28,696 - INFO - 127.0.0.1 - - [25/Aug/2024 21:07:28] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 21:07:28,697 - INFO - 127.0.0.1 - - [25/Aug/2024 21:07:28] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 21:07:28,698 - INFO - 127.0.0.1 - - [25/Aug/2024 21:07:28] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 21:07:28,700 - INFO - 127.0.0.1 - - [25/Aug/2024 21:07:28] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 21:18:55,310 - ERROR - Query: DELETE FROM "konghin"."purchase" WHERE pur_id='a2'
+2024-08-25 21:18:55,310 - ERROR - Database error: None - server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+2024-08-25 21:18:55,310 - ERROR - Error details: None
+2024-08-25 21:18:55,319 - INFO - 127.0.0.1 - - [25/Aug/2024 21:18:55] "[35m[1mPOST /delete-purchase/a2 HTTP/1.1[0m" 500 -
+2024-08-25 21:18:55,330 - INFO - 127.0.0.1 - - [25/Aug/2024 21:18:55] "GET /delete-purchase/a2?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-08-25 21:18:55,332 - INFO - 127.0.0.1 - - [25/Aug/2024 21:18:55] "GET /delete-purchase/a2?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-08-25 21:18:55,339 - INFO - 127.0.0.1 - - [25/Aug/2024 21:18:55] "GET /delete-purchase/a2?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-08-25 21:18:55,345 - INFO - 127.0.0.1 - - [25/Aug/2024 21:18:55] "[36mGET /delete-purchase/a2?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 21:19:16,844 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-25 21:19:16,844 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-25 21:19:16,845 - INFO -  * Restarting with stat
+2024-08-25 21:19:17,946 - WARNING -  * Debugger is active!
+2024-08-25 21:19:17,950 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 21:19:23,469 - INFO - 127.0.0.1 - - [25/Aug/2024 21:19:23] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 21:19:26,161 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 21:19:26,161 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:19:26,183 - INFO - 127.0.0.1 - - [25/Aug/2024 21:19:26] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 21:19:26,204 - INFO - 127.0.0.1 - - [25/Aug/2024 21:19:26] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 21:19:26,207 - INFO - 127.0.0.1 - - [25/Aug/2024 21:19:26] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 21:19:26,209 - INFO - 127.0.0.1 - - [25/Aug/2024 21:19:26] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 21:19:26,500 - INFO - 127.0.0.1 - - [25/Aug/2024 21:19:26] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 21:19:26,531 - INFO - 127.0.0.1 - - [25/Aug/2024 21:19:26] "GET /static/css/bootstrap/styles.css HTTP/1.1" 200 -
+2024-08-25 21:19:29,095 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 21:19:29,096 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 21:19:29,098 - INFO - 127.0.0.1 - - [25/Aug/2024 21:19:29] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 21:19:29,121 - INFO - 127.0.0.1 - - [25/Aug/2024 21:19:29] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 21:19:29,128 - INFO - 127.0.0.1 - - [25/Aug/2024 21:19:29] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 21:19:29,129 - INFO - 127.0.0.1 - - [25/Aug/2024 21:19:29] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 21:19:29,131 - INFO - 127.0.0.1 - - [25/Aug/2024 21:19:29] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 21:25:29,722 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-25 21:25:29,808 - INFO -  * Restarting with stat
+2024-08-25 21:25:30,884 - WARNING -  * Debugger is active!
+2024-08-25 21:25:30,888 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:21:42,256 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:21:42,373 - INFO -  * Restarting with stat
+2024-08-25 22:21:43,834 - WARNING -  * Debugger is active!
+2024-08-25 22:21:43,840 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:22:32,598 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:22:32,598 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:22:32,612 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:32] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:22:32,625 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:32] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:32,627 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:32] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:32,628 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:32] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:32,698 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:32] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:22:33,964 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:33] "GET /addpurchases HTTP/1.1" 200 -
+2024-08-25 22:22:33,973 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:33] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:22:33,979 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:33] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:33,981 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:33] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:33,983 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:33] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:40,462 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:22:40,462 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:22:40,462 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:40] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:22:40,474 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:40] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:40,478 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:40] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:40,479 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:40] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:40,479 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:40] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:22:42,369 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:22:42,369 - INFO - Query: SELECT * FROM "konghin"."purchase" WHERE pur_id='PUR-002'
+2024-08-25 22:22:42,437 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:22:42,437 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:22:42,443 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:42] "GET /update-purchase/PUR-002 HTTP/1.1" 200 -
+2024-08-25 22:22:42,452 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:42] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:22:42,455 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:42] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:42,457 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:42] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:42,460 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:42] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:46,489 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:22:46,489 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:22:46,491 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:46] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:22:46,502 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:46] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:22:46,505 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:46] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:46,507 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:46] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:46,509 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:46] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:48,412 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:48] "GET /addpurchases HTTP/1.1" 200 -
+2024-08-25 22:22:48,420 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:48] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:22:48,422 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:48] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:48,423 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:48] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:22:48,426 - INFO - 127.0.0.1 - - [25/Aug/2024 22:22:48] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:23:42,781 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:23:42,781 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:23:42,782 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:42] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:23:42,793 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:42] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:23:42,795 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:42] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:23:42,796 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:42] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:23:42,796 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:42] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:23:44,883 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:23:44,883 - INFO - Query: SELECT * FROM "konghin"."purchase" WHERE pur_id='PUR-002'
+2024-08-25 22:23:44,936 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:23:44,936 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:23:44,937 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:44] "GET /update-purchase/PUR-002 HTTP/1.1" 200 -
+2024-08-25 22:23:44,947 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:44] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:23:44,948 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:44] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:23:44,949 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:44] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:23:44,950 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:44] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:23:47,612 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:23:47,613 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:23:47,613 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:47] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:23:47,623 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:47] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:23:47,625 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:47] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:23:47,627 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:47] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:23:47,629 - INFO - 127.0.0.1 - - [25/Aug/2024 22:23:47] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:24:11,661 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:24:11,661 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:24:11,692 - INFO - 127.0.0.1 - - [25/Aug/2024 22:24:11] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:24:11,701 - INFO - 127.0.0.1 - - [25/Aug/2024 22:24:11] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:24:11,704 - INFO - 127.0.0.1 - - [25/Aug/2024 22:24:11] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:24:11,705 - INFO - 127.0.0.1 - - [25/Aug/2024 22:24:11] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:24:11,706 - INFO - 127.0.0.1 - - [25/Aug/2024 22:24:11] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:24:13,497 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:24:13,497 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:24:13,498 - INFO - 127.0.0.1 - - [25/Aug/2024 22:24:13] "GET /add-purchases HTTP/1.1" 200 -
+2024-08-25 22:24:13,508 - INFO - 127.0.0.1 - - [25/Aug/2024 22:24:13] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:24:13,510 - INFO - 127.0.0.1 - - [25/Aug/2024 22:24:13] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:24:13,510 - INFO - 127.0.0.1 - - [25/Aug/2024 22:24:13] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:24:13,511 - INFO - 127.0.0.1 - - [25/Aug/2024 22:24:13] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:26:22,654 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:26:22,656 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:26:22,659 - INFO - 127.0.0.1 - - [25/Aug/2024 22:26:22] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:26:22,674 - INFO - 127.0.0.1 - - [25/Aug/2024 22:26:22] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:26:22,678 - INFO - 127.0.0.1 - - [25/Aug/2024 22:26:22] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:26:22,680 - INFO - 127.0.0.1 - - [25/Aug/2024 22:26:22] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:26:22,684 - INFO - 127.0.0.1 - - [25/Aug/2024 22:26:22] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:30:06,542 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:30:06,629 - INFO -  * Restarting with stat
+2024-08-25 22:30:08,728 - WARNING -  * Debugger is active!
+2024-08-25 22:30:08,731 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:30:14,815 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:30:14,868 - INFO -  * Restarting with stat
+2024-08-25 22:30:16,533 - WARNING -  * Debugger is active!
+2024-08-25 22:30:16,537 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:30:19,733 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:30:19,733 - INFO - Query: SELECT * FROM "konghin"."purchase" WHERE pur_id='PUR-002'
+2024-08-25 22:30:20,253 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:30:20,253 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:30:20,270 - INFO - 127.0.0.1 - - [25/Aug/2024 22:30:20] "GET /update-purchase/PUR-002 HTTP/1.1" 200 -
+2024-08-25 22:30:20,286 - INFO - 127.0.0.1 - - [25/Aug/2024 22:30:20] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:30:20,287 - INFO - 127.0.0.1 - - [25/Aug/2024 22:30:20] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:30:20,288 - INFO - 127.0.0.1 - - [25/Aug/2024 22:30:20] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:30:20,355 - INFO - 127.0.0.1 - - [25/Aug/2024 22:30:20] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:30:29,969 - INFO - 127.0.0.1 - - [25/Aug/2024 22:30:29] "[33mPOST /update-purchases HTTP/1.1[0m" 404 -
+2024-08-25 22:30:36,771 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:30:36,858 - INFO -  * Restarting with stat
+2024-08-25 22:30:39,105 - WARNING -  * Debugger is active!
+2024-08-25 22:30:39,109 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:30:41,285 - INFO - 127.0.0.1 - - [25/Aug/2024 22:30:41] "[33mPOST /update-purchases HTTP/1.1[0m" 404 -
+2024-08-25 22:30:47,222 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:30:47,304 - INFO -  * Restarting with stat
+2024-08-25 22:30:49,861 - WARNING -  * Debugger is active!
+2024-08-25 22:30:49,864 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:30:50,470 - INFO - 127.0.0.1 - - [25/Aug/2024 22:30:50] "[33mPOST /update-purchases HTTP/1.1[0m" 404 -
+2024-08-25 22:30:58,116 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:30:58,116 - INFO - Query: SELECT * FROM "konghin"."purchase" WHERE pur_id='PUR-002'
+2024-08-25 22:30:58,216 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:30:58,217 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:30:58,229 - INFO - 127.0.0.1 - - [25/Aug/2024 22:30:58] "GET /update-purchase/PUR-002 HTTP/1.1" 200 -
+2024-08-25 22:30:58,242 - INFO - 127.0.0.1 - - [25/Aug/2024 22:30:58] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:30:58,243 - INFO - 127.0.0.1 - - [25/Aug/2024 22:30:58] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:30:58,246 - INFO - 127.0.0.1 - - [25/Aug/2024 22:30:58] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:30:58,311 - INFO - 127.0.0.1 - - [25/Aug/2024 22:30:58] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:31:04,664 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:04] "[33mPOST /update-purchases HTTP/1.1[0m" 404 -
+2024-08-25 22:31:09,085 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:31:09,195 - INFO -  * Restarting with stat
+2024-08-25 22:31:11,420 - WARNING -  * Debugger is active!
+2024-08-25 22:31:11,425 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:31:50,873 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:31:50,940 - INFO -  * Restarting with stat
+2024-08-25 22:31:52,911 - WARNING -  * Debugger is active!
+2024-08-25 22:31:52,916 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:31:55,824 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:31:55,825 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:31:55,838 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:55] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:31:55,856 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:55] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:31:55,857 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:55] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:31:55,860 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:55] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:31:55,926 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:55] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:31:57,434 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:31:57,434 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:31:57,436 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:57] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:31:57,453 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:57] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:31:57,454 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:57] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:31:57,456 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:57] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:31:57,458 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:57] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:31:59,439 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:31:59,440 - INFO - Query: SELECT * FROM "konghin"."purchase" WHERE pur_id='PUR-002'
+2024-08-25 22:31:59,506 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:31:59,506 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:31:59,524 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:59] "GET /update-purchase/PUR-002 HTTP/1.1" 200 -
+2024-08-25 22:31:59,541 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:59] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:31:59,546 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:59] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:31:59,547 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:59] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:31:59,551 - INFO - 127.0.0.1 - - [25/Aug/2024 22:31:59] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:32:15,749 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:32:15,750 - INFO - Query: SELECT * FROM "konghin"."purchase" WHERE pur_id='PUR-002'
+2024-08-25 22:32:15,832 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:32:15,833 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:32:15,835 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:15] "GET /update-purchase/PUR-002 HTTP/1.1" 200 -
+2024-08-25 22:32:15,851 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:15] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:32:15,855 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:15] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:32:15,855 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:15] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:32:15,860 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:15] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:32:26,520 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:32:26,520 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:32:26,524 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:26] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:32:26,542 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:26] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:32:26,543 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:26] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:32:26,547 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:26] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:32:26,549 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:26] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:32:31,208 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:32:31,208 - INFO - Query: SELECT * FROM "konghin"."purchase" WHERE pur_id='PUR-003'
+2024-08-25 22:32:31,445 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:32:31,445 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:32:31,447 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:31] "GET /update-purchase/PUR-003 HTTP/1.1" 200 -
+2024-08-25 22:32:31,464 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:31] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:32:31,466 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:31] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:32:31,469 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:31] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:32:31,472 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:31] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:32:36,727 - INFO - 127.0.0.1 - - [25/Aug/2024 22:32:36] "[33mPOST /update-purchases HTTP/1.1[0m" 404 -
+2024-08-25 22:33:17,403 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:33:17,403 - INFO - Query: SELECT * FROM "konghin"."purchase" WHERE pur_id='PUR-002'
+2024-08-25 22:33:17,596 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:33:17,596 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:33:17,622 - INFO - 127.0.0.1 - - [25/Aug/2024 22:33:17] "GET /update-purchase/PUR-002 HTTP/1.1" 200 -
+2024-08-25 22:33:17,637 - INFO - 127.0.0.1 - - [25/Aug/2024 22:33:17] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:33:17,640 - INFO - 127.0.0.1 - - [25/Aug/2024 22:33:17] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:33:17,641 - INFO - 127.0.0.1 - - [25/Aug/2024 22:33:17] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:33:17,644 - INFO - 127.0.0.1 - - [25/Aug/2024 22:33:17] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:33:42,218 - INFO - 127.0.0.1 - - [25/Aug/2024 22:33:42] "[35m[1mPOST /updatepurchase HTTP/1.1[0m" 500 -
+2024-08-25 22:33:42,231 - INFO - 127.0.0.1 - - [25/Aug/2024 22:33:42] "GET /updatepurchase?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-08-25 22:33:42,231 - INFO - 127.0.0.1 - - [25/Aug/2024 22:33:42] "GET /updatepurchase?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-08-25 22:33:42,238 - INFO - 127.0.0.1 - - [25/Aug/2024 22:33:42] "GET /updatepurchase?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-08-25 22:33:42,246 - INFO - 127.0.0.1 - - [25/Aug/2024 22:33:42] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 22:35:09,864 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:09] "[35m[1mPOST /updatepurchase HTTP/1.1[0m" 500 -
+2024-08-25 22:35:09,876 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:09] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-25 22:35:09,876 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:09] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-25 22:35:09,880 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:09] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 22:35:09,886 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:09] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 22:35:34,277 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:35:34,278 - INFO - Query: SELECT * FROM "konghin"."purchase" WHERE pur_id='PUR-002'
+2024-08-25 22:35:34,461 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:35:34,461 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:35:34,475 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:34] "GET /update-purchase/PUR-002 HTTP/1.1" 200 -
+2024-08-25 22:35:34,496 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:34] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:35:34,498 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:34] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:35:34,499 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:34] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:35:34,502 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:34] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:35:42,070 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:42] "[35m[1mPOST /updatepurchase HTTP/1.1[0m" 500 -
+2024-08-25 22:35:42,087 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:42] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-25 22:35:42,090 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:42] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-25 22:35:42,102 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:42] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 22:35:47,961 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:35:47,961 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:35:47,964 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:47] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:35:47,979 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:47] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:35:47,981 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:47] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:35:47,982 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:47] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:35:47,985 - INFO - 127.0.0.1 - - [25/Aug/2024 22:35:47] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:35:57,750 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-25 22:35:57,751 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-25 22:35:57,752 - INFO -  * Restarting with stat
+2024-08-25 22:35:59,245 - WARNING -  * Debugger is active!
+2024-08-25 22:35:59,250 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:36:05,566 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:36:05,567 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:36:05,581 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:05] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:36:05,594 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:05] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:36:05,595 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:05] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:36:05,597 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:05] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:36:05,664 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:05] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:36:07,751 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:36:07,752 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:36:07,754 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:07] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:36:07,768 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:07] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:36:07,771 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:07] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:36:07,772 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:07] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:36:07,775 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:07] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:36:09,917 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:36:09,918 - INFO - Query: SELECT * FROM "konghin"."purchase" WHERE pur_id='PUR-002'
+2024-08-25 22:36:09,978 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:36:09,978 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:36:09,995 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:09] "GET /update-purchase/PUR-002 HTTP/1.1" 200 -
+2024-08-25 22:36:10,012 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:10] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:36:10,018 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:10] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:36:10,021 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:10] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:36:10,022 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:10] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:36:13,741 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:13] "[35m[1mPOST /updatepurchase HTTP/1.1[0m" 500 -
+2024-08-25 22:36:13,753 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:13] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-25 22:36:13,760 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:13] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-25 22:36:13,768 - INFO - 127.0.0.1 - - [25/Aug/2024 22:36:13] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 22:37:08,006 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:08] "[35m[1mPOST /updatepurchase HTTP/1.1[0m" 500 -
+2024-08-25 22:37:08,018 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:08] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-25 22:37:08,021 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:08] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-25 22:37:08,028 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:08] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 22:37:08,033 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:08] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 22:37:20,033 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:20] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:37:24,512 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:24] "[35m[1mPOST /updatepurchase HTTP/1.1[0m" 500 -
+2024-08-25 22:37:24,523 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:24] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-25 22:37:24,526 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:24] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-25 22:37:24,534 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:24] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 22:37:41,059 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-25 22:37:41,059 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-25 22:37:41,060 - INFO -  * Restarting with stat
+2024-08-25 22:37:42,648 - WARNING -  * Debugger is active!
+2024-08-25 22:37:42,655 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:37:43,950 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:43] "[33mGET /sales HTTP/1.1[0m" 404 -
+2024-08-25 22:37:47,347 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:37:47,347 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:37:47,357 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:47] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:37:47,368 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:47] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:37:47,370 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:47] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:37:47,372 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:47] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:37:47,439 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:47] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:37:50,084 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:37:50,084 - INFO - Query: SELECT * FROM "konghin"."purchase" WHERE pur_id='PUR-002'
+2024-08-25 22:37:50,296 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:37:50,297 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:37:50,310 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:50] "GET /update-purchase/PUR-002 HTTP/1.1" 200 -
+2024-08-25 22:37:50,326 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:50] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:37:50,329 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:50] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:37:50,331 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:50] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:37:50,333 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:50] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:37:54,476 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:54] "[35m[1mPOST /updatepurchase HTTP/1.1[0m" 500 -
+2024-08-25 22:37:54,488 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:54] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-25 22:37:54,491 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:54] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-25 22:37:54,500 - INFO - 127.0.0.1 - - [25/Aug/2024 22:37:54] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 22:39:23,920 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:39:23,974 - INFO -  * Restarting with stat
+2024-08-25 22:39:25,668 - WARNING -  * Debugger is active!
+2024-08-25 22:39:25,676 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:39:32,785 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:39:32,833 - INFO -  * Restarting with stat
+2024-08-25 22:39:34,268 - WARNING -  * Debugger is active!
+2024-08-25 22:39:34,273 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:39:39,545 - INFO - 127.0.0.1 - - [25/Aug/2024 22:39:39] "[35m[1mPOST /updatepurchase HTTP/1.1[0m" 500 -
+2024-08-25 22:39:39,673 - INFO - 127.0.0.1 - - [25/Aug/2024 22:39:39] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-25 22:39:39,673 - INFO - 127.0.0.1 - - [25/Aug/2024 22:39:39] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-25 22:39:39,680 - INFO - 127.0.0.1 - - [25/Aug/2024 22:39:39] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 22:39:39,684 - INFO - 127.0.0.1 - - [25/Aug/2024 22:39:39] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 22:40:00,609 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:40:00,661 - INFO -  * Restarting with stat
+2024-08-25 22:40:02,111 - WARNING -  * Debugger is active!
+2024-08-25 22:40:02,117 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:40:02,133 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:02] "[35m[1mPOST /updatepurchase HTTP/1.1[0m" 500 -
+2024-08-25 22:40:02,258 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:02] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2024-08-25 22:40:02,259 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:02] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2024-08-25 22:40:02,267 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:02] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 22:40:02,273 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:02] "[36mGET /updatepurchase?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-08-25 22:40:20,330 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:40:20,396 - INFO -  * Restarting with stat
+2024-08-25 22:40:22,019 - WARNING -  * Debugger is active!
+2024-08-25 22:40:22,023 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:40:25,073 - INFO - Successfully updated data in konghin.purchase.
+2024-08-25 22:40:25,074 - INFO - Query: UPDATE "konghin"."purchase" SET "pur_id" = %s, "pur_official_invoice" = %s, "pur_method" = %s, "pur_slm_id" = %s, "pur_invoice_no" = %s, "pur_date" = %s, "pur_gold_cost" = %s, "pur_labor_cost" = %s, "pur_weight" = %s, "pur_last_update" = %s WHERE pur_id='PUR-002'
+2024-08-25 22:40:25,074 - INFO - Values: ['PUR-002', '0', 'Trade-in', 'SLM-002', 'INV-002', '2024-08-03', '6200.0', '100', '8.0', '2024-08-25 22:40:24']
+2024-08-25 22:40:25,188 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:40:25,188 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:40:25,205 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:25] "POST /updatepurchase HTTP/1.1" 200 -
+2024-08-25 22:40:25,218 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:25] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:40:25,220 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:25] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:40:25,221 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:25] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:40:25,289 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:25] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:40:29,541 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:29] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:40:29,542 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:29] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:40:32,416 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:40:32,417 - INFO - Query: SELECT * FROM "konghin"."purchase" WHERE pur_id='PUR-002'
+2024-08-25 22:40:32,456 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:40:32,457 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:40:32,466 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:32] "GET /update-purchase/PUR-002 HTTP/1.1" 200 -
+2024-08-25 22:40:32,487 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:32] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:40:32,490 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:32] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:40:32,494 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:32] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:40:32,496 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:32] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:40:37,886 - INFO - Successfully updated data in konghin.purchase.
+2024-08-25 22:40:37,887 - INFO - Query: UPDATE "konghin"."purchase" SET "pur_id" = %s, "pur_official_invoice" = %s, "pur_method" = %s, "pur_slm_id" = %s, "pur_invoice_no" = %s, "pur_date" = %s, "pur_gold_cost" = %s, "pur_labor_cost" = %s, "pur_weight" = %s, "pur_last_update" = %s WHERE pur_id='PUR-002'
+2024-08-25 22:40:37,887 - INFO - Values: ['PUR-002', '0', 'Trade-in', 'SLM-002', 'INV-002', '2024-08-03', '6200.0', '9999', '8.0', '2024-08-25 22:40:37']
+2024-08-25 22:40:37,966 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:40:37,966 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:40:37,969 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:37] "POST /updatepurchase HTTP/1.1" 200 -
+2024-08-25 22:40:37,991 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:37] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:40:37,993 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:37] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:40:37,996 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:37] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:40:38,000 - INFO - 127.0.0.1 - - [25/Aug/2024 22:40:38] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:42:44,836 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:42:44,916 - INFO -  * Restarting with stat
+2024-08-25 22:42:46,074 - WARNING -  * Debugger is active!
+2024-08-25 22:42:46,080 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:42:48,066 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:42:48,066 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:42:48,090 - INFO - 127.0.0.1 - - [25/Aug/2024 22:42:48] "GET /add-purchases HTTP/1.1" 200 -
+2024-08-25 22:42:48,102 - INFO - 127.0.0.1 - - [25/Aug/2024 22:42:48] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:42:48,105 - INFO - 127.0.0.1 - - [25/Aug/2024 22:42:48] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:42:48,106 - INFO - 127.0.0.1 - - [25/Aug/2024 22:42:48] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:42:48,174 - INFO - 127.0.0.1 - - [25/Aug/2024 22:42:48] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:43:27,676 - INFO - Next value of sequence pur_id_seq: 100001
+2024-08-25 22:43:27,749 - INFO - Successfully inserted data into konghin.purchase.
+2024-08-25 22:43:27,750 - INFO - Query: INSERT INTO "konghin"."purchase" ("pur_id", "pur_official_invoice", "pur_method", "pur_slm_id", "pur_invoice_no", "pur_date", "pur_gold_cost", "pur_labor_cost", "pur_weight") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+2024-08-25 22:43:27,750 - INFO - Values: ['PUR_100001', '1', 'Cash', 'SLM-004', 'INV-KJQ', '2024-08-25', '300', '15000', '2000']
+2024-08-25 22:43:27,828 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:43:27,829 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:43:27,841 - INFO - 127.0.0.1 - - [25/Aug/2024 22:43:27] "POST /add-purchases HTTP/1.1" 200 -
+2024-08-25 22:43:27,855 - INFO - 127.0.0.1 - - [25/Aug/2024 22:43:27] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:43:27,857 - INFO - 127.0.0.1 - - [25/Aug/2024 22:43:27] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:43:27,862 - INFO - 127.0.0.1 - - [25/Aug/2024 22:43:27] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:43:27,865 - INFO - 127.0.0.1 - - [25/Aug/2024 22:43:27] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:44:55,681 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:44:55,749 - INFO -  * Restarting with stat
+2024-08-25 22:44:57,088 - WARNING -  * Debugger is active!
+2024-08-25 22:44:57,093 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:46:34,286 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:46:34,353 - INFO -  * Restarting with stat
+2024-08-25 22:46:35,465 - WARNING -  * Debugger is active!
+2024-08-25 22:46:35,470 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:47:05,820 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2024-08-25 22:47:05,886 - INFO -  * Restarting with stat
+2024-08-25 22:47:06,932 - WARNING -  * Debugger is active!
+2024-08-25 22:47:06,937 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:52:13,728 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-25 22:52:13,728 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-25 22:52:13,729 - INFO -  * Restarting with stat
+2024-08-25 22:52:14,776 - WARNING -  * Debugger is active!
+2024-08-25 22:52:14,780 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:52:18,479 - INFO - Next value of sequence pur_id_seq: 100002
+2024-08-25 22:52:18,548 - INFO - Successfully inserted data into konghin.purchase.
+2024-08-25 22:52:18,548 - INFO - Query: INSERT INTO "konghin"."purchase" ("pur_id", "pur_official_invoice", "pur_method", "pur_slm_id", "pur_invoice_no", "pur_date", "pur_gold_cost", "pur_labor_cost", "pur_weight") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+2024-08-25 22:52:18,548 - INFO - Values: ['PUR_100002', '1', 'Cash', 'SLM-004', 'INV-KJQ', '2024-08-25', '300', '15000', '2000']
+2024-08-25 22:52:18,642 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:52:18,642 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:52:18,655 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:18] "POST /add-purchases HTTP/1.1" 200 -
+2024-08-25 22:52:18,666 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:18] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:18,668 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:18] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:18,669 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:18] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:18,738 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:18] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:52:20,889 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:52:20,889 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 22:52:20,938 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:20] "GET /stocks HTTP/1.1" 200 -
+2024-08-25 22:52:20,947 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:20] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:52:20,948 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:20] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:20,951 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:20] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:20,952 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:20] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:24,610 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:52:24,611 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_id='STK_100004'
+2024-08-25 22:52:24,627 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:24] "GET /update-stock/STK_100004 HTTP/1.1" 200 -
+2024-08-25 22:52:24,641 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:24] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:52:24,643 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:24] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:24,645 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:24] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:24,649 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:24] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:44,767 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:52:44,768 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 22:52:44,777 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:44] "GET /stocks HTTP/1.1" 200 -
+2024-08-25 22:52:44,791 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:44] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:52:44,798 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:44] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:44,801 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:44] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:44,802 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:44] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:49,711 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:49] "[33mGET /bookings HTTP/1.1[0m" 404 -
+2024-08-25 22:52:52,666 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:52:52,666 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:52:52,669 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:52] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:52:52,692 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:52] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:52,697 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:52] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:52:52,698 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:52] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:52,702 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:52] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:55,130 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:52:55,130 - INFO - Query: SELECT * FROM "konghin"."purchase" WHERE pur_id='PUR-002'
+2024-08-25 22:52:55,178 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:52:55,179 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:52:55,192 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:55] "GET /update-purchase/PUR-002 HTTP/1.1" 200 -
+2024-08-25 22:52:55,208 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:55] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:55,212 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:55] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:52:55,216 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:55] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:52:55,219 - INFO - 127.0.0.1 - - [25/Aug/2024 22:52:55] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:53:06,018 - INFO - Successfully updated data in konghin.purchase.
+2024-08-25 22:53:06,019 - INFO - Query: UPDATE "konghin"."purchase" SET "pur_id" = %s, "pur_official_invoice" = %s, "pur_method" = %s, "pur_slm_id" = %s, "pur_invoice_no" = %s, "pur_date" = %s, "pur_billing_date" = %s, "pur_gold_cost" = %s, "pur_labor_cost" = %s, "pur_weight" = %s, "pur_last_update" = %s WHERE pur_id='PUR-002'
+2024-08-25 22:53:06,019 - INFO - Values: ['PUR-002', '0', 'Trade-in', 'SLM-002', 'INV-002', '2024-08-03', '2024-08-27', '6200.0', '9999.0', '8.0', '2024-08-25 22:53:05']
+2024-08-25 22:53:06,103 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:53:06,104 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:53:06,108 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:06] "POST /updatepurchase HTTP/1.1" 200 -
+2024-08-25 22:53:06,127 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:06] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:53:06,128 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:06] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:53:06,133 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:06] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:53:06,136 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:06] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:53:19,501 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:53:19,502 - INFO - Query: SELECT * FROM "konghin"."purchase" WHERE pur_id='PUR-002'
+2024-08-25 22:53:19,537 - INFO - Successfully selected data from konghin.salesman.
+2024-08-25 22:53:19,538 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2024-08-25 22:53:19,540 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:19] "GET /update-purchase/PUR-002 HTTP/1.1" 200 -
+2024-08-25 22:53:19,553 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:19] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:53:19,558 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:19] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:53:19,560 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:19] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:53:19,562 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:19] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:53:25,651 - ERROR - Query: UPDATE "konghin"."purchase" SET "pur_id" = %s, "pur_official_invoice" = %s, "pur_method" = %s, "pur_slm_id" = %s, "pur_invoice_no" = %s, "pur_date" = %s, "pur_billing_date" = %s, "pur_gold_cost" = %s, "pur_labor_cost" = %s, "pur_weight" = %s, "pur_last_update" = %s WHERE pur_id='PUR-002'
+2024-08-25 22:53:25,651 - ERROR - Database error: 22007 - ERROR:  parsing as type date: could not parse "'null'"
+
+2024-08-25 22:53:25,652 - ERROR - Error details: None
+2024-08-25 22:53:25,749 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:53:25,749 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:53:25,753 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:25] "POST /updatepurchase HTTP/1.1" 200 -
+2024-08-25 22:53:25,772 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:25] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:53:25,772 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:25] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:53:25,774 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:25] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:53:25,778 - INFO - 127.0.0.1 - - [25/Aug/2024 22:53:25] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:54:03,310 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:03] "[33mGET /sales HTTP/1.1[0m" 404 -
+2024-08-25 22:54:05,207 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:05] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:54:06,558 - INFO - Successfully selected data from konghin.purchase.
+2024-08-25 22:54:06,558 - INFO - Query: SELECT * FROM "konghin"."purchase"
+2024-08-25 22:54:06,561 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:06] "GET /purchases HTTP/1.1" 200 -
+2024-08-25 22:54:06,577 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:06] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:54:06,577 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:06] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:54:06,580 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:06] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:54:06,580 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:06] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:54:09,118 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:54:09,119 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 22:54:09,126 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:09] "GET /stocks HTTP/1.1" 200 -
+2024-08-25 22:54:09,140 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:09] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:54:09,141 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:09] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:54:09,143 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:09] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:54:09,146 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:09] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:54:13,450 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:54:13,450 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_id='STK_100004'
+2024-08-25 22:54:13,453 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:13] "GET /update-stock/STK_100004 HTTP/1.1" 200 -
+2024-08-25 22:54:13,467 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:13] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:54:13,468 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:13] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:54:13,473 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:13] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:54:13,476 - INFO - 127.0.0.1 - - [25/Aug/2024 22:54:13] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:55:02,805 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:55:02,806 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 22:55:02,810 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:02] "GET /stocks HTTP/1.1" 200 -
+2024-08-25 22:55:02,825 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:02] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:55:02,830 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:02] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:55:02,832 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:02] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:55:02,832 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:02] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:55:03,514 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:55:03,514 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 22:55:03,521 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:03] "GET /stocks HTTP/1.1" 200 -
+2024-08-25 22:55:03,537 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:03] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:55:03,538 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:03] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:55:03,540 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:03] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:55:03,541 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:03] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:55:06,131 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:55:06,131 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_id='STK_100004'
+2024-08-25 22:55:06,176 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:06] "GET /update-stock/STK_100004 HTTP/1.1" 200 -
+2024-08-25 22:55:06,189 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:06] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:55:06,190 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:06] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:55:06,192 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:06] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:55:06,193 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:06] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:55:11,464 - ERROR - Query: UPDATE "konghin"."stock" SET "stk_status" = %s, "stk_gold_type" = %s, "stk_type" = %s, "stk_size" = %s, "stk_length" = %s, "stk_pattern" = %s, "stk_weight" = %s, "stk_labor_cost" = %s, "stk_pur_date" = %s, "stk_gold_cost" = %s, "stk_sell_date" = %s, "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100004'
+2024-08-25 22:55:11,464 - ERROR - Database error: 22P02 - ERROR:  could not parse "'null'" as type decimal: parse mantissa: 'null'
+
+2024-08-25 22:55:11,464 - ERROR - Error details: None
+2024-08-25 22:55:11,609 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:55:11,609 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 22:55:11,617 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:11] "POST /updatestock HTTP/1.1" 200 -
+2024-08-25 22:55:11,636 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:11] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:55:11,641 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:11] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:55:11,642 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:11] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:55:11,646 - INFO - 127.0.0.1 - - [25/Aug/2024 22:55:11] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:56:15,816 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-25 22:56:15,886 - INFO -  * Restarting with stat
+2024-08-25 22:56:16,933 - WARNING -  * Debugger is active!
+2024-08-25 22:56:16,938 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:56:17,953 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-25 22:56:18,000 - INFO -  * Restarting with stat
+2024-08-25 22:56:19,085 - WARNING -  * Debugger is active!
+2024-08-25 22:56:19,088 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:56:25,491 - ERROR - Query: UPDATE "konghin"."stock" SET "stk_status" = %s, "stk_gold_type" = %s, "stk_type" = %s, "stk_size" = %s, "stk_length" = %s, "stk_pattern" = %s, "stk_weight" = %s, "stk_labor_cost" = %s, "stk_pur_date" = %s, "stk_gold_cost" = %s, "stk_sell_date" = %s, "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100004'
+2024-08-25 22:56:25,492 - ERROR - Database error: 22P02 - ERROR:  could not parse "null" as type decimal: parse mantissa: null
+
+2024-08-25 22:56:25,492 - ERROR - Error details: None
+2024-08-25 22:56:25,615 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:56:25,616 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 22:56:25,633 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:25] "POST /updatestock HTTP/1.1" 200 -
+2024-08-25 22:56:25,644 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:25] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:56:25,646 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:25] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:56:25,647 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:25] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:56:25,718 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:25] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:56:28,775 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:56:28,775 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_id='STK_100004'
+2024-08-25 22:56:28,786 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:28] "GET /update-stock/STK_100004 HTTP/1.1" 200 -
+2024-08-25 22:56:28,796 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:28] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:56:28,796 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:28] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:56:28,798 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:28] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:56:28,799 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:28] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:56:33,138 - ERROR - Query: UPDATE "konghin"."stock" SET "stk_status" = %s, "stk_gold_type" = %s, "stk_type" = %s, "stk_size" = %s, "stk_length" = %s, "stk_pattern" = %s, "stk_weight" = %s, "stk_labor_cost" = %s, "stk_pur_date" = %s, "stk_gold_cost" = %s, "stk_sell_date" = %s, "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100004'
+2024-08-25 22:56:33,138 - ERROR - Database error: 22P02 - ERROR:  could not parse "null" as type decimal: parse mantissa: null
+
+2024-08-25 22:56:33,138 - ERROR - Error details: None
+2024-08-25 22:56:33,250 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:56:33,250 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 22:56:33,256 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:33] "POST /updatestock HTTP/1.1" 200 -
+2024-08-25 22:56:33,271 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:33] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:56:33,272 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:33] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:56:33,274 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:33] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:56:33,276 - INFO - 127.0.0.1 - - [25/Aug/2024 22:56:33] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:57:25,888 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-25 22:57:25,956 - INFO -  * Restarting with stat
+2024-08-25 22:57:27,054 - WARNING -  * Debugger is active!
+2024-08-25 22:57:27,058 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:57:35,024 - ERROR - Query: UPDATE "konghin"."stock" SET "stk_status" = %s, "stk_gold_type" = %s, "stk_type" = %s, "stk_size" = %s, "stk_length" = %s, "stk_pattern" = %s, "stk_weight" = %s, "stk_labor_cost" = %s, "stk_pur_date" = %s, "stk_gold_cost" = %s, "stk_sell_date" = %s, "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100004'
+2024-08-25 22:57:35,024 - ERROR - Database error: 22P02 - ERROR:  could not parse "null" as type decimal: parse mantissa: null
+
+2024-08-25 22:57:35,026 - ERROR - Error details: None
+2024-08-25 22:57:35,179 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:57:35,180 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 22:57:35,208 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:35] "POST /updatestock HTTP/1.1" 200 -
+2024-08-25 22:57:35,246 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:35] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:57:35,249 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:35] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:57:35,254 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:35] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:57:35,479 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:35] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:57:37,616 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:57:37,617 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_id='STK_100004'
+2024-08-25 22:57:37,634 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:37] "GET /update-stock/STK_100004 HTTP/1.1" 200 -
+2024-08-25 22:57:37,648 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:37] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:57:37,649 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:37] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:57:37,652 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:37] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:57:37,654 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:37] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:57:40,977 - ERROR - Query: UPDATE "konghin"."stock" SET "stk_status" = %s, "stk_gold_type" = %s, "stk_type" = %s, "stk_size" = %s, "stk_length" = %s, "stk_pattern" = %s, "stk_weight" = %s, "stk_labor_cost" = %s, "stk_pur_date" = %s, "stk_gold_cost" = %s, "stk_sell_date" = %s, "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100004'
+2024-08-25 22:57:40,977 - ERROR - Database error: 22P02 - ERROR:  could not parse "null" as type decimal: parse mantissa: null
+
+2024-08-25 22:57:40,977 - ERROR - Error details: None
+2024-08-25 22:57:41,142 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:57:41,142 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 22:57:41,149 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:41] "POST /updatestock HTTP/1.1" 200 -
+2024-08-25 22:57:41,174 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:41] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:57:41,176 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:41] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:57:41,178 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:41] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:57:41,185 - INFO - 127.0.0.1 - - [25/Aug/2024 22:57:41] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:58:42,989 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-25 22:58:43,058 - INFO -  * Restarting with stat
+2024-08-25 22:58:44,389 - WARNING -  * Debugger is active!
+2024-08-25 22:58:44,395 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 22:58:46,829 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:58:46,829 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_id='STK_100004'
+2024-08-25 22:58:46,843 - INFO - 127.0.0.1 - - [25/Aug/2024 22:58:46] "GET /update-stock/STK_100004 HTTP/1.1" 200 -
+2024-08-25 22:58:46,855 - INFO - 127.0.0.1 - - [25/Aug/2024 22:58:46] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:58:46,856 - INFO - 127.0.0.1 - - [25/Aug/2024 22:58:46] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:58:46,858 - INFO - 127.0.0.1 - - [25/Aug/2024 22:58:46] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 22:58:46,925 - INFO - 127.0.0.1 - - [25/Aug/2024 22:58:46] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:58:50,656 - ERROR - Query: UPDATE "konghin"."stock" SET "stk_status" = %s, "stk_gold_type" = %s, "stk_type" = %s, "stk_size" = %s, "stk_length" = %s, "stk_pattern" = %s, "stk_weight" = %s, "stk_labor_cost" = %s, "stk_pur_date" = %s, "stk_gold_cost" = %s, "stk_sell_date" = %s, "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100004'
+2024-08-25 22:58:50,656 - ERROR - Database error: 22P02 - ERROR:  could not parse "null" as type decimal: parse mantissa: null
+
+2024-08-25 22:58:50,656 - ERROR - Error details: None
+2024-08-25 22:58:50,822 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 22:58:50,823 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 22:58:50,836 - INFO - 127.0.0.1 - - [25/Aug/2024 22:58:50] "POST /updatestock HTTP/1.1" 200 -
+2024-08-25 22:58:50,849 - INFO - 127.0.0.1 - - [25/Aug/2024 22:58:50] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 22:58:50,850 - INFO - 127.0.0.1 - - [25/Aug/2024 22:58:50] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 22:58:50,851 - INFO - 127.0.0.1 - - [25/Aug/2024 22:58:50] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 22:58:50,853 - INFO - 127.0.0.1 - - [25/Aug/2024 22:58:50] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:11,478 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-25 23:00:11,540 - INFO -  * Restarting with stat
+2024-08-25 23:00:12,738 - WARNING -  * Debugger is active!
+2024-08-25 23:00:12,744 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 23:00:14,785 - ERROR - Query: UPDATE "konghin"."stock" SET "stk_status" = %s, "stk_gold_type" = %s, "stk_type" = %s, "stk_size" = %s, "stk_length" = %s, "stk_pattern" = %s, "stk_weight" = %s, "stk_labor_cost" = %s, "stk_pur_date" = %s, "stk_gold_cost" = %s, "stk_sell_date" = %s, "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100004'
+2024-08-25 23:00:14,785 - ERROR - Database error: 22P02 - ERROR:  could not parse "null" as type decimal: parse mantissa: null
+
+2024-08-25 23:00:14,786 - ERROR - Error details: None
+2024-08-25 23:00:14,912 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 23:00:14,912 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 23:00:14,929 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:14] "POST /updatestock HTTP/1.1" 200 -
+2024-08-25 23:00:14,941 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:14] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:14,942 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:14] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:14,945 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:14] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:15,012 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:15] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 23:00:17,262 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 23:00:17,262 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_id='STK_100004'
+2024-08-25 23:00:17,271 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:17] "GET /update-stock/STK_100004 HTTP/1.1" 200 -
+2024-08-25 23:00:17,281 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:17] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 23:00:17,282 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:17] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:17,285 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:17] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:17,286 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:17] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:21,067 - ERROR - Query: UPDATE "konghin"."stock" SET "stk_status" = %s, "stk_gold_type" = %s, "stk_type" = %s, "stk_size" = %s, "stk_length" = %s, "stk_pattern" = %s, "stk_weight" = %s, "stk_labor_cost" = %s, "stk_pur_date" = %s, "stk_gold_cost" = %s, "stk_sell_date" = %s, "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100004'
+2024-08-25 23:00:21,067 - ERROR - Database error: 22P02 - ERROR:  could not parse "null" as type decimal: parse mantissa: null
+
+2024-08-25 23:00:21,067 - ERROR - Error details: None
+2024-08-25 23:00:21,220 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 23:00:21,220 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 23:00:21,226 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:21] "POST /updatestock HTTP/1.1" 200 -
+2024-08-25 23:00:21,238 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:21] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 23:00:21,243 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:21] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:21,248 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:21] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:21,249 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:21] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:36,061 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\models.py', reloading
+2024-08-25 23:00:36,121 - INFO -  * Restarting with stat
+2024-08-25 23:00:37,096 - WARNING -  * Debugger is active!
+2024-08-25 23:00:37,104 - INFO -  * Debugger PIN: 310-690-463
+2024-08-25 23:00:53,417 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 23:00:53,418 - INFO - Query: SELECT * FROM "konghin"."stock"
+2024-08-25 23:00:53,434 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:53] "GET /stocks HTTP/1.1" 200 -
+2024-08-25 23:00:53,445 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:53] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:53,446 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:53] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:53,447 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:53] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:53,513 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:53] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 23:00:56,703 - INFO - Successfully selected data from konghin.stock.
+2024-08-25 23:00:56,703 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_id='STK_100004'
+2024-08-25 23:00:56,717 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:56] "GET /update-stock/STK_100004 HTTP/1.1" 200 -
+2024-08-25 23:00:56,731 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:56] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2024-08-25 23:00:56,732 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:56] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:56,737 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:56] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2024-08-25 23:00:56,740 - INFO - 127.0.0.1 - - [25/Aug/2024 23:00:56] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Filter by Name, Age (Range), or City</title>
+
+  <!-- CSS Styles -->
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      cursor: pointer;
+    }
+
+    input[type="text"], input[type="number"] {
+      padding: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .filter-group {
+      margin-bottom: 20px;
+    }
+
+    .filter-group label {
+      margin-right: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .filter-container {
+      margin-bottom: 20px;
+    }
+
+    .range-inputs {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .range-inputs input {
+      width: 48%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Data Table with Dynamic Filter by Name, Age (Range), or City</h1>
+
+  <!-- Radio Buttons to choose filter category -->
+  <div class="filter-container">
+    <label><input type="radio" name="filterCategory" value="name" onclick="toggleFilterCategory('name')"> Filter by Name</label>
+    <label><input type="radio" name="filterCategory" value="age" onclick="toggleFilterCategory('age')"> Filter by Age</label>
+    <label><input type="radio" name="filterCategory" value="city" onclick="toggleFilterCategory('city')"> Filter by City</label>
+  </div>
+
+  <!-- Search Field for filtering by name -->
+  <div id="nameFilter" class="filter-group hidden">
+    <h3>Filter by Name:</h3>
+    <input type="text" id="searchInput" onkeyup="filterByName()" placeholder="Search for names...">
+  </div>
+
+  <!-- Age Range Filter (Min and Max Age) -->
+  <div id="ageFilter" class="filter-group hidden">
+    <h3>Filter by Age Range:</h3>
+    <div class="range-inputs">
+      <input type="number" id="minAge" placeholder="Min Age" oninput="filterTable()">
+      <input type="number" id="maxAge" placeholder="Max Age" oninput="filterTable()">
+    </div>
+  </div>
+
+  <!-- City Filter (Multiple Selection using checkboxes) -->
+  <div id="cityFilter" class="filter-group hidden">
+    <h3>Filter by City:</h3>
+    <label><input type="checkbox" value="New York" onclick="filterTable()"> New York</label>
+    <label><input type="checkbox" value="London" onclick="filterTable()"> London</label>
+    <label><input type="checkbox" value="San Francisco" onclick="filterTable()"> San Francisco</label>
+    <label><input type="checkbox" value="Tokyo" onclick="filterTable()"> Tokyo</label>
+  </div>
+
+  <!-- Table -->
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0)">Name</th>
+        <th onclick="sortTable(1)">Age</th>
+        <th onclick="sortTable(2)">City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>25</td>
+        <td>New York</td>
+      </tr>
+      <tr>
+        <td>Jane</td>
+        <td>30</td>
+        <td>London</td>
+      </tr>
+      <tr>
+        <td>Mike</td>
+        <td>20</td>
+        <td>San Francisco</td>
+      </tr>
+      <tr>
+        <td>Alice</td>
+        <td>25</td>
+        <td>Tokyo</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- JavaScript Code -->
+  <script>
+    // Function to toggle filter categories (Name, Age, or City)
+    function toggleFilterCategory(category) {
+      // Hide all filters initially
+      document.getElementById('nameFilter').classList.add('hidden');
+      document.getElementById('ageFilter').classList.add('hidden');
+      document.getElementById('cityFilter').classList.add('hidden');
+
+      // Show the selected filter
+      if (category === 'name') {
+        document.getElementById('nameFilter').classList.remove('hidden');
+      } else if (category === 'age') {
+        document.getElementById('ageFilter').classList.remove('hidden');
+      } else if (category === 'city') {
+        document.getElementById('cityFilter').classList.remove('hidden');
+      }
+    }
+
+    // Sort the table by a column (index)
+    function sortTable(n) {
+      let table = document.getElementById("dataTable");
+      let rows = table.rows;
+      let switching = true;
+      let dir = "asc";
+      let switchCount = 0;
+
+      while (switching) {
+        switching = false;
+        let rowsArray = Array.from(rows).slice(1);
+        for (let i = 0; i < rowsArray.length - 1; i++) {
+          let x = rowsArray[i].getElementsByTagName("TD")[n];
+          let y = rowsArray[i + 1].getElementsByTagName("TD")[n];
+          let shouldSwitch = false;
+
+          if (dir === "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir === "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          rowsArray[i].parentNode.insertBefore(rowsArray[i + 1], rowsArray[i]);
+          switching = true;
+          switchCount++;
+        } else {
+          if (switchCount === 0 && dir === "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+
+    // Filter the table based on selected checkboxes for age or city
+    function filterTable() {
+      let ageFilterMin = document.getElementById('minAge').value;
+      let ageFilterMax = document.getElementById('maxAge').value;
+      let cityFilter = [];
+
+      // Get all selected city checkbox values
+      let cityCheckboxes = document.querySelectorAll('#cityFilter input[type="checkbox"]:checked');
+      cityCheckboxes.forEach(checkbox => {
+        cityFilter.push(checkbox.value);
+      });
+
+      let table = document.getElementById("dataTable");
+      let rows = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < rows.length; i++) {
+        let age = rows[i].getElementsByTagName("td")[1];
+        let city = rows[i].getElementsByTagName("td")[2];
+        if (age && city) {
+          let ageValue = parseInt(age.innerHTML.trim(), 10);
+          let cityValue = city.innerHTML.trim();
+          
+          // Check if the row's age is within the selected range and city is selected
+          let ageInRange = (ageFilterMin === "" || ageValue >= ageFilterMin) && 
+                           (ageFilterMax === "" || ageValue <= ageFilterMax);
+          let cityMatches = cityFilter.length === 0 || cityFilter.includes(cityValue);
+
+          if (ageInRange && cityMatches) {
+            rows[i].style.display = "";
+          } else {
+            rows[i].style.display = "none";
+          }
+        }
+      }
+    }
+
+    // Filter the table by name input text
+    function filterByName() {
+      let input = document.getElementById("searchInput");
+      let filter = input.value.toLowerCase();
+      let table = document.getElementById("dataTable");
+      let rows = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < rows.length; i++) {
+        let nameCell = rows[i].getElementsByTagName("td")[0];
+        if (nameCell) {
+          let nameValue = nameCell.innerHTML.toLowerCase();
+          if (nameValue.indexOf(filter) > -1) {
+            rows[i].style.display = "";
+          } else {
+            rows[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
