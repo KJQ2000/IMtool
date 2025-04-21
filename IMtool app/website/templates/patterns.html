@@ -41,11 +41,18 @@
         <div class="card mb-4">
             <div class="card-body">
                 {% if patterns|length < 1 %}
-                <h4 class="text-center">There are no pattern. Add one above.</h4>
+                <h4 class="text-center">There are no patterns. Add one above.</h4>
                 {% else %}
                 <div class="table-responsive">
-                    <table class="table table-striped" id="patterndataTable"> <!--  table-bordered -->
+                    <table class="table table-striped" id="patterndataTable">
                         <thead>
+                            <tr>
+                                <th><input type="text" id="filter_pattern_id" class="form-control" placeholder="Filter Pattern ID"></th>
+                                <th><input type="text" id="filter_category" class="form-control" placeholder="Filter Category"></th>
+                                <th><input type="text" id="filter_pattern" class="form-control" placeholder="Filter Pattern"></th>
+                                <th><input type="text" id="filter_reference_image" class="form-control" placeholder="Filter Reference Image"></th>
+                                <th>Actions</th>
+                            </tr>
                             <tr>
                                 <th>Pattern ID</th>
                                 <th>Category</th>
@@ -60,7 +67,6 @@
                                 <td>{{ pattern.cpat_id }}</td>
                                 <td>{{ pattern.cpat_category }}</td>
                                 <td>{{ pattern.cpat_pattern }}</td>
-                                <!-- <td>{{ pattern.slm_email_address }}</td> -->
                                 <td><img src="{{ pattern.cpat_image_path }}" alt="{{ pattern.cpat_pattern }}" style="width: 200px;height: 200px;"></td>
                                 <td>
                                     <a href="/update-pattern/{{ pattern.cpat_id }}">
@@ -71,7 +77,6 @@
                                             <div class="btn btn-danger btn-sm"><i class="fas fa-trash trash-icon"></i></div>
                                         </a>
                                     </form>
-                                    
                                 </td>
                             </tr>
                             {% endfor %}
@@ -81,12 +86,36 @@
                 {% endif %}
             </div>
         </div>
+        
     </div>
 
     <!-- jQuery and DataTables JS -->
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script>
+    $(document).ready(function() {
+        // Initialize DataTable
+        var table = $('#patterndataTable').DataTable();
+
+        // Apply filters when any filter input changes
+        $('#filter_pattern_id, #filter_category, #filter_pattern, #filter_reference_image').on('keyup change', function() {
+            // Get values from all filter inputs
+            var pattern_id_filter = $('#filter_pattern_id').val();
+            var category_filter = $('#filter_category').val();
+            var pattern_filter = $('#filter_pattern').val();
+            var reference_image_filter = $('#filter_reference_image').val();
+
+            // Apply combined filter to the table
+            table
+                .columns(0).search(pattern_id_filter, true, false) // Pattern ID filter
+                .columns(1).search(category_filter, true, false) // Category filter
+                .columns(2).search(pattern_filter, true, false) // Pattern filter
+                .columns(3).search(reference_image_filter, true, false) // Reference Image filter
+                .draw();  // Redraw the table after applying all filters
+        });
+    });
+
+
         $(document).ready(function() {
             var table = $('#patterndataTable').DataTable();
 

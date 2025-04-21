@@ -44,8 +44,19 @@
                 <h4 class="text-center">There are no sales. Add one above.</h4>
                 {% else %}
                 <div class="table-responsive">
-                    <table class="table table-striped" id="saledataTable"> <!--  table-bordered -->
+                    <table class="table table-striped" id="saledataTable">
                         <thead>
+                            <tr>
+                                <th><input type="text" id="filter_sale_id" class="form-control" placeholder="Filter Sale ID"></th>
+                                <th><input type="text" id="filter_sale_receipt_no" class="form-control" placeholder="Filter Receipt No"></th>
+                                <th><input type="text" id="filter_sale_cust_id" class="form-control" placeholder="Filter Customer ID"></th>
+                                <th><input type="text" id="filter_sale_sold_date" class="form-control" placeholder="Filter Sold Date"></th>
+                                <th><input type="text" id="filter_sale_weight" class="form-control" placeholder="Filter Weight (g)"></th>
+                                <th><input type="text" id="filter_sale_gold_sell" class="form-control" placeholder="Filter Gold Price"></th>
+                                <th><input type="text" id="filter_sale_labor_sell" class="form-control" placeholder="Filter Labor Price"></th>
+                                <th><input type="text" id="filter_sale_price" class="form-control" placeholder="Filter Sale Price"></th>
+                                <th>Actions</th>
+                            </tr>
                             <tr>
                                 <th>Sale ID</th>
                                 <th>Sale Receipt No</th>
@@ -78,7 +89,6 @@
                                             <div class="btn btn-danger btn-sm"><i class="fas fa-trash trash-icon"></i></div>
                                         </a>
                                     </form>
-                                    
                                 </td>
                             </tr>
                             {% endfor %}
@@ -88,12 +98,44 @@
                 {% endif %}
             </div>
         </div>
+        
     </div>
 
     <!-- jQuery and DataTables JS -->
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script>
+        $(document).ready(function() {
+            // Initialize DataTable
+            var table = $('#saledataTable').DataTable();
+
+            // Apply filters when any filter input changes
+            $('#filter_sale_id, #filter_sale_receipt_no, #filter_sale_cust_id, #filter_sale_sold_date, #filter_sale_weight, #filter_sale_gold_sell, #filter_sale_labor_sell, #filter_sale_price').on('keyup change', function() {
+                // Get values from all filter inputs
+                var sale_id_filter = $('#filter_sale_id').val();
+                var sale_receipt_no_filter = $('#filter_sale_receipt_no').val();
+                var sale_cust_id_filter = $('#filter_sale_cust_id').val();
+                var sale_sold_date_filter = $('#filter_sale_sold_date').val();
+                var sale_weight_filter = $('#filter_sale_weight').val();
+                var sale_gold_sell_filter = $('#filter_sale_gold_sell').val();
+                var sale_labor_sell_filter = $('#filter_sale_labor_sell').val();
+                var sale_price_filter = $('#filter_sale_price').val();
+
+                // Apply combined filter to the table
+                table
+                    .columns(0).search(sale_id_filter, true, false)
+                    .columns(1).search(sale_receipt_no_filter, true, false)
+                    .columns(2).search(sale_cust_id_filter, true, false)
+                    .columns(3).search(sale_sold_date_filter, true, false)
+                    .columns(4).search(sale_weight_filter, true, false)
+                    .columns(5).search(sale_gold_sell_filter, true, false)
+                    .columns(6).search(sale_labor_sell_filter, true, false)
+                    .columns(7).search(sale_price_filter, true, false)
+                    .draw();  // Redraw the table after filtering
+            });
+        });
+
+
         $(document).ready(function() {
             var table = $('#saledataTable').DataTable();
 

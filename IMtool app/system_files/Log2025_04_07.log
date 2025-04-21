@@ -1,0 +1,30 @@
+2025-04-07 23:06:05,591 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-07 23:06:05,591 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-07 23:06:05,593 - INFO -  * Restarting with stat
+2025-04-07 23:06:06,440 - WARNING -  * Debugger is active!
+2025-04-07 23:06:06,446 - INFO -  * Debugger PIN: 310-690-463
+2025-04-07 23:06:07,516 - INFO - Successfully selected data from konghin.stock.
+2025-04-07 23:06:07,516 - INFO - Query: SELECT * FROM "konghin"."stock"
+2025-04-07 23:06:07,530 - INFO - 127.0.0.1 - - [07/Apr/2025 23:06:07] "GET /stocks HTTP/1.1" 200 -
+2025-04-07 23:06:07,553 - INFO - 127.0.0.1 - - [07/Apr/2025 23:06:07] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-04-07 23:06:07,556 - INFO - 127.0.0.1 - - [07/Apr/2025 23:06:07] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-04-07 23:06:07,557 - INFO - 127.0.0.1 - - [07/Apr/2025 23:06:07] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-04-07 23:06:07,632 - INFO - 127.0.0.1 - - [07/Apr/2025 23:06:07] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-04-07 23:24:13,905 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-07 23:24:13,905 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-07 23:24:13,906 - INFO -  * Restarting with stat
+2025-04-07 23:24:14,863 - WARNING -  * Debugger is active!
+2025-04-07 23:24:14,866 - INFO -  * Debugger PIN: 310-690-463
+2025-04-07 23:24:24,122 - INFO - 127.0.0.1 - - [07/Apr/2025 23:24:24] "GET / HTTP/1.1" 200 -
+2025-04-07 23:24:24,478 - INFO - 127.0.0.1 - - [07/Apr/2025 23:24:24] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2025-04-07 23:24:24,520 - INFO - 127.0.0.1 - - [07/Apr/2025 23:24:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-07 23:24:52,829 - INFO - kjunqiang@gmail.com successfully login at 2025-04-07 23:24:52.829735
+2025-04-07 23:24:52,883 - INFO - Successfully selected data from konghin.stock.
+2025-04-07 23:24:52,883 - INFO - Query: SELECT * FROM "konghin"."stock"
+2025-04-07 23:24:52,983 - INFO - 127.0.0.1 - - [07/Apr/2025 23:24:52] "POST /login HTTP/1.1" 200 -
+2025-04-07 23:24:53,010 - INFO - 127.0.0.1 - - [07/Apr/2025 23:24:53] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-04-07 23:24:53,013 - INFO - 127.0.0.1 - - [07/Apr/2025 23:24:53] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-04-07 23:24:53,015 - INFO - 127.0.0.1 - - [07/Apr/2025 23:24:53] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-04-07 23:24:53,018 - INFO - 127.0.0.1 - - [07/Apr/2025 23:24:53] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -

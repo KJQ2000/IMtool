@@ -1,0 +1,62 @@
+2025-04-15 22:05:57,139 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE stk_id='('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')'
+2025-04-15 22:05:57,139 - ERROR - Database error: 42601 - ERROR:  at or near "stk_100035": syntax error
+DETAIL:  source SQL:
+SELECT * FROM "konghin"."stock" WHERE stk_id='('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')'
+                                                ^
+
+2025-04-15 22:05:57,140 - ERROR - Error details: source SQL:
+SELECT * FROM "konghin"."stock" WHERE stk_id='('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')'
+                                                ^
+2025-04-15 22:06:04,152 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE stk_id='('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')'
+2025-04-15 22:06:04,152 - ERROR - Database error: 42601 - ERROR:  at or near "stk_100035": syntax error
+DETAIL:  source SQL:
+SELECT * FROM "konghin"."stock" WHERE stk_id='('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')'
+                                                ^
+
+2025-04-15 22:06:04,152 - ERROR - Error details: source SQL:
+SELECT * FROM "konghin"."stock" WHERE stk_id='('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')'
+                                                ^
+2025-04-15 22:06:33,470 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE stk_id=('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:06:33,470 - ERROR - Database error: 22023 - ERROR:  unsupported comparison operator: <varchar> = <tuple{string, string, string, string, string, string, string, string, string, string}>
+
+2025-04-15 22:06:33,470 - ERROR - Error details: None
+2025-04-15 22:06:56,671 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:06:56,671 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:08:57,807 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:08:57,807 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:10:55,151 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:10:55,151 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:11:00,383 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:11:00,384 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:11:26,564 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:11:26,564 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:11:49,359 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:11:49,359 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:12:00,032 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:12:00,032 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:12:05,225 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:12:05,225 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:12:17,269 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:12:17,269 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:12:20,264 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:12:20,264 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:12:59,950 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:12:59,950 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:13:17,381 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:13:17,381 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:15:35,393 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:15:35,393 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:17:10,584 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:17:10,584 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:19:43,227 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:19:43,227 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:22:48,083 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:22:48,083 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:25:52,353 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:25:52,353 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:27:10,405 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:27:10,405 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:28:27,567 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:28:27,567 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-15 22:29:44,926 - INFO - Successfully selected data from konghin.stock.
+2025-04-15 22:29:44,926 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')

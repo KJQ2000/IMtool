@@ -34,8 +34,8 @@ PREFIX = {
     'category_pattern_mapping':'CPAT'
 }
 
-log_file = dic.LOG_DIR+str(datetime.now().strftime("%Y_%m_%d"))+'.log'
 
+log_file = dic.LOG_DIR+str(datetime.now().strftime("%Y_%m_%d"))+'.log'
 logging.basicConfig(filename=log_file,level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class Database: 
@@ -43,6 +43,38 @@ class Database:
         self.conn = psycopg2.connect(database_url)
         self.cursor = self.conn.cursor()
         self.schema = 'konghin'
+        
+    def select_raw(self, query: str, params: tuple = None, js: bool = False):
+        """
+        Executes a raw SQL query with optional parameters.
+
+        Args:
+            query (str): The SQL query to execute.
+            params (tuple, optional): Parameters to safely substitute into the query.
+            js (bool, optional): If True, returns the result as a JSON string.
+
+        Returns:
+            pd.DataFrame or str: DataFrame of results or JSON if js=True.
+        """
+        try:
+            self.cursor.execute(query, params)
+            results = self.cursor.fetchall()
+            colnames = [desc[0] for desc in self.cursor.description]
+
+            df = pd.DataFrame(results, columns=colnames)
+
+            logging.info(f"Successfully executed query: {query}")
+
+            if js:
+                return df.to_json(orient='records', date_format='iso')
+            return df
+
+        except psycopg2.Error as e:
+            logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
+            return None
+        
+        
+    
     def select(self, table: str, columns: list = None, where: str = None, js: bool = False):
         """
         Selects data from a specified table.
@@ -323,13 +355,15 @@ class Database:
 
         if columns:
             query = base_query + " ({id_col}, {columns}) VALUES ".format(
-                id_col = str(PREFIX.get(table))+'_id',
+                id_col = str(PREFIX.get(table)).lower()+'_id',
                 columns=', '.join(columns)
             )
         else:
             query = base_query + " VALUES "
             
         values_statement = ''
+        
+        # print('until_values: ',query)
 
         for row in range(len(values)):
             seq = self.get_nextval(SEQUENCES.get(table))
@@ -349,6 +383,8 @@ class Database:
         values_statement = values_statement[:-1]
         
         insert_query = (query+values_statement).replace("'nan'",'null')
+
+        # print('Full query: ',insert_query)
 
 
         try:

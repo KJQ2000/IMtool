@@ -14,6 +14,13 @@
         
         <div class="mb-3">
             <a class="btn btn-secondary" href="/sales">Back to Sales List</a>
+            <!-- Print Button -->
+            <!-- <button type="button" class="btn btn-info" onclick="printInvoice()">Print Invoice</button> -->
+            <!-- <button type="button" class="btn btn-info" action="/print-invoice/{{ sale.sale_id }}">Print Invoice</button> -->
+             <!-- Direct link to print invoice -->
+            <a href="/print-invoice/{{sale.sale_id}}" class="btn btn-info" target="_blank">Print Invoice</a>
+
+
         </div>
 
         <div class="card mb-4">
@@ -40,7 +47,7 @@
                                 <select class="form-select" id="sale_cust_id" name="sale_cust_id" required>
                                     <option value="" disabled>Select Customer</option>
                                     {% for customer in customers %}
-                                        <option value="{{ customer.cus_id }}" {% if customer.cus_id == sale.sale_cust_id %}selected{% endif %}>{{ customer.cust_name }}</option>
+                                        <option value="{{ customer.cust_id }}" {% if customer.cus_id == sale.sale_cust_id %}selected{% endif %}>{{ customer.cust_name }}</option>
                                     {% endfor %}
                                 </select>
                             </div>

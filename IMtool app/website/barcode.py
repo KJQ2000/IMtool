@@ -3,6 +3,7 @@ import psycopg2
 from psycopg2 import sql
 import os
 import dictionary as dic
+import math
 
 class BarcodeGenerator:
     def __init__(self):
@@ -22,6 +23,7 @@ class BarcodeGenerator:
 
     @staticmethod
     def _gp_encryptor(gp):
+        gp = int(math.ceil(gp))
         """Encrypts the gp value."""
         gp_first_digit = int(str(gp)[0])
         return chr(64 + gp_first_digit) + str(gp)[1:]
@@ -29,7 +31,7 @@ class BarcodeGenerator:
     @staticmethod
     def _labor_encryptor(labor):
         """Encrypts the labor value."""
-        labor = str(labor)
+        labor = str(int(math.ceil(labor)))
         result = int(
             ''.join(
                 str(int(x) + 1)[-1] if x.isdigit() else x for x in labor

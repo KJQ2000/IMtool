@@ -1,0 +1,236 @@
+2025-01-04 02:40:27,155 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-04 02:40:27,155 - INFO - [33mPress CTRL+C to quit[0m
+2025-01-04 02:40:27,155 - INFO -  * Restarting with stat
+2025-01-04 02:40:28,588 - WARNING -  * Debugger is active!
+2025-01-04 02:40:28,596 - INFO -  * Debugger PIN: 310-690-463
+2025-01-04 02:40:35,809 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:35] "GET / HTTP/1.1" 200 -
+2025-01-04 02:40:37,651 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:37] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2025-01-04 02:40:38,109 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-01-04 02:40:45,271 - INFO - kjunqiang@gmail.com successfully login at 2025-01-04 02:40:45.271974
+2025-01-04 02:40:45,366 - INFO - Successfully selected data from konghin.stock.
+2025-01-04 02:40:45,366 - INFO - Query: SELECT * FROM "konghin"."stock"
+2025-01-04 02:40:45,397 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:45] "POST /login HTTP/1.1" 200 -
+2025-01-04 02:40:45,444 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:45] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:40:45,570 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:45] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:40:45,617 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:45] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:40:45,617 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:45] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:40:47,702 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:40:47,702 - INFO - Query: SELECT * FROM "konghin"."category_pattern_mapping"
+2025-01-04 02:40:47,718 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:47] "GET /patterns HTTP/1.1" 200 -
+2025-01-04 02:40:47,796 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:47] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:40:47,937 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:47] "[33mGET /website/static/pattern/NECKLACE_\u6c34\u6ce2.png HTTP/1.1[0m" 404 -
+2025-01-04 02:40:48,078 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:48] "[33mGET /website/static/pattern/BRACELET_\u7cd6\u4ed4.png HTTP/1.1[0m" 404 -
+2025-01-04 02:40:48,218 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:48] "[36mGET /static/pattern/goldnecklace.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:40:48,359 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:48] "[33mGET /None HTTP/1.1[0m" 404 -
+2025-01-04 02:40:48,484 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:48] "[33mGET /website/static/pattern/D2_3848_MONASH_20231126-custom.jpg HTTP/1.1[0m" 404 -
+2025-01-04 02:40:48,516 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:48] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:40:48,516 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:48] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:40:48,516 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:48] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:40:48,531 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:48] "[33mGET /website/static/pattern/RINGJagungjpg HTTP/1.1[0m" 404 -
+2025-01-04 02:40:48,531 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:48] "[33mGET /website/static/pattern/RING_Jagung.jpg HTTP/1.1[0m" 404 -
+2025-01-04 02:40:48,531 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:48] "[36mGET /static/pattern/RING_Jagung.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:40:51,484 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:51] "GET /dashboard HTTP/1.1" 200 -
+2025-01-04 02:40:51,634 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:51] "[36mGET /static/pattern/goldnecklace.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:40:51,764 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:51] "[36mGET /static/pattern/goldring.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:40:51,764 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:51] "[36mGET /static/pattern/goldbracelet.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:40:51,774 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:51] "[36mGET /static/pattern/goldbangle.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:40:51,774 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:51] "[36mGET /static/pattern/goldearing.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:40:51,784 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:51] "[36mGET /static/pattern/goldpendant.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:40:51,784 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:51] "[36mGET /static/pattern/goldanklet.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:40:51,784 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:51] "[36mGET /static/pattern/goldbackground1.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:40:53,879 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:40:53,879 - INFO - Query: SELECT * FROM "konghin"."category_pattern_mapping" WHERE cpat_category='NECKLACE'
+2025-01-04 02:40:53,889 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:53] "POST /view-category/NECKLACE HTTP/1.1" 200 -
+2025-01-04 02:40:53,919 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:53] "[33mGET /view-category/website/static/pattern/NECKLACE_\u6c34\u6ce2.png HTTP/1.1[0m" 404 -
+2025-01-04 02:40:54,109 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:54] "[36mGET /static/pattern/goldnecklace.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:40:54,289 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:54] "[36mGET /static/pattern/goldbackground1.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:40:56,889 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE stk_type='NECKLACE' AND stk_pattern='\u5355\u6263'
+2025-01-04 02:40:56,889 - ERROR - Unexpected error: Length mismatch: Expected axis has 1 elements, new values have 29 elements
+2025-01-04 02:40:56,889 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:56] "POST /stocks/NECKLACE/\u5355\u6263 HTTP/1.1" 200 -
+2025-01-04 02:40:57,019 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:57] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:40:57,139 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:57] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:40:57,259 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:57] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:40:57,269 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:57] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:40:59,687 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:40:59,687 - INFO - Query: SELECT * FROM "konghin"."category_pattern_mapping"
+2025-01-04 02:40:59,697 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:59] "GET /patterns HTTP/1.1" 200 -
+2025-01-04 02:40:59,747 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:59] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:40:59,987 - INFO - 127.0.0.1 - - [04/Jan/2025 02:40:59] "[33mGET /website/static/pattern/NECKLACE_\u6c34\u6ce2.png HTTP/1.1[0m" 404 -
+2025-01-04 02:41:00,197 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:00] "[33mGET /website/static/pattern/BRACELET_\u7cd6\u4ed4.png HTTP/1.1[0m" 404 -
+2025-01-04 02:41:00,337 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:00] "[36mGET /static/pattern/goldnecklace.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:41:00,347 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:00] "[36mGET /static/pattern/RING_Jagung.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:41:00,357 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:00] "[33mGET /None HTTP/1.1[0m" 404 -
+2025-01-04 02:41:00,367 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:00] "[33mGET /website/static/pattern/D2_3848_MONASH_20231126-custom.jpg HTTP/1.1[0m" 404 -
+2025-01-04 02:41:00,377 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:00] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:00,377 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:00] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:00,387 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:00] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:00,387 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:00] "[33mGET /website/static/pattern/RINGJagungjpg HTTP/1.1[0m" 404 -
+2025-01-04 02:41:00,387 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:00] "[33mGET /website/static/pattern/RING_Jagung.jpg HTTP/1.1[0m" 404 -
+2025-01-04 02:41:17,975 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:41:17,975 - INFO - Query: SELECT * FROM "konghin"."category_pattern_mapping" WHERE cpat_id='cpat_100012'
+2025-01-04 02:41:17,988 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:17] "GET /update-pattern/cpat_100012 HTTP/1.1" 200 -
+2025-01-04 02:41:18,033 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:18] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:41:18,091 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:18] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:18,131 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:18] "[33mGET /update-pattern/static/pattern/RING_Jagung.jpg HTTP/1.1[0m" 404 -
+2025-01-04 02:41:18,165 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:18] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:18,203 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:18] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:29,257 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:41:29,257 - INFO - Query: SELECT "cpat_image_path" FROM "konghin"."category_pattern_mapping" WHERE cpat_id='cpat_100012'
+2025-01-04 02:41:29,307 - INFO - Successfully updated data in konghin.category_pattern_mapping.
+2025-01-04 02:41:29,307 - INFO - Query: UPDATE "konghin"."category_pattern_mapping" SET "cpat_image_path" = %s, "cpat_last_update" = %s WHERE cpat_id='cpat_100012'
+2025-01-04 02:41:29,307 - INFO - Values: ['.\\static\\pattern\\RING_Jagung.png', '2025-01-04 02:41:29']
+2025-01-04 02:41:29,357 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:41:29,367 - INFO - Query: SELECT * FROM "konghin"."category_pattern_mapping"
+2025-01-04 02:41:29,367 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:29] "POST /updatepattern HTTP/1.1" 200 -
+2025-01-04 02:41:29,407 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:29] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:41:29,477 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:29] "[33mGET /website/static/pattern/NECKLACE_\u6c34\u6ce2.png HTTP/1.1[0m" 404 -
+2025-01-04 02:41:29,648 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:29] "[33mGET /website/static/pattern/BRACELET_\u7cd6\u4ed4.png HTTP/1.1[0m" 404 -
+2025-01-04 02:41:29,798 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:29] "[36mGET /static/pattern/goldnecklace.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:41:29,891 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:29] "[33mGET /None HTTP/1.1[0m" 404 -
+2025-01-04 02:41:29,999 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:29] "[33mGET /website/static/pattern/D2_3848_MONASH_20231126-custom.jpg HTTP/1.1[0m" 404 -
+2025-01-04 02:41:30,140 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:30] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:30,214 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:30] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:30,330 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:30] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:30,420 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:30] "[33mGET /website/static/pattern/RINGJagungjpg HTTP/1.1[0m" 404 -
+2025-01-04 02:41:30,500 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:30] "[33mGET /website/static/pattern/RING_Jagung.jpg HTTP/1.1[0m" 404 -
+2025-01-04 02:41:30,530 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:30] "GET /static/pattern/RING_Jagung.png HTTP/1.1" 200 -
+2025-01-04 02:41:33,377 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:41:33,377 - INFO - Query: SELECT * FROM "konghin"."category_pattern_mapping" WHERE cpat_id='cpat_100012'
+2025-01-04 02:41:33,377 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:33] "GET /update-pattern/cpat_100012 HTTP/1.1" 200 -
+2025-01-04 02:41:33,529 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:33] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:41:33,677 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:33] "[33mGET /update-pattern/static/pattern/RING_Jagung.png HTTP/1.1[0m" 404 -
+2025-01-04 02:41:33,737 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:33] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:33,747 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:33] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:33,747 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:33] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:42,325 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:41:42,325 - INFO - Query: SELECT "cpat_image_path" FROM "konghin"."category_pattern_mapping" WHERE cpat_id='cpat_100012'
+2025-01-04 02:41:42,374 - INFO - Successfully updated data in konghin.category_pattern_mapping.
+2025-01-04 02:41:42,374 - INFO - Query: UPDATE "konghin"."category_pattern_mapping" SET "cpat_image_path" = %s, "cpat_last_update" = %s WHERE cpat_id='cpat_100012'
+2025-01-04 02:41:42,374 - INFO - Values: ['.\\static\\pattern\\RING_Jagung.png', '2025-01-04 02:41:42']
+2025-01-04 02:41:42,424 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:41:42,424 - INFO - Query: SELECT * FROM "konghin"."category_pattern_mapping"
+2025-01-04 02:41:42,434 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:42] "POST /updatepattern HTTP/1.1" 200 -
+2025-01-04 02:41:42,464 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:42] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:41:42,754 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:42] "[33mGET /website/static/pattern/NECKLACE_\u6c34\u6ce2.png HTTP/1.1[0m" 404 -
+2025-01-04 02:41:42,825 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:42] "[33mGET /website/static/pattern/BRACELET_\u7cd6\u4ed4.png HTTP/1.1[0m" 404 -
+2025-01-04 02:41:42,835 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:42] "[33mGET /None HTTP/1.1[0m" 404 -
+2025-01-04 02:41:42,835 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:42] "[36mGET /static/pattern/goldnecklace.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:41:42,845 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:42] "[33mGET /website/static/pattern/D2_3848_MONASH_20231126-custom.jpg HTTP/1.1[0m" 404 -
+2025-01-04 02:41:42,854 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:42] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:42,864 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:42] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:42,874 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:42] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:42,874 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:42] "[33mGET /website/static/pattern/RINGJagungjpg HTTP/1.1[0m" 404 -
+2025-01-04 02:41:43,025 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:43] "[33mGET /website/static/pattern/RING_Jagung.jpg HTTP/1.1[0m" 404 -
+2025-01-04 02:41:43,385 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:43] "[33mGET /static/pattern/RING_Jagung.png HTTP/1.1[0m" 404 -
+2025-01-04 02:41:49,482 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:41:49,482 - INFO - Query: SELECT * FROM "konghin"."category_pattern_mapping" WHERE cpat_id='cpat_100012'
+2025-01-04 02:41:49,482 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:49] "GET /update-pattern/cpat_100012 HTTP/1.1" 200 -
+2025-01-04 02:41:51,774 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:51] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:41:51,824 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:51] "[33mGET /update-pattern/static/pattern/RING_Jagung.png HTTP/1.1[0m" 404 -
+2025-01-04 02:41:51,884 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:51] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:51,944 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:51] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:41:51,994 - INFO - 127.0.0.1 - - [04/Jan/2025 02:41:51] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:00,687 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:42:00,687 - INFO - Query: SELECT "cpat_image_path" FROM "konghin"."category_pattern_mapping" WHERE cpat_id='cpat_100012'
+2025-01-04 02:42:00,768 - INFO - Successfully updated data in konghin.category_pattern_mapping.
+2025-01-04 02:42:00,768 - INFO - Query: UPDATE "konghin"."category_pattern_mapping" SET "cpat_image_path" = %s, "cpat_last_update" = %s WHERE cpat_id='cpat_100012'
+2025-01-04 02:42:00,768 - INFO - Values: ['.\\static\\pattern\\RING_Jagung.png', '2025-01-04 02:42:00']
+2025-01-04 02:42:00,837 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:42:00,837 - INFO - Query: SELECT * FROM "konghin"."category_pattern_mapping"
+2025-01-04 02:42:00,837 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:00] "POST /updatepattern HTTP/1.1" 200 -
+2025-01-04 02:42:00,877 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:00] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:42:01,097 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:01] "[33mGET /website/static/pattern/NECKLACE_\u6c34\u6ce2.png HTTP/1.1[0m" 404 -
+2025-01-04 02:42:01,177 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:01] "[33mGET /website/static/pattern/BRACELET_\u7cd6\u4ed4.png HTTP/1.1[0m" 404 -
+2025-01-04 02:42:01,177 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:01] "[33mGET /None HTTP/1.1[0m" 404 -
+2025-01-04 02:42:01,187 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:01] "[36mGET /static/pattern/goldnecklace.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:42:01,189 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:01] "[33mGET /website/static/pattern/D2_3848_MONASH_20231126-custom.jpg HTTP/1.1[0m" 404 -
+2025-01-04 02:42:01,189 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:01] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:01,197 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:01] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:01,203 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:01] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:01,207 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:01] "[33mGET /website/static/pattern/RINGJagungjpg HTTP/1.1[0m" 404 -
+2025-01-04 02:42:01,207 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:01] "[33mGET /website/static/pattern/RING_Jagung.jpg HTTP/1.1[0m" 404 -
+2025-01-04 02:42:01,207 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:01] "[33mGET /static/pattern/RING_Jagung.png HTTP/1.1[0m" 404 -
+2025-01-04 02:42:05,027 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:42:05,027 - INFO - Query: SELECT * FROM "konghin"."category_pattern_mapping" WHERE cpat_id='cpat_100011'
+2025-01-04 02:42:05,027 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:05] "GET /update-pattern/cpat_100011 HTTP/1.1" 200 -
+2025-01-04 02:42:05,087 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:05] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:42:05,167 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:05] "[33mGET /update-pattern/website/static/pattern/RING_Jagung.jpg HTTP/1.1[0m" 404 -
+2025-01-04 02:42:05,287 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:05] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:05,437 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:05] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:05,507 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:05] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:12,744 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:42:12,744 - INFO - Query: SELECT "cpat_image_path" FROM "konghin"."category_pattern_mapping" WHERE cpat_id='cpat_100011'
+2025-01-04 02:42:12,774 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:12] "[35m[1mPOST /updatepattern HTTP/1.1[0m" 500 -
+2025-01-04 02:42:12,820 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:12] "[36mGET /updatepattern?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-01-04 02:42:12,825 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:12] "[36mGET /updatepattern?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-01-04 02:42:12,855 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:12] "[36mGET /updatepattern?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-01-04 02:42:33,143 - INFO - Successfully selected data from konghin.salesman.
+2025-01-04 02:42:33,143 - INFO - Query: SELECT * FROM "konghin"."salesman"
+2025-01-04 02:42:33,164 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:33] "GET /salesmen HTTP/1.1" 200 -
+2025-01-04 02:42:33,194 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:33] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:42:33,415 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:33] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:33,977 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:33] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:34,384 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:34] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:35,277 - INFO - Successfully selected data from konghin.customer.
+2025-01-04 02:42:35,277 - INFO - Query: SELECT * FROM "konghin"."customer"
+2025-01-04 02:42:35,287 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:35] "GET /customers HTTP/1.1" 200 -
+2025-01-04 02:42:35,338 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:35] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:42:35,458 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:35] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:35,569 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:35] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:35,629 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:35] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:37,753 - INFO - Successfully selected data from konghin.booking.
+2025-01-04 02:42:37,753 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-01-04 02:42:37,773 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:37] "GET /bookings HTTP/1.1" 200 -
+2025-01-04 02:42:37,793 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:37] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:42:37,843 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:37] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:37,923 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:37] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:38,000 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:38] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:39,962 - INFO - Successfully selected data from konghin.booking.
+2025-01-04 02:42:39,962 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100032'
+2025-01-04 02:42:39,981 - INFO - Successfully selected data from konghin.customer.
+2025-01-04 02:42:39,981 - INFO - Query: SELECT * FROM "konghin"."customer"
+2025-01-04 02:42:40,001 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE stk_book_id='BOOK_100032'
+2025-01-04 02:42:40,011 - ERROR - Unexpected error: Length mismatch: Expected axis has 1 elements, new values have 29 elements
+2025-01-04 02:42:40,021 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:40] "[35m[1mGET /update-booking/BOOK_100032 HTTP/1.1[0m" 500 -
+2025-01-04 02:42:41,055 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:41] "GET /update-booking/BOOK_100032?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-01-04 02:42:41,198 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:41] "GET /update-booking/BOOK_100032?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-01-04 02:42:41,404 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:41] "GET /update-booking/BOOK_100032?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-01-04 02:42:41,565 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:41] "[36mGET /update-booking/BOOK_100032?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-01-04 02:42:52,405 - INFO - Successfully selected data from konghin.booking.
+2025-01-04 02:42:52,405 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100059'
+2025-01-04 02:42:52,435 - INFO - Successfully selected data from konghin.customer.
+2025-01-04 02:42:52,435 - INFO - Query: SELECT * FROM "konghin"."customer"
+2025-01-04 02:42:52,455 - INFO - Successfully selected data from konghin.stock.
+2025-01-04 02:42:52,455 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_book_id='BOOK_100059'
+2025-01-04 02:42:52,495 - INFO - Successfully selected data from konghin.stock.
+2025-01-04 02:42:52,495 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_status='IN STOCK' OR stk_id IN ('STK_100150')
+2025-01-04 02:42:52,515 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:52] "GET /update-booking/BOOK_100059 HTTP/1.1" 200 -
+2025-01-04 02:42:52,545 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:52] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-01-04 02:42:52,636 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:52] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:52,893 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:52] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:53,077 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:53] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-01-04 02:42:58,571 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:58] "GET /dashboard HTTP/1.1" 200 -
+2025-01-04 02:42:58,601 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:58] "[36mGET /static/pattern/goldnecklace.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:42:58,691 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:58] "[36mGET /static/pattern/goldring.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:42:58,801 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:58] "[36mGET /static/pattern/goldbracelet.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:42:58,881 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:58] "[36mGET /static/pattern/goldbangle.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:42:58,931 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:58] "[36mGET /static/pattern/goldearing.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:42:59,232 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:59] "[36mGET /static/pattern/goldpendant.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:42:59,299 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:59] "[36mGET /static/pattern/goldanklet.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:42:59,422 - INFO - 127.0.0.1 - - [04/Jan/2025 02:42:59] "[36mGET /static/pattern/goldbackground1.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:43:00,704 - INFO - Successfully selected data from konghin.category_pattern_mapping.
+2025-01-04 02:43:00,704 - INFO - Query: SELECT * FROM "konghin"."category_pattern_mapping" WHERE cpat_category='RING'
+2025-01-04 02:43:00,704 - INFO - 127.0.0.1 - - [04/Jan/2025 02:43:00] "POST /view-category/RING HTTP/1.1" 200 -
+2025-01-04 02:43:00,764 - INFO - 127.0.0.1 - - [04/Jan/2025 02:43:00] "[31m[1mGET /view-category/None HTTP/1.1[0m" 405 -
+2025-01-04 02:43:00,804 - INFO - 127.0.0.1 - - [04/Jan/2025 02:43:00] "[33mGET /view-category/website/static/pattern/RINGJagungjpg HTTP/1.1[0m" 404 -
+2025-01-04 02:43:00,834 - INFO - 127.0.0.1 - - [04/Jan/2025 02:43:00] "[33mGET /view-category/website/static/pattern/RING_Jagung.jpg HTTP/1.1[0m" 404 -
+2025-01-04 02:43:00,864 - INFO - 127.0.0.1 - - [04/Jan/2025 02:43:00] "[33mGET /view-category/static/pattern/RING_Jagung.png HTTP/1.1[0m" 404 -
+2025-01-04 02:43:00,924 - INFO - 127.0.0.1 - - [04/Jan/2025 02:43:00] "[36mGET /static/pattern/goldbackground1.jpg HTTP/1.1[0m" 304 -
+2025-01-04 02:43:08,623 - ERROR - Query: SELECT * FROM "konghin"."category_pattern_mapping" WHERE cpat_category='BANGLE'
+2025-01-04 02:43:08,623 - ERROR - Unexpected error: Length mismatch: Expected axis has 1 elements, new values have 6 elements
+2025-01-04 02:43:08,654 - INFO - 127.0.0.1 - - [04/Jan/2025 02:43:08] "[35m[1mPOST /view-category/BANGLE HTTP/1.1[0m" 500 -
+2025-01-04 02:43:08,686 - INFO - 127.0.0.1 - - [04/Jan/2025 02:43:08] "GET /view-category/BANGLE?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-01-04 02:43:08,904 - INFO - 127.0.0.1 - - [04/Jan/2025 02:43:08] "GET /view-category/BANGLE?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-01-04 02:43:09,031 - INFO - 127.0.0.1 - - [04/Jan/2025 02:43:09] "GET /view-category/BANGLE?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-01-04 02:43:09,144 - INFO - 127.0.0.1 - - [04/Jan/2025 02:43:09] "[36mGET /view-category/BANGLE?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -

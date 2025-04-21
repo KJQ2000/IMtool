@@ -71,11 +71,19 @@
         <div class="card mb-4">
             <div class="card-body">
                 {% if bookpayments|length < 1 %}
-                <h4 class="text-center">There are no booking payment. Add one above.</h4>
+                <h4 class="text-center">There are no booking payments. Add one above.</h4>
                 {% else %}
                 <div class="table-responsive">
                     <table class="table table-striped" id="bookpaymentdataTable">
                         <thead>
+                            <tr>
+                                <th><input type="text" id="filter_bp_book_id" class="form-control" placeholder="Filter Booking ID"></th>
+                                <th><input type="text" id="filter_bp_id" class="form-control" placeholder="Filter Payment ID"></th>
+                                <th><input type="text" id="filter_bp_payment" class="form-control" placeholder="Filter Payment Amount"></th>
+                                <th><input type="text" id="filter_bp_payment_date" class="form-control" placeholder="Filter Payment Date"></th>
+                                <th><input type="text" id="filter_bp_status" class="form-control" placeholder="Filter Payment Status"></th>
+                                <th>Actions</th>
+                            </tr>
                             <tr>
                                 <th>Booking ID</th>
                                 <th>Booking Payment ID</th>
@@ -90,18 +98,20 @@
                             <tr>
                                 <td>{{ bookpayment.bp_book_id }}</td>
                                 <td>{{ bookpayment.bp_id }}</td>
-                                <td>{{ bookpayment.bp_payment}}</td>
-                                <td>{{ bookpayment.bp_payment_date}}</td>
+                                <td>{{ bookpayment.bp_payment }}</td>
+                                <td>{{ bookpayment.bp_payment_date }}</td>
                                 <td>{{ bookpayment.bp_status }}</td>
                                 <td>
                                     <a href="/add-bookpayment/{{ bookpayment.bp_book_id }}">
                                         <div class="btn btn-success btn-sm"><i class="fas fa-plus"></i></div>
                                     </a>
+                                    {% if bookpayment.bp_status != "CANCELLED" %}
                                     <form id="cancel-bookpayment-{{ bookpayment.bp_book_id }}" action="/cancel-bookpayment/{{ bookpayment.bp_book_id }}" method="post" style="display: inline;">
                                         <a onclick="confirmDelete('{{ bookpayment.bp_book_id }}')">
                                             <div class="btn btn-danger btn-sm"><i class="fas fa-minus"></i></div>
                                         </a>
                                     </form>
+                                    {% endif %}
                                 </td>
                             </tr>
                             {% endfor %}
@@ -111,12 +121,45 @@
                 {% endif %}
             </div>
         </div>
+        
     </div>
 
     <!-- jQuery and DataTables JS -->
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script>
+    $(document).ready(function() {
+        // Function to apply multiple filters at once
+        $('#bookpaymentdataTable thead input').on('keyup change', function() {
+            // Get all the filter values from the input fields
+            var filters = [];
+            $('#bookpaymentdataTable thead input').each(function() {
+                filters.push($(this).val().toLowerCase());
+            });
+
+            // Filter the rows based on all the columns
+            $('#bookpaymentdataTable tbody tr').each(function() {
+                var row = $(this);
+                var isVisible = true; // Assume the row is visible initially
+
+                row.children().each(function(index) {
+                    var cellText = $(this).text().toLowerCase();
+                    if (filters[index] && cellText.indexOf(filters[index]) === -1) {
+                        isVisible = false; // If the cell doesn't match the filter, hide the row
+                    }
+                });
+
+                // Show or hide the row based on the visibility condition
+                if (isVisible) {
+                    row.show();
+                } else {
+                    row.hide();
+                }
+            });
+        });
+    });
+
+
         $(document).ready(function() {
             var table = $('#bookpaymentdataTable').DataTable();
 

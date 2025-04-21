@@ -1,3 +1,5 @@
+import os
+
 DATABASE_URL = 'postgresql://JunQiang:UBjUWi4UNOlyiMQy22_ZsQ@konghin-imtool-7458.6xw.aws-ap-southeast-1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full'
 SCHEMA = 'konghin'
 
@@ -13,9 +15,13 @@ BOOK_PAYMENT_SEQ = 'bp_id_seq'
 CPAT_SEQ = 'cpat_id_seq'
 
 
-IMPORT_DIR = r'./system_files/Import/'
-SUCCESS_IMPORT_DIR = r'./system_files/Import/ARCHIVED/SUCCESS/'
-FAILED_IMPORT_DIR = r'./system_files/Import/ARCHIVED/FAILED/'
+CURRENT_DIR = os.path.abspath(os.getcwd())
+IMPORT_DIR = os.path.join(os.path.abspath(os.getcwd()), 'system_files','Import')
+SUCCESS_IMPORT_DIR = os.path.join(os.path.abspath(os.getcwd()), 'system_files','Import','ARCHIVED','SUCCESS')
+FAILED_IMPORT_DIR = os.path.join(os.path.abspath(os.getcwd()), 'system_files','Import','ARCHIVED','FAILED')
+IMG_STORE_DIR = os.path.join(os.path.abspath(os.getcwd()), 'website','static','pattern')
 BATCH_INSERT_LIMIT = 1000
 
-LOG_DIR = r'../system_files/Log/'
+PY_IMPORT_FILE = os.path.join(os.path.abspath(os.getcwd()), 'website','Import.py')
+
+LOG_DIR = os.path.join(os.path.abspath(os.getcwd()), 'system_files','Log')

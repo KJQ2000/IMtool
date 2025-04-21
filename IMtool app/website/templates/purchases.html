@@ -44,8 +44,25 @@
                 <h4 class="text-center">There are no purchases. Add one above.</h4>
                 {% else %}
                 <div class="table-responsive">
-                    <table class="table table-striped" id="purchasedataTable"> <!--  table-bordered -->
+                    <table class="table table-striped" id="purchasedataTable">
                         <thead>
+                            <tr>
+                                <th><input type="text" id="filter_pur_id" class="form-control" placeholder="Filter Purchase ID"></th>
+                                <th><input type="text" id="filter_pur_invoice_no" class="form-control" placeholder="Filter Invoice No"></th>
+                                <th><input type="text" id="filter_pur_slm_id" class="form-control" placeholder="Filter Salesman ID"></th>
+                                <th><input type="text" id="filter_pur_date" class="form-control" placeholder="Filter Purchase Date"></th>
+                                <th><input type="text" id="filter_pur_weight" class="form-control" placeholder="Filter Weight (g)"></th>
+                                <th><input type="text" id="filter_pur_gold_cost" class="form-control" placeholder="Filter Gold Cost"></th>
+                                <th><input type="text" id="filter_pur_labor_cost" class="form-control" placeholder="Filter Labor Cost"></th>
+                                <th><input type="text" id="filter_pur_method" class="form-control" placeholder="Filter Method"></th>
+                                <th><input type="text" id="filter_pur_official_invoice" class="form-control" placeholder="Filter Official Invoice"></th>
+                                <th><input type="text" id="filter_pur_billing_date" class="form-control" placeholder="Filter Billing Date"></th>
+                                <th><input type="text" id="filter_pur_total_cash_amt" class="form-control" placeholder="Filter Cash Amount"></th>
+                                <th><input type="text" id="filter_put_total_trade_in_amt" class="form-control" placeholder="Filter Trade In Amount"></th>
+                                <th><input type="text" id="filter_pur_total_amt" class="form-control" placeholder="Filter Total Amount"></th>
+                                <th><input type="text" id="filter_pur_payment_status" class="form-control" placeholder="Filter Payment Status"></th>
+                                <th>Actions</th>
+                            </tr>
                             <tr>
                                 <th>Purchase ID</th>
                                 <th>Purchase Invoice No</th>
@@ -90,7 +107,6 @@
                                             <div class="btn btn-danger btn-sm"><i class="fas fa-trash trash-icon"></i></div>
                                         </a>
                                     </form>
-                                    
                                 </td>
                             </tr>
                             {% endfor %}
@@ -100,12 +116,69 @@
                 {% endif %}
             </div>
         </div>
+        
     </div>
 
     <!-- jQuery and DataTables JS -->
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script>
+    $(document).ready(function() {
+        // Initialize DataTable
+        var table = $('#purchasedataTable').DataTable();
+
+        // Apply colors to the Payment Status column based on its value
+        $('#purchasedataTable tbody tr').each(function() {
+            var paymentStatusCell = $(this).find('td').eq(13);  // Index of the "Payment Status" column (14th column, zero-based index)
+            var paymentStatus = paymentStatusCell.text().trim();  // Get the text content of the cell
+
+            // Add classes to the Payment Status cell based on its value
+            if (paymentStatus === 'Not Paid') {
+                paymentStatusCell.addClass('bg-danger text-white');  // Red color for "Not Paid"
+            } else if (paymentStatus === 'Half Payment') {
+                paymentStatusCell.addClass('bg-warning text-dark');  // Yellow color for "Half Payment"
+            } else if (paymentStatus === 'Paid') {
+                paymentStatusCell.addClass('bg-success text-white');  // Green color for "Paid"
+            }
+        });
+
+        // Apply filters when any filter input changes
+        $('#filter_pur_id, #filter_pur_invoice_no, #filter_pur_slm_id, #filter_pur_date, #filter_pur_weight, #filter_pur_gold_cost, #filter_pur_labor_cost, #filter_pur_method, #filter_pur_official_invoice, #filter_pur_billing_date, #filter_pur_total_cash_amt, #filter_put_total_trade_in_amt, #filter_pur_total_amt, #filter_pur_payment_status').on('keyup change', function() {
+            var pur_id_filter = $('#filter_pur_id').val();
+            var pur_invoice_no_filter = $('#filter_pur_invoice_no').val();
+            var pur_slm_id_filter = $('#filter_pur_slm_id').val();
+            var pur_date_filter = $('#filter_pur_date').val();
+            var pur_weight_filter = $('#filter_pur_weight').val();
+            var pur_gold_cost_filter = $('#filter_pur_gold_cost').val();
+            var pur_labor_cost_filter = $('#filter_pur_labor_cost').val();
+            var pur_method_filter = $('#filter_pur_method').val();
+            var pur_official_invoice_filter = $('#filter_pur_official_invoice').val();
+            var pur_billing_date_filter = $('#filter_pur_billing_date').val();
+            var pur_total_cash_amt_filter = $('#filter_pur_total_cash_amt').val();
+            var put_total_trade_in_amt_filter = $('#filter_put_total_trade_in_amt').val();
+            var pur_total_amt_filter = $('#filter_pur_total_amt').val();
+            var pur_payment_status_filter = $('#filter_pur_payment_status').val();
+
+            table
+                .columns(0).search(pur_id_filter, true, false) 
+                .columns(1).search(pur_invoice_no_filter, true, false) 
+                .columns(2).search(pur_slm_id_filter, true, false) 
+                .columns(3).search(pur_date_filter, true, false) 
+                .columns(4).search(pur_weight_filter, true, false) 
+                .columns(5).search(pur_gold_cost_filter, true, false) 
+                .columns(6).search(pur_labor_cost_filter, true, false) 
+                .columns(7).search(pur_method_filter, true, false) 
+                .columns(8).search(pur_official_invoice_filter, true, false) 
+                .columns(9).search(pur_billing_date_filter, true, false) 
+                .columns(10).search(pur_total_cash_amt_filter, true, false) 
+                .columns(11).search(put_total_trade_in_amt_filter, true, false) 
+                .columns(12).search(pur_total_amt_filter, true, false) 
+                .columns(13).search(pur_payment_status_filter, true, false)
+                .draw();  
+        });
+    });
+
+
         $(document).ready(function() {
             var table = $('#purchasedataTable').DataTable();
 

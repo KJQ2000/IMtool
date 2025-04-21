@@ -1,6 +1,6 @@
-from website import run
+from website import app
 
-app = run()
+app = app()
 
 
 if __name__ == "__main__":

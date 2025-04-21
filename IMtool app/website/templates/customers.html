@@ -41,11 +41,24 @@
         <div class="card mb-4">
             <div class="card-body">
                 {% if customers|length < 1 %}
-                <h4 class="text-center">There are no customer. Add one above.</h4>
+                <h4 class="text-center">There are no customers. Add one above.</h4>
                 {% else %}
                 <div class="table-responsive">
-                    <table class="table table-striped" id="customerdataTable"> <!--  table-bordered -->
+                    <table class="table table-striped" id="customerdataTable">
                         <thead>
+                            <tr>
+                                <th><input type="text" id="filter_customer_id" class="form-control" placeholder="Filter Customer ID"></th>
+                                <th><input type="text" id="filter_customer_name" class="form-control" placeholder="Filter Customer Name"></th>
+                                <th><input type="text" id="filter_customer_email" class="form-control" placeholder="Filter Customer Email"></th>
+                                <th><input type="text" id="filter_customer_phone" class="form-control" placeholder="Filter Customer Phone"></th>
+                                <th><input type="text" id="filter_customer_address" class="form-control" placeholder="Filter Customer Address"></th>
+                                <th><input type="text" id="filter_customer_ic" class="form-control" placeholder="Filter Customer IC"></th>
+                                <th><input type="text" id="filter_customer_sst_reg_no" class="form-control" placeholder="Filter SST Reg No"></th>
+                                <th><input type="text" id="filter_customer_tin" class="form-control" placeholder="Filter TIN No"></th>
+                                <th><input type="text" id="filter_customer_created_at" class="form-control" placeholder="Filter Created At"></th>
+                                <th><input type="text" id="filter_customer_updated_at" class="form-control" placeholder="Filter Last Updated At"></th>
+                                <th>Actions</th>
+                            </tr>
                             <tr>
                                 <th>Customer ID</th>
                                 <th>Customer Name</th>
@@ -82,7 +95,6 @@
                                             <div class="btn btn-danger btn-sm"><i class="fas fa-trash trash-icon"></i></div>
                                         </a>
                                     </form>
-                                    
                                 </td>
                             </tr>
                             {% endfor %}
@@ -92,12 +104,48 @@
                 {% endif %}
             </div>
         </div>
+        
     </div>
 
     <!-- jQuery and DataTables JS -->
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script>
+    $(document).ready(function() {
+        // Initialize DataTable
+        var table = $('#customerdataTable').DataTable();
+
+        // Apply filters when any of the filter inputs change
+        $('#filter_customer_id, #filter_customer_name, #filter_customer_email, #filter_customer_phone, #filter_customer_address, #filter_customer_ic, #filter_customer_sst_reg_no, #filter_customer_tin, #filter_customer_created_at, #filter_customer_updated_at').on('keyup change', function() {
+            // Get values from all filter inputs
+            var customer_id_filter = $('#filter_customer_id').val();
+            var customer_name_filter = $('#filter_customer_name').val();
+            var customer_email_filter = $('#filter_customer_email').val();
+            var customer_phone_filter = $('#filter_customer_phone').val();
+            var customer_address_filter = $('#filter_customer_address').val();
+            var customer_ic_filter = $('#filter_customer_ic').val();
+            var customer_sst_reg_no_filter = $('#filter_customer_sst_reg_no').val();
+            var customer_tin_filter = $('#filter_customer_tin').val();
+            var customer_created_at_filter = $('#filter_customer_created_at').val();
+            var customer_updated_at_filter = $('#filter_customer_updated_at').val();
+
+            // Apply combined filters to the table
+            table
+                .columns(0).search(customer_id_filter, true, false) // Customer ID filter
+                .columns(1).search(customer_name_filter, true, false) // Customer Name filter
+                .columns(2).search(customer_email_filter, true, false) // Customer Email filter
+                .columns(3).search(customer_phone_filter, true, false) // Customer Phone filter
+                .columns(4).search(customer_address_filter, true, false) // Customer Address filter
+                .columns(5).search(customer_ic_filter, true, false) // Customer IC filter
+                .columns(6).search(customer_sst_reg_no_filter, true, false) // SST Reg No filter
+                .columns(7).search(customer_tin_filter, true, false) // Customer TIN filter
+                .columns(8).search(customer_created_at_filter, true, false) // Customer Created At filter
+                .columns(9).search(customer_updated_at_filter, true, false) // Customer Updated At filter
+                .draw(); // Redraw the table after applying all filters
+        });
+    });
+
+
         $(document).ready(function() {
             var table = $('#customerdataTable').DataTable();
 

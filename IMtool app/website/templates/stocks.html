@@ -10,34 +10,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 <!-- Icon CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
 
-    th, td {
-      padding: 10px;
-      text-align: left;
-    }
-
-    th {
-      cursor: pointer;
-    }
-
-    input[type="text"] {
-      padding: 10px;
-      margin-bottom: 20px;
-    }
-
-    .filter-group {
-      margin-bottom: 20px;
-    }
-
-    .filter-group label {
-      margin-right: 10px;
-    }
-  </style>
 {% block content %}
 <main>
     
@@ -61,13 +34,71 @@
             </div>
             <!-- <button class="btn btn-secondary me-2" id="batchImportButton">Batch Import</button> -->
             <button class="btn btn-secondary" id="exportBtn">Export to csv</button>
+            <button class="btn btn-secondary" id="exportBarcodeBtn">Export Barcode csv</button>
 
         </div>
-        <div class="filter-group">
-            <label><input type="checkbox" value="20" onclick="filterTable()"> 20</label>
-            <label><input type="checkbox" value="25" onclick="filterTable()"> 25</label>
-            <label><input type="checkbox" value="30" onclick="filterTable()"> 30</label>
+        <!-- <div class="filter-container">
+            <label><input style="margin:10px;" type="radio" name="filterCategory" value="status" onclick="toggleFilterCategory('status')">Stock Status</label>
+            <label><input style="margin:10px;" type="radio" name="filterCategory" value="type" onclick="toggleFilterCategory('type')">Stock Type</label>
+            <label><input style="margin:10px;" type="radio" name="filterCategory" value="pattern" onclick="toggleFilterCategory('pattern')">Stock Pattern</label>
+            <label><input style="margin:10px;" type="radio" name="filterCategory" value="weight" onclick="toggleFilterCategory('weight')">Weight</label>
+            <label><input style="margin:10px;" type="radio" name="filterCategory" value="size" onclick="toggleFilterCategory('size')">Size</label>
+            <label><input style="margin:10px;" type="radio" name="filterCategory" value="length" onclick="toggleFilterCategory('length')">Length</label>
+            <label><input style="margin:10px;" type="radio" name="filterCategory" value="description" onclick="toggleFilterCategory('description')">Description</label>
+            <label><input style="margin:10px;" type="radio" name="filterCategory" value="tag" onclick="toggleFilterCategory('tag')">Tag</label>
           </div>
+
+        <div id="statusFilter" class="filter-group hidden">
+            <h3>Filter by Stock Status:</h3>
+            <label><input type="checkbox" value="SOLD" onclick="filterTable()"> Sold</label>
+            <label><input type="checkbox" value="BOOKED" onclick="filterTable()"> Booked</label>
+            <label><input type="checkbox" value="IN STOCK" onclick="filterTable()"> In Stock</label>
+        </div>
+        <div id="typeFilter" class="filter-group hidden">
+            <h3>Filter by Stock Type:</h3>
+            <label><input type="checkbox" value="RING" onclick="filterTable()"> Ring</label>
+            <label><input type="checkbox" value="BRACELET" onclick="filterTable()"> Bracelet</label>
+            <label><input type="checkbox" value="BANGLE" onclick="filterTable()">Bangle</label>
+            <label><input type="checkbox" value="NECKLACE" onclick="filterTable()">Necklace</label>
+            <label><input type="checkbox" value="EARING" onclick="filterTable()">Earing</label>
+            <label><input type="checkbox" value="PENDANT" onclick="filterTable()">Pendant</label>
+            <label><input type="checkbox" value="ANKLET" onclick="filterTable()">Anklet</label>
+        </div>
+        <div id="patternFilter" class="filter-group hidden">
+            <h3>Filter by Pattern:</h3>
+            <input type="text" id="searchInput" onkeyup="filterByPattern()" placeholder="Search for patterns...">
+        </div>
+        <div id="weightFilter" class="filter-group hidden">
+            <h3>Filter by Weight Range:</h3>
+            <div class="range-inputs">
+            <input type="number" id="minWeight" placeholder="Min Weight" oninput="filterTable()">
+            <input type="number" id="maxWeight" placeholder="Max Weight" oninput="filterTable()">
+            </div>
+        </div>
+        <div id="sizeFilter" class="filter-group hidden">
+            <h3>Filter by Size Range:</h3>
+            <div class="range-inputs">
+            <input type="number" id="minSize" placeholder="Min Size" oninput="filterTable()">
+            <input type="number" id="maxSize" placeholder="Max Size" oninput="filterTable()">
+            </div>
+        </div>
+        <div id="lengthFilter" class="filter-group hidden">
+            <h3>Filter by Length Range:</h3>
+            <div class="range-inputs">
+            <input type="number" id="minLength" placeholder="Min Length" oninput="filterTable()">
+            <input type="number" id="maxLength" placeholder="Max Length" oninput="filterTable()">
+            </div>
+        </div>
+        <div id="descriptionFilter" class="filter-group hidden">
+            <h3>Filter by Description:</h3>
+            <input type="text" id="searchInput" onkeyup="filterByDescription()" placeholder="Search for descriptions...">
+        </div>
+        <div id="tagFilter" class="filter-group hidden">
+            <h3>Filter by Tag:</h3>
+            <input type="text" id="searchInput" onkeyup="filterByTag()" placeholder="Search for tags...">
+        </div> -->
+        
+
         <!-- DataTable Card -->
         <div class="card mb-4">
             <div class="card-body">
@@ -75,8 +106,37 @@
                 <h4 class="text-center">There are no stocks. Add one above.</h4>
                 {% else %}
                 <div class="table-responsive">
-                    <table class="table table-striped" id="stockdataTable"> <!--  table-bordered -->
+                    <table class="table table-striped" id="stockdataTable"> <!-- table-bordered -->
                         <thead>
+                            <tr>
+                                <th><input type="text" id="filter_stk_id" class="form-control" placeholder="Filter Stock ID"></th>
+                                <th><input type="text" id="filter_stk_gold_type" class="form-control" placeholder="Filter Stock Gold Type"></th>
+                                <th><input type="text" id="filter_stk_type" class="form-control" placeholder="Filter Stock Type"></th>
+                                <th><input type="text" id="filter_stk_pattern" class="form-control" placeholder="Filter Stock Pattern"></th>
+                                <th><input type="text" id="filter_stk_weight" class="form-control" placeholder="Filter Stock Weight (g)"></th>
+                                <th><input type="text" id="filter_stk_size" class="form-control" placeholder="Filter Stock Size"></th>
+                                <th><input type="text" id="filter_stk_length" class="form-control" placeholder="Filter Stock Length (cm)"></th>
+                                <th><input type="text" id="filter_stk_remark" class="form-control" placeholder="Filter Stock Description"></th>
+                                <th><input type="text" id="filter_stk_tag" class="form-control" placeholder="Filter Stock Tag"></th>
+                                <th><input type="text" id="filter_stk_returned" class="form-control" placeholder="Filter Stock Returned"></th>
+                                <th><input type="text" id="filter_stk_pur_id" class="form-control" placeholder="Filter Stock Purchase ID"></th>
+                                <th><input type="text" id="filter_stk_pur_date" class="form-control" placeholder="Filter Stock Purchase Date"></th>
+                                <th><input type="text" id="filter_stk_gold_cost" class="form-control" placeholder="Filter Stock Gold Cost"></th>
+                                <th><input type="text" id="filter_stk_labor_cost" class="form-control" placeholder="Filter Stock Labor Cost"></th>
+                                <th><input type="text" id="filter_stk_status" class="form-control" placeholder="Filter Stock Status"></th>
+                                <th><input type="text" id="filter_stk_profit" class="form-control" placeholder="Filter Stock Profit"></th>
+                                <th><input type="text" id="filter_stk_sale_id" class="form-control" placeholder="Filter Stock Sale ID"></th>
+                                <th><input type="text" id="filter_stk_sell_date" class="form-control" placeholder="Filter Stock Sell Date"></th>
+                                <th><input type="text" id="filter_stk_gold_sell" class="form-control" placeholder="Filter Stock Gold Sell"></th>
+                                <th><input type="text" id="filter_stk_labor_sell" class="form-control" placeholder="Filter Stock Labor Sell"></th>
+                                <th><input type="text" id="filter_stk_weight_sell" class="form-control" placeholder="Filter Stock Weight Sell"></th>
+                                <th><input type="text" id="filter_stk_book_id" class="form-control" placeholder="Filter Stock Booking ID"></th>
+                                <th><input type="text" id="filter_stk_gold_book" class="form-control" placeholder="Filter Stock Gold Book"></th>
+                                <th><input type="text" id="filter_stk_labor_book" class="form-control" placeholder="Filter Stock Labor Book"></th>
+                                <th><input type="text" id="filter_stk_weight_book" class="form-control" placeholder="Filter Stock Weight Book"></th>
+                                <th><input type="text" id="filter_stk_barcode" class="form-control" placeholder="Filter Stock Barcode"></th>
+                                <th>Actions</th>
+                            </tr>
                             <tr>
                                 <th>Stock ID</th>
                                 <th>Stock Gold Type</th>
@@ -103,6 +163,8 @@
                                 <th>Stock Gold Book</th>
                                 <th>Stock Labor Book</th>
                                 <th>Stock Weight Book</th>
+                                <th>Stock Barcode</th>
+                                <th>Stock Barcode Printed</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -134,26 +196,20 @@
                                 <td>{{ stock.stk_gold_book }}</td>
                                 <td>{{ stock.stk_labor_book }}</td>
                                 <td>{{ stock.stk_weight_book }}</td>
+                                <td>{{ stock.stk_barcode }}</td>
+                                <td>{{ stock.stk_printed }}</td>
                                 <td>
-                                    <!-- <a href="/update-stock/{{ stock.stk_id }}" class="btn btn-warning btn-sm">Update</a> -->
+                                    <!-- Update and Delete actions -->
                                     <a href="/update-stock/{{ stock.stk_id }}">
                                         <div class="btn btn-warning btn-sm"><i class="fas fa-edit edit-icon"></i></div>
                                     </a>
-                                    <!-- <a href="/delete-stock/{{ stock.stk_id }}" class="btn btn-danger btn-sm">Delete</a> -->
-                                    <!-- <a href="/delete-stock/{{ stock.stk_id }}">
-                                        <div class="btn btn-danger btn-sm"><i class="fas fa-trash trash-icon"></i></div>
-                                    </a> -->
                                     <form id="delete-form-{{ stock.stk_id }}" action="/delete/{{ stock.stk_id }}" method="post" style="display: inline;">
                                         <a onclick="confirmDelete('{{ stock.stk_id }}')">
                                             <div class="btn btn-danger btn-sm"><i class="fas fa-trash trash-icon"></i></div>
                                         </a>
                                     </form>
-                                    <!-- <form id="delete-form-{{ stock.stk_id }}" action="/delete-stock/{{ stock.stk_id }}" method="post" style="display: inline;">
-                                        <button type="button" onclick="confirmDelete('{{ stock.stk_id }}')">Delete</button>
-                                    </form> -->
                                 </td>
                             </tr>
-                            
                             {% endfor %}
                         </tbody>
                     </table>
@@ -161,6 +217,7 @@
                 {% endif %}
             </div>
         </div>
+        
     </div>
 
     <!-- jQuery and DataTables JS -->
@@ -172,7 +229,7 @@
 
             // Function to send data to Flask
             function sendDataToFlask(data) {
-                fetch('/your-endpoint', {
+                fetch('/post-export-data', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -234,6 +291,100 @@
                 link.click();
             });
         });
+        $(document).ready(function() {
+            // Function to send data to Flask
+            function sendDataToFlask1(data) {
+                return fetch('/process-barcode-data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data) // Send data as JSON
+                })
+                .then(response => response.json())
+                .then(result => {
+                    console.log('Data processed:', result);
+                    return result.data; // Return the processed data for CSV export
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+
+            // Export Barcode button click event
+            $('#exportBarcodeBtn').click(function() {
+            var barcodeData = [];
+            var headers = [];
+            
+            // Extract table headers
+            $('#stockdataTable thead th').each(function(index) {
+                headers.push($(this).text().trim());
+            });
+
+            // Extract table body data
+            $('#stockdataTable tbody tr').each(function() {
+                var row = {};
+                var $tdElements = $(this).find('td');
+                $tdElements.each(function(index) {
+                    row[headers[index]] = $(this).text().trim();
+                });
+                barcodeData.push(row);
+            });
+
+            // Process the barcode data and reorder according to the specific order
+            sendDataToFlask1(barcodeData).then(function(processedData) {
+                // Define export order based on header
+                let exportOrder = ["s", "Stock Purchase ID", "Stock Barcode"];
+                
+                // Map processed data to match export order
+                let csvContent = "data:text/csv;charset=utf-8," 
+                    + exportOrder.join(",") + "\n"
+                    + processedData.map(row => exportOrder.map(field => row[field]).join(",")).join("\n");
+
+                let encodedUri = encodeURI(csvContent);
+                let link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "barcodes_data.csv");
+                document.body.appendChild(link);
+                link.click();
+            });
+        });
+    });
+    $(document).ready(function() {
+    // Attach a function to the input fields in the table header to filter data
+    $('#stockdataTable thead input').on('keyup change', function() {
+        // Get the column index of the current filter input
+        var columnIndex = $(this).parent().index();
+        var searchText = $(this).val().toLowerCase();
+
+        // Loop through each row in the tbody
+        $('#stockdataTable tbody tr').each(function() {
+            var row = $(this);
+            var rowMatches = true; // Assume this row matches all filter criteria initially
+
+            // Loop through each column and check if the row's data matches the filter
+            $('#stockdataTable thead input').each(function(index) {
+                var columnFilter = $(this).val().toLowerCase();
+                var cellText = row.children().eq(index).text().toLowerCase();
+
+                // If any filter doesn't match, mark the row as non-matching
+                if (columnFilter && cellText.indexOf(columnFilter) === -1) {
+                    rowMatches = false;
+                    return false; // Break out of the loop if one filter condition fails
+                }
+            });
+
+            // Show or hide the row based on whether it matches all filter criteria
+            if (rowMatches) {
+                row.show();
+            } else {
+                row.hide();
+            }
+        });
+    });
+});
+
+
     </script>
     <script>
         // Get modal elements
@@ -265,5 +416,6 @@
             }
         }
     </script>
+    
 </main>
 {% endblock %}

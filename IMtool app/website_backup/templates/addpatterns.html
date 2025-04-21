@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Add New Pattern</title>
+{% endblock %}
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+{% block content %}
+<main>
+    <div class="container-fluid mt-4">
+        <h1 class="mb-4">Add New Pattern</h1>
+        
+        <div class="mb-3">
+            <a class="btn btn-secondary" href="/patterns">Back to Patterns List</a>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <form method="POST" action="/add-pattern" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <h5 class="card-title">Pattern Details</h5>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="cpat_category" class="form-label">Category</label>
+                                <select class="form-select" id="cpat_category" name="cpat_category" required>
+                                    <option value="" disabled selected>Select Category Type</option>
+                                    <option value="RING">Ring</option>
+                                    <option value="BRACELET">Bracelet</option>
+                                    <option value="BANGLE">Bangle</option>
+                                    <option value="NECKLACE">Necklace</option>
+                                    <option value="EARING">Earing</option>
+                                    <option value="PENDANT">Pendant</option>
+                                    <option value="ANKLET">Anklet</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3" id="pattern-section">
+                                <label for="cpat_pattern" class="form-label">Pattern Name</label>
+                                <input type="text" class="form-control" id="cpat_pattern" name="cpat_pattern">
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 mb-3" id="image-section">
+                              <label for="cpat_image_path" class="form-label">Upload Pattern Image:</label>
+                              <input type="file" accept="image/*" id="cpat_image_path" name="cpat_image_path" required>
+                          </div>
+                      </div>
+                    </div>
+                    <!-- <label for="image">Upload Pattern Image:</label>
+                    <input type="file" name="image" id="image" accept="image/*" required><br><br> -->
+
+                    <button type="submit" class="btn btn-primary">Add Pattern</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

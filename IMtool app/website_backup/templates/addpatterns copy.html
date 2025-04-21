@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Stock Pattern</title>
+</head>
+<body>
+  <h1>Add Stock Pattern</h1>
+  
+  <!-- Form to upload stock pattern -->
+  <form action="/add_pattern" method="POST" enctype="multipart/form-data">
+    <label for="name">Pattern Name:</label>
+    <input type="text" name="name" id="name" required><br><br>
+
+    <label for="description">Pattern Description:</label>
+    <textarea name="description" id="description" required></textarea><br><br>
+
+    <label for="image">Upload Pattern Image:</label>
+    <input type="file" name="image" id="image" accept="image/*" required><br><br>
+
+    <button type="submit">Add Pattern</button>
+  </form>
+
+</body>
+</html>

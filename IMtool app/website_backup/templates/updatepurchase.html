@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Update Purchase Information</title>
+{% endblock %}
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+{% block content %}
+<main>
+    <div class="container-fluid mt-4">
+        <h1 class="mb-4">Update Purchase Information</h1>
+        
+        <div class="mb-3">
+            <a class="btn btn-secondary" href="/purchases">Back to Purchases List</a>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <form method="POST" action="/updatepurchase" id="updatePurchaseForm">
+
+                    <!-- Hidden field for Purchase ID -->
+                    <input type="hidden" name="pur_id" value="{{ purchase.pur_id }}">
+
+                    <!-- Stock Details Section -->
+                    <div class="mb-4">
+                        <h5 class="card-title">Purchase Details</h5>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="pur_official_invoice" class="form-label">Purchase Official Invoice</label>
+                                <select class="form-select" id="pur_official_invoice" name="pur_official_invoice" required>
+                                    <option value="" disabled>Select Option</option>
+                                    <option value="1" {% if purchase.pur_official_invoice == 1 %}selected{% endif %}>Yes</option>
+                                    <option value="0" {% if purchase.pur_official_invoice == 0 %}selected{% endif %}>No</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="pur_method" class="form-label">Purchase Method</label>
+                                <select class="form-select" id="pur_method" name="pur_method" required>
+                                    <option value="" disabled>Select Method</option>
+                                    <option value="Both" {% if purchase.pur_method == 'Both' %}selected{% endif %}>Both</option>
+                                    <option value="Cash" {% if purchase.pur_method == 'Cash' %}selected{% endif %}>Cash</option>
+                                    <option value="Trade-in" {% if purchase.pur_method == 'Trade-in' %}selected{% endif %}>Trade-in</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="pur_slm_id" class="form-label">Purchase Salesman</label>
+                                <select class="form-select" id="pur_slm_id" name="pur_slm_id" required>
+                                    <option value="" disabled>Select Salesman</option>
+                                    {% for salesman in salesmen %}
+                                        <option value="{{ salesman.slm_id }}" {% if purchase.pur_slm_id == salesman.slm_id %}selected{% endif %}>{{ salesman.slm_company_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="pur_invoice_no" class="form-label">Purchase Invoice No</label>
+                                <input type="text" class="form-control" id="pur_invoice_no" name="pur_invoice_no" value="{{ purchase.pur_invoice_no }}" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="pur_date" class="form-label">Purchase Date</label>
+                                <input type="date" class="form-control" id="pur_date" name="pur_date" value="{{ purchase.pur_date }}" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="pur_billing_date" class="form-label">Purchase Billing Date</label>
+                                <input type="date" class="form-control" id="pur_billing_date" name="pur_billing_date" value="{{ purchase.pur_billing_date }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dimensions and Costs Section -->
+                    <div class="mb-4">
+                        <h5 class="card-title">Purchase Costs</h5>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="pur_gold_cost" class="form-label">Purchase Gold Cost</label>
+                                <input type="number" step="0.01" class="form-control" id="pur_gold_cost" name="pur_gold_cost" value="{{ purchase.pur_gold_cost }}" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="pur_labor_cost" class="form-label">Purchase Labor Cost</label>
+                                <input type="number" step="0.01" class="form-control" id="pur_labor_cost" name="pur_labor_cost" value="{{ purchase.pur_labor_cost }}" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="pur_weight" class="form-label">Purchase Weight (g)</label>
+                                <input type="number" step="0.01" class="form-control" id="pur_weight" name="pur_weight" value="{{ purchase.pur_weight }}" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-3" id="cash_amount_div">
+                                <label for="pur_total_cash_amt" class="form-label">Pay by Cash Amount</label>
+                                <input type="number" step="0.01" class="form-control" id="pur_total_cash_amt" name="pur_total_cash_amt" value="{{ purchase.pur_total_cash_amt }}" required>
+                            </div>
+                            <div class="col-md-4 mb-3" id="trade_in_amount_div">
+                                <label for="put_total_trade_in_amt" class="form-label">Pay by Trade In Amount</label>
+                                <input type="number" step="0.01" class="form-control" id="put_total_trade_in_amt" name="put_total_trade_in_amt" value="{{ purchase.put_total_trade_in_amt }}" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="pur_total_amt" class="form-label">Purchase Total Amount</label>
+                                <input type="number" step="0.01" class="form-control" id="pur_total_amt" name="pur_total_amt" value="{{ purchase.pur_total_amt }}" required readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update Purchase</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+        document.getElementById('pur_date').value = today;
+
+        // Set the total amount based on existing fields
+        calculateTotal();
+
+        // Initialize visibility and required status of amount fields based on the selected method
+        toggleAmountFields();
+        toggleRequiredFieldsBasedOnBillingDate();
+    });
+
+    // Function to calculate total amount
+    function calculateTotal() {
+        const purGoldCost = parseFloat(document.getElementById('pur_gold_cost').value) || 0;
+        const purWeight = parseFloat(document.getElementById('pur_weight').value) || 0;
+        const purLaborCost = parseFloat(document.getElementById('pur_labor_cost').value) || 0;
+
+        const purTotalAmt = (purGoldCost * purWeight) + purLaborCost;
+        document.getElementById('pur_total_amt').value = purTotalAmt.toFixed(2); // Set the total amount with 2 decimal places
+    }
+
+    // Add event listeners to the relevant input fields
+    document.getElementById('pur_gold_cost').addEventListener('input', calculateTotal);
+    document.getElementById('pur_weight').addEventListener('input', calculateTotal);
+    document.getElementById('pur_labor_cost').addEventListener('input', calculateTotal);
+
+    // Toggle visibility and required status of amount fields based on selected purchase method
+    document.getElementById('pur_method').addEventListener('change', toggleAmountFields);
+
+    // Toggle required status of fields based on whether pur_billing_date is filled
+    document.getElementById('pur_billing_date').addEventListener('change', toggleRequiredFieldsBasedOnBillingDate);
+
+    function toggleAmountFields() {
+        const purMethod = document.getElementById('pur_method').value;
+        const cashAmountDiv = document.getElementById('cash_amount_div');
+        const tradeInAmountDiv = document.getElementById('trade_in_amount_div');
+        const purTotalCashAmt = document.getElementById('pur_total_cash_amt');
+        const putTotalTradeInAmt = document.getElementById('put_total_trade_in_amt');
+
+        if (purMethod === 'Cash') {
+            cashAmountDiv.style.display = 'block';
+            tradeInAmountDiv.style.display = 'none';
+            purTotalCashAmt.required = true;
+            putTotalTradeInAmt.required = false;
+        } else if (purMethod === 'Trade-in') {
+            tradeInAmountDiv.style.display = 'block';
+            cashAmountDiv.style.display = 'none';
+            putTotalTradeInAmt.required = true;
+            purTotalCashAmt.required = false;
+        } else if (purMethod === 'Both') {
+            cashAmountDiv.style.display = 'block';
+            tradeInAmountDiv.style.display = 'block';
+            purTotalCashAmt.required = true;
+            putTotalTradeInAmt.required = true;
+        } else {
+            cashAmountDiv.style.display = 'none';
+            tradeInAmountDiv.style.display = 'none';
+            purTotalCashAmt.required = false;
+            putTotalTradeInAmt.required = false;
+        }
+    }
+
+    // Toggle required status of fields based on pur_billing_date
+    function toggleRequiredFieldsBasedOnBillingDate() {
+        const purBillingDate = document.getElementById('pur_billing_date').value;
+        const purMethod = document.getElementById('pur_method');
+        const purTotalCashAmt = document.getElementById('pur_total_cash_amt');
+        const putTotalTradeInAmt = document.getElementById('put_total_trade_in_amt');
+        
+        if (!purBillingDate) {
+            purMethod.required = false;
+            purTotalCashAmt.required = false;
+            putTotalTradeInAmt.required = false;
+        } else {
+            purMethod.required = true;
+            // Other field requirements will depend on pur_method
+            toggleAmountFields();  // Reapply the logic for required fields
+        }
+    }
+
+    // Confirm before submitting if the total amounts match
+    document.getElementById('updatePurchaseForm').addEventListener('submit', function(event) {
+        const purMethod = document.getElementById('pur_method').value;
+        const purTotalAmt = parseFloat(document.getElementById('pur_total_amt').value);
+        let confirmationMessage = '';
+
+        // Validate based on pur_method
+        if (purMethod === 'Cash') {
+            const purTotalCashAmt = parseFloat(document.getElementById('pur_total_cash_amt').value);
+            if (purTotalCashAmt !== purTotalAmt) {
+                confirmationMessage = `The cash amount is ${purTotalCashAmt}, while the Purchase Total Amount is ${purTotalAmt}. Do you want to proceed with updating the purchase?`;
+            }
+        } else if (purMethod === 'Trade-in') {
+            const putTotalTradeInAmt = parseFloat(document.getElementById('put_total_trade_in_amt').value);
+            if (putTotalTradeInAmt !== purTotalAmt) {
+                confirmationMessage = `The trade-in amount is ${putTotalTradeInAmt}, while the Purchase Total Amount is ${purTotalAmt}. Do you want to proceed with updating the purchase?`;
+            }
+        } else if (purMethod === 'Both') {
+            const purTotalCashAmt = parseFloat(document.getElementById('pur_total_cash_amt').value);
+            const putTotalTradeInAmt = parseFloat(document.getElementById('put_total_trade_in_amt').value);
+            const totalAmount = purTotalCashAmt + putTotalTradeInAmt;
+            if (totalAmount !== purTotalAmt) {
+                confirmationMessage = `The sum of cash and trade-in amounts is ${totalAmount}, while the Purchase Total Amount is ${purTotalAmt}. Do you want to proceed with updating the purchase?`;
+            }
+        }
+
+        if (confirmationMessage) {
+            // Prevent the form from submitting and show a confirmation dialog
+            event.preventDefault(); // Stop form submission
+            const userConfirmed = confirm(confirmationMessage);
+            if (userConfirmed) {
+                // If the user clicks "OK", submit the form
+                event.target.submit();
+            }
+        }
+    });
+</script>
+
+{% endblock %}

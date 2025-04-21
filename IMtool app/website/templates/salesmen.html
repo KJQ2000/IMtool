@@ -44,8 +44,24 @@
                 <h4 class="text-center">There are no salesman. Add one above.</h4>
                 {% else %}
                 <div class="table-responsive">
-                    <table class="table table-striped" id="salesmandataTable"> <!--  table-bordered -->
+                    <table class="table table-striped" id="salesmandataTable">
                         <thead>
+                            <tr>
+                                <th><input type="text" id="filter_slm_id" class="form-control" placeholder="Filter Salesman ID"></th>
+                                <th><input type="text" id="filter_slm_name" class="form-control" placeholder="Filter Name"></th>
+                                <th><input type="text" id="filter_slm_email" class="form-control" placeholder="Filter Email"></th>
+                                <th><input type="text" id="filter_slm_phone" class="form-control" placeholder="Filter Phone"></th>
+                                <th><input type="text" id="filter_slm_company" class="form-control" placeholder="Filter Company"></th>
+                                <th><input type="text" id="filter_slm_address" class="form-control" placeholder="Filter Address"></th>
+                                <th><input type="text" id="filter_slm_supplier_id" class="form-control" placeholder="Filter Supplier ID"></th>
+                                <th><input type="text" id="filter_slm_tin" class="form-control" placeholder="Filter TIN No"></th>
+                                <th><input type="text" id="filter_slm_reg_no" class="form-control" placeholder="Filter Reg No"></th>
+                                <th><input type="text" id="filter_slm_msic" class="form-control" placeholder="Filter MSIC Code"></th>
+                                <th><input type="text" id="filter_slm_desc" class="form-control" placeholder="Filter Description"></th>
+                                <th><input type="text" id="filter_slm_created_at" class="form-control" placeholder="Filter Created At"></th>
+                                <th><input type="text" id="filter_slm_last_update" class="form-control" placeholder="Filter Last Updated At"></th>
+                                <th>Actions</th>
+                            </tr>
                             <tr>
                                 <th>Salesman ID</th>
                                 <th>Salesman Name</th>
@@ -88,7 +104,6 @@
                                             <div class="btn btn-danger btn-sm"><i class="fas fa-trash trash-icon"></i></div>
                                         </a>
                                     </form>
-                                    
                                 </td>
                             </tr>
                             {% endfor %}
@@ -98,12 +113,68 @@
                 {% endif %}
             </div>
         </div>
+        
     </div>
 
     <!-- jQuery and DataTables JS -->
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script>
+        $(document).ready(function() {
+            // Initialize DataTable
+            var table = $('#salesmandataTable').DataTable();
+
+            // Function to apply multiple filters
+            function applyFilters() {
+                // Get the filter values
+                var filter_slm_id = $('#filter_slm_id').val();
+                var filter_slm_name = $('#filter_slm_name').val();
+                var filter_slm_email = $('#filter_slm_email').val();
+                var filter_slm_phone = $('#filter_slm_phone').val();
+                var filter_slm_company = $('#filter_slm_company').val();
+                var filter_slm_address = $('#filter_slm_address').val();
+                var filter_slm_supplier_id = $('#filter_slm_supplier_id').val();
+                var filter_slm_tin = $('#filter_slm_tin').val();
+                var filter_slm_reg_no = $('#filter_slm_reg_no').val();
+                var filter_slm_msic = $('#filter_slm_msic').val();
+                var filter_slm_desc = $('#filter_slm_desc').val();
+                var filter_slm_created_at = $('#filter_slm_created_at').val();
+                var filter_slm_last_update = $('#filter_slm_last_update').val();
+
+                // Apply the filters to the DataTable
+                table
+                    .columns(0).search(filter_slm_id)
+                    .columns(1).search(filter_slm_name)
+                    .columns(2).search(filter_slm_email)
+                    .columns(3).search(filter_slm_phone)
+                    .columns(4).search(filter_slm_company)
+                    .columns(5).search(filter_slm_address)
+                    .columns(6).search(filter_slm_supplier_id)
+                    .columns(7).search(filter_slm_tin)
+                    .columns(8).search(filter_slm_reg_no)
+                    .columns(9).search(filter_slm_msic)
+                    .columns(10).search(filter_slm_desc)
+                    .columns(11).search(filter_slm_created_at)
+                    .columns(12).search(filter_slm_last_update)
+                    .draw();
+            }
+
+            // Event listeners for each filter input field
+            $('#filter_slm_id').on('keyup change', applyFilters);
+            $('#filter_slm_name').on('keyup change', applyFilters);
+            $('#filter_slm_email').on('keyup change', applyFilters);
+            $('#filter_slm_phone').on('keyup change', applyFilters);
+            $('#filter_slm_company').on('keyup change', applyFilters);
+            $('#filter_slm_address').on('keyup change', applyFilters);
+            $('#filter_slm_supplier_id').on('keyup change', applyFilters);
+            $('#filter_slm_tin').on('keyup change', applyFilters);
+            $('#filter_slm_reg_no').on('keyup change', applyFilters);
+            $('#filter_slm_msic').on('keyup change', applyFilters);
+            $('#filter_slm_desc').on('keyup change', applyFilters);
+            $('#filter_slm_created_at').on('keyup change', applyFilters);
+            $('#filter_slm_last_update').on('keyup change', applyFilters);
+        });
+
         $(document).ready(function() {
             var table = $('#salesmandataTable').DataTable();
 

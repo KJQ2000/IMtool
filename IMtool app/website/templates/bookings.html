@@ -43,6 +43,19 @@
                     <table class="table table-striped" id="bookingdataTable">
                         <thead>
                             <tr>
+                                <th><input type="text" id="filter_book_id" class="form-control" placeholder="Filter Booking ID"></th>
+                                <th><input type="text" id="filter_book_receipt_no" class="form-control" placeholder="Filter Receipt No"></th>
+                                <th><input type="text" id="filter_book_cust_id" class="form-control" placeholder="Filter Customer ID"></th>
+                                <th><input type="text" id="filter_book_date" class="form-control" placeholder="Filter Booking Date"></th>
+                                <th><input type="text" id="filter_book_weight" class="form-control" placeholder="Filter Weight (g)"></th>
+                                <th><input type="text" id="filter_book_gold_price" class="form-control" placeholder="Filter Gold Price"></th>
+                                <th><input type="text" id="filter_book_labor_price" class="form-control" placeholder="Filter Labor Price"></th>
+                                <th><input type="text" id="filter_book_price" class="form-control" placeholder="Filter Total Price"></th>
+                                <th><input type="text" id="filter_book_remaining" class="form-control" placeholder="Filter Remaining Amount"></th>
+                                <th><input type="text" id="filter_book_status" class="form-control" placeholder="Filter Status"></th>
+                                <th>...Actions...</th>
+                            </tr>
+                            <tr>
                                 <th>Booking ID</th>
                                 <th>Booking Receipt No</th>
                                 <th>Booking Customer ID</th>
@@ -74,15 +87,20 @@
                                         <div class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></div>
                                     </a>
                                     <a href="/update-booking/{{ booking.book_id }}">
-                                    <!-- <a href="/bookpayments"> -->
-                                        <!-- <div class="btn btn-success btn-sm"><i class="fas fa-check"></i></div> -->
                                         <div class="btn btn-warning btn-sm"><i class="fas fa-edit edit-icon"></i></div>
                                     </a>
-                                    <form id="delete-form-{{ booking.book_id }}" action="/delete-booking/{{ booking.book_id }}" method="post" style="display: inline;">
+                                    {% if booking.book_status != "CANCELLED" %}
+                                    <form id="cancel-booking-{{ booking.book_id }}" action="/cancel-booking/{{ booking.book_id }}" method="post" style="display: inline;">
+                                        <a onclick="confirmDelete('{{ booking.book_id }}')">
+                                            <div class="btn btn-danger btn-sm"><i class="fas fa-minus"></i></div>
+                                        </a>
+                                    </form>
+                                    {% endif %}
+                                    <!-- <form id="delete-form-{{ booking.book_id }}" action="/delete-booking/{{ booking.book_id }}" method="post" style="display: inline;">
                                         <a onclick="confirmDelete('{{ booking.book_id }}')">
                                             <div class="btn btn-danger btn-sm"><i class="fas fa-trash trash-icon"></i></div>
                                         </a>
-                                    </form>
+                                    </form> -->
                                 </td>
                             </tr>
                             {% endfor %}
@@ -92,12 +110,47 @@
                 {% endif %}
             </div>
         </div>
+        
     </div>
 
     <!-- jQuery and DataTables JS -->
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script>
+    $(document).ready(function() {
+        // Function to apply multiple filters at once
+        $('#bookingdataTable thead input').on('keyup change', function() {
+            // Collect filter values from all header input fields
+            var filters = [];
+            $('#bookingdataTable thead input').each(function() {
+                filters.push($(this).val().toLowerCase());  // Store the filter values in an array
+            });
+
+            // Loop through each row and apply the filter conditions
+            $('#bookingdataTable tbody tr').each(function() {
+                var row = $(this);
+                var isVisible = true;  // Assume the row is visible initially
+
+                row.children().each(function(index) {
+                    var cellText = $(this).text().toLowerCase();
+
+                    // If the column has a filter and the cell does not match the filter, set isVisible to false
+                    if (filters[index] && cellText.indexOf(filters[index]) === -1) {
+                        isVisible = false;
+                    }
+                });
+
+                // Show or hide the row based on whether it matches all filters
+                if (isVisible) {
+                    row.show();
+                } else {
+                    row.hide();
+                }
+            });
+        });
+    });
+
+
         $(document).ready(function() {
             var table = $('#bookingdataTable').DataTable();
 
@@ -174,8 +227,9 @@
     </script>
     <script>
         function confirmDelete(bookingId) {
-            if (confirm('Are you sure you want to delete the booking with ID="' + bookingId + '"?')) {
-                document.getElementById('delete-form-' + bookingId).submit();
+            if (confirm('Are you sure you want to cancel the booking with ID="' + bookingId + '"?')) {
+                document.getElementById('cancel-booking-' + bookingId).submit();
+                // document.getElementById('delete-form-' + bookingId).submit();
             }
         }
     </script>

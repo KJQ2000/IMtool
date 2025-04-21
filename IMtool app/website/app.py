@@ -14,14 +14,18 @@ import pandas as pd
 import numpy as np
 from decimal import Decimal
 
-UPLOAD_FOLDER = dic.IMPORT_DIR
 ALLOWED_EXTENSIONS = {'csv','xlsx'}
 
 app = Flask(__name__)
 app.secret_key = b'k0ngh1n888'
 
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+flask_env_python = r'C:\Users\keong\anaconda3\envs\flask_env\python.exe'
+
 log_file = dic.LOG_DIR+str(datetime.now().strftime("%Y_%m_%d"))+'.log'
+
+# Set the folder for uploaded files
+app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
+app.config['CURRENT_DIR'] = dic.CURRENT_DIR
 
 logging.basicConfig(filename=log_file,level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -45,8 +49,9 @@ def login():
             stocks = db.select('stock', js=True)
             # print(stocks)
             # stocks =[('STK_100001', 'Bracelet', Decimal('12.8'), Decimal('14.5'), None, Decimal('120'), None, datetime.date(2024, 1, 1), None, Decimal('345'), None, 'IN STOCK', None, 'cartier', '916')]
-
-            return render_template("stocks.html", stocks=stocks)
+            if stocks:
+                return render_template("stocks.html", stocks=stocks)
+            return render_template("stocks.html")
         else:
             msg = "Incorrect username/password!"
             return render_template("login.html", msg=msg)
@@ -209,7 +214,9 @@ def add_stock():
             except ValueError:
                 return "Invalid input. Please check your data and try again.", 400
             stocks = db.select('stock', js=True)
-            return render_template("stocks.html", stocks=stocks)
+            if stocks:
+                return render_template("stocks.html", stocks=stocks)
+            return render_template("stocks.html")
         
         purchases = db.select('purchase', js=True)
         # update the logic to get the latest created at 
@@ -243,7 +250,9 @@ def update_stock_view():
         except ValueError:
             return "Invalid input. Please check your data and try again.", 400
         stocks = db.select('stock', js=True)
-        return render_template("stocks.html", stocks=stocks)
+        if stocks:
+            return render_template("stocks.html", stocks=stocks)
+        return render_template("stocks.html")
     return redirect('login.html')
 
 @app.route('/delete/<stock_id>', methods=['POST'])
@@ -261,7 +270,9 @@ def deletestock(stock_id):
         # After deletion, redirect to the stocks page or any other appropriate page
         db.delete('stock',where="stk_id='{stk_id}'".format(stk_id=stk_id))
         stocks = db.select('stock', js=True)
-        return render_template("stocks.html", stocks=stocks)
+        if stocks:
+            return render_template("stocks.html", stocks=stocks)
+        return render_template("stocks.html")
     return 'Stock ID is missing', 400
 
 @app.route('/batch-import-stock', methods=['GET', 'POST'])
@@ -271,13 +282,34 @@ def uploadFile():
  
         data_filename = secure_filename(f.filename)
  
-        f.save(os.path.join(app.config['UPLOAD_FOLDER'],data_filename))
+        f.save(os.path.join(dic.IMPORT_DIR,data_filename))
  
-        session['uploaded_data_file_path'] = os.path.join(app.config['UPLOAD_FOLDER'],data_filename)
-        result = subprocess.run(['python', r'./IMtool app/website/Import.py'], capture_output=True, text=True)
-        # print('STDOUT:', result.stdout)
-        # print('STDERR:', result.stderr)
-        # print('Return Code:', result.returncode)
+        session['uploaded_data_file_path'] = os.path.join(dic.IMPORT_DIR,data_filename)
+        result = subprocess.run([flask_env_python, dic.PY_IMPORT_FILE], capture_output=True, text=True)
+        # Log outputs
+        logging.info("PURCHASE IMPORT STDOUT:\n%s", result.stdout)
+        if result.stderr:
+            logging.error("PURCHASE IMPORT STDERR:\n%s", result.stderr)
+        logging.info("PURCHASE IMPORT RETURN CODE: %s", result.returncode)
+        return 'File Uploaded Successful'
+    return 'FAILED'
+
+@app.route('/batch-import-purchase', methods=['GET', 'POST'])
+def uploadPurchaseFile():
+    if request.method == 'POST':
+        f = request.files.get('file')
+ 
+        data_filename = secure_filename(f.filename)
+ 
+        f.save(os.path.join(dic.IMPORT_DIR,data_filename))
+ 
+        session['uploaded_data_file_path'] = os.path.join(dic.IMPORT_DIR,data_filename)
+        result = subprocess.run([flask_env_python, dic.PY_IMPORT_FILE], capture_output=True, text=True)
+        # Log outputs
+        logging.info("PURCHASE IMPORT STDOUT:\n%s", result.stdout)
+        if result.stderr:
+            logging.error("PURCHASE IMPORT STDERR:\n%s", result.stderr)
+        logging.info("PURCHASE IMPORT RETURN CODE: %s", result.returncode)
         return 'File Uploaded Successful'
     return 'FAILED'
 
@@ -315,7 +347,9 @@ def add_purchases():
             except ValueError:
                 return "Invalid input. Please check your data and try again.", 400
             purchases = db.select('purchase', js=True)
-            return render_template("purchases.html", purchases=purchases)
+            if purchases:
+                return render_template("purchases.html", purchases=purchases)
+            return render_template("purchases.html")
 
         # else fetch salesman data
         salesmen = db.select(table="salesman", js=True)
@@ -348,7 +382,9 @@ def update_purchase_view():
         except ValueError:
             return "Invalid input. Please check your data and try again.", 400
         purchases = db.select('purchase', js=True)
-        return render_template("purchases.html", purchases=purchases)
+        if purchases:
+            return render_template("purchases.html", purchases=purchases)
+        return render_template("purchases.html")
     return redirect('login.html')
 
 @app.route('/delete-purchase/<pur_id>', methods=['POST'])
@@ -356,7 +392,9 @@ def deletepurchase(pur_id):
     if pur_id:
         db.delete('purchase',where="pur_id='{pur_id}'".format(pur_id=pur_id))
         purchases = db.select('purchase', js=True)
-        return render_template("purchases.html", purchases=purchases)
+        if purchases:
+            return render_template("purchases.html", purchases=purchases)
+        return render_template("purchases.html")
     return 'Purchase ID is missing', 400
 
 @app.route("/sales")
@@ -470,7 +508,9 @@ def edit_sale(sale_id):
             except ValueError:
                 return "Invalid input. Please check your data and try again.", 400
             sales = db.select('sale', js=True)
-            return render_template("sales.html", sales=sales)
+            if sales:
+                return render_template("sales.html", sales=sales)
+            return render_template("sales.html")
         else:
             sale = db.select('sale', where="sale_id='{sale_id}'".format(sale_id=sale_id))
             if sale[0]['sale_sold_date']:
@@ -494,7 +534,9 @@ def deletesale(sale_id):
     if sale_id:
         db.delete('sale',where="sale_id='{sale_id}'".format(sale_id=sale_id))
         sales = db.select('sale', js=True)
-        return render_template("sales.html", sales=sales)
+        if sales:
+            return render_template("sales.html", sales=sales)
+        return render_template("sales.html")
     return 'Sale ID is missing', 400
 
 @app.route("/salesmen")
@@ -519,7 +561,9 @@ def add_salesman():
             except ValueError:
                 return "Invalid input. Please check your data and try again.", 400
             salesmen = db.select('salesman', js=True)
-            return render_template("salesmen.html", salesmen=salesmen)
+            if salesmen:
+                return render_template("salesmen.html", salesmen=salesmen)
+            return render_template("salesmen.html")
 
         return render_template("addsalesmen.html")
 
@@ -542,7 +586,9 @@ def update_salesman_view():
         except ValueError:
             return "Invalid input. Please check your data and try again.", 400
         salesmen = db.select('salesman', js=True)
-        return render_template("salesmen.html", salesmen=salesmen)
+        if salesmen:
+            return render_template("salesmen.html", salesmen=salesmen)
+        return render_template("salesmen.html")
     return redirect('login.html')
 
 @app.route('/delete-salesman/<slm_id>', methods=['POST'])
@@ -550,7 +596,9 @@ def deletesalesman(slm_id):
     if slm_id:
         db.delete('salesman',where="slm_id='{slm_id}'".format(slm_id=slm_id))
         salesmen = db.select('salesman', js=True)
-        return render_template("salesmen.html", salesmen=salesmen)
+        if salesmen:
+            return render_template("salesmen.html", salesmen=salesmen)
+        return render_template("salesmen.html")
     return 'Salesman ID is missing', 400
 
 @app.route("/customers")
@@ -576,7 +624,9 @@ def add_customer():
             except ValueError:
                 return "Invalid input. Please check your data and try again.", 400
             customers = db.select('customer', js=True)
-            return render_template("customers.html", customers=customers)
+            if customers:
+                return render_template("customers.html", customers=customers)
+            return render_template("customers.html")
 
         return render_template("addcustomers.html")
 
@@ -599,7 +649,9 @@ def update_customer_view():
         except ValueError:
             return "Invalid input. Please check your data and try again.", 400
         customers = db.select('customer', js=True)
-        return render_template("customers.html", customers=customers)
+        if customers:
+            return render_template("customers.html", customers=customers)
+        return render_template("customers.html")
     return redirect('login.html')
 
 @app.route('/delete-customer/<cust_id>', methods=['POST'])
@@ -607,7 +659,9 @@ def deletecustomer(cust_id):
     if cust_id:
         db.delete('customer',where="cust_id='{cust_id}'".format(cust_id=cust_id))
         customers = db.select('customer', js=True)
-        return render_template("customers.html", customers=customers)
+        if customers:
+            return render_template("customers.html", customers=customers)
+        return render_template("customers.html")
     return 'Customer ID is missing', 400
 
 @app.route("/bookings")
@@ -627,7 +681,7 @@ def add_booking():
     if 'loggedin' in session:
         if request.method == 'POST':
             # perform add booking
-            # print("Hi")
+
             # print(request.form)
             # Define the specific fields you want to insert into the database
             stk_ids = request.form.getlist('stk_id')
@@ -672,13 +726,7 @@ def add_booking():
             # edit here: update the book_id in stock table, change the stock status to "BOOKED" not "IN STOCK"
             
             booking_id = 'BOOK_'+ str(db.get_currval(dic.BOOKING_SEQ))
-            # booking_id = db.get_currval(dic.BOOKING_SEQ)
-            # print('booking_id: ',booking_id)
-            # book_receipt_no = request.form.get('book_receipt_no')
-            # book_cust_id = request.form.get('book_cust_id')
-            # book_date = request.form.get('book_date')
-            # booking_data = db.select('booking', columns=['book_id'], where=f"book_receipt_no='{book_receipt_no}' AND book_cust_id='{book_cust_id}' AND book_date='{book_date}'")
-            # # do ...
+  
             # Define the mapping
             key_mapping = {
                 'bp_payment': 'bp_payment',
@@ -697,34 +745,15 @@ def add_booking():
             }
             payment_data['bp_book_id'] = booking_id
             payment_data['bp_status'] = 'PAID'
-            # print(payment_data)
-            # print(list(payment_data.keys()))
-            # print(list(payment_data.values()))
+
             try:
                 # insert book payment table (bp_payment, bp_payment_date, bp_book_id, bp_last_update?, bp_created_at?)
                 db.insert(table='book_payment',columns=list(payment_data.keys()),values=list(payment_data.values()))
-                # db.insert(table='book_payment',columns=['bp_payment', 'bp_payment_date', 'bp_book_id'],values=['123', '2024-12-02', 'BOOK_None'])
-                # print('book payment insert complete')
+
             except ValueError:
                 return "Invalid input. Please check your data and try again.", 400
-            # bookings = db.select('booking', js=True)
 
             # # do ...
-            # try:
-            #     # update stock table (stk_book_date, stk_gold_sell, stk_status, stk_profit, stk_book_id)
-            #     db.insert(table='stock',columns=list(request.form.keys()),values=list(request.form.values()))
-            # except ValueError:
-            #     return "Invalid input. Please check your data and try again.", 400
-
-            # stock_data = {
-            #     'stk_gold_sell':request.form.get('book_gold_price'),
-            #     'stk_labor_sell':request.form.get('book_labor_price'),
-            #     'stk_status':'BOOKED',
-            #     'stk_book_id':booking_id
-            # }
-            # stk_ids = request.form.getlist('booking_stk_ids')
-            # print(stk_ids)
-
             for i in range(len(stk_ids)):
                 try:
                     stock_data = {
@@ -737,8 +766,7 @@ def add_booking():
                                 }
                     # update stock table (stk_gold_sell, stk_labor_sell, stk_status, stk_book_id)
                     db.update(table='stock',set_columns=list(stock_data.keys()),set_values=list(stock_data.values()),where=f"stk_id='{stk_ids[i]}'")
-                    # print(stk_id)
-                    # print('stock status update complete')
+
                 except ValueError:
                     return "Invalid input. Please check your data and try again.", 400
             
@@ -832,7 +860,9 @@ def deletebooking(book_id):
     if book_id:
         db.delete('booking',where="book_id='{book_id}'".format(book_id=book_id))
         bookings = db.select('booking', js=True)
-        return render_template("bookings.html", bookings=bookings)
+        if bookings:
+            return render_template("bookings.html", bookings=bookings)
+        return render_template("bookings.html")
     return 'Book ID is missing', 400
 
 @app.route("/bookpayments")
@@ -853,7 +883,7 @@ def book_bookpayments(book_id):
         
         if bookpayments:
             return render_template("bookpayments.html", bookpayments=bookpayments, bookings=bookings)
-        return render_template("bookpayments.html")
+        return render_template("bookpayments.html", bookings=bookings)
     
     # User is not loggedin redirect to login page
     return redirect('login.html')
@@ -866,36 +896,85 @@ def add_bookpayments(book_id):
             # bookpayments = db.select('book_payment', where="bp_book_id='{book_id}'".format(book_id=book_id), js=True)
             # if bookpayments:
             #     return render_template("bookpayments.html", bookpayments=bookpayments)
-            return render_template("addbookpayment.html")
+            
+            # add book payment table
+            # print(request.form)
+            
+            bp_payment_date = request.form.get('bp_payment_date')
+            bp_payment = request.form.get('bp_payment')
+            new_book_remaining = request.form.get('new_book_remaining')
+            # book_remaining = request.form.get('book_remaining')
+            # print(book_id)
+            # print(new_book_remaining)
+
+            db.insert(table='book_payment',columns=['bp_payment','bp_book_id','bp_payment_date','bp_status'],values=[float(bp_payment),book_id,bp_payment_date,'PAID'])
+            
+            # update booking table
+            db.update(table='booking',set_columns=['book_remaining'],set_values=[int(float(new_book_remaining))],where=f"book_id='{book_id}'")
+            
+            bookpayments = db.select('book_payment', where="bp_book_id='{book_id}'".format(book_id=book_id), js=True)
+            bookings = db.select('booking', where="book_id='{book_id}'".format(book_id=book_id), js=True)
+            
+            if bookpayments:
+                return render_template("bookpayments.html", bookpayments=bookpayments, bookings=bookings)
+            
         bookings = db.select('booking', where="book_id='{book_id}'".format(book_id=book_id), js=True)
-        return render_template("addbookpayment.html", bookings=bookings)
+        if bookings:
+            return render_template("addbookpayment.html", bookings=bookings)
+        return render_template("addbookpayment.html")
     
     # User is not loggedin redirect to login page
     return redirect('login.html')
 
-@app.route('/cancel-bookpayment/<bp_book_id>', methods=['POST'])
-def cancelbookpayment(bp_book_id):
-    if bp_book_id:
-        # do ... update the bp_book_id booking table to the latest remaining values, and booking payment status to cancelled, then the front end can get if the booking payment status is cancelled then make the button to grey, cannot click.
-        # db.delete('booking',where="book_id='{book_id}'".format(bp_book_id=bp_book_id))
-        # bookpayments = db.select('booking', where bp_book_id =bp_book_id, js=True)
-        # then back to bookpayments.html with the list of latest bookpayments list for that bp_book_id
-        return render_template("bookpayments.html", bookpayments=bookpayments)
+@app.route('/cancel-bookpayment/<bp_book_id>/<bp_id>', methods=['POST'])
+def cancelbookpayment(bp_book_id, bp_id):
+    if bp_id:
+
+        db.update(table = 'book_payment',set_columns=['bp_status'],set_values=['CANCELLED'],where=f"bp_id = '{bp_id}'")
+        old_rem_price = float(db.select(table='booking',columns=['book_remaining'],where=f"book_id='{bp_book_id}'")[0]['book_remaining'])
+        book_payment_price = float(db.select(table='book_payment',columns=['bp_payment'],where=f"bp_id = '{bp_id}'")[0]['bp_payment'])
+        new_rem_price = old_rem_price+book_payment_price
+        db.update(table='booking',set_columns=['book_remaining','book_status'],set_values=[new_rem_price,'BOOKED'],where=f"book_id='{bp_book_id}'")
+        
+        
+        bookpayments = db.select('book_payment', where= f"bp_book_id ='{bp_book_id}'", js=True)
+        bookings = db.select('booking', where="book_id='{book_id}'".format(book_id=bp_book_id), js=True)
+        if bookpayments:
+            return render_template("bookpayments.html", bookpayments=bookpayments, bookings=bookings)
+        return render_template("bookpayments.html", bookings=bookings)
+    return 'Book Payment ID is missing', 400
+
+@app.route('/cancel-booking/<book_id>', methods=['POST'])
+def cancelbooking(book_id):
+    if book_id:
+        # do ...
+        # update all book payments to cancelled
+        # update the booking to cancelled
+        bookings = db.select('booking', js=True)
+        if bookings:
+            return render_template("bookings.html", bookings=bookings)
+        return render_template("bookings.html")
     return 'Book ID is missing', 400
 
-@app.route('/close-booking/<book_id>', methods=['GET', 'POST'])
-def closebookpayment(book_id):
-    if request.method == 'POST':
-        # do ... add one row in book payment table, update the booking table with 0 remaining balance, update stock information from booked to sold
-        print(request.form)
-        # db.delete('booking',where="book_id='{book_id}'".format(bp_book_id=bp_book_id))
-        # bookpayments = db.select('booking', where bp_book_id =bp_book_id, js=True)
-        # then back to bookpayments.html with the list of latest bookpayments list for that bp_book_id
-        bookpayments = db.select('book_payment', where="bp_book_id='{book_id}'".format(book_id=book_id), js=True)
-        return render_template("bookpayments.html", bookpayments=bookpayments)
-    stocks = db.select('stock', where="book_id='{book_id}'".format(book_id=book_id), js=True)
+@app.route('/close-booking/<book_id>', methods=['GET'])
+def closebookpayment(book_id):    
+    remaining = float(db.select(table='booking',columns=['book_remaining'],where=f"book_id='{book_id}'")[0]['book_remaining'])
+    
+    # add book payment
+    db.insert(table='book_payment',columns=['bp_payment','bp_book_id','bp_payment_date','bp_status'],values=[remaining,book_id,datetime.now(),'PAID'])
+    
+    # update booking table
+    db.update(table='booking',set_columns= ['book_remaining','book_status'], set_values= [0,'COMPLETED'],where=f"book_id='{book_id}'")
+    
     bookings = db.select('booking', where="book_id='{book_id}'".format(book_id=book_id), js=True)
-    return render_template("closebookpayment.html", bookings=bookings, stocks=stocks)
+    customers = db.select(table="customer", js=True)
+    stock_entries = db.select('stock', where="stk_book_id='{book_id}'".format(book_id=book_id))
+    for i in range(len(stock_entries)):
+        stock_entries[i]['sale_price'] = (stock_entries[i]['stk_gold_book']*stock_entries[i]['stk_weight_book']) + stock_entries[i]['stk_labor_book']
+    booked_stk_ids = [item['stk_id'] for item in stock_entries]
+    joined_ids = ', '.join(f"'{stk_id}'" for stk_id in booked_stk_ids)
+    stocks = db.select('stock', where=f"stk_status='IN STOCK' OR stk_id IN ({joined_ids})", js=True)
+    return render_template('addsales(booking).html', booking=bookings[0], customers=customers, stocks=stocks, stock_entries=stock_entries)
 
 @app.route('/submit_sale', methods=['POST'])
 def submit_sale():
@@ -982,10 +1061,6 @@ def dashboard():
     # User is not loggedin redirect to login page
     return redirect('login.html')
 
-# Set the folder for uploaded files
-app.config['UPLOAD_FOLDER'] = r'.\static\pattern'
-app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
-
 # Function to check allowed file extensions
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
@@ -1001,7 +1076,7 @@ def add_pattern():
                 # Secure the filename
                 filename = secure_filename(image.filename)
                 imageName = request.form['cpat_category']+'_'+request.form['cpat_pattern']+'.'+image.filename.rsplit('.', 1)[1].lower()
-                image_path = os.path.join(app.config['UPLOAD_FOLDER'], imageName)
+                image_path = os.path.join(dic.IMG_STORE_DIR, imageName)
                 
                 # Save the image to the uploads folder
                 image.save(image_path)
@@ -1038,7 +1113,9 @@ def patterns():
         #     {'cpat_id': '3', 'category': 'Necklace', 'pattern': '通单扣', 'image': 'static/img/pattern3.jpg'},
         #     # Add more patterns as needed
         # ]
-        return render_template("patterns.html", patterns=patterns)
+        if patterns:
+            return render_template("patterns.html", patterns=patterns)
+        return render_template("patterns.html")
     
     # User is not loggedin redirect to login page
     return redirect('login.html')
@@ -1060,21 +1137,22 @@ def update_pattern_view():
         try:
             # Replace image
             image = request.files['cpat_image_path']
-
+            # print("image.filename:",image.filename)
             # Check if file is valid
             if image and allowed_file(image.filename):
+                # old_image_path = list(db.select(table='category_pattern_mapping',columns=['cpat_image_path'],where="cpat_id='{cpat_id}'".format(cpat_id=request.form['cpat_id']),js=True)[0].values())[0]
+                # os.remove(old_image_path)
+                
                 # Secure the filename
                 filename = secure_filename(image.filename)
                 imageName = request.form['cpat_category']+'_'+request.form['cpat_pattern']+'.'+image.filename.rsplit('.', 1)[1].lower()
-                image_path = os.path.join(app.config['UPLOAD_FOLDER'], imageName)
+                image_path_save = os.path.join(dic.IMG_STORE_DIR, imageName)
+                image_path_store = os.path.join('static','pattern', imageName)
                 
                 # Save the image to the uploads folder
-                image.save(image_path)
+                image.save(image_path_save)
                 
-                old_image_path = list(db.select(table='category_pattern_mapping',columns=['cpat_image_path'],where="cpat_id='{cpat_id}'".format(cpat_id=request.form['cpat_id']),js=True)[0].values())[0]
-                os.remove(old_image_path)
-                
-                db.update(table='category_pattern_mapping',set_columns=['cpat_image_path'],set_values=[image_path],where = "cpat_id='{cpat_id}'".format(cpat_id=request.form['cpat_id']))             
+                db.update(table='category_pattern_mapping',set_columns=['cpat_image_path'],set_values=[image_path_store],where = "cpat_id='{cpat_id}'".format(cpat_id=request.form['cpat_id']))             
                 # print(image_path)
 
         except ValueError:
@@ -1083,36 +1161,75 @@ def update_pattern_view():
         return render_template("patterns.html", patterns=patterns)
     return redirect('login.html')
 
-@app.route("/try")
-def try1():
-    # stocks as default home page
-    if 'loggedin' in session:
-        # patterns = db.select('category_pattern_mapping',js=True)
-        # patterns = [
-        #     {'cpat_id': '1', 'category': 'Necklace', 'pattern': '水波', 'image': 'static/img/goldnecklace.jpg'},
-        #     {'cpat_id': '2', 'category': 'Necklace', 'pattern': '单扣', 'image': 'static/img/pattern2.jpg'},
-        #     {'cpat_id': '3', 'category': 'Necklace', 'pattern': '通单扣', 'image': 'static/img/pattern3.jpg'},
-        #     # Add more patterns as needed
-        # ]
-        return render_template("try.html")
+@app.route('/post-export-data', methods=['POST'])
+def handle_export_data():
+    try:
+        data=request.get_json()
+        print(data)
+        
+    except Exception as e:
+        print(e)
+    stocks = db.select('stock', js=True)
+    if stocks:
+        return render_template("stocks.html", stocks=stocks)
+    return render_template("stocks.html")
+
+@app.route('/process-barcode-data', methods=['POST'])
+def process_barcode_data():
+    data=request.get_json()
+    processed_data = []
+    barcode_export = pd.DataFrame(data)
+    stk_id_to_convert = str(barcode_export['Stock ID'].to_list())[1:-1]
     
-    # User is not loggedin redirect to login page
-    return redirect('login.html')
-@app.route("/try2")
-def try2():
-    # stocks as default home page
-    if 'loggedin' in session:
-        # patterns = db.select('category_pattern_mapping',js=True)
-        # patterns = [
-        #     {'cpat_id': '1', 'category': 'Necklace', 'pattern': '水波', 'image': 'static/img/goldnecklace.jpg'},
-        #     {'cpat_id': '2', 'category': 'Necklace', 'pattern': '单扣', 'image': 'static/img/pattern2.jpg'},
-        #     {'cpat_id': '3', 'category': 'Necklace', 'pattern': '通单扣', 'image': 'static/img/pattern3.jpg'},
-        #     # Add more patterns as needed
-        # ]
-        return render_template("try2.html")
+    query = """
+        SELECT 
+            stk.stk_id,
+            stk.stk_barcode,
+            stk.stk_weight,
+            COALESCE(stk.stk_length, stk.stk_size) AS stk_length_size,
+            stk.stk_returned,
+            slm.slm_name,
+            '''' || TO_CHAR(stk.stk_pur_date, 'MMYY') AS stk_pur_monthyear
+        FROM konghin.stock stk
+        LEFT JOIN konghin.purchase p ON stk.stk_pur_id = p.pur_id
+        LEFT JOIN konghin.salesman slm ON p.pur_slm_id = slm.slm_id
+        WHERE stk.stk_id IN ({stk_id})
+    """.format(stk_id=stk_id_to_convert)  # Parameterized query
+
+    processed_data = db.select_raw(query).to_dict(orient='records')
     
-    # User is not loggedin redirect to login page
-    return redirect('login.html')
+    # processed_data = barcode_export[['Stock ID','Stock Barcode', 'Stock Weight (g)','Stock Size','Stock Length (cm)','Stock Returned']].to_json(orient='records')
+    
+    db.update(table='stock',set_columns=['stk_printed'],set_values=['1'],where = "stk_id in ({stk_id})".format(stk_id=stk_id_to_convert))
+
+    processed_data = list(processed_data)
+    # print(processed_data)
+
+    return jsonify({'status': 'success', 'data': processed_data}), 200
+    
+@app.route('/print-invoice/<sale_id>', methods=['GET'])
+def print_invoice(sale_id):
+    # Fetch sale details and stock entries from the database
+    # sale = get_sale_by_id(sale_id)  # Replace with actual logic to get sale from the database
+    # stock_entries = get_stock_entries_by_sale_id(sale_id)  # Replace with actual logic to get stock entries
+    
+    sale = db.select('sale', where="sale_id='{sale_id}'".format(sale_id=sale_id))
+    if sale[0]['sale_sold_date']:
+        sale_date_object = datetime.fromisoformat(sale[0].get('sale_sold_date').replace('Z', '+00:00'))
+        sale[0]['sale_sold_date'] = sale_date_object.strftime('%Y-%m-%d')
+    customers = db.select(table="customer", js=True)
+    stock_entries = db.select('stock', where="stk_sale_id='{sale_id}'".format(sale_id=sale_id))
+    for i in range(len(stock_entries)):
+        stock_entries[i]['sale_price'] = (stock_entries[i]['stk_gold_sell']*stock_entries[i]['stk_weight_sell']) + stock_entries[i]['stk_labor_sell']
+
+    sold_stk_ids = [item['stk_id'] for item in stock_entries]
+    joined_ids = ', '.join(f"'{stk_id}'" for stk_id in sold_stk_ids)
+    stocks = db.select('stock', where=f"stk_status='IN STOCK' OR stk_id IN ({joined_ids})", js=True)
+    # return render_template('updatesale.html', sale=sale[0], customers=customers, stocks=stocks, stock_entries=stock_entries)
+
+    # Render the invoice template
+    return render_template('invoice.html', sale=sale[0], stock_entries=stock_entries)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

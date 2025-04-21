@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Update Booking</title>
+{% endblock %}
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+{% block content %}
+<main>
+    <div class="container-fluid mt-4">
+        <h1 class="mb-4">Update Booking</h1>
+        
+        <div class="mb-3">
+            <a class="btn btn-secondary" href="/bookings">Back to Booking List</a>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <form method="POST" action="/update-booking/{{ booking.book_id }}">
+
+                    <!-- Booking Details Section -->
+                    <div class="mb-4">
+                        <h5 class="card-title">Booking Details</h5>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label for="book_cust_id" class="form-label">Customer</label>
+                                <select class="form-select" id="book_cust_id" name="book_cust_id" required>
+                                    <option value="" disabled>Select Customer</option>
+                                    {% for customer in customers %}
+                                        <option value="{{ customer.cust_id }}" {% if customer.cus_id == booking.book_cust_id %}selected{% endif %}>{{ customer.cust_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="book_receipt_no" class="form-label">Booking Receipt No</label>
+                                <input type="text" class="form-control" id="book_receipt_no" name="book_receipt_no" value="{{ booking.book_receipt_no }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="book_date" class="form-label">Booking Date</label>
+                                <input type="date" class="form-control" id="book_date" name="book_date" value="{{ booking.book_date }}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Costs Section -->
+                    <div class="mb-4">
+                        <h5 class="card-title">Booking Costs</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="book_gold_price" class="form-label">Gold Price</label>
+                                <input type="number" step="0.01" class="form-control" id="book_gold_price" name="book_gold_price" value="{{ booking.book_gold_price }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="book_labor_price" class="form-label">Labor Price</label>
+                                <input type="number" step="0.01" class="form-control" id="book_labor_price" name="book_labor_price" value="{{ booking.book_labor_price }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="book_weight" class="form-label">Booking Weight (g)</label>
+                                <input type="number" step="0.01" class="form-control" id="book_weight" name="book_weight" value="{{ booking.book_weight }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="book_price" class="form-label">Total Price</label>
+                                <input type="number" step="0.01" class="form-control" id="book_price" name="book_price" value="{{ booking.book_price }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="bp_payment" class="form-label">Deposit Amount</label>
+                                <input type="number" step="0.01" class="form-control" id="bp_payment" name="bp_payment" value="{{ booking.deposit_amount }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="book_remaining" class="form-label">Remaining Amount</label>
+                                <input type="number" step="0.01" class="form-control" id="book_remaining" name="book_remaining" value="{{ booking.book_remaining }}" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Existing JavaScript code for stock filtering, total price calculation, and remaining amount calculation remains unchanged
+    document.getElementById('stockSearch').addEventListener('input', function() {
+        const filter = this.value.toLowerCase();
+        const options = document.querySelectorAll('#booking_stk_ids option');
+
+        options.forEach(option => {
+            const text = option.textContent.toLowerCase();
+            option.style.display = text.includes(filter) ? '' : 'none';
+        });
+    });
+
+    const stockSelect = document.getElementById('booking_stk_ids');
+    const selectedStockList = document.getElementById('selected-stock-list');
+
+    stockSelect.addEventListener('change', function() {
+        selectedStockList.innerHTML = '';
+        const selectedOptions = Array.from(stockSelect.selectedOptions);
+        
+        selectedOptions.forEach(option => {
+            const li = document.createElement('li');
+            li.textContent = option.value;
+            li.className = 'list-group-item';
+            selectedStockList.appendChild(li);
+        });
+    });
+
+    function calculateTotalPrice() {
+        const goldPrice = parseFloat(document.getElementById('book_gold_price').value) || 0;
+        const weight = parseFloat(document.getElementById('book_weight').value) || 0;
+        const laborPrice = parseFloat(document.getElementById('book_labor_price').value) || 0;
+
+        const totalPrice = (goldPrice * weight) + laborPrice;
+        document.getElementById('book_price').value = totalPrice.toFixed(2);
+
+        calculateRemaining();
+    }
+
+    document.getElementById('book_gold_price').addEventListener('input', calculateTotalPrice);
+    document.getElementById('book_weight').addEventListener('input', calculateTotalPrice);
+    document.getElementById('book_labor_price').addEventListener('input', calculateTotalPrice);
+
+    function calculateRemaining() {
+        const totalPrice = parseFloat(document.getElementById('book_price').value) || 0;
+        const depositAmount = parseFloat(document.getElementById('bp_payment').value) || 0;
+        const remainingAmount = totalPrice - depositAmount;
+        document.getElementById('book_remaining').value = remainingAmount >= 0 ? remainingAmount : 0;
+    }
+
+    document.getElementById('book_price').addEventListener('input', calculateRemaining);
+    document.getElementById('bp_payment').addEventListener('input', calculateRemaining);
+
+    // Set the default booking date if necessary
+    document.addEventListener('DOMContentLoaded', function() {
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('book_date').value = document.getElementById('book_date').value || today; // Set today only if the value is empty
+    });
+</script>
+
+{% endblock %}

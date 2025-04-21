@@ -1,0 +1,1301 @@
+2025-02-23 00:00:08,127 - WARNING -  * Debugger is active!
+2025-02-23 00:00:08,132 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 00:00:18,270 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 00:00:20,391 - WARNING -  * Debugger is active!
+2025-02-23 00:00:20,397 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 00:00:24,209 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 00:00:24,209 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 00:00:24,222 - INFO - 127.0.0.1 - - [23/Feb/2025 00:00:24] "GET /add-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 00:00:29,886 - INFO - Next value of sequence bp_id_seq: 100029
+2025-02-23 00:00:29,942 - INFO - Successfully inserted data into konghin.book_payment.
+2025-02-23 00:00:29,942 - INFO - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_payment", "bp_book_id", "bp_payment_date", "bp_status") VALUES (%s, %s, %s, %s, %s)
+2025-02-23 00:00:29,943 - INFO - Values: ['BP_100029', 1.0, 'BOOK_100014', '2025-02-22', 'PAID']
+2025-02-23 00:00:30,141 - INFO - Successfully updated data in konghin.booking.
+2025-02-23 00:00:30,141 - INFO - Query: UPDATE "konghin"."booking" SET "book_remaining" = %s, "book_last_update" = %s WHERE book_id='BOOK_100014'
+2025-02-23 00:00:30,141 - INFO - Values: [24, '2025-02-23 00:00:29']
+2025-02-23 00:00:30,142 - INFO - 127.0.0.1 - - [23/Feb/2025 00:00:30] "POST /add-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 00:00:30,171 - INFO - 127.0.0.1 - - [23/Feb/2025 00:00:30] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 00:00:30,175 - INFO - 127.0.0.1 - - [23/Feb/2025 00:00:30] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 00:00:30,179 - INFO - 127.0.0.1 - - [23/Feb/2025 00:00:30] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 00:00:30,420 - INFO - 127.0.0.1 - - [23/Feb/2025 00:00:30] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:03:17,747 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-23 15:03:17,747 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-23 15:03:17,747 - INFO -  * Restarting with stat
+2025-02-23 15:03:18,620 - WARNING -  * Debugger is active!
+2025-02-23 15:03:18,622 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:03:41,385 - INFO - 127.0.0.1 - - [23/Feb/2025 15:03:41] "GET / HTTP/1.1" 200 -
+2025-02-23 15:03:41,541 - INFO - 127.0.0.1 - - [23/Feb/2025 15:03:41] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2025-02-23 15:03:41,590 - INFO - 127.0.0.1 - - [23/Feb/2025 15:03:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-23 15:03:50,237 - INFO - kjunqiang@gmail.com successfully login at 2025-02-23 15:03:50.237669
+2025-02-23 15:03:50,284 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 15:03:50,284 - INFO - Query: SELECT * FROM "konghin"."stock"
+2025-02-23 15:03:50,380 - INFO - 127.0.0.1 - - [23/Feb/2025 15:03:50] "POST /login HTTP/1.1" 200 -
+2025-02-23 15:03:50,394 - INFO - 127.0.0.1 - - [23/Feb/2025 15:03:50] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:03:50,492 - INFO - 127.0.0.1 - - [23/Feb/2025 15:03:50] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:03:50,500 - INFO - 127.0.0.1 - - [23/Feb/2025 15:03:50] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:03:50,504 - INFO - 127.0.0.1 - - [23/Feb/2025 15:03:50] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:03:52,814 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:03:52,814 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 15:03:52,830 - INFO - 127.0.0.1 - - [23/Feb/2025 15:03:52] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 15:03:52,861 - INFO - 127.0.0.1 - - [23/Feb/2025 15:03:52] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:03:52,861 - INFO - 127.0.0.1 - - [23/Feb/2025 15:03:52] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:03:52,861 - INFO - 127.0.0.1 - - [23/Feb/2025 15:03:52] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:03:52,877 - INFO - 127.0.0.1 - - [23/Feb/2025 15:03:52] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:04:02,561 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:04:02,571 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 15:04:02,573 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:04:02,573 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:04:02,602 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:02] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 15:04:02,618 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:02] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:04:02,633 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:02] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:04:02,633 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:02] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:04:02,633 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:02] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:04:06,111 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:04:06,111 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:04:06,111 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:06] "GET /add-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 15:04:06,127 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:06] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:04:06,142 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:06] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:04:06,142 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:06] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:04:06,158 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:06] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:04:12,999 - INFO - Next value of sequence bp_id_seq: 100030
+2025-02-23 15:04:13,031 - INFO - Successfully inserted data into konghin.book_payment.
+2025-02-23 15:04:13,031 - INFO - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_payment", "bp_book_id", "bp_payment_date", "bp_status") VALUES (%s, %s, %s, %s, %s)
+2025-02-23 15:04:13,031 - INFO - Values: ['BP_100030', 1.0, 'BOOK_100014', '2025-02-23', 'PAID']
+2025-02-23 15:04:13,062 - INFO - Successfully updated data in konghin.booking.
+2025-02-23 15:04:13,062 - INFO - Query: UPDATE "konghin"."booking" SET "book_remaining" = %s, "book_last_update" = %s WHERE book_id='BOOK_100014'
+2025-02-23 15:04:13,062 - INFO - Values: [23, '2025-02-23 15:04:13']
+2025-02-23 15:04:13,095 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:04:13,095 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 15:04:13,109 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:04:13,109 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:04:13,109 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:13] "POST /add-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 15:04:13,145 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:13] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:04:13,222 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:13] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:04:13,225 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:13] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:04:13,232 - INFO - 127.0.0.1 - - [23/Feb/2025 15:04:13] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:06:04,631 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:06:04,723 - INFO -  * Restarting with stat
+2025-02-23 15:06:05,824 - WARNING -  * Debugger is active!
+2025-02-23 15:06:05,832 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:06:08,786 - INFO - Next value of sequence bp_id_seq: 100031
+2025-02-23 15:06:08,814 - INFO - Successfully inserted data into konghin.book_payment.
+2025-02-23 15:06:08,814 - INFO - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_payment", "bp_book_id", "bp_payment_date", "bp_status") VALUES (%s, %s, %s, %s, %s)
+2025-02-23 15:06:08,814 - INFO - Values: ['BP_100031', 1.0, 'BOOK_100014', '2025-02-23', 'PAID']
+2025-02-23 15:06:08,849 - INFO - Successfully updated data in konghin.booking.
+2025-02-23 15:06:08,849 - INFO - Query: UPDATE "konghin"."booking" SET "book_remaining" = %s, "book_last_update" = %s WHERE book_id='BOOK_100014'
+2025-02-23 15:06:08,849 - INFO - Values: [23, '2025-02-23 15:06:08']
+2025-02-23 15:06:08,875 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:06:08,875 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 15:06:08,888 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:06:08,888 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:06:08,900 - INFO - 127.0.0.1 - - [23/Feb/2025 15:06:08] "POST /add-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 15:06:08,931 - INFO - 127.0.0.1 - - [23/Feb/2025 15:06:08] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:06:08,932 - INFO - 127.0.0.1 - - [23/Feb/2025 15:06:08] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:06:08,934 - INFO - 127.0.0.1 - - [23/Feb/2025 15:06:08] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:06:08,995 - INFO - 127.0.0.1 - - [23/Feb/2025 15:06:08] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:08:26,234 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:08:26,234 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 15:08:26,248 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:26] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 15:08:26,279 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:26] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:08:26,279 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:26] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:08:26,279 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:26] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:08:26,279 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:26] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:08:28,513 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:08:28,513 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 15:08:28,531 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:08:28,531 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:08:28,782 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:28] "[35m[1mGET /book-bookpayment/BOOK_100014 HTTP/1.1[0m" 500 -
+2025-02-23 15:08:28,812 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:28] "GET /book-bookpayment/BOOK_100014?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-02-23 15:08:28,850 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:28] "GET /book-bookpayment/BOOK_100014?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-02-23 15:08:28,890 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:28] "GET /book-bookpayment/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-02-23 15:08:28,905 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:28] "[36mGET /book-bookpayment/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:08:53,062 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:08:53,062 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 15:08:53,073 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:08:53,073 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:08:53,159 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:53] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 15:08:53,181 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:53] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:08:53,189 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:53] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:08:53,189 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:53] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:08:53,200 - INFO - 127.0.0.1 - - [23/Feb/2025 15:08:53] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:18:31,214 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:18:31,320 - INFO -  * Restarting with stat
+2025-02-23 15:18:32,482 - WARNING -  * Debugger is active!
+2025-02-23 15:18:32,482 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:18:36,588 - INFO - 127.0.0.1 - - [23/Feb/2025 15:18:36] "[35m[1mPOST /cancel-bookpayment/BOOK_100014 HTTP/1.1[0m" 500 -
+2025-02-23 15:18:36,764 - INFO - 127.0.0.1 - - [23/Feb/2025 15:18:36] "GET /cancel-bookpayment/BOOK_100014?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-02-23 15:18:36,764 - INFO - 127.0.0.1 - - [23/Feb/2025 15:18:36] "GET /cancel-bookpayment/BOOK_100014?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-02-23 15:18:36,780 - INFO - 127.0.0.1 - - [23/Feb/2025 15:18:36] "GET /cancel-bookpayment/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-02-23 15:18:36,790 - INFO - 127.0.0.1 - - [23/Feb/2025 15:18:36] "[36mGET /cancel-bookpayment/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:19:44,146 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:19:44,210 - INFO -  * Restarting with stat
+2025-02-23 15:19:45,266 - WARNING -  * Debugger is active!
+2025-02-23 15:19:45,270 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:19:55,638 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-23 15:19:55,638 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-23 15:19:55,639 - INFO -  * Restarting with stat
+2025-02-23 15:19:56,479 - WARNING -  * Debugger is active!
+2025-02-23 15:19:56,487 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:19:59,096 - INFO - 127.0.0.1 - - [23/Feb/2025 15:19:59] "GET / HTTP/1.1" 200 -
+2025-02-23 15:19:59,237 - INFO - 127.0.0.1 - - [23/Feb/2025 15:19:59] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2025-02-23 15:20:09,152 - INFO - kjunqiang@gmail.com successfully login at 2025-02-23 15:20:09.152658
+2025-02-23 15:20:09,183 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 15:20:09,183 - INFO - Query: SELECT * FROM "konghin"."stock"
+2025-02-23 15:20:09,279 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:09] "POST /login HTTP/1.1" 200 -
+2025-02-23 15:20:09,325 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:09] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:20:09,325 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:09] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:20:09,325 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:09] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:20:09,341 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:09] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:20:10,690 - INFO - Successfully selected data from konghin.sale.
+2025-02-23 15:20:10,690 - INFO - Query: SELECT * FROM "konghin"."sale"
+2025-02-23 15:20:10,768 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:10] "GET /sales HTTP/1.1" 200 -
+2025-02-23 15:20:10,800 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:10] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:20:10,800 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:10] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:20:10,806 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:10] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:20:10,806 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:10] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:20:11,815 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:20:11,815 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 15:20:11,879 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:11] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 15:20:11,908 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:11] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:20:11,914 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:11] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:20:11,926 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:11] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:20:11,926 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:11] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:20:13,317 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:20:13,317 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 15:20:13,317 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:20:13,317 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:20:13,348 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:13] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 15:20:13,380 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:13] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:20:13,387 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:13] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:20:13,387 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:13] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:20:13,387 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:13] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:20:15,953 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:15] "[35m[1mPOST /cancel-bookpayment/BOOK_100014 HTTP/1.1[0m" 500 -
+2025-02-23 15:20:15,984 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:15] "[36mGET /cancel-bookpayment/BOOK_100014?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 15:20:16,000 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:16] "[36mGET /cancel-bookpayment/BOOK_100014?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 15:20:16,015 - INFO - 127.0.0.1 - - [23/Feb/2025 15:20:16] "[36mGET /cancel-bookpayment/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:21:50,154 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:21:50,154 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 15:21:50,154 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:21:50,154 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:21:50,219 - INFO - 127.0.0.1 - - [23/Feb/2025 15:21:50] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 15:21:50,239 - INFO - 127.0.0.1 - - [23/Feb/2025 15:21:50] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:21:50,245 - INFO - 127.0.0.1 - - [23/Feb/2025 15:21:50] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:21:50,248 - INFO - 127.0.0.1 - - [23/Feb/2025 15:21:50] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:21:50,253 - INFO - 127.0.0.1 - - [23/Feb/2025 15:21:50] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:21:56,087 - INFO - 127.0.0.1 - - [23/Feb/2025 15:21:56] "[35m[1mPOST /cancel-bookpayment/BP_100017 HTTP/1.1[0m" 500 -
+2025-02-23 15:21:56,118 - INFO - 127.0.0.1 - - [23/Feb/2025 15:21:56] "GET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-02-23 15:21:56,118 - INFO - 127.0.0.1 - - [23/Feb/2025 15:21:56] "GET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-02-23 15:21:56,118 - INFO - 127.0.0.1 - - [23/Feb/2025 15:21:56] "GET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-02-23 15:21:56,306 - INFO - 127.0.0.1 - - [23/Feb/2025 15:21:56] "[36mGET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:22:11,346 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:22:11,421 - INFO -  * Restarting with stat
+2025-02-23 15:22:12,345 - WARNING -  * Debugger is active!
+2025-02-23 15:22:12,351 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:22:38,610 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:22:38,672 - INFO -  * Restarting with stat
+2025-02-23 15:22:39,554 - WARNING -  * Debugger is active!
+2025-02-23 15:22:39,554 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:22:50,681 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:22:50,742 - INFO -  * Restarting with stat
+2025-02-23 15:22:51,662 - WARNING -  * Debugger is active!
+2025-02-23 15:22:51,666 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:23:58,345 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:23:58,418 - INFO -  * Restarting with stat
+2025-02-23 15:24:46,510 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-23 15:24:46,510 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-23 15:24:46,510 - INFO -  * Restarting with stat
+2025-02-23 15:24:47,303 - WARNING -  * Debugger is active!
+2025-02-23 15:24:47,303 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:24:48,341 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:24:48,409 - INFO -  * Restarting with stat
+2025-02-23 15:24:49,306 - WARNING -  * Debugger is active!
+2025-02-23 15:24:49,313 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:24:53,008 - INFO - 127.0.0.1 - - [23/Feb/2025 15:24:53] "[35m[1mPOST /cancel-bookpayment/BP_100017 HTTP/1.1[0m" 500 -
+2025-02-23 15:24:53,187 - INFO - 127.0.0.1 - - [23/Feb/2025 15:24:53] "[36mGET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 15:24:53,187 - INFO - 127.0.0.1 - - [23/Feb/2025 15:24:53] "[36mGET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 15:24:53,199 - INFO - 127.0.0.1 - - [23/Feb/2025 15:24:53] "[36mGET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:25:29,779 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:25:29,828 - INFO -  * Restarting with stat
+2025-02-23 15:25:30,740 - WARNING -  * Debugger is active!
+2025-02-23 15:25:30,745 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:25:32,966 - INFO - 127.0.0.1 - - [23/Feb/2025 15:25:32] "[35m[1mPOST /cancel-bookpayment/BP_100017 HTTP/1.1[0m" 500 -
+2025-02-23 15:25:33,171 - INFO - 127.0.0.1 - - [23/Feb/2025 15:25:33] "[36mGET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 15:25:33,171 - INFO - 127.0.0.1 - - [23/Feb/2025 15:25:33] "[36mGET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 15:25:33,187 - INFO - 127.0.0.1 - - [23/Feb/2025 15:25:33] "[36mGET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:25:33,198 - INFO - 127.0.0.1 - - [23/Feb/2025 15:25:33] "[36mGET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:29:43,754 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:29:43,817 - INFO -  * Restarting with stat
+2025-02-23 15:29:44,755 - WARNING -  * Debugger is active!
+2025-02-23 15:29:44,760 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:29:48,116 - ERROR - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100017'
+2025-02-23 15:29:48,116 - ERROR - Database error: 42703 - ERROR:  column "bp_last_update" does not exist
+
+2025-02-23 15:29:48,116 - ERROR - Error details: None
+2025-02-23 15:29:48,148 - INFO - 127.0.0.1 - - [23/Feb/2025 15:29:48] "[35m[1mPOST /cancel-bookpayment/BP_100017 HTTP/1.1[0m" 500 -
+2025-02-23 15:29:48,326 - INFO - 127.0.0.1 - - [23/Feb/2025 15:29:48] "[36mGET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 15:29:48,326 - INFO - 127.0.0.1 - - [23/Feb/2025 15:29:48] "[36mGET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 15:29:48,342 - INFO - 127.0.0.1 - - [23/Feb/2025 15:29:48] "[36mGET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:32:39,255 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:32:39,255 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100017'
+2025-02-23 15:32:39,255 - INFO - Values: ['CANCELLED', '2025-02-23 15:32:39']
+2025-02-23 15:32:39,267 - INFO - 127.0.0.1 - - [23/Feb/2025 15:32:39] "[35m[1mPOST /cancel-bookpayment/BP_100017 HTTP/1.1[0m" 500 -
+2025-02-23 15:32:39,295 - INFO - 127.0.0.1 - - [23/Feb/2025 15:32:39] "[36mGET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 15:32:39,307 - INFO - 127.0.0.1 - - [23/Feb/2025 15:32:39] "[36mGET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 15:32:39,320 - INFO - 127.0.0.1 - - [23/Feb/2025 15:32:39] "[36mGET /cancel-bookpayment/BP_100017?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:32:49,712 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:32:49,712 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 15:32:49,733 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:32:49,733 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:32:49,734 - INFO - 127.0.0.1 - - [23/Feb/2025 15:32:49] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 15:32:49,759 - INFO - 127.0.0.1 - - [23/Feb/2025 15:32:49] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:32:49,759 - INFO - 127.0.0.1 - - [23/Feb/2025 15:32:49] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:32:49,759 - INFO - 127.0.0.1 - - [23/Feb/2025 15:32:49] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:32:49,759 - INFO - 127.0.0.1 - - [23/Feb/2025 15:32:49] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:33:31,667 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:33:31,667 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100018'
+2025-02-23 15:33:31,667 - INFO - Values: ['CANCELLED', '2025-02-23 15:33:31']
+2025-02-23 15:33:31,681 - INFO - 127.0.0.1 - - [23/Feb/2025 15:33:31] "[35m[1mPOST /cancel-bookpayment/BP_100018 HTTP/1.1[0m" 500 -
+2025-02-23 15:33:31,707 - INFO - 127.0.0.1 - - [23/Feb/2025 15:33:31] "GET /cancel-bookpayment/BP_100018?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-02-23 15:33:31,741 - INFO - 127.0.0.1 - - [23/Feb/2025 15:33:31] "GET /cancel-bookpayment/BP_100018?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-02-23 15:33:31,772 - INFO - 127.0.0.1 - - [23/Feb/2025 15:33:31] "GET /cancel-bookpayment/BP_100018?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-02-23 15:33:31,786 - INFO - 127.0.0.1 - - [23/Feb/2025 15:33:31] "[36mGET /cancel-bookpayment/BP_100018?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:33:40,271 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:33:40,271 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 15:33:40,286 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:33:40,286 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:33:40,286 - INFO - 127.0.0.1 - - [23/Feb/2025 15:33:40] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 15:33:40,318 - INFO - 127.0.0.1 - - [23/Feb/2025 15:33:40] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:33:40,318 - INFO - 127.0.0.1 - - [23/Feb/2025 15:33:40] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:33:40,318 - INFO - 127.0.0.1 - - [23/Feb/2025 15:33:40] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:33:40,318 - INFO - 127.0.0.1 - - [23/Feb/2025 15:33:40] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:34:56,883 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:34:56,956 - INFO -  * Restarting with stat
+2025-02-23 15:34:58,021 - WARNING -  * Debugger is active!
+2025-02-23 15:34:58,026 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:34:58,193 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:34:58,193 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 15:34:58,212 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:34:58,212 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:34:58,226 - INFO - 127.0.0.1 - - [23/Feb/2025 15:34:58] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 15:34:58,260 - INFO - 127.0.0.1 - - [23/Feb/2025 15:34:58] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:34:58,261 - INFO - 127.0.0.1 - - [23/Feb/2025 15:34:58] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:34:58,261 - INFO - 127.0.0.1 - - [23/Feb/2025 15:34:58] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:34:58,345 - INFO - 127.0.0.1 - - [23/Feb/2025 15:34:58] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:35:08,052 - INFO - 127.0.0.1 - - [23/Feb/2025 15:35:08] "[33mPOST /cancel-bookpayment/BP_100019 HTTP/1.1[0m" 404 -
+2025-02-23 15:35:41,661 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:35:41,742 - INFO -  * Restarting with stat
+2025-02-23 15:35:42,753 - WARNING -  * Debugger is active!
+2025-02-23 15:35:42,758 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:35:43,053 - INFO - 127.0.0.1 - - [23/Feb/2025 15:35:43] "[33mPOST /cancel-bookpayment/BP_100019 HTTP/1.1[0m" 404 -
+2025-02-23 15:35:54,615 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:35:54,615 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 15:35:54,615 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:35:54,615 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:35:54,631 - INFO - 127.0.0.1 - - [23/Feb/2025 15:35:54] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 15:35:54,648 - INFO - 127.0.0.1 - - [23/Feb/2025 15:35:54] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:35:54,662 - INFO - 127.0.0.1 - - [23/Feb/2025 15:35:54] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:35:54,662 - INFO - 127.0.0.1 - - [23/Feb/2025 15:35:54] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:35:54,740 - INFO - 127.0.0.1 - - [23/Feb/2025 15:35:54] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:35:57,957 - INFO - 127.0.0.1 - - [23/Feb/2025 15:35:57] "[33mPOST /cancel-bookpayment/BP_100019 HTTP/1.1[0m" 404 -
+2025-02-23 15:36:17,369 - INFO - 127.0.0.1 - - [23/Feb/2025 15:36:17] "[33mPOST /cancel-bookpayment/BP_100019 HTTP/1.1[0m" 404 -
+2025-02-23 15:37:05,960 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-23 15:37:05,960 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-23 15:37:05,961 - INFO -  * Restarting with stat
+2025-02-23 15:37:07,016 - WARNING -  * Debugger is active!
+2025-02-23 15:37:07,023 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:37:10,302 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:10] "GET / HTTP/1.1" 200 -
+2025-02-23 15:37:10,443 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:10] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2025-02-23 15:37:15,554 - INFO - yckng00@gmail.com successfully login at 2025-02-23 15:37:15.554923
+2025-02-23 15:37:15,601 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 15:37:15,601 - INFO - Query: SELECT * FROM "konghin"."stock"
+2025-02-23 15:37:15,633 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:15] "POST /login HTTP/1.1" 200 -
+2025-02-23 15:37:15,664 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:15] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:37:15,686 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:15] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:37:15,690 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:15] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:37:15,691 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:15] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:37:17,547 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:37:17,547 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 15:37:17,563 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:17] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 15:37:17,594 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:17] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:37:17,594 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:17] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:37:17,608 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:17] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:37:17,610 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:17] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:37:22,391 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:37:22,391 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100059'
+2025-02-23 15:37:22,407 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:37:22,407 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100059'
+2025-02-23 15:37:22,471 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:22] "GET /book-bookpayment/BOOK_100059 HTTP/1.1" 200 -
+2025-02-23 15:37:22,491 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:22] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:37:22,504 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:22] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:37:22,507 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:22] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:37:22,512 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:22] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:37:29,680 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:37:29,680 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100015'
+2025-02-23 15:37:29,680 - INFO - Values: ['CANCELLED', '2025-02-23 15:37:29']
+2025-02-23 15:37:29,773 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:29] "[35m[1mPOST /cancel-bookpayment/BOOK_100059/BP_100015 HTTP/1.1[0m" 500 -
+2025-02-23 15:37:29,789 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:29] "GET /cancel-bookpayment/BOOK_100059/BP_100015?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-02-23 15:37:29,836 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:29] "GET /cancel-bookpayment/BOOK_100059/BP_100015?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-02-23 15:37:29,868 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:29] "GET /cancel-bookpayment/BOOK_100059/BP_100015?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-02-23 15:37:29,883 - INFO - 127.0.0.1 - - [23/Feb/2025 15:37:29] "[36mGET /cancel-bookpayment/BOOK_100059/BP_100015?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:38:28,100 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:38:28,179 - INFO -  * Restarting with stat
+2025-02-23 15:39:12,317 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-23 15:39:12,317 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-23 15:39:12,319 - INFO -  * Restarting with stat
+2025-02-23 15:39:13,231 - WARNING -  * Debugger is active!
+2025-02-23 15:39:13,231 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:39:16,520 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:39:16,520 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100015'
+2025-02-23 15:39:16,520 - INFO - Values: ['CANCELLED', '2025-02-23 15:39:16']
+2025-02-23 15:39:16,534 - ERROR - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id =BOOK_100059
+2025-02-23 15:39:16,534 - ERROR - Database error: 42703 - ERROR:  column "book_100059" does not exist
+
+2025-02-23 15:39:16,534 - ERROR - Error details: None
+2025-02-23 15:39:16,560 - INFO - 127.0.0.1 - - [23/Feb/2025 15:39:16] "[35m[1mPOST /cancel-bookpayment/BOOK_100059/BP_100015 HTTP/1.1[0m" 500 -
+2025-02-23 15:39:16,727 - INFO - 127.0.0.1 - - [23/Feb/2025 15:39:16] "[36mGET /cancel-bookpayment/BOOK_100059/BP_100015?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 15:39:16,727 - INFO - 127.0.0.1 - - [23/Feb/2025 15:39:16] "[36mGET /cancel-bookpayment/BOOK_100059/BP_100015?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 15:39:16,758 - INFO - 127.0.0.1 - - [23/Feb/2025 15:39:16] "[36mGET /cancel-bookpayment/BOOK_100059/BP_100015?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:39:16,774 - INFO - 127.0.0.1 - - [23/Feb/2025 15:39:16] "[36mGET /cancel-bookpayment/BOOK_100059/BP_100015?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:39:50,647 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:39:50,729 - INFO -  * Restarting with stat
+2025-02-23 15:39:51,764 - WARNING -  * Debugger is active!
+2025-02-23 15:39:51,764 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:39:53,475 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:39:53,475 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100015'
+2025-02-23 15:39:53,475 - INFO - Values: ['CANCELLED', '2025-02-23 15:39:53']
+2025-02-23 15:39:53,531 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:39:53,531 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id ='BOOK_100059'
+2025-02-23 15:39:53,552 - INFO - 127.0.0.1 - - [23/Feb/2025 15:39:53] "POST /cancel-bookpayment/BOOK_100059/BP_100015 HTTP/1.1" 200 -
+2025-02-23 15:39:53,576 - INFO - 127.0.0.1 - - [23/Feb/2025 15:39:53] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:39:53,576 - INFO - 127.0.0.1 - - [23/Feb/2025 15:39:53] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:39:53,576 - INFO - 127.0.0.1 - - [23/Feb/2025 15:39:53] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:39:53,666 - INFO - 127.0.0.1 - - [23/Feb/2025 15:39:53] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:40:43,503 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:40:43,587 - INFO -  * Restarting with stat
+2025-02-23 15:40:45,152 - WARNING -  * Debugger is active!
+2025-02-23 15:40:45,166 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:40:45,455 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:40:45,455 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100015'
+2025-02-23 15:40:45,455 - INFO - Values: ['CANCELLED', '2025-02-23 15:40:45']
+2025-02-23 15:40:45,481 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:40:45,481 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id ='BOOK_100059'
+2025-02-23 15:40:45,487 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:40:45,487 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100059'
+2025-02-23 15:40:45,505 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:45] "POST /cancel-bookpayment/BOOK_100059/BP_100015 HTTP/1.1" 200 -
+2025-02-23 15:40:45,535 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:45] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:40:45,535 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:45] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:40:45,535 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:45] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:40:45,617 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:45] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:40:53,890 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:40:53,890 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 15:40:53,915 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:53] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 15:40:53,937 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:53] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:40:53,953 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:53] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:40:53,953 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:53] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:40:53,953 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:53] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:40:56,347 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:40:56,347 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 15:40:56,363 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:40:56,363 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:40:56,363 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:56] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 15:40:56,395 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:56] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:40:56,401 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:56] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:40:56,409 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:56] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:40:56,411 - INFO - 127.0.0.1 - - [23/Feb/2025 15:40:56] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:41:41,584 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:41:41,585 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 15:41:41,587 - INFO - 127.0.0.1 - - [23/Feb/2025 15:41:41] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 15:41:41,592 - INFO - 127.0.0.1 - - [23/Feb/2025 15:41:41] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:41:41,607 - INFO - 127.0.0.1 - - [23/Feb/2025 15:41:41] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:41:41,607 - INFO - 127.0.0.1 - - [23/Feb/2025 15:41:41] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:41:41,623 - INFO - 127.0.0.1 - - [23/Feb/2025 15:41:41] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:43:50,375 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:43:50,441 - INFO -  * Restarting with stat
+2025-02-23 15:43:51,432 - WARNING -  * Debugger is active!
+2025-02-23 15:43:51,435 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:43:53,918 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:43:53,918 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 15:43:53,932 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:43:53,932 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:43:53,948 - INFO - 127.0.0.1 - - [23/Feb/2025 15:43:53] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 15:43:53,980 - INFO - 127.0.0.1 - - [23/Feb/2025 15:43:53] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:43:53,983 - INFO - 127.0.0.1 - - [23/Feb/2025 15:43:53] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:43:53,983 - INFO - 127.0.0.1 - - [23/Feb/2025 15:43:53] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:43:54,055 - INFO - 127.0.0.1 - - [23/Feb/2025 15:43:54] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:44:07,637 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:44:07,694 - INFO -  * Restarting with stat
+2025-02-23 15:44:08,656 - WARNING -  * Debugger is active!
+2025-02-23 15:44:08,661 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:44:20,836 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:44:20,908 - INFO -  * Restarting with stat
+2025-02-23 15:44:21,833 - WARNING -  * Debugger is active!
+2025-02-23 15:44:21,833 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:45:03,301 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:45:03,373 - INFO -  * Restarting with stat
+2025-02-23 15:45:04,257 - WARNING -  * Debugger is active!
+2025-02-23 15:45:04,261 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:45:05,278 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:45:05,342 - INFO -  * Restarting with stat
+2025-02-23 15:45:06,383 - WARNING -  * Debugger is active!
+2025-02-23 15:45:06,387 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:45:12,278 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:45:12,278 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100017'
+2025-02-23 15:45:12,278 - INFO - Values: ['CANCELLED', '2025-02-23 15:45:12']
+2025-02-23 15:45:12,309 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:45:12,309 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:45:12,325 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:45:12,325 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id ='BOOK_100014'
+2025-02-23 15:45:12,340 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:45:12,340 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:45:12,356 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:12] "POST /cancel-bookpayment/BOOK_100014/BP_100017 HTTP/1.1" 200 -
+2025-02-23 15:45:12,450 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:12] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:45:12,454 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:12] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:45:12,457 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:12] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:45:12,481 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:12] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:45:27,674 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:45:27,757 - INFO -  * Restarting with stat
+2025-02-23 15:45:28,844 - WARNING -  * Debugger is active!
+2025-02-23 15:45:28,845 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:45:30,250 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:45:30,250 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100017'
+2025-02-23 15:45:30,250 - INFO - Values: ['CANCELLED', '2025-02-23 15:45:30']
+2025-02-23 15:45:30,269 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:45:30,269 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:45:30,286 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:45:30,286 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id ='BOOK_100014'
+2025-02-23 15:45:30,301 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:45:30,301 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:45:30,325 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:30] "POST /cancel-bookpayment/BOOK_100014/BP_100017 HTTP/1.1" 200 -
+2025-02-23 15:45:30,357 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:30] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:45:30,357 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:30] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:45:30,357 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:30] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:45:30,440 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:30] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:45:35,969 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:45:36,035 - INFO -  * Restarting with stat
+2025-02-23 15:45:37,075 - WARNING -  * Debugger is active!
+2025-02-23 15:45:37,080 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:45:38,910 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:45:38,910 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100017'
+2025-02-23 15:45:38,910 - INFO - Values: ['CANCELLED', '2025-02-23 15:45:38']
+2025-02-23 15:45:38,934 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:45:38,936 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:45:38,953 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:45:38,953 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id ='BOOK_100014'
+2025-02-23 15:45:38,969 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:45:38,969 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:45:39,007 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:39] "POST /cancel-bookpayment/BOOK_100014/BP_100017 HTTP/1.1" 200 -
+2025-02-23 15:45:39,043 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:39] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:45:39,043 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:39] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:45:39,043 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:39] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:45:39,134 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:39] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:45:49,188 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:45:49,252 - INFO -  * Restarting with stat
+2025-02-23 15:45:50,163 - WARNING -  * Debugger is active!
+2025-02-23 15:45:50,166 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:45:51,230 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:45:51,230 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100017'
+2025-02-23 15:45:51,230 - INFO - Values: ['CANCELLED', '2025-02-23 15:45:51']
+2025-02-23 15:45:51,259 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:45:51,259 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:45:51,275 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:51] "[35m[1mPOST /cancel-bookpayment/BOOK_100014/BP_100017 HTTP/1.1[0m" 500 -
+2025-02-23 15:45:51,448 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:51] "GET /cancel-bookpayment/BOOK_100014/BP_100017?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-02-23 15:45:51,448 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:51] "GET /cancel-bookpayment/BOOK_100014/BP_100017?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-02-23 15:45:51,476 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:51] "GET /cancel-bookpayment/BOOK_100014/BP_100017?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-02-23 15:45:51,486 - INFO - 127.0.0.1 - - [23/Feb/2025 15:45:51] "[36mGET /cancel-bookpayment/BOOK_100014/BP_100017?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:46:28,684 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:46:28,779 - INFO -  * Restarting with stat
+2025-02-23 15:46:29,704 - WARNING -  * Debugger is active!
+2025-02-23 15:46:29,707 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:46:43,650 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:46:43,650 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100017'
+2025-02-23 15:46:43,650 - INFO - Values: ['CANCELLED', '2025-02-23 15:46:43']
+2025-02-23 15:46:43,667 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:46:43,667 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:46:43,691 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:46:43,691 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id ='BOOK_100014'
+2025-02-23 15:46:43,698 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:46:43,698 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:46:43,716 - INFO - 127.0.0.1 - - [23/Feb/2025 15:46:43] "POST /cancel-bookpayment/BOOK_100014/BP_100017 HTTP/1.1" 200 -
+2025-02-23 15:46:43,740 - INFO - 127.0.0.1 - - [23/Feb/2025 15:46:43] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:46:43,740 - INFO - 127.0.0.1 - - [23/Feb/2025 15:46:43] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:46:43,740 - INFO - 127.0.0.1 - - [23/Feb/2025 15:46:43] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:46:43,821 - INFO - 127.0.0.1 - - [23/Feb/2025 15:46:43] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:47:12,663 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:47:12,781 - INFO -  * Restarting with stat
+2025-02-23 15:47:13,799 - WARNING -  * Debugger is active!
+2025-02-23 15:47:13,804 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:47:14,982 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:47:14,982 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100017'
+2025-02-23 15:47:14,982 - INFO - Values: ['CANCELLED', '2025-02-23 15:47:14']
+2025-02-23 15:47:14,998 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:47:14,998 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:47:15,027 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:47:15,027 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id ='BOOK_100014'
+2025-02-23 15:47:15,038 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:47:15,038 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:47:15,050 - INFO - 127.0.0.1 - - [23/Feb/2025 15:47:15] "POST /cancel-bookpayment/BOOK_100014/BP_100017 HTTP/1.1" 200 -
+2025-02-23 15:47:15,083 - INFO - 127.0.0.1 - - [23/Feb/2025 15:47:15] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:47:15,085 - INFO - 127.0.0.1 - - [23/Feb/2025 15:47:15] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:47:15,085 - INFO - 127.0.0.1 - - [23/Feb/2025 15:47:15] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:47:15,167 - INFO - 127.0.0.1 - - [23/Feb/2025 15:47:15] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:48:37,872 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:48:37,929 - INFO -  * Restarting with stat
+2025-02-23 15:48:38,907 - WARNING -  * Debugger is active!
+2025-02-23 15:48:38,907 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:50:18,064 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:50:18,147 - INFO -  * Restarting with stat
+2025-02-23 15:50:32,995 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-23 15:50:32,995 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-23 15:50:32,998 - INFO -  * Restarting with stat
+2025-02-23 15:50:33,920 - WARNING -  * Debugger is active!
+2025-02-23 15:50:33,920 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:50:40,282 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:50:40,282 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100017'
+2025-02-23 15:50:40,282 - INFO - Values: ['CANCELLED', '2025-02-23 15:50:40']
+2025-02-23 15:50:40,298 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:50:40,298 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:50:40,314 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:50:40,314 - INFO - Query: SELECT "bp_payment" FROM "konghin"."book_payment" WHERE bp_id = 'BP_100017'
+2025-02-23 15:50:40,363 - INFO - 127.0.0.1 - - [23/Feb/2025 15:50:40] "[35m[1mPOST /cancel-bookpayment/BOOK_100014/BP_100017 HTTP/1.1[0m" 500 -
+2025-02-23 15:50:40,517 - INFO - 127.0.0.1 - - [23/Feb/2025 15:50:40] "[36mGET /cancel-bookpayment/BOOK_100014/BP_100017?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 15:50:40,517 - INFO - 127.0.0.1 - - [23/Feb/2025 15:50:40] "[36mGET /cancel-bookpayment/BOOK_100014/BP_100017?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 15:50:40,591 - INFO - 127.0.0.1 - - [23/Feb/2025 15:50:40] "[36mGET /cancel-bookpayment/BOOK_100014/BP_100017?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 15:50:42,977 - INFO - 127.0.0.1 - - [23/Feb/2025 15:50:42] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:51:03,385 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:51:03,469 - INFO -  * Restarting with stat
+2025-02-23 15:51:04,401 - WARNING -  * Debugger is active!
+2025-02-23 15:51:04,406 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:51:05,876 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:51:05,876 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100017'
+2025-02-23 15:51:05,876 - INFO - Values: ['CANCELLED', '2025-02-23 15:51:05']
+2025-02-23 15:51:05,892 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:51:05,892 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:51:05,892 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:51:05,892 - INFO - Query: SELECT "bp_payment" FROM "konghin"."book_payment" WHERE bp_id = 'BP_100017'
+2025-02-23 15:51:05,923 - INFO - Successfully updated data in konghin.booking.
+2025-02-23 15:51:05,923 - INFO - Query: UPDATE "konghin"."booking" SET "book_remaining" = %s, "book_last_update" = %s WHERE book_id='BOOK_100014'
+2025-02-23 15:51:05,923 - INFO - Values: [146.0, '2025-02-23 15:51:05']
+2025-02-23 15:51:05,955 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:51:05,955 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id ='BOOK_100014'
+2025-02-23 15:51:05,955 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:51:05,955 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:51:05,971 - INFO - 127.0.0.1 - - [23/Feb/2025 15:51:05] "POST /cancel-bookpayment/BOOK_100014/BP_100017 HTTP/1.1" 200 -
+2025-02-23 15:51:06,003 - INFO - 127.0.0.1 - - [23/Feb/2025 15:51:06] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:51:06,003 - INFO - 127.0.0.1 - - [23/Feb/2025 15:51:06] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:51:06,003 - INFO - 127.0.0.1 - - [23/Feb/2025 15:51:06] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:51:06,090 - INFO - 127.0.0.1 - - [23/Feb/2025 15:51:06] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:51:17,509 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 15:51:17,509 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100019'
+2025-02-23 15:51:17,509 - INFO - Values: ['CANCELLED', '2025-02-23 15:51:17']
+2025-02-23 15:51:17,525 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:51:17,525 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:51:17,525 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:51:17,525 - INFO - Query: SELECT "bp_payment" FROM "konghin"."book_payment" WHERE bp_id = 'BP_100019'
+2025-02-23 15:51:17,556 - INFO - Successfully updated data in konghin.booking.
+2025-02-23 15:51:17,556 - INFO - Query: UPDATE "konghin"."booking" SET "book_remaining" = %s, "book_last_update" = %s WHERE book_id='BOOK_100014'
+2025-02-23 15:51:17,556 - INFO - Values: [269.0, '2025-02-23 15:51:17']
+2025-02-23 15:51:17,588 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 15:51:17,588 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id ='BOOK_100014'
+2025-02-23 15:51:17,588 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:51:17,588 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 15:51:17,603 - INFO - 127.0.0.1 - - [23/Feb/2025 15:51:17] "POST /cancel-bookpayment/BOOK_100014/BP_100019 HTTP/1.1" 200 -
+2025-02-23 15:51:17,619 - INFO - 127.0.0.1 - - [23/Feb/2025 15:51:17] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:51:17,634 - INFO - 127.0.0.1 - - [23/Feb/2025 15:51:17] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:51:17,634 - INFO - 127.0.0.1 - - [23/Feb/2025 15:51:17] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:51:17,644 - INFO - 127.0.0.1 - - [23/Feb/2025 15:51:17] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:58:08,954 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:58:09,052 - INFO -  * Restarting with stat
+2025-02-23 15:58:10,254 - WARNING -  * Debugger is active!
+2025-02-23 15:58:10,258 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 15:58:10,901 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 15:58:10,901 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 15:58:10,962 - INFO - 127.0.0.1 - - [23/Feb/2025 15:58:10] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 15:58:10,978 - INFO - 127.0.0.1 - - [23/Feb/2025 15:58:10] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 15:58:10,994 - INFO - 127.0.0.1 - - [23/Feb/2025 15:58:10] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 15:58:10,994 - INFO - 127.0.0.1 - - [23/Feb/2025 15:58:10] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 15:58:11,077 - INFO - 127.0.0.1 - - [23/Feb/2025 15:58:11] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 15:58:53,721 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 15:58:53,784 - INFO -  * Restarting with stat
+2025-02-23 15:58:54,838 - WARNING -  * Debugger is active!
+2025-02-23 15:58:54,838 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 16:09:55,799 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 16:09:55,799 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 16:09:55,799 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:09:55,799 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:09:55,830 - INFO - 127.0.0.1 - - [23/Feb/2025 16:09:55] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 16:09:55,893 - INFO - 127.0.0.1 - - [23/Feb/2025 16:09:55] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:09:55,908 - INFO - 127.0.0.1 - - [23/Feb/2025 16:09:55] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:09:55,908 - INFO - 127.0.0.1 - - [23/Feb/2025 16:09:55] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:09:56,081 - INFO - 127.0.0.1 - - [23/Feb/2025 16:09:56] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:09:57,187 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE book_id='BOOK_100014'
+2025-02-23 16:09:57,187 - ERROR - Database error: 42703 - ERROR:  column "book_id" does not exist
+
+2025-02-23 16:09:57,187 - ERROR - Error details: None
+2025-02-23 16:09:57,203 - ERROR - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:09:57,203 - ERROR - Database error: 25P02 - ERROR:  current transaction is aborted, commands ignored until end of transaction block
+
+2025-02-23 16:09:57,203 - ERROR - Error details: None
+2025-02-23 16:09:57,281 - INFO - 127.0.0.1 - - [23/Feb/2025 16:09:57] "[35m[1mGET /close-booking/BOOK_100014 HTTP/1.1[0m" 500 -
+2025-02-23 16:09:57,322 - INFO - 127.0.0.1 - - [23/Feb/2025 16:09:57] "GET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-02-23 16:09:57,338 - INFO - 127.0.0.1 - - [23/Feb/2025 16:09:57] "GET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-02-23 16:09:57,370 - INFO - 127.0.0.1 - - [23/Feb/2025 16:09:57] "GET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-02-23 16:09:57,383 - INFO - 127.0.0.1 - - [23/Feb/2025 16:09:57] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 16:14:12,068 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-23 16:14:12,068 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-23 16:14:12,068 - INFO -  * Restarting with stat
+2025-02-23 16:14:13,434 - WARNING -  * Debugger is active!
+2025-02-23 16:14:13,442 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 16:14:28,899 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE book_id='BOOK_100014'
+2025-02-23 16:14:28,899 - ERROR - Database error: 42703 - ERROR:  column "book_id" does not exist
+
+2025-02-23 16:14:28,899 - ERROR - Error details: None
+2025-02-23 16:14:28,907 - ERROR - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:14:28,912 - ERROR - Database error: 25P02 - ERROR:  current transaction is aborted, commands ignored until end of transaction block
+
+2025-02-23 16:14:28,912 - ERROR - Error details: None
+2025-02-23 16:14:28,940 - INFO - 127.0.0.1 - - [23/Feb/2025 16:14:28] "[35m[1mGET /close-booking/BOOK_100014 HTTP/1.1[0m" 500 -
+2025-02-23 16:14:29,178 - INFO - 127.0.0.1 - - [23/Feb/2025 16:14:29] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 16:14:29,178 - INFO - 127.0.0.1 - - [23/Feb/2025 16:14:29] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 16:14:29,207 - INFO - 127.0.0.1 - - [23/Feb/2025 16:14:29] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 16:14:29,273 - INFO - 127.0.0.1 - - [23/Feb/2025 16:14:29] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 16:15:20,173 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 16:15:20,271 - INFO -  * Restarting with stat
+2025-02-23 16:15:21,434 - WARNING -  * Debugger is active!
+2025-02-23 16:15:21,440 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 16:15:43,612 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE book_id='BOOK_100014'
+2025-02-23 16:15:43,612 - ERROR - Database error: 42703 - ERROR:  column "book_id" does not exist
+
+2025-02-23 16:15:43,612 - ERROR - Error details: None
+2025-02-23 16:15:43,612 - ERROR - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:15:43,612 - ERROR - Database error: 25P02 - ERROR:  current transaction is aborted, commands ignored until end of transaction block
+
+2025-02-23 16:15:43,612 - ERROR - Error details: None
+2025-02-23 16:15:43,669 - INFO - 127.0.0.1 - - [23/Feb/2025 16:15:43] "[35m[1mGET /close-booking/BOOK_100014 HTTP/1.1[0m" 500 -
+2025-02-23 16:15:43,942 - INFO - 127.0.0.1 - - [23/Feb/2025 16:15:43] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 16:15:43,942 - INFO - 127.0.0.1 - - [23/Feb/2025 16:15:43] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 16:15:43,958 - INFO - 127.0.0.1 - - [23/Feb/2025 16:15:43] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 16:15:43,958 - INFO - 127.0.0.1 - - [23/Feb/2025 16:15:43] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 16:16:13,004 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 16:16:13,159 - INFO -  * Restarting with stat
+2025-02-23 16:16:14,408 - WARNING -  * Debugger is active!
+2025-02-23 16:16:14,424 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 16:16:15,500 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE book_id='BOOK_100014'
+2025-02-23 16:16:15,500 - ERROR - Database error: 42703 - ERROR:  column "book_id" does not exist
+
+2025-02-23 16:16:15,500 - ERROR - Error details: None
+2025-02-23 16:16:15,508 - ERROR - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:16:15,508 - ERROR - Database error: 25P02 - ERROR:  current transaction is aborted, commands ignored until end of transaction block
+
+2025-02-23 16:16:15,508 - ERROR - Error details: None
+2025-02-23 16:16:15,558 - INFO - 127.0.0.1 - - [23/Feb/2025 16:16:15] "[35m[1mGET /close-booking/BOOK_100014 HTTP/1.1[0m" 500 -
+2025-02-23 16:16:15,828 - INFO - 127.0.0.1 - - [23/Feb/2025 16:16:15] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 16:16:15,828 - INFO - 127.0.0.1 - - [23/Feb/2025 16:16:15] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 16:16:15,835 - INFO - 127.0.0.1 - - [23/Feb/2025 16:16:15] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 16:16:25,751 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-23 16:16:25,753 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-23 16:16:25,755 - INFO -  * Restarting with stat
+2025-02-23 16:16:27,230 - WARNING -  * Debugger is active!
+2025-02-23 16:16:27,232 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 16:16:27,648 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE book_id='BOOK_100014'
+2025-02-23 16:16:27,648 - ERROR - Database error: 42703 - ERROR:  column "book_id" does not exist
+
+2025-02-23 16:16:27,648 - ERROR - Error details: None
+2025-02-23 16:16:27,663 - ERROR - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:16:27,663 - ERROR - Database error: 25P02 - ERROR:  current transaction is aborted, commands ignored until end of transaction block
+
+2025-02-23 16:16:27,663 - ERROR - Error details: None
+2025-02-23 16:16:27,712 - INFO - 127.0.0.1 - - [23/Feb/2025 16:16:27] "[35m[1mGET /close-booking/BOOK_100014 HTTP/1.1[0m" 500 -
+2025-02-23 16:16:27,979 - INFO - 127.0.0.1 - - [23/Feb/2025 16:16:27] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 16:16:27,979 - INFO - 127.0.0.1 - - [23/Feb/2025 16:16:27] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 16:16:28,002 - INFO - 127.0.0.1 - - [23/Feb/2025 16:16:28] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 16:16:28,011 - INFO - 127.0.0.1 - - [23/Feb/2025 16:16:28] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 16:18:19,582 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 16:18:19,722 - INFO -  * Restarting with stat
+2025-02-23 16:18:21,076 - WARNING -  * Debugger is active!
+2025-02-23 16:18:21,076 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 16:31:42,133 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 16:31:42,200 - INFO -  * Restarting with stat
+2025-02-23 16:31:43,141 - WARNING -  * Debugger is active!
+2025-02-23 16:31:43,146 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 16:31:47,202 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 16:31:47,274 - INFO -  * Restarting with stat
+2025-02-23 16:31:48,124 - WARNING -  * Debugger is active!
+2025-02-23 16:31:48,124 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 16:31:59,226 - INFO - Successfully selected data from konghin.sale.
+2025-02-23 16:31:59,226 - INFO - Query: SELECT * FROM "konghin"."sale"
+2025-02-23 16:31:59,241 - INFO - 127.0.0.1 - - [23/Feb/2025 16:31:59] "GET /sales HTTP/1.1" 200 -
+2025-02-23 16:31:59,267 - INFO - 127.0.0.1 - - [23/Feb/2025 16:31:59] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:31:59,267 - INFO - 127.0.0.1 - - [23/Feb/2025 16:31:59] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:31:59,271 - INFO - 127.0.0.1 - - [23/Feb/2025 16:31:59] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:31:59,341 - INFO - 127.0.0.1 - - [23/Feb/2025 16:31:59] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:32:00,292 - INFO - Successfully selected data from konghin.customer.
+2025-02-23 16:32:00,292 - INFO - Query: SELECT * FROM "konghin"."customer"
+2025-02-23 16:32:00,326 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 16:32:00,326 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_status='IN STOCK'
+2025-02-23 16:32:00,360 - INFO - 127.0.0.1 - - [23/Feb/2025 16:32:00] "GET /add-sales HTTP/1.1" 200 -
+2025-02-23 16:32:00,375 - INFO - 127.0.0.1 - - [23/Feb/2025 16:32:00] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:32:00,375 - INFO - 127.0.0.1 - - [23/Feb/2025 16:32:00] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:32:00,375 - INFO - 127.0.0.1 - - [23/Feb/2025 16:32:00] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:32:00,375 - INFO - 127.0.0.1 - - [23/Feb/2025 16:32:00] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:33:58,626 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:33:58,626 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 16:33:58,644 - INFO - 127.0.0.1 - - [23/Feb/2025 16:33:58] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 16:33:58,677 - INFO - 127.0.0.1 - - [23/Feb/2025 16:33:58] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:33:58,684 - INFO - 127.0.0.1 - - [23/Feb/2025 16:33:58] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:33:58,686 - INFO - 127.0.0.1 - - [23/Feb/2025 16:33:58] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:33:58,688 - INFO - 127.0.0.1 - - [23/Feb/2025 16:33:58] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:34:00,047 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 16:34:00,047 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 16:34:00,063 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:34:00,064 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:34:00,074 - INFO - 127.0.0.1 - - [23/Feb/2025 16:34:00] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 16:34:00,093 - INFO - 127.0.0.1 - - [23/Feb/2025 16:34:00] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:34:00,099 - INFO - 127.0.0.1 - - [23/Feb/2025 16:34:00] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:34:00,100 - INFO - 127.0.0.1 - - [23/Feb/2025 16:34:00] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:34:00,104 - INFO - 127.0.0.1 - - [23/Feb/2025 16:34:00] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:34:01,534 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:34:01,534 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:34:01,543 - INFO - Next value of sequence bp_id_seq: 100032
+2025-02-23 16:34:01,577 - ERROR - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_payment", "bp_book_id", "bp_payment_date", "bp_status") VALUES (%s, %s, %s, %s, %s)
+2025-02-23 16:34:01,578 - ERROR - Database error: 40001 - ERROR:  restart transaction: TransactionRetryWithProtoRefreshError: TransactionAbortedError(ABORT_REASON_CLIENT_REJECT): "sql txn" meta={id=cce7e02d key=/Tenant/7458/Table/123/4/"BP_100032"/0 iso=Serializable pri=0.01939912 epo=0 ts=1740299638.098070593,2 min=1740299518.984296341,0 seq=1} lock=true stat=PENDING rts=1740299518.984296341,0 wto=false gul=1740299519.234296341,0
+HINT:  See: https://www.cockroachlabs.com/docs/v24.3/transaction-retry-error-reference.html#abort_reason_client_reject
+
+2025-02-23 16:34:01,578 - ERROR - Error details: None
+2025-02-23 16:34:01,594 - INFO - 127.0.0.1 - - [23/Feb/2025 16:34:01] "[35m[1mGET /close-booking/BOOK_100014 HTTP/1.1[0m" 500 -
+2025-02-23 16:34:01,629 - INFO - 127.0.0.1 - - [23/Feb/2025 16:34:01] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 16:34:01,638 - INFO - 127.0.0.1 - - [23/Feb/2025 16:34:01] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 16:34:01,659 - INFO - 127.0.0.1 - - [23/Feb/2025 16:34:01] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 16:34:19,588 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:34:19,588 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:34:19,609 - INFO - 127.0.0.1 - - [23/Feb/2025 16:34:19] "GET /add-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 16:34:19,634 - INFO - 127.0.0.1 - - [23/Feb/2025 16:34:19] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:34:19,642 - INFO - 127.0.0.1 - - [23/Feb/2025 16:34:19] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:34:19,642 - INFO - 127.0.0.1 - - [23/Feb/2025 16:34:19] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:34:19,642 - INFO - 127.0.0.1 - - [23/Feb/2025 16:34:19] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:02,560 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:35:02,560 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 16:35:02,578 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:02] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 16:35:02,604 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:02] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:35:02,613 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:02] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:02,615 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:02] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:02,616 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:02] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:05,332 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 16:35:05,333 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 16:35:05,344 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:35:05,344 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:35:05,344 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:05] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 16:35:05,370 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:05] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:35:05,380 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:05] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:05,382 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:05] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:05,384 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:05] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:10,050 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 16:35:10,222 - INFO -  * Restarting with stat
+2025-02-23 16:35:11,089 - WARNING -  * Debugger is active!
+2025-02-23 16:35:11,092 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 16:35:14,026 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:35:14,026 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:35:14,043 - INFO - Next value of sequence bp_id_seq: 100033
+2025-02-23 16:35:14,060 - INFO - Successfully inserted data into konghin.book_payment.
+2025-02-23 16:35:14,060 - INFO - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_payment", "bp_book_id", "bp_payment_date", "bp_status") VALUES (%s, %s, %s, %s, %s)
+2025-02-23 16:35:14,060 - INFO - Values: ['BP_100033', 269.0, 'BOOK_100014', datetime.datetime(2025, 2, 23, 16, 35, 14, 26138), 'PAID']
+2025-02-23 16:35:14,077 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:14] "[35m[1mGET /close-booking/BOOK_100014 HTTP/1.1[0m" 500 -
+2025-02-23 16:35:14,207 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:14] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 16:35:14,207 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:14] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 16:35:14,226 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:14] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 16:35:22,904 - INFO - Successfully selected data from konghin.sale.
+2025-02-23 16:35:22,904 - INFO - Query: SELECT * FROM "konghin"."sale"
+2025-02-23 16:35:22,927 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:22] "GET /sales HTTP/1.1" 200 -
+2025-02-23 16:35:22,955 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:22] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:35:22,965 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:22] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:22,967 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:22] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:22,970 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:22] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:23,791 - INFO - Successfully selected data from konghin.customer.
+2025-02-23 16:35:23,791 - INFO - Query: SELECT * FROM "konghin"."customer"
+2025-02-23 16:35:23,811 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 16:35:23,811 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_status='IN STOCK'
+2025-02-23 16:35:23,811 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:23] "GET /add-sales HTTP/1.1" 200 -
+2025-02-23 16:35:23,847 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:23] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:35:23,854 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:23] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:23,856 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:23] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:23,859 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:23] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:31,577 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:35:31,578 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 16:35:31,592 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:31] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 16:35:31,612 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:31] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:35:31,621 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:31] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:31,623 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:31] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:31,625 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:31] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:33,571 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 16:35:33,571 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 16:35:33,578 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:35:33,578 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:35:33,594 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:33] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 16:35:33,626 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:33] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:35:33,634 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:33] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:33,635 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:33] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:35:33,638 - INFO - 127.0.0.1 - - [23/Feb/2025 16:35:33] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:36:48,262 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 16:36:48,351 - INFO -  * Restarting with stat
+2025-02-23 16:36:49,135 - WARNING -  * Debugger is active!
+2025-02-23 16:36:49,139 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 16:37:26,567 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 16:37:26,649 - INFO -  * Restarting with stat
+2025-02-23 16:37:27,557 - WARNING -  * Debugger is active!
+2025-02-23 16:37:27,561 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 16:37:29,633 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:37:29,633 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:37:29,643 - INFO - Next value of sequence bp_id_seq: 100034
+2025-02-23 16:37:29,666 - INFO - Successfully inserted data into konghin.book_payment.
+2025-02-23 16:37:29,667 - INFO - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_payment", "bp_book_id", "bp_payment_date", "bp_status") VALUES (%s, %s, %s, %s, %s)
+2025-02-23 16:37:29,667 - INFO - Values: ['BP_100034', 269.0, 'BOOK_100014', datetime.datetime(2025, 2, 23, 16, 37, 29, 634196), 'PAID']
+2025-02-23 16:37:29,692 - INFO - Successfully updated data in konghin.booking.
+2025-02-23 16:37:29,693 - INFO - Query: UPDATE "konghin"."booking" SET "book_remaining" = %s, "book_status" = %s, "book_last_update" = %s WHERE book_id='BOOK_100014'
+2025-02-23 16:37:29,693 - INFO - Values: [0, 'COMPLETED', '2025-02-23 16:37:29']
+2025-02-23 16:37:29,699 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE book_id='BOOK_100014'
+2025-02-23 16:37:29,699 - ERROR - Database error: 42703 - ERROR:  column "book_id" does not exist
+
+2025-02-23 16:37:29,699 - ERROR - Error details: None
+2025-02-23 16:37:29,712 - ERROR - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:37:29,712 - ERROR - Database error: 25P02 - ERROR:  current transaction is aborted, commands ignored until end of transaction block
+
+2025-02-23 16:37:29,712 - ERROR - Error details: None
+2025-02-23 16:37:29,730 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:29] "[35m[1mGET /close-booking/BOOK_100014 HTTP/1.1[0m" 500 -
+2025-02-23 16:37:29,875 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:29] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 16:37:29,875 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:29] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 16:37:29,893 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:29] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 16:37:44,153 - ERROR - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 16:37:44,153 - ERROR - Database error: 25P02 - ERROR:  current transaction is aborted, commands ignored until end of transaction block
+
+2025-02-23 16:37:44,153 - ERROR - Error details: None
+2025-02-23 16:37:44,153 - ERROR - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:37:44,153 - ERROR - Database error: 25P02 - ERROR:  current transaction is aborted, commands ignored until end of transaction block
+
+2025-02-23 16:37:44,153 - ERROR - Error details: None
+2025-02-23 16:37:44,169 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:44] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 16:37:44,184 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:44] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:37:44,184 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:44] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:44,184 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:44] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:44,200 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:44] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:46,559 - ERROR - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 16:37:46,559 - ERROR - Database error: 25P02 - ERROR:  current transaction is aborted, commands ignored until end of transaction block
+
+2025-02-23 16:37:46,559 - ERROR - Error details: None
+2025-02-23 16:37:46,559 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:46] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 16:37:46,590 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:46] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:37:46,592 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:46] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:46,592 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:46] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:46,598 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:46] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:48,241 - ERROR - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 16:37:48,241 - ERROR - Database error: 25P02 - ERROR:  current transaction is aborted, commands ignored until end of transaction block
+
+2025-02-23 16:37:48,241 - ERROR - Error details: None
+2025-02-23 16:37:48,242 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:48] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 16:37:48,265 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:48] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:48,265 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:48] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:37:48,268 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:48] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:48,270 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:48] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:51,685 - ERROR - Query: SELECT * FROM "konghin"."sale"
+2025-02-23 16:37:51,685 - ERROR - Database error: 25P02 - ERROR:  current transaction is aborted, commands ignored until end of transaction block
+
+2025-02-23 16:37:51,685 - ERROR - Error details: None
+2025-02-23 16:37:51,695 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:51] "GET /sales HTTP/1.1" 200 -
+2025-02-23 16:37:51,716 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:51] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:37:51,722 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:51] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:51,724 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:51] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:51,727 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:51] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:52,186 - ERROR - Query: SELECT * FROM "konghin"."purchase"
+2025-02-23 16:37:52,187 - ERROR - Database error: 25P02 - ERROR:  current transaction is aborted, commands ignored until end of transaction block
+
+2025-02-23 16:37:52,187 - ERROR - Error details: None
+2025-02-23 16:37:52,244 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:52] "GET /purchases HTTP/1.1" 200 -
+2025-02-23 16:37:52,264 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:52] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:37:52,295 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:52] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:52,295 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:52] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:52,295 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:52] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:53,117 - ERROR - Query: SELECT * FROM "konghin"."category_pattern_mapping"
+2025-02-23 16:37:53,117 - ERROR - Database error: 25P02 - ERROR:  current transaction is aborted, commands ignored until end of transaction block
+
+2025-02-23 16:37:53,117 - ERROR - Error details: None
+2025-02-23 16:37:53,175 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:53] "[35m[1mGET /patterns HTTP/1.1[0m" 500 -
+2025-02-23 16:37:53,197 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:53] "GET /patterns?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-02-23 16:37:53,305 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:53] "GET /patterns?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-02-23 16:37:53,321 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:53] "GET /patterns?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-02-23 16:37:53,331 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:53] "[36mGET /patterns?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 16:37:55,579 - ERROR - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 16:37:55,579 - ERROR - Database error: 25P02 - ERROR:  current transaction is aborted, commands ignored until end of transaction block
+
+2025-02-23 16:37:55,579 - ERROR - Error details: None
+2025-02-23 16:37:55,579 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:55] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 16:37:55,595 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:55] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:37:55,603 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:55] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:55,605 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:55] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:37:55,607 - INFO - 127.0.0.1 - - [23/Feb/2025 16:37:55] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:38:08,511 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-23 16:38:08,511 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-23 16:38:08,513 - INFO -  * Restarting with stat
+2025-02-23 16:38:09,329 - WARNING -  * Debugger is active!
+2025-02-23 16:38:09,346 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 16:38:11,213 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:38:11,213 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 16:38:11,226 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:11] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 16:38:11,250 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:11] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:38:11,251 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:11] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:38:11,253 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:11] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:38:11,325 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:11] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:38:15,986 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 16:38:15,986 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 16:38:15,996 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:38:15,996 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:38:16,002 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:16] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 16:38:16,021 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:16] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:38:16,031 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:16] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:38:16,032 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:16] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:38:16,034 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:16] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:38:27,225 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 16:38:27,225 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_id = 'BP_100023'
+2025-02-23 16:38:27,226 - INFO - Values: ['CANCELLED', '2025-02-23 16:38:27']
+2025-02-23 16:38:27,246 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:38:27,246 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:38:27,246 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 16:38:27,258 - INFO - Query: SELECT "bp_payment" FROM "konghin"."book_payment" WHERE bp_id = 'BP_100023'
+2025-02-23 16:38:27,280 - INFO - Successfully updated data in konghin.booking.
+2025-02-23 16:38:27,280 - INFO - Query: UPDATE "konghin"."booking" SET "book_remaining" = %s, "book_status" = %s, "book_last_update" = %s WHERE book_id='BOOK_100014'
+2025-02-23 16:38:27,281 - INFO - Values: [100.0, 'BOOKED', '2025-02-23 16:38:27']
+2025-02-23 16:38:27,310 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 16:38:27,310 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id ='BOOK_100014'
+2025-02-23 16:38:27,312 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:38:27,312 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 16:38:27,326 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:27] "POST /cancel-bookpayment/BOOK_100014/BP_100023 HTTP/1.1" 200 -
+2025-02-23 16:38:27,350 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:27] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:38:27,361 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:27] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:38:27,363 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:27] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:38:27,365 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:27] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 16:38:31,159 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 16:38:31,159 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 16:38:31,160 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:31] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 16:38:31,186 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:31] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 16:38:31,189 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:31] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 16:38:31,195 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:31] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 16:38:31,198 - INFO - 127.0.0.1 - - [23/Feb/2025 16:38:31] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:30:26,506 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-23 22:30:26,506 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-23 22:30:26,506 - INFO -  * Restarting with stat
+2025-02-23 22:30:27,197 - WARNING -  * Debugger is active!
+2025-02-23 22:30:27,197 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 22:33:01,428 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 22:33:01,506 - INFO -  * Restarting with stat
+2025-02-23 22:33:02,271 - WARNING -  * Debugger is active!
+2025-02-23 22:33:02,287 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 22:33:20,474 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 22:33:20,546 - INFO -  * Restarting with stat
+2025-02-23 22:33:21,379 - WARNING -  * Debugger is active!
+2025-02-23 22:33:21,382 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 22:33:24,246 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:24] "GET / HTTP/1.1" 200 -
+2025-02-23 22:33:24,380 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:24] "[36mGET /static/css/bootstrap/login_style.css HTTP/1.1[0m" 304 -
+2025-02-23 22:33:24,406 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-23 22:33:28,220 - INFO - kjunqiang@gmail.com successfully login at 2025-02-23 22:33:28.220516
+2025-02-23 22:33:28,267 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 22:33:28,267 - INFO - Query: SELECT * FROM "konghin"."stock"
+2025-02-23 22:33:28,323 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:28] "POST /login HTTP/1.1" 200 -
+2025-02-23 22:33:28,352 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:28] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:28,352 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:28] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:28,354 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:28] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:28,354 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:28] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:33:30,552 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:33:30,552 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 22:33:30,586 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:30] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 22:33:30,617 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:30] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:30,618 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:30] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:33:30,619 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:30] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:30,621 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:30] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:40,235 - ERROR - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100016'
+2025-02-23 22:33:40,235 - ERROR - Unexpected error: Length mismatch: Expected axis has 1 elements, new values have 7 elements
+2025-02-23 22:33:40,243 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:33:40,243 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100016'
+2025-02-23 22:33:40,282 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:40] "GET /book-bookpayment/BOOK_100016 HTTP/1.1" 200 -
+2025-02-23 22:33:40,297 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:40] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:33:40,304 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:40] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:40,305 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:40] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:40,306 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:40] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:41,451 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:33:41,451 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 22:33:41,454 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:41] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 22:33:41,470 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:41] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:33:41,475 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:41] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:41,476 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:41] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:41,477 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:41] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:42,339 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 22:33:42,339 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100014'
+2025-02-23 22:33:42,348 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:33:42,348 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 22:33:42,349 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:42] "GET /book-bookpayment/BOOK_100014 HTTP/1.1" 200 -
+2025-02-23 22:33:42,366 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:42] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:33:42,371 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:42] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:42,372 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:42] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:42,373 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:42] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:43,786 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:33:43,786 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 22:33:43,819 - INFO - Next value of sequence bp_id_seq: 100035
+2025-02-23 22:33:43,853 - INFO - Successfully inserted data into konghin.book_payment.
+2025-02-23 22:33:43,853 - INFO - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_payment", "bp_book_id", "bp_payment_date", "bp_status") VALUES (%s, %s, %s, %s, %s)
+2025-02-23 22:33:43,853 - INFO - Values: ['BP_100035', 100.0, 'BOOK_100014', datetime.datetime(2025, 2, 23, 22, 33, 43, 786988), 'PAID']
+2025-02-23 22:33:43,888 - INFO - Successfully updated data in konghin.booking.
+2025-02-23 22:33:43,888 - INFO - Query: UPDATE "konghin"."booking" SET "book_remaining" = %s, "book_status" = %s, "book_last_update" = %s WHERE book_id='BOOK_100014'
+2025-02-23 22:33:43,888 - INFO - Values: [0, 'COMPLETED', '2025-02-23 22:33:43']
+2025-02-23 22:33:43,905 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:33:43,905 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100014'
+2025-02-23 22:33:43,918 - INFO - Successfully selected data from konghin.customer.
+2025-02-23 22:33:43,918 - INFO - Query: SELECT * FROM "konghin"."customer"
+2025-02-23 22:33:43,927 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE stk_book_id='BOOK_100014'
+2025-02-23 22:33:43,927 - ERROR - Unexpected error: Length mismatch: Expected axis has 1 elements, new values have 30 elements
+2025-02-23 22:33:43,934 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:43] "[35m[1mGET /close-booking/BOOK_100014 HTTP/1.1[0m" 500 -
+2025-02-23 22:33:43,949 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:43] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-23 22:33:43,954 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:43] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-23 22:33:43,963 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:43] "[36mGET /close-booking/BOOK_100014?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 22:33:56,936 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:33:56,936 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 22:33:56,936 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:56] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 22:33:56,961 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:56] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:33:56,970 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:56] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:56,972 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:56] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:33:56,973 - INFO - 127.0.0.1 - - [23/Feb/2025 22:33:56] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:34:02,935 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 22:34:02,935 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100059'
+2025-02-23 22:34:02,944 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:34:02,944 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100059'
+2025-02-23 22:34:02,945 - INFO - 127.0.0.1 - - [23/Feb/2025 22:34:02] "GET /book-bookpayment/BOOK_100059 HTTP/1.1" 200 -
+2025-02-23 22:34:02,961 - INFO - 127.0.0.1 - - [23/Feb/2025 22:34:02] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:34:02,967 - INFO - 127.0.0.1 - - [23/Feb/2025 22:34:02] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:34:02,969 - INFO - 127.0.0.1 - - [23/Feb/2025 22:34:02] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:34:02,973 - INFO - 127.0.0.1 - - [23/Feb/2025 22:34:02] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:34:04,840 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:34:04,840 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100059'
+2025-02-23 22:34:04,853 - INFO - Next value of sequence bp_id_seq: 100036
+2025-02-23 22:34:04,869 - INFO - Successfully inserted data into konghin.book_payment.
+2025-02-23 22:34:04,869 - INFO - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_payment", "bp_book_id", "bp_payment_date", "bp_status") VALUES (%s, %s, %s, %s, %s)
+2025-02-23 22:34:04,869 - INFO - Values: ['BP_100036', 500.0, 'BOOK_100059', datetime.datetime(2025, 2, 23, 22, 34, 4, 840977), 'PAID']
+2025-02-23 22:34:04,903 - INFO - Successfully updated data in konghin.booking.
+2025-02-23 22:34:04,903 - INFO - Query: UPDATE "konghin"."booking" SET "book_remaining" = %s, "book_status" = %s, "book_last_update" = %s WHERE book_id='BOOK_100059'
+2025-02-23 22:34:04,903 - INFO - Values: [0, 'COMPLETED', '2025-02-23 22:34:04']
+2025-02-23 22:34:04,928 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:34:04,928 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100059'
+2025-02-23 22:34:04,935 - INFO - Successfully selected data from konghin.customer.
+2025-02-23 22:34:04,935 - INFO - Query: SELECT * FROM "konghin"."customer"
+2025-02-23 22:34:04,935 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 22:34:04,935 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_book_id='BOOK_100059'
+2025-02-23 22:34:04,952 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 22:34:04,952 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_status='IN STOCK' OR stk_id IN ('STK_100150')
+2025-02-23 22:34:04,999 - INFO - 127.0.0.1 - - [23/Feb/2025 22:34:04] "GET /close-booking/BOOK_100059 HTTP/1.1" 200 -
+2025-02-23 22:34:05,015 - INFO - 127.0.0.1 - - [23/Feb/2025 22:34:05] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:34:05,022 - INFO - 127.0.0.1 - - [23/Feb/2025 22:34:05] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:34:05,023 - INFO - 127.0.0.1 - - [23/Feb/2025 22:34:05] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:34:05,024 - INFO - 127.0.0.1 - - [23/Feb/2025 22:34:05] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:35:56,870 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:35:56,870 - INFO - Query: SELECT "book_remaining" FROM "konghin"."booking" WHERE book_id='BOOK_100059'
+2025-02-23 22:35:56,901 - INFO - Next value of sequence bp_id_seq: 100037
+2025-02-23 22:35:56,930 - INFO - Successfully inserted data into konghin.book_payment.
+2025-02-23 22:35:56,930 - INFO - Query: INSERT INTO "konghin"."book_payment" ("bp_id", "bp_payment", "bp_book_id", "bp_payment_date", "bp_status") VALUES (%s, %s, %s, %s, %s)
+2025-02-23 22:35:56,930 - INFO - Values: ['BP_100037', 0.0, 'BOOK_100059', datetime.datetime(2025, 2, 23, 22, 35, 56, 870174), 'PAID']
+2025-02-23 22:35:56,950 - INFO - Successfully updated data in konghin.booking.
+2025-02-23 22:35:56,950 - INFO - Query: UPDATE "konghin"."booking" SET "book_remaining" = %s, "book_status" = %s, "book_last_update" = %s WHERE book_id='BOOK_100059'
+2025-02-23 22:35:56,950 - INFO - Values: [0, 'COMPLETED', '2025-02-23 22:35:56']
+2025-02-23 22:35:56,979 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:35:56,979 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100059'
+2025-02-23 22:35:56,985 - INFO - Successfully selected data from konghin.customer.
+2025-02-23 22:35:56,985 - INFO - Query: SELECT * FROM "konghin"."customer"
+2025-02-23 22:35:56,985 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 22:35:56,985 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_book_id='BOOK_100059'
+2025-02-23 22:35:57,013 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 22:35:57,013 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_status='IN STOCK' OR stk_id IN ('STK_100150')
+2025-02-23 22:35:57,043 - INFO - 127.0.0.1 - - [23/Feb/2025 22:35:57] "GET /close-booking/BOOK_100059 HTTP/1.1" 200 -
+2025-02-23 22:35:57,068 - INFO - 127.0.0.1 - - [23/Feb/2025 22:35:57] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:35:57,068 - INFO - 127.0.0.1 - - [23/Feb/2025 22:35:57] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:35:57,068 - INFO - 127.0.0.1 - - [23/Feb/2025 22:35:57] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:35:57,068 - INFO - 127.0.0.1 - - [23/Feb/2025 22:35:57] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:36:14,047 - INFO - Next value of sequence sale_id_seq: 100043
+2025-02-23 22:36:14,069 - INFO - Successfully inserted data into konghin.sale.
+2025-02-23 22:36:14,069 - INFO - Query: INSERT INTO "konghin"."sale" ("sale_id", "sale_official_receipt", "sale_cust_id", "sale_receipt_no", "sale_sold_date", "sale_gold_sell", "sale_labor_sell", "sale_weight", "sale_price") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+2025-02-23 22:36:14,069 - INFO - Values: ['SALE_100043', '1', 'CUST001', '123456789', '2025-02-23', '350.0', 300.0, 2.0, 1000.0]
+2025-02-23 22:36:14,087 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 22:36:14,087 - INFO - Query: SELECT "stk_weight", "stk_gold_cost", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id='STK_100150'
+2025-02-23 22:36:14,087 - INFO - current value of sequence sale_id_seq: 100043
+2025-02-23 22:36:14,118 - INFO - Successfully updated data in konghin.stock.
+2025-02-23 22:36:14,118 - INFO - Query: UPDATE "konghin"."stock" SET "stk_sell_date" = %s, "stk_gold_sell" = %s, "stk_labor_sell" = %s, "stk_weight_sell" = %s, "stk_status" = %s, "stk_profit" = %s, "stk_sale_id" = %s, "stk_last_update" = %s WHERE stk_id='STK_100150'
+2025-02-23 22:36:14,118 - INFO - Values: ['2025-02-23', '350.0', '300.0', '2.0', 'SOLD', -9985.0, 'SALE_100043', '2025-02-23 22:36:14']
+2025-02-23 22:36:14,136 - INFO - Successfully selected data from konghin.sale.
+2025-02-23 22:36:14,136 - INFO - Query: SELECT * FROM "konghin"."sale"
+2025-02-23 22:36:14,169 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:14] "POST /submit_sale HTTP/1.1" 200 -
+2025-02-23 22:36:14,202 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:14] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:36:14,209 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:14] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:36:14,211 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:14] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:36:14,212 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:14] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:36:34,320 - INFO - Successfully selected data from konghin.sale.
+2025-02-23 22:36:34,320 - INFO - Query: SELECT * FROM "konghin"."sale" WHERE sale_id='SALE_100043'
+2025-02-23 22:36:34,320 - INFO - Successfully selected data from konghin.customer.
+2025-02-23 22:36:34,320 - INFO - Query: SELECT * FROM "konghin"."customer"
+2025-02-23 22:36:34,336 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 22:36:34,336 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_sale_id='SALE_100043'
+2025-02-23 22:36:34,353 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 22:36:34,353 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_status='IN STOCK' OR stk_id IN ('STK_100150')
+2025-02-23 22:36:34,403 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:34] "GET /update-sale/SALE_100043 HTTP/1.1" 200 -
+2025-02-23 22:36:34,424 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:34] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:36:34,427 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:34] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:36:34,428 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:34] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:36:34,430 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:34] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:36:40,198 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 22:36:40,198 - INFO - Query: SELECT * FROM "konghin"."stock"
+2025-02-23 22:36:40,203 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:40] "GET /stocks HTTP/1.1" 200 -
+2025-02-23 22:36:40,218 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:40] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:36:40,218 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:40] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:36:40,218 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:40] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:36:40,218 - INFO - 127.0.0.1 - - [23/Feb/2025 22:36:40] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:56:11,441 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 22:56:11,503 - INFO -  * Restarting with stat
+2025-02-23 22:56:12,171 - WARNING -  * Debugger is active!
+2025-02-23 22:56:12,187 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 22:57:04,757 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 22:57:04,819 - INFO -  * Restarting with stat
+2025-02-23 22:57:05,540 - WARNING -  * Debugger is active!
+2025-02-23 22:57:05,540 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 22:57:26,706 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 22:57:26,766 - INFO -  * Restarting with stat
+2025-02-23 22:57:27,628 - WARNING -  * Debugger is active!
+2025-02-23 22:57:27,628 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 22:57:30,592 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:57:30,592 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 22:57:30,601 - INFO - 127.0.0.1 - - [23/Feb/2025 22:57:30] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 22:57:30,625 - INFO - 127.0.0.1 - - [23/Feb/2025 22:57:30] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:57:30,626 - INFO - 127.0.0.1 - - [23/Feb/2025 22:57:30] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:57:30,629 - INFO - 127.0.0.1 - - [23/Feb/2025 22:57:30] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:57:30,700 - INFO - 127.0.0.1 - - [23/Feb/2025 22:57:30] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:57:40,101 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 22:57:40,101 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_book_id='BOOK_100057'
+2025-02-23 22:57:40,101 - INFO - Values: ['CANCELLED', '2025-02-23 22:57:40']
+2025-02-23 22:57:40,119 - ERROR - Query: UPDATE "konghin"."booking" SET "book_status" = %s, "book_last_update" = %s WHERE book_id=BOOK_100057
+2025-02-23 22:57:40,119 - ERROR - Database error: 42703 - ERROR:  column "book_100057" does not exist
+
+2025-02-23 22:57:40,119 - ERROR - Error details: None
+2025-02-23 22:57:40,151 - ERROR - Query: UPDATE "konghin"."stock" SET "stk_status" = %s, "stk_book_id" = NULL, "stk_weight_book" = NULL, "stk_weight_book" = NULL, "stk_labor_book" = NULL, "stk_book_price" = NULL, "stk_last_update" = %s WHERE stk_book_id=BOOK_100057
+2025-02-23 22:57:40,151 - ERROR - Database error: 42703 - ERROR:  column "book_100057" does not exist
+
+2025-02-23 22:57:40,151 - ERROR - Error details: None
+2025-02-23 22:57:40,183 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:57:40,183 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 22:57:40,184 - INFO - 127.0.0.1 - - [23/Feb/2025 22:57:40] "POST /cancel-booking/BOOK_100057 HTTP/1.1" 200 -
+2025-02-23 22:57:40,201 - INFO - 127.0.0.1 - - [23/Feb/2025 22:57:40] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:57:40,202 - INFO - 127.0.0.1 - - [23/Feb/2025 22:57:40] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:57:40,202 - INFO - 127.0.0.1 - - [23/Feb/2025 22:57:40] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:57:40,202 - INFO - 127.0.0.1 - - [23/Feb/2025 22:57:40] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:58:24,134 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 22:58:24,212 - INFO -  * Restarting with stat
+2025-02-23 22:58:25,022 - WARNING -  * Debugger is active!
+2025-02-23 22:58:25,026 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 22:58:38,002 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 22:58:38,002 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_book_id='BOOK_100057'
+2025-02-23 22:58:38,002 - INFO - Values: ['CANCELLED', '2025-02-23 22:58:37']
+2025-02-23 22:58:38,034 - INFO - Successfully updated data in konghin.booking.
+2025-02-23 22:58:38,034 - INFO - Query: UPDATE "konghin"."booking" SET "book_status" = %s, "book_last_update" = %s WHERE book_id='BOOK_100057'
+2025-02-23 22:58:38,035 - INFO - Values: ['CANCELLED', '2025-02-23 22:58:38']
+2025-02-23 22:58:38,036 - ERROR - Query: UPDATE "konghin"."stock" SET "stk_status" = %s, "stk_book_id" = NULL, "stk_weight_book" = NULL, "stk_weight_book" = NULL, "stk_labor_book" = NULL, "stk_book_price" = NULL, "stk_last_update" = %s WHERE stk_book_id='BOOK_100057'
+2025-02-23 22:58:38,051 - ERROR - Database error: 42601 - ERROR:  multiple assignments to the same column "stk_weight_book"
+
+2025-02-23 22:58:38,051 - ERROR - Error details: None
+2025-02-23 22:58:38,085 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:58:38,085 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 22:58:38,101 - INFO - 127.0.0.1 - - [23/Feb/2025 22:58:38] "POST /cancel-booking/BOOK_100057 HTTP/1.1" 200 -
+2025-02-23 22:58:38,123 - INFO - 127.0.0.1 - - [23/Feb/2025 22:58:38] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:58:38,125 - INFO - 127.0.0.1 - - [23/Feb/2025 22:58:38] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:58:38,127 - INFO - 127.0.0.1 - - [23/Feb/2025 22:58:38] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:58:38,252 - INFO - 127.0.0.1 - - [23/Feb/2025 22:58:38] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:58:42,771 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 22:58:42,771 - INFO - Query: SELECT * FROM "konghin"."stock"
+2025-02-23 22:58:42,787 - INFO - 127.0.0.1 - - [23/Feb/2025 22:58:42] "GET /stocks HTTP/1.1" 200 -
+2025-02-23 22:58:42,801 - INFO - 127.0.0.1 - - [23/Feb/2025 22:58:42] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:58:42,801 - INFO - 127.0.0.1 - - [23/Feb/2025 22:58:42] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:58:42,801 - INFO - 127.0.0.1 - - [23/Feb/2025 22:58:42] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:58:42,813 - INFO - 127.0.0.1 - - [23/Feb/2025 22:58:42] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:59:44,871 - INFO -  * Detected change in 'C:\\Users\\keong\\Desktop\\IMTools\\IMtool\\IMtool app\\website\\app.py', reloading
+2025-02-23 22:59:44,937 - INFO -  * Restarting with stat
+2025-02-23 22:59:45,782 - WARNING -  * Debugger is active!
+2025-02-23 22:59:45,782 - INFO -  * Debugger PIN: 310-690-463
+2025-02-23 22:59:45,997 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:59:45,997 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 22:59:46,002 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:46] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 22:59:46,032 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:46] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:59:46,033 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:46] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:59:46,036 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:46] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:59:46,102 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:46] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:59:49,302 - INFO - Successfully updated data in konghin.book_payment.
+2025-02-23 22:59:49,302 - INFO - Query: UPDATE "konghin"."book_payment" SET "bp_status" = %s, "bp_last_update" = %s WHERE bp_book_id='BOOK_100057'
+2025-02-23 22:59:49,302 - INFO - Values: ['CANCELLED', '2025-02-23 22:59:49']
+2025-02-23 22:59:49,320 - INFO - Successfully updated data in konghin.booking.
+2025-02-23 22:59:49,320 - INFO - Query: UPDATE "konghin"."booking" SET "book_status" = %s, "book_last_update" = %s WHERE book_id='BOOK_100057'
+2025-02-23 22:59:49,320 - INFO - Values: ['CANCELLED', '2025-02-23 22:59:49']
+2025-02-23 22:59:49,353 - INFO - Successfully updated data in konghin.stock.
+2025-02-23 22:59:49,353 - INFO - Query: UPDATE "konghin"."stock" SET "stk_status" = %s, "stk_book_id" = NULL, "stk_weight_book" = NULL, "stk_gold_book" = NULL, "stk_labor_book" = NULL, "stk_book_price" = NULL, "stk_last_update" = %s WHERE stk_book_id='BOOK_100057'
+2025-02-23 22:59:49,353 - INFO - Values: ['IN STOCK', '2025-02-23 22:59:49']
+2025-02-23 22:59:49,369 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 22:59:49,369 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 22:59:49,369 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:49] "POST /cancel-booking/BOOK_100057 HTTP/1.1" 200 -
+2025-02-23 22:59:49,400 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:49] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:59:49,401 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:49] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:59:49,401 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:49] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:59:49,401 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:49] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 22:59:51,759 - INFO - Successfully selected data from konghin.stock.
+2025-02-23 22:59:51,759 - INFO - Query: SELECT * FROM "konghin"."stock"
+2025-02-23 22:59:51,769 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:51] "GET /stocks HTTP/1.1" 200 -
+2025-02-23 22:59:51,784 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:51] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 22:59:51,784 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:51] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 22:59:51,784 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:51] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 22:59:51,784 - INFO - 127.0.0.1 - - [23/Feb/2025 22:59:51] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 23:00:09,642 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 23:00:09,642 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 23:00:09,650 - INFO - 127.0.0.1 - - [23/Feb/2025 23:00:09] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 23:00:09,669 - INFO - 127.0.0.1 - - [23/Feb/2025 23:00:09] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 23:00:09,676 - INFO - 127.0.0.1 - - [23/Feb/2025 23:00:09] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 23:00:09,677 - INFO - 127.0.0.1 - - [23/Feb/2025 23:00:09] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 23:00:09,679 - INFO - 127.0.0.1 - - [23/Feb/2025 23:00:09] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 23:00:12,765 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 23:00:12,765 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100057'
+2025-02-23 23:00:12,773 - INFO - Successfully selected data from konghin.customer.
+2025-02-23 23:00:12,773 - INFO - Query: SELECT * FROM "konghin"."customer"
+2025-02-23 23:00:12,782 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE stk_book_id='BOOK_100057'
+2025-02-23 23:00:12,782 - ERROR - Unexpected error: Length mismatch: Expected axis has 1 elements, new values have 30 elements
+2025-02-23 23:00:12,785 - INFO - 127.0.0.1 - - [23/Feb/2025 23:00:12] "[35m[1mGET /update-booking/BOOK_100057 HTTP/1.1[0m" 500 -
+2025-02-23 23:00:12,809 - INFO - 127.0.0.1 - - [23/Feb/2025 23:00:12] "GET /update-booking/BOOK_100057?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-02-23 23:00:12,819 - INFO - 127.0.0.1 - - [23/Feb/2025 23:00:12] "GET /update-booking/BOOK_100057?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-02-23 23:00:12,826 - INFO - 127.0.0.1 - - [23/Feb/2025 23:00:12] "GET /update-booking/BOOK_100057?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-02-23 23:00:12,834 - INFO - 127.0.0.1 - - [23/Feb/2025 23:00:12] "[36mGET /update-booking/BOOK_100057?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-23 23:01:04,511 - INFO - Successfully selected data from konghin.book_payment.
+2025-02-23 23:01:04,511 - INFO - Query: SELECT * FROM "konghin"."book_payment" WHERE bp_book_id='BOOK_100057'
+2025-02-23 23:01:04,518 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 23:01:04,518 - INFO - Query: SELECT * FROM "konghin"."booking" WHERE book_id='BOOK_100057'
+2025-02-23 23:01:04,518 - INFO - 127.0.0.1 - - [23/Feb/2025 23:01:04] "GET /book-bookpayment/BOOK_100057 HTTP/1.1" 200 -
+2025-02-23 23:01:04,544 - INFO - 127.0.0.1 - - [23/Feb/2025 23:01:04] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 23:01:04,554 - INFO - 127.0.0.1 - - [23/Feb/2025 23:01:04] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 23:01:04,556 - INFO - 127.0.0.1 - - [23/Feb/2025 23:01:04] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 23:01:04,556 - INFO - 127.0.0.1 - - [23/Feb/2025 23:01:04] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 23:01:24,782 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 23:01:24,782 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 23:01:24,785 - INFO - 127.0.0.1 - - [23/Feb/2025 23:01:24] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 23:01:24,804 - INFO - 127.0.0.1 - - [23/Feb/2025 23:01:24] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 23:01:24,810 - INFO - 127.0.0.1 - - [23/Feb/2025 23:01:24] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 23:01:24,813 - INFO - 127.0.0.1 - - [23/Feb/2025 23:01:24] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 23:01:24,813 - INFO - 127.0.0.1 - - [23/Feb/2025 23:01:24] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-02-23 23:02:41,939 - INFO - Successfully selected data from konghin.booking.
+2025-02-23 23:02:41,939 - INFO - Query: SELECT * FROM "konghin"."booking"
+2025-02-23 23:02:41,940 - INFO - 127.0.0.1 - - [23/Feb/2025 23:02:41] "GET /bookings HTTP/1.1" 200 -
+2025-02-23 23:02:41,964 - INFO - 127.0.0.1 - - [23/Feb/2025 23:02:41] "[36mGET /static/css/bootstrap/styles.css HTTP/1.1[0m" 304 -
+2025-02-23 23:02:41,966 - INFO - 127.0.0.1 - - [23/Feb/2025 23:02:41] "[33mGET /static/js/bootstrap/scripts.js HTTP/1.1[0m" 404 -
+2025-02-23 23:02:41,969 - INFO - 127.0.0.1 - - [23/Feb/2025 23:02:41] "[33mGET /static/js/datatables-demo.js HTTP/1.1[0m" 404 -
+2025-02-23 23:02:41,973 - INFO - 127.0.0.1 - - [23/Feb/2025 23:02:41] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
