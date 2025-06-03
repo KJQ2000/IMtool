@@ -1,62 +1,25 @@
-2025-04-15 22:05:57,139 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE stk_id='('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')'
-2025-04-15 22:05:57,139 - ERROR - Database error: 42601 - ERROR:  at or near "stk_100035": syntax error
-DETAIL:  source SQL:
-SELECT * FROM "konghin"."stock" WHERE stk_id='('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')'
-                                                ^
+I am a 25-year-old AI professional with over two years of dedicated experience in the field of Artificial Intelligence, spanning the healthcare, finance, and telecommunications industries. I hold a Bachelors degree in Advanced Computer Science from Monash University ranked among the worlds top 50 universities where I developed a strong foundation in data science, programming, and AI technologies.
 
-2025-04-15 22:05:57,140 - ERROR - Error details: source SQL:
-SELECT * FROM "konghin"."stock" WHERE stk_id='('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')'
-                                                ^
-2025-04-15 22:06:04,152 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE stk_id='('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')'
-2025-04-15 22:06:04,152 - ERROR - Database error: 42601 - ERROR:  at or near "stk_100035": syntax error
-DETAIL:  source SQL:
-SELECT * FROM "konghin"."stock" WHERE stk_id='('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')'
-                                                ^
+Current Role: System Analyst at Raffles Medical Group, Singapore
 
-2025-04-15 22:06:04,152 - ERROR - Error details: source SQL:
-SELECT * FROM "konghin"."stock" WHERE stk_id='('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')'
-                                                ^
-2025-04-15 22:06:33,470 - ERROR - Query: SELECT * FROM "konghin"."stock" WHERE stk_id=('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:06:33,470 - ERROR - Database error: 22023 - ERROR:  unsupported comparison operator: <varchar> = <tuple{string, string, string, string, string, string, string, string, string, string}>
+At Raffles Medical Group, a global private healthcare provider, I currently serve as a System Analyst focused on developing AI-driven solutions to enhance operational efficiency and decision-making.
 
-2025-04-15 22:06:33,470 - ERROR - Error details: None
-2025-04-15 22:06:56,671 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:06:56,671 - INFO - Query: SELECT * FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:08:57,807 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:08:57,807 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:10:55,151 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:10:55,151 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:11:00,383 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:11:00,384 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:11:26,564 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:11:26,564 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:11:49,359 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:11:49,359 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:12:00,032 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:12:00,032 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:12:05,225 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:12:05,225 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:12:17,269 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:12:17,269 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:12:20,264 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:12:20,264 - INFO - Query: SELECT "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:12:59,950 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:12:59,950 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:13:17,381 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:13:17,381 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:15:35,393 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:15:35,393 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:17:10,584 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:17:10,584 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:19:43,227 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:19:43,227 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:22:48,083 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:22:48,083 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:25:52,353 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:25:52,353 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:27:10,405 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:27:10,405 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:28:27,567 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:28:27,567 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
-2025-04-15 22:29:44,926 - INFO - Successfully selected data from konghin.stock.
-2025-04-15 22:29:44,926 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+One of my most significant achievements is leading the automation of the medical claims process using Large Language Models (LLMs). I successfully implemented an on-premises solution using Qwen (developed by Alibaba) to extract essential information such as patient details, dates, and invoice datafrom a wide range of documents including receipts and medical claims. This AI-powered workflow integrates directly with our internal systems, eliminating repetitive manual entry and significantly reducing processing time. This project is projected to save the company over SGD 1 million annually in manpower costs.
+
+In addition to LLMs, I have implemented Optical Character Recognition (OCR) to further automate manual documentation tasks and support business automation initiatives. I also develop interactive dashboards using QlikSense to assist senior management in making data-driven decisions across our operations. Furthermore, I apply Named Entity Recognition (NER) techniques in clinical document processing to enhance data accuracy and categorization.
+
+Currently, I am also exploring the use of Agentic AI in a new project aimed at automating claim processing workflows from corporate partnersan initiative with high scalability potential. These experiences reflect my continued focus on applying AI innovation to real-world challenges and driving tangible value for Singapores healthcare sector.
+
+Previous Role: Associate Data Scientist at Juris Technologies, Kuala Lumpur
+
+Previously, I worked as an Associate Data Scientist at Juris Technologies, a fintech company serving major banks and telecom companies in Malaysia. There, I was involved in the end-to-end development and maintenance of an AutoML platform, helping clients automate decision-making processes such as credit scoring and customer profiling.
+
+My responsibilities included designing and optimizing predictive models, maintaining databases, and working with MLFlow for managing the ML lifecycle. This role gave me hands-on experience with scalable AI tools in high-impact environments, solidifying my technical capabilities and practical know-how in machine learning and MLOps.
+
+Commitment to AI Innovation and Contribution to Singapore
+
+Throughout my career, I have consistently focused on AI and automation, driven by a deep personal interest and strong professional commitment. I am passionate about using cutting-edge AI technologies—such as LLMs, AutoML, and intelligent agents—to solve practical problems and improve business outcomes.
+
+Singapore’s emphasis on becoming an AI-driven, innovation-led economy resonates deeply with my aspirations. I am committed to staying at the forefront of technological advancement, continuously upskilling myself, and applying my knowledge to contribute meaningfully to Singapore’s digital transformation, healthcare innovation, and broader tech ecosystem. I am also excited to bring the knowledge, experience, and innovation I’ve gained abroad to contribute to Singapore’s continued growth as a global technology hub.
+
+I believe my AI experience across industries, proven ability to deliver high-impact solutions, and strong alignment with Singapore’s Smart Nation goals position me well to contribute long-term value as a permanent resident.

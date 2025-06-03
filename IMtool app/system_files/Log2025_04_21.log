@@ -1,0 +1,2 @@
+2025-04-21 22:58:35,661 - INFO - Successfully selected data from konghin.stock.
+2025-04-21 22:58:35,661 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
