@@ -1,2 +1,12 @@
 2025-04-22 22:42:41,460 - INFO - Successfully selected data from konghin.stock.
 2025-04-22 22:42:41,462 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-22 23:04:54,975 - INFO - Successfully selected data from konghin.stock.
+2025-04-22 23:04:54,975 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100038', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-22 23:06:10,033 - INFO - Successfully selected data from konghin.stock.
+2025-04-22 23:06:10,033 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100038', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-22 23:06:17,266 - INFO - Successfully selected data from konghin.stock.
+2025-04-22 23:06:17,266 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100038', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-22 23:07:39,427 - INFO - Successfully selected data from konghin.stock.
+2025-04-22 23:07:39,428 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100038', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
+2025-04-22 23:09:02,961 - INFO - Successfully selected data from konghin.stock.
+2025-04-22 23:09:02,961 - INFO - Query: SELECT "stk_id", "stk_weight", "stk_labor_cost" FROM "konghin"."stock" WHERE stk_id in ('STK_100034', 'STK_100035', 'STK_100028', 'STK_100033', 'STK_100027', 'STK_100030', 'STK_100038', 'STK_100036', 'STK_100032', 'STK_100037', 'STK_100031', 'STK_100029')
