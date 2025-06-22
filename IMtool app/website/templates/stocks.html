@@ -242,6 +242,13 @@
     
             // Export functionality for stock data
             $('#exportBtn').click(function () {
+                const userConfirmed = confirm("Are you sure you want to export the data?");
+                if (!userConfirmed) {
+                    console.log("Export canceled.");
+                    return; // Stop if user cancels
+                }
+
+                console.log("Export confirmed.");
                 var table = $('#stockdataTable').DataTable(); // Use DataTables API
                 var data = [];
 
@@ -253,7 +260,7 @@
                 });
 
                 // Loop through all data rows, not just visible
-                table.rows().every(function () {
+                table.rows({ search: 'applied' }).every(function () {
                     var row = {};
                     var dataCells = this.data(); // Get full row data
 
@@ -288,6 +295,13 @@
     
             // Export Barcode functionality
             $('#exportBarcodeBtn').click(function () {
+                const userConfirmed = confirm("Are you sure you want to export the data?");
+                if (!userConfirmed) {
+                    console.log("Export canceled.");
+                    return; // Stop if user cancels
+                }
+
+                console.log("Export confirmed.");
                 var table = $('#stockdataTable').DataTable(); // Access DataTables API
                 var barcodeData = [];
 
@@ -297,7 +311,7 @@
                 });
 
                 // ✅ Get data from all rows, not just the visible ones
-                table.rows().every(function () {
+                table.rows({ search: 'applied' }).every(function () {
                     var rowData = {};
                     var rowNodes = $(this.node()).find('td');
 
@@ -400,31 +414,6 @@
             }
         }
         
-        // export btn confirmation pop up
-        document.getElementById('exportBtn').addEventListener('click', function (event) {
-            const userConfirmed = confirm("Are you sure you want to export the data?");
-            if (userConfirmed) {
-            // Proceed with export logic here
-            console.log("Export confirmed.");
-            // You could call your export function here
-            } else {
-            // Cancel export
-            console.log("Export canceled.");
-            }
-        });
-
-        // export btn confirmation pop up
-        document.getElementById('exportBarcodeBtn').addEventListener('click', function (event) {
-            const userConfirmed = confirm("Are you sure you want to export the barcode data?");
-            if (userConfirmed) {
-            // Proceed with export logic here
-            console.log("Export confirmed.");
-            // You could call your export function here
-            } else {
-            // Cancel export
-            console.log("Export canceled.");
-            }
-        });
     </script>
     
 </main>
