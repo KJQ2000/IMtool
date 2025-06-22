@@ -225,196 +225,176 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
-            var table = $('#stockdataTable').DataTable();
-
-            // Function to send data to Flask
-            function sendDataToFlask(data) {
-                fetch('/post-export-data', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data) // Send data as JSON
-                })
-                .then(response => response.json())
-                .then(result => {
-                    console.log('Success:', result);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
+            // Initialize DataTable
+            var table = $('#stockdataTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true
+            });
+    
+            // Apply the filters to the respective columns
+            $('#stockdataTable thead th input').each(function(index) {
+                $(this).on('input', function() {
+                    table.columns(index).search(this.value).draw();
                 });
-            }
-
-            // Export button click event
+            });
+    
+            // Export functionality for stock data
             $('#exportBtn').click(function() {
-                // Initialize an array to hold the data
                 var data = [];
 
-                // Extract table headers
+                // ✅ Get the second row of <thead> — actual column headers (not the input filters)
                 var headers = [];
-                $('#stockdataTable thead th').each(function(index) {
-                    // Only push headers if it's not the last one
-                    if (index < $('#stockdataTable thead th').length - 1) {
+                $('#stockdataTable thead tr:eq(1) th').each(function(index) {
+                    if ($(this).text().trim() !== 'Actions') { // Skip the "Actions" column
                         headers.push($(this).text().trim());
                     }
                 });
 
-                // Extract table body data
+                // ✅ Loop through each table row in <tbody>
                 $('#stockdataTable tbody tr').each(function() {
                     var row = {};
-                    var $tdElements = $(this).find('td');
-                    var tdCount = $tdElements.length;
-
-                    $tdElements.each(function(index) {
-                        // Only add data if it's not from the last cell
-                        if (index < headers.length) { // Use headers.length to avoid out-of-bounds issues
+                    $(this).find('td').each(function(index) {
+                        // Only include columns that are not the "Actions" column
+                        if (index < headers.length) {
                             row[headers[index]] = $(this).text().trim();
                         }
                     });
                     data.push(row);
                 });
 
+                // CSV content with BOM for Excel
+                let csv = "\uFEFF" + headers.join(",") + "\n"
+                    + data.map(row => headers.map(header => {
+                        let cell = row[header];
+                        // Escape quotes by doubling them, and wrap in quotes if necessary
+                        if (cell.includes('"') || cell.includes(',') || cell.includes('\n')) {
+                            cell = '"' + cell.replace(/"/g, '""') + '"';
+                        }
+                        return cell;
+                    }).join(",")).join("\n");
 
-                // Send data to Flask
-                sendDataToFlask(data);
-
-                // Export data to CSV
-                let csvContent = "data:text/csv;charset=utf-8," 
-                    + headers.join(",") + "\n"
-                    + data.map(row => headers.map(header => row[header]).join(",")).join("\n");
-
-                let encodedUri = encodeURI(csvContent);
-                let link = document.createElement("a");
-                link.setAttribute("href", encodedUri);
+                // Create blob and download
+                const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.setAttribute("href", url);
                 link.setAttribute("download", "stocks_data.csv");
-                document.body.appendChild(link); // Required for FF
+                document.body.appendChild(link);
                 link.click();
+                document.body.removeChild(link);
+            });
+    
+            // Export Barcode functionality
+            $('#exportBarcodeBtn').click(function() {
+                var barcodeData = [];
+                var headers = [];
+                
+                // ✅ Get real headers (second row)
+                $('#stockdataTable thead tr:eq(1) th').each(function(index) {
+                    headers.push($(this).text().trim());
+                });
+
+                // ✅ Extract table data using headers
+                $('#stockdataTable tbody tr').each(function() {
+                    var row = {};
+                    var $tdElements = $(this).find('td');
+                    $tdElements.each(function(index) {
+                        if (index < headers.length) {
+                            row[headers[index]] = $(this).text().trim();
+                        }
+                    });
+                    barcodeData.push(row);
+                });
+
+                sendDataToFlask1(barcodeData).then(function(processedData) {
+                // ✅ Define export order using correct field names
+                let exportOrder = [
+                    "stk_id",
+                    "stk_barcode",
+                    "stk_weight",
+                    "stk_length_size",
+                    "stk_returned",
+                    "slm_name",
+                    "stk_pur_monthyear"
+                ];
+
+                // ✅ Create CSV content with BOM
+                let csv = "\uFEFF" + exportOrder.join(",") + "\n"
+                    + processedData.map(row => exportOrder.map(field => {
+                        let cell = row[field] ?? "";
+                        if (typeof cell === 'string') {
+                            cell = cell.replace(/"/g, '""'); // Escape quotes
+                        }
+                        if (String(cell).includes(",") || String(cell).includes('"') || String(cell).includes("\n")) {
+                            cell = `"${cell}"`;
+                        }
+                        return cell;
+                    }).join(",")).join("\n");
+
+                // ✅ Create Blob and download
+                const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.setAttribute("href", url);
+                link.setAttribute("download", "barcodes_data.csv");
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             });
         });
-        $(document).ready(function() {
-            // Function to send data to Flask
+    
+            // Modal handling for batch import
+            var modal = document.getElementById("batchImportModal");
+            var btn = document.getElementById("batchImportBtn");
+            var span = document.getElementById("closeModal");
+    
+            btn.onclick = function() {
+                modal.style.display = "block";
+            };
+            span.onclick = function() {
+                modal.style.display = "none";
+            };
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+    
+            // Confirmation before deleting
+            function confirmDelete(stkId) {
+                if (confirm('Are you sure you want to delete the stock with stk_id="' + stkId + '"?')) {
+                    document.getElementById('delete-form-' + stkId).submit();
+                }
+            }
+    
+            // Function to send data to Flask (for export)
+            function sendDataToFlask(data) {
+                fetch('/post-export-data', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(result => console.log('Success:', result))
+                .catch(error => console.error('Error:', error));
+            }
+    
+            // Function to send barcode data to Flask (for processing)
             function sendDataToFlask1(data) {
                 return fetch('/process-barcode-data', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data) // Send data as JSON
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
                 })
                 .then(response => response.json())
                 .then(result => {
                     console.log('Data processed:', result);
-                    return result.data; // Return the processed data for CSV export
+                    return result.data; 
                 })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            }
-
-            // Export Barcode button click event
-            $('#exportBarcodeBtn').click(function() {
-            var barcodeData = [];
-            var headers = [];
-            
-            // Extract table headers
-            $('#stockdataTable thead th').each(function(index) {
-                headers.push($(this).text().trim());
-            });
-
-            // Extract table body data
-            $('#stockdataTable tbody tr').each(function() {
-                var row = {};
-                var $tdElements = $(this).find('td');
-                $tdElements.each(function(index) {
-                    row[headers[index]] = $(this).text().trim();
-                });
-                barcodeData.push(row);
-            });
-
-            // Process the barcode data and reorder according to the specific order
-            sendDataToFlask1(barcodeData).then(function(processedData) {
-                // Define export order based on header
-                let exportOrder = ["s", "Stock Purchase ID", "Stock Barcode"];
-                
-                // Map processed data to match export order
-                let csvContent = "data:text/csv;charset=utf-8," 
-                    + exportOrder.join(",") + "\n"
-                    + processedData.map(row => exportOrder.map(field => row[field]).join(",")).join("\n");
-
-                let encodedUri = encodeURI(csvContent);
-                let link = document.createElement("a");
-                link.setAttribute("href", encodedUri);
-                link.setAttribute("download", "barcodes_data.csv");
-                document.body.appendChild(link);
-                link.click();
-            });
-        });
-    });
-    $(document).ready(function() {
-    // Attach a function to the input fields in the table header to filter data
-    $('#stockdataTable thead input').on('keyup change', function() {
-        // Get the column index of the current filter input
-        var columnIndex = $(this).parent().index();
-        var searchText = $(this).val().toLowerCase();
-
-        // Loop through each row in the tbody
-        $('#stockdataTable tbody tr').each(function() {
-            var row = $(this);
-            var rowMatches = true; // Assume this row matches all filter criteria initially
-
-            // Loop through each column and check if the row's data matches the filter
-            $('#stockdataTable thead input').each(function(index) {
-                var columnFilter = $(this).val().toLowerCase();
-                var cellText = row.children().eq(index).text().toLowerCase();
-
-                // If any filter doesn't match, mark the row as non-matching
-                if (columnFilter && cellText.indexOf(columnFilter) === -1) {
-                    rowMatches = false;
-                    return false; // Break out of the loop if one filter condition fails
-                }
-            });
-
-            // Show or hide the row based on whether it matches all filter criteria
-            if (rowMatches) {
-                row.show();
-            } else {
-                row.hide();
+                .catch(error => console.error('Error:', error));
             }
         });
-    });
-});
-
-
-    </script>
-    <script>
-        // Get modal elements
-        var modal = document.getElementById("batchImportModal");
-        var btn = document.getElementById("batchImportBtn");
-        var span = document.getElementById("closeModal");
-
-        // Show the modal when the button is clicked
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        // Hide the modal when the user clicks on <span> (x)
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // Hide the modal when the user clicks anywhere outside the modal
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-    <script>
-        function confirmDelete(stkId) {
-            if (confirm('Are you sure you want to delete the stock with stk_id="' + stkId + '"?')) {
-                document.getElementById('delete-form-' + stkId).submit();
-            }
-        }
     </script>
     
 </main>

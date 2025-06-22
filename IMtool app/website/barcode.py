@@ -12,8 +12,8 @@ class BarcodeGenerator:
         # self.db = Database(database_url)
 
     def generate(self, gp, labor, unique_key):
-        gp_code = self._gp_encryptor(gp)
-        labor_code = self._labor_encryptor(labor)
+        gp_code = self._gp_encryptor(float(gp))
+        labor_code = self._labor_encryptor(float(labor))
 
         prefix = chr(64 + int(unique_key[:2])%26)
         

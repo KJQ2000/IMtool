@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 from flask import Flask, render_template, request, session, redirect, flash, jsonify
 import os, re, logging
 from datetime import datetime
@@ -14,6 +15,8 @@ import pandas as pd
 import numpy as np
 from decimal import Decimal
 
+load_dotenv()
+
 ALLOWED_EXTENSIONS = {'csv','xlsx'}
 
 app = Flask(__name__)
@@ -29,8 +32,15 @@ app.config['CURRENT_DIR'] = dic.CURRENT_DIR
 
 logging.basicConfig(filename=log_file,level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-conn = psycopg2.connect(os.environ["DATABASE_URL"])
-db = Database(os.environ["DATABASE_URL"])
+# conn = psycopg2.connect(os.environ["DATABASE_URL"])
+# db = Database(os.environ["DATABASE_URL"])
+
+conn = psycopg2.connect(os.environ["DEV_DATABASE_URL"])
+db = Database(os.environ["DEV_DATABASE_URL"])
+
+# conn = psycopg2.connect('postgresql://junqiang:UBjUWi4UNOlyiMQy22_ZsQ@konghin-imtool-7458.6xw.aws-ap-southeast-1.cockroachlabs.cloud:26257/defaultdb_dev?sslmode=verify-full')
+# db = Database('postgresql://junqiang:UBjUWi4UNOlyiMQy22_ZsQ@konghin-imtool-7458.6xw.aws-ap-southeast-1.cockroachlabs.cloud:26257/defaultdb_dev?sslmode=verify-full')
+
 
 @app.route("/")
 def home():
@@ -1181,6 +1191,8 @@ def process_barcode_data():
     barcode_export = pd.DataFrame(data)
     stk_id_to_convert = str(barcode_export['Stock ID'].to_list())[1:-1]
     
+    # print(stk_id_to_convert)
+    
     query = """
         SELECT 
             stk.stk_id,
@@ -1189,12 +1201,14 @@ def process_barcode_data():
             COALESCE(stk.stk_length, stk.stk_size) AS stk_length_size,
             stk.stk_returned,
             slm.slm_name,
-            '''' || TO_CHAR(stk.stk_pur_date, 'MMYY') AS stk_pur_monthyear
+            '''' || TO_CHAR(p.pur_date, 'MMYY') AS stk_pur_monthyear
         FROM konghin.stock stk
         LEFT JOIN konghin.purchase p ON stk.stk_pur_id = p.pur_id
         LEFT JOIN konghin.salesman slm ON p.pur_slm_id = slm.slm_id
         WHERE stk.stk_id IN ({stk_id})
     """.format(stk_id=stk_id_to_convert)  # Parameterized query
+    
+    # print(query)
 
     processed_data = db.select_raw(query).to_dict(orient='records')
     
@@ -1203,6 +1217,8 @@ def process_barcode_data():
     db.update(table='stock',set_columns=['stk_printed'],set_values=['1'],where = "stk_id in ({stk_id})".format(stk_id=stk_id_to_convert))
 
     processed_data = list(processed_data)
+    
+    # print('\n\n\n PROCESSED DATA \n\n\n')
     # print(processed_data)
 
     return jsonify({'status': 'success', 'data': processed_data}), 200
