@@ -135,6 +135,7 @@
                                 <th><input type="text" id="filter_stk_labor_book" class="form-control" placeholder="Filter Stock Labor Book"></th>
                                 <th><input type="text" id="filter_stk_weight_book" class="form-control" placeholder="Filter Stock Weight Book"></th>
                                 <th><input type="text" id="filter_stk_barcode" class="form-control" placeholder="Filter Stock Barcode"></th>
+                                <th><input type="text" id="filter_stk_barcode_printed" class="form-control" placeholder="Filter Stock Barcode Printed"></th>
                                 <th>Actions</th>
                             </tr>
                             <tr>
@@ -240,41 +241,41 @@
             });
     
             // Export functionality for stock data
-            $('#exportBtn').click(function() {
+            $('#exportBtn').click(function () {
+                var table = $('#stockdataTable').DataTable(); // Use DataTables API
                 var data = [];
 
-                // ✅ Get the second row of <thead> — actual column headers (not the input filters)
                 var headers = [];
-                $('#stockdataTable thead tr:eq(1) th').each(function(index) {
-                    if ($(this).text().trim() !== 'Actions') { // Skip the "Actions" column
+                $('#stockdataTable thead tr:eq(1) th').each(function (index) {
+                    if ($(this).text().trim() !== 'Actions') {
                         headers.push($(this).text().trim());
                     }
                 });
 
-                // ✅ Loop through each table row in <tbody>
-                $('#stockdataTable tbody tr').each(function() {
+                // Loop through all data rows, not just visible
+                table.rows().every(function () {
                     var row = {};
-                    $(this).find('td').each(function(index) {
-                        // Only include columns that are not the "Actions" column
-                        if (index < headers.length) {
-                            row[headers[index]] = $(this).text().trim();
+                    var dataCells = this.data(); // Get full row data
+
+                    $(dataCells).each(function (i, cellData) {
+                        if (i < headers.length) {
+                            row[headers[i]] = $('<div>').html(cellData).text().trim(); // Safely get text
                         }
                     });
+
                     data.push(row);
                 });
 
-                // CSV content with BOM for Excel
-                let csv = "\uFEFF" + headers.join(",") + "\n"
-                    + data.map(row => headers.map(header => {
+                // CSV with BOM for Excel
+                let csv = "\uFEFF" + headers.join(",") + "\n" +
+                    data.map(row => headers.map(header => {
                         let cell = row[header];
-                        // Escape quotes by doubling them, and wrap in quotes if necessary
                         if (cell.includes('"') || cell.includes(',') || cell.includes('\n')) {
                             cell = '"' + cell.replace(/"/g, '""') + '"';
                         }
                         return cell;
                     }).join(",")).join("\n");
 
-                // Create blob and download
                 const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
                 const url = URL.createObjectURL(blob);
                 const link = document.createElement("a");
@@ -286,62 +287,63 @@
             });
     
             // Export Barcode functionality
-            $('#exportBarcodeBtn').click(function() {
+            $('#exportBarcodeBtn').click(function () {
+                var table = $('#stockdataTable').DataTable(); // Access DataTables API
                 var barcodeData = [];
+
                 var headers = [];
-                
-                // ✅ Get real headers (second row)
-                $('#stockdataTable thead tr:eq(1) th').each(function(index) {
+                $('#stockdataTable thead tr:eq(1) th').each(function (index) {
                     headers.push($(this).text().trim());
                 });
 
-                // ✅ Extract table data using headers
-                $('#stockdataTable tbody tr').each(function() {
-                    var row = {};
-                    var $tdElements = $(this).find('td');
-                    $tdElements.each(function(index) {
-                        if (index < headers.length) {
-                            row[headers[index]] = $(this).text().trim();
+                // ✅ Get data from all rows, not just the visible ones
+                table.rows().every(function () {
+                    var rowData = {};
+                    var rowNodes = $(this.node()).find('td');
+
+                    rowNodes.each(function (i) {
+                        if (i < headers.length) {
+                            rowData[headers[i]] = $(this).text().trim();
                         }
                     });
-                    barcodeData.push(row);
+
+                    barcodeData.push(rowData);
                 });
 
-                sendDataToFlask1(barcodeData).then(function(processedData) {
-                // ✅ Define export order using correct field names
-                let exportOrder = [
-                    "stk_id",
-                    "stk_barcode",
-                    "stk_weight",
-                    "stk_length_size",
-                    "stk_returned",
-                    "slm_name",
-                    "stk_pur_monthyear"
-                ];
+                // ✅ Send to Flask for processing
+                sendDataToFlask1(barcodeData).then(function (processedData) {
+                    let exportOrder = [
+                        "stk_id",
+                        "stk_barcode",
+                        "stk_weight",
+                        "stk_length_size", // Assuming this is combined length/size
+                        "stk_returned",
+                        "slm_name",
+                        "stk_pur_monthyear"
+                    ];
 
-                // ✅ Create CSV content with BOM
-                let csv = "\uFEFF" + exportOrder.join(",") + "\n"
-                    + processedData.map(row => exportOrder.map(field => {
-                        let cell = row[field] ?? "";
-                        if (typeof cell === 'string') {
-                            cell = cell.replace(/"/g, '""'); // Escape quotes
-                        }
-                        if (String(cell).includes(",") || String(cell).includes('"') || String(cell).includes("\n")) {
-                            cell = `"${cell}"`;
-                        }
-                        return cell;
-                    }).join(",")).join("\n");
+                    // ✅ Create CSV content with BOM
+                    let csv = "\uFEFF" + exportOrder.join(",") + "\n"
+                        + processedData.map(row => exportOrder.map(field => {
+                            let cell = row[field] ?? "";
+                            if (typeof cell === 'string') {
+                                cell = cell.replace(/"/g, '""');
+                            }
+                            if (String(cell).includes(",") || String(cell).includes('"') || String(cell).includes("\n")) {
+                                cell = `"${cell}"`;
+                            }
+                            return cell;
+                        }).join(",")).join("\n");
 
-                // ✅ Create Blob and download
-                const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement("a");
-                link.setAttribute("href", url);
-                link.setAttribute("download", "barcodes_data.csv");
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            });
+                    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement("a");
+                    link.setAttribute("href", url);
+                    link.setAttribute("download", "barcodes_data.csv");
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                });
         });
     
             // Modal handling for batch import
@@ -361,12 +363,7 @@
                 }
             };
     
-            // Confirmation before deleting
-            function confirmDelete(stkId) {
-                if (confirm('Are you sure you want to delete the stock with stk_id="' + stkId + '"?')) {
-                    document.getElementById('delete-form-' + stkId).submit();
-                }
-            }
+            
     
             // Function to send data to Flask (for export)
             function sendDataToFlask(data) {
@@ -393,6 +390,39 @@
                     return result.data; 
                 })
                 .catch(error => console.error('Error:', error));
+            }
+        });
+
+        // Confirmation before deleting
+        function confirmDelete(stkId) {
+            if (confirm('Are you sure you want to delete the stock with stk_id="' + stkId + '"?')) {
+                document.getElementById('delete-form-' + stkId).submit();
+            }
+        }
+        
+        // export btn confirmation pop up
+        document.getElementById('exportBtn').addEventListener('click', function (event) {
+            const userConfirmed = confirm("Are you sure you want to export the data?");
+            if (userConfirmed) {
+            // Proceed with export logic here
+            console.log("Export confirmed.");
+            // You could call your export function here
+            } else {
+            // Cancel export
+            console.log("Export canceled.");
+            }
+        });
+
+        // export btn confirmation pop up
+        document.getElementById('exportBarcodeBtn').addEventListener('click', function (event) {
+            const userConfirmed = confirm("Are you sure you want to export the barcode data?");
+            if (userConfirmed) {
+            // Proceed with export logic here
+            console.log("Export confirmed.");
+            // You could call your export function here
+            } else {
+            // Cancel export
+            console.log("Export canceled.");
             }
         });
     </script>

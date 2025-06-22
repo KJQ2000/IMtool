@@ -7,3 +7,6 @@ __pycache__/
 
 # Exclude env
 *.env
+
+# Exclude xlsx
+*.xlsx
