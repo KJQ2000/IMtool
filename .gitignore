@@ -1,3 +1,12 @@
-*.log
+# Exclude Python bytecode files
 *.pyc
+__pycache__/
+
+# Exclude log files
+*.log
+
+# Exclude env
 *.env
+
+# Exclude xlsx
+*.xlsx

@@ -171,38 +171,54 @@
                 });
             }
 
-            $('#exportBtn').click(function() {
+            $('#exportBtn').click(function () {
+                const userConfirmed = confirm("Are you sure you want to export the data?");
+                if (!userConfirmed) {
+                    console.log("Export canceled.");
+                    return; // Stop if user cancels
+                }
+                var table = $('#bookingdataTable').DataTable(); // Use DataTables API
                 var data = [];
+
                 var headers = [];
-                $('#bookingdataTable thead th').each(function(index) {
-                    if (index < $('#bookingdataTable thead th').length - 1) {
+                $('#bookingdataTable thead tr:eq(1) th').each(function (index) {
+                    if ($(this).text().trim() !== 'Actions') {
                         headers.push($(this).text().trim());
                     }
                 });
 
-                $('#bookingdataTable tbody tr').each(function() {
+                // Loop through all data rows, not just visible
+                table.rows({ search: 'applied' }).every(function () {
                     var row = {};
-                    var $tdElements = $(this).find('td');
-                    $tdElements.each(function(index) {
-                        if (index < headers.length) {
-                            row[headers[index]] = $(this).text().trim();
+                    var dataCells = this.data(); // Get full row data
+
+                    $(dataCells).each(function (i, cellData) {
+                        if (i < headers.length) {
+                            row[headers[i]] = $('<div>').html(cellData).text().trim(); // Safely get text
                         }
                     });
+
                     data.push(row);
                 });
 
-                sendDataToFlask(data);
+                // CSV with BOM for Excel
+                let csv = "\uFEFF" + headers.join(",") + "\n" +
+                    data.map(row => headers.map(header => {
+                        let cell = row[header];
+                        if (cell.includes('"') || cell.includes(',') || cell.includes('\n')) {
+                            cell = '"' + cell.replace(/"/g, '""') + '"';
+                        }
+                        return cell;
+                    }).join(",")).join("\n");
 
-                let csvContent = "data:text/csv;charset=utf-8," 
-                    + headers.join(",") + "\n"
-                    + data.map(row => headers.map(header => row[header]).join(",")).join("\n");
-
-                let encodedUri = encodeURI(csvContent);
-                let link = document.createElement("a");
-                link.setAttribute("href", encodedUri);
-                link.setAttribute("download", "bookings_data.csv");
+                const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.setAttribute("href", url);
+                link.setAttribute("download", "booking_data.csv");
                 document.body.appendChild(link);
                 link.click();
+                document.body.removeChild(link);
             });
         });
     </script>

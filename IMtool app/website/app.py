@@ -22,7 +22,7 @@ ALLOWED_EXTENSIONS = {'csv','xlsx'}
 app = Flask(__name__)
 app.secret_key = b'k0ngh1n888'
 
-flask_env_python = r'C:\Users\keong\anaconda3\envs\flask_env\python.exe'
+# flask_env_python = r'C:\Users\keong\anaconda3\envs\flask_env\python.exe'
 
 log_file = dic.LOG_DIR+str(datetime.now().strftime("%Y_%m_%d"))+'.log'
 
@@ -53,7 +53,7 @@ def login():
             session['email'] = email
             logging.info(f"{email} successfully login at {datetime.now()}")
             stocks = db.select('stock', js=True)
-            # print(stocks)
+            # logging.info(stocks)
             # stocks =[('STK_100001', 'Bracelet', Decimal('12.8'), Decimal('14.5'), None, Decimal('120'), None, datetime.date(2024, 1, 1), None, Decimal('345'), None, 'IN STOCK', None, 'cartier', '916')]
             if stocks:
                 return render_template("stocks.html", stocks=stocks)
@@ -165,6 +165,7 @@ def stocks():
     # stocks as default home page
     if 'loggedin' in session:
         stocks = db.select('stock', js=True)
+        # print(stocks)
         if stocks:
             return render_template("stocks.html", stocks=stocks)
         return render_template("stocks.html")
@@ -291,13 +292,16 @@ def uploadFile():
         f.save(os.path.join(dic.IMPORT_DIR,data_filename))
  
         session['uploaded_data_file_path'] = os.path.join(dic.IMPORT_DIR,data_filename)
-        result = subprocess.run([flask_env_python, dic.PY_IMPORT_FILE], capture_output=True, text=True)
+        result = subprocess.run(['python', dic.PY_IMPORT_FILE], capture_output=True, text=True)
         # Log outputs
-        logging.info("PURCHASE IMPORT STDOUT:\n%s", result.stdout)
+        logging.info("STOCK IMPORT STDOUT:\n%s", result.stdout)
         if result.stderr:
-            logging.error("PURCHASE IMPORT STDERR:\n%s", result.stderr)
-        logging.info("PURCHASE IMPORT RETURN CODE: %s", result.returncode)
-        return 'File Uploaded Successful'
+            logging.error("STOCK IMPORT STDERR:\n%s", result.stderr)
+        logging.info("STOCK IMPORT RETURN CODE: %s", result.returncode)
+        stocks = db.select('stock', js=True)
+        if stocks:
+            return render_template("stocks.html", stocks=stocks)
+        return render_template("stocks.html")
     return 'FAILED'
 
 @app.route('/batch-import-purchase', methods=['GET', 'POST'])
@@ -310,13 +314,16 @@ def uploadPurchaseFile():
         f.save(os.path.join(dic.IMPORT_DIR,data_filename))
  
         session['uploaded_data_file_path'] = os.path.join(dic.IMPORT_DIR,data_filename)
-        result = subprocess.run([flask_env_python, dic.PY_IMPORT_FILE], capture_output=True, text=True)
+        result = subprocess.run(['python', dic.PY_IMPORT_FILE], capture_output=True, text=True)
         # Log outputs
         logging.info("PURCHASE IMPORT STDOUT:\n%s", result.stdout)
         if result.stderr:
             logging.error("PURCHASE IMPORT STDERR:\n%s", result.stderr)
         logging.info("PURCHASE IMPORT RETURN CODE: %s", result.returncode)
-        return 'File Uploaded Successful'
+        purchases = db.select('purchase', js=True)
+        if purchases:
+            return render_template("purchases.html", purchases=purchases)
+        return render_template("purchases.html")
     return 'FAILED'
 
 @app.route('/your-endpoint', methods=['POST'])

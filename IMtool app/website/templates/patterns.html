@@ -138,48 +138,54 @@
             }
 
             // Export button click event
-            $('#exportBtn').click(function() {
-                // Initialize an array to hold the data
+            $('#exportBtn').click(function () {
+                const userConfirmed = confirm("Are you sure you want to export the data?");
+                if (!userConfirmed) {
+                    console.log("Export canceled.");
+                    return; // Stop if user cancels
+                }
+                var table = $('#patterndataTable').DataTable(); // Use DataTables API
                 var data = [];
-                // Extract table headers
+
                 var headers = [];
-                $('#patterndataTable thead th').each(function(index) {
-                    // Only push headers if it's not the last one
-                    if (index < $('#patterndataTable thead th').length - 1) {
+                $('#patterndataTable thead tr:eq(1) th').each(function (index) {
+                    if ($(this).text().trim() !== 'Actions') {
                         headers.push($(this).text().trim());
                     }
                 });
 
-                // Extract table body data
-                $('#patterndataTable tbody tr').each(function() {
+                // Loop through all data rows, not just visible
+                table.rows({ search: 'applied' }).every(function () {
                     var row = {};
-                    var $tdElements = $(this).find('td');
-                    var tdCount = $tdElements.length;
+                    var dataCells = this.data(); // Get full row data
 
-                    $tdElements.each(function(index) {
-                        // Only add data if it's not from the last cell
-                        if (index < headers.length) { // Use headers.length to avoid out-of-bounds issues
-                            row[headers[index]] = $(this).text().trim();
+                    $(dataCells).each(function (i, cellData) {
+                        if (i < headers.length) {
+                            row[headers[i]] = $('<div>').html(cellData).text().trim(); // Safely get text
                         }
                     });
+
                     data.push(row);
                 });
 
+                // CSV with BOM for Excel
+                let csv = "\uFEFF" + headers.join(",") + "\n" +
+                    data.map(row => headers.map(header => {
+                        let cell = row[header];
+                        if (cell.includes('"') || cell.includes(',') || cell.includes('\n')) {
+                            cell = '"' + cell.replace(/"/g, '""') + '"';
+                        }
+                        return cell;
+                    }).join(",")).join("\n");
 
-                // Send data to Flask
-                sendDataToFlask(data);
-
-                // Export data to CSV
-                let csvContent = "data:text/csv;charset=utf-8," 
-                    + headers.join(",") + "\n"
-                    + data.map(row => headers.map(header => row[header]).join(",")).join("\n");
-
-                let encodedUri = encodeURI(csvContent);
-                let link = document.createElement("a");
-                link.setAttribute("href", encodedUri);
+                const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.setAttribute("href", url);
                 link.setAttribute("download", "pattern_data.csv");
-                document.body.appendChild(link); // Required for FF
+                document.body.appendChild(link);
                 link.click();
+                document.body.removeChild(link);
             });
         });
     </script>
