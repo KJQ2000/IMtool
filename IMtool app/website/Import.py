@@ -78,7 +78,6 @@ def main():
     try:
         # db = Database(os.environ["DATABASE_URL"])
         db = Database(os.environ["DEV_DATABASE_URL"])
-        # db = Database('postgresql://junqiang:UBjUWi4UNOlyiMQy22_ZsQ@konghin-imtool-7458.6xw.aws-ap-southeast-1.cockroachlabs.cloud:26257/defaultdb_dev?sslmode=verify-full')
         import_dir = dic.IMPORT_DIR
         char_limit = dic.BATCH_INSERT_LIMIT
 

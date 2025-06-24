@@ -38,10 +38,6 @@ logging.basicConfig(filename=log_file,level=logging.INFO, format='%(asctime)s - 
 conn = psycopg2.connect(os.environ["DEV_DATABASE_URL"])
 db = Database(os.environ["DEV_DATABASE_URL"])
 
-# conn = psycopg2.connect('postgresql://junqiang:UBjUWi4UNOlyiMQy22_ZsQ@konghin-imtool-7458.6xw.aws-ap-southeast-1.cockroachlabs.cloud:26257/defaultdb_dev?sslmode=verify-full')
-# db = Database('postgresql://junqiang:UBjUWi4UNOlyiMQy22_ZsQ@konghin-imtool-7458.6xw.aws-ap-southeast-1.cockroachlabs.cloud:26257/defaultdb_dev?sslmode=verify-full')
-
-
 @app.route("/")
 def home():
     return render_template("login.html")
