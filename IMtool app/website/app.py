@@ -531,11 +531,13 @@ def edit_sale(sale_id):
             return render_template("sales.html")
         else:
             sale = db.select('sale', where="sale_id='{sale_id}'".format(sale_id=sale_id),js=True)
+            
             if sale[0]['sale_sold_date']:
                 sale_date_object = datetime.fromisoformat(sale[0].get('sale_sold_date').replace('Z', '+00:00'))
                 sale[0]['sale_sold_date'] = sale_date_object.strftime('%Y-%m-%d')
             customers = db.select(table="customer", js=True)
-            stock_entries = db.select('stock', where="stk_sale_id='{sale_id}'".format(sale_id=sale_id))
+            stock_entries = db.select('stock', where="stk_sale_id='{sale_id}'".format(sale_id=sale_id),js=True)
+            
             for i in range(len(stock_entries)):
                 stock_entries[i]['sale_price'] = (stock_entries[i]['stk_gold_sell']*stock_entries[i]['stk_weight_sell']) + stock_entries[i]['stk_labor_sell']
 
@@ -1295,7 +1297,7 @@ def print_invoice(sale_id):
     # sale = get_sale_by_id(sale_id)  # Replace with actual logic to get sale from the database
     # stock_entries = get_stock_entries_by_sale_id(sale_id)  # Replace with actual logic to get stock entries
     
-    sale = db.select('sale', where="sale_id='{sale_id}'".format(sale_id=sale_id))
+    sale = db.select('sale', where="sale_id='{sale_id}'".format(sale_id=sale_id),js=True)
     if sale[0]['sale_sold_date']:
         sale_date_object = datetime.fromisoformat(sale[0].get('sale_sold_date').replace('Z', '+00:00'))
         sale[0]['sale_sold_date'] = sale_date_object.strftime('%Y-%m-%d')
