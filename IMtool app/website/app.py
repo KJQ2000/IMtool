@@ -236,7 +236,7 @@ def add_stock():
 @app.route('/update-stock/<stock_id>', methods=['GET'])
 def edit_stock(stock_id):
     if 'loggedin' in session:
-        stock = db.select('stock', where="stk_id='{stk_id}'".format(stk_id=stock_id))
+        stock = db.select('stock', where="stk_id='{stk_id}'".format(stk_id=stock_id),js=True)
         purchases = db.select('purchase', js=True)
         if stock[0]['stk_pur_date']:
             pur_date_object = datetime.fromisoformat(stock[0].get('stk_pur_date').replace('Z', '+00:00'))
@@ -374,7 +374,7 @@ def add_purchases():
 @app.route('/update-purchase/<pur_id>', methods=['GET'])
 def edit_purchase(pur_id):
     if 'loggedin' in session:
-        purchase = db.select('purchase', where="pur_id='{pur_id}'".format(pur_id=pur_id))
+        purchase = db.select('purchase', where="pur_id='{pur_id}'".format(pur_id=pur_id),js=True)
         if purchase[0]['pur_date']:
             pur_date_object = datetime.fromisoformat(purchase[0].get('pur_date').replace('Z', '+00:00'))
             # datetime.fromisoformat(pur_date_string.replace('Z', '+00:00'))
@@ -525,7 +525,7 @@ def edit_sale(sale_id):
                 return render_template("sales.html", sales=sales)
             return render_template("sales.html")
         else:
-            sale = db.select('sale', where="sale_id='{sale_id}'".format(sale_id=sale_id))
+            sale = db.select('sale', where="sale_id='{sale_id}'".format(sale_id=sale_id),js=True)
             if sale[0]['sale_sold_date']:
                 sale_date_object = datetime.fromisoformat(sale[0].get('sale_sold_date').replace('Z', '+00:00'))
                 sale[0]['sale_sold_date'] = sale_date_object.strftime('%Y-%m-%d')
@@ -586,7 +586,7 @@ def add_salesman():
 @app.route('/update-salesman/<slm_id>', methods=['GET'])
 def edit_salesman(slm_id):
     if 'loggedin' in session:
-        salesman = db.select('salesman', where="slm_id='{slm_id}'".format(slm_id=slm_id))
+        salesman = db.select('salesman', where="slm_id='{slm_id}'".format(slm_id=slm_id),js=True)
 
         return render_template('updatesalesman.html', salesman=salesman[0])
     return redirect('login.html')
@@ -649,7 +649,7 @@ def add_customer():
 @app.route('/update-customer/<cust_id>', methods=['GET'])
 def edit_customer(cust_id):
     if 'loggedin' in session:
-        customers = db.select('customer', where="cust_id='{cust_id}'".format(cust_id=cust_id))
+        customers = db.select('customer', where="cust_id='{cust_id}'".format(cust_id=cust_id),js=True)
 
         return render_template('updatecustomer.html', customer=customers[0])
     return redirect('login.html')
@@ -853,14 +853,14 @@ def edit_book(book_id):
                 return render_template("bookings.html", bookings=bookings)
             return render_template("bookings.html")
         else:
-            booking = db.select('booking', where="book_id='{book_id}'".format(book_id=book_id))
+            booking = db.select('booking', where="book_id='{book_id}'".format(book_id=book_id),js=True)
             if booking[0]['book_date']:
                 book_date_object = datetime.fromisoformat(booking[0].get('book_date').replace('Z', '+00:00'))
                 # datetime.fromisoformat(pur_date_string.replace('Z', '+00:00'))
                 booking[0]['book_date'] = book_date_object.strftime('%Y-%m-%d')
             customers = db.select(table="customer", js=True)
             # stocks = db.select(table="stock", js=True)
-            stock_entries = db.select('stock', where="stk_book_id='{book_id}'".format(book_id=book_id))
+            stock_entries = db.select('stock', where="stk_book_id='{book_id}'".format(book_id=book_id),js=True)
             booked_stk_ids = [item['stk_id'] for item in stock_entries]
             joined_ids = ', '.join(f"'{stk_id}'" for stk_id in booked_stk_ids)
             stocks = db.select('stock', where=f"stk_status='IN STOCK' OR stk_id IN ({joined_ids})", js=True)
@@ -1094,16 +1094,19 @@ def add_pattern():
                 # Save the image to the uploads folder
                 image.save(image_path)
                 
+                img_path_to_insert = f'\static\pattern\{imageName}'
+                
                 columns_to_insert = list(request.form.keys())
                 columns_to_insert.extend(request.files.keys())
                 values_to_insert  = list(request.form.values())
-                values_to_insert.append(image_path)
+                values_to_insert.append(img_path_to_insert)
+
                 try:
                     db.insert(table='category_pattern_mapping',columns=columns_to_insert,values=values_to_insert)
                 except ValueError:
                     return "Invalid input. Please check your data and try again.", 400
                     
-        return render_template("addpatterns.html")
+        return render_template("patterns.html")
     
     # If not logged in, redirect to login page
     return redirect('/login')
@@ -1160,7 +1163,9 @@ def update_pattern_view():
                 filename = secure_filename(image.filename)
                 imageName = request.form['cpat_category']+'_'+request.form['cpat_pattern']+'.'+image.filename.rsplit('.', 1)[1].lower()
                 image_path_save = os.path.join(dic.IMG_STORE_DIR, imageName)
-                image_path_store = os.path.join('static','pattern', imageName)
+                # image_path_store = os.path.join('static','pattern', imageName)
+                
+                image_path_store = f'\static\pattern\{imageName}'
                 
                 # Save the image to the uploads folder
                 image.save(image_path_save)

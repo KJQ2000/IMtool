@@ -40,9 +40,49 @@ logging.basicConfig(filename=log_file,level=logging.INFO, format='%(asctime)s - 
 
 class Database: 
     def __init__(self, database_url: str):
-        self.conn = psycopg2.connect(database_url)
+        self.database_url = database_url
+        self.conn = psycopg2.connect(self.database_url)
         self.cursor = self.conn.cursor()
         self.schema = 'konghin'
+    
+    def refresh_connection(self):
+        """
+        Refreshes the database connection by closing and reopening it only if the
+        current connection is closed or invalid.
+
+        Returns:
+            bool: True if the connection is valid or refreshed successfully, False otherwise.
+        """
+        try:
+            if self.conn and self.conn.closed == 0:
+                # Connection is still open, no need to refresh
+                return True
+        except Exception as e:
+            logging.warning(f"Could not verify connection state: {e}")
+
+        try:
+            if self.cursor:
+                self.cursor.close()
+            if self.conn:
+                self.conn.close()
+            logging.info("Closed existing database connection.")
+        except Exception as e:
+            logging.warning(f"Error closing connection: {e}")
+
+        try:
+            self.conn = psycopg2.connect(self.database_url)
+            self.cursor = self.conn.cursor()
+            logging.info("Reconnected to database successfully.")
+            return True
+        except psycopg2.Error as e:
+            logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
+            if hasattr(e, 'diag') and e.diag.message_detail:
+                logging.error(f"Error details: {e.diag.message_detail}")
+            return False
+        except Exception as e:
+            logging.error(f"Unexpected error: {e}")
+            return False
+
         
     def select_raw(self, query: str, params: tuple = None, js: bool = False):
         """
@@ -57,6 +97,8 @@ class Database:
             pd.DataFrame or str: DataFrame of results or JSON if js=True.
         """
         try:
+            self.refresh_connection()
+            
             self.cursor.execute(query, params)
             results = self.cursor.fetchall()
             colnames = [desc[0] for desc in self.cursor.description]
@@ -72,7 +114,10 @@ class Database:
         except psycopg2.Error as e:
             logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
             return None
-        
+        except Exception as e:
+            logging.error(f"Query: {query.as_string(self.conn)}")
+            logging.error(f"Unexpected error: {e}")
+            return None
         
     
     def select(self, table: str, columns: list = None, where: str = None, js: bool = False):
@@ -86,8 +131,10 @@ class Database:
             json (bool, optional): If True, returns the result as a JSON string. If False, returns as a DataFrame. Defaults to False.
 
         Returns:
-            pd.DataFrame or str: A DataFrame of the selected data or a JSON string if json is True. Returns None if an error occurs.
+            pd.DataFrame or str: A DataFrame of the selected data or a JSON string if js is True. Returns None if an error occurs.
         """
+        self.refresh_connection()
+        
         if columns:
             query = sql.SQL("SELECT {columns} FROM {schema}.{table}").format(
                 columns=sql.SQL(', ').join(map(sql.Identifier, columns)),
@@ -111,7 +158,7 @@ class Database:
             df.columns = colnames
             logging.info(f"Successfully selected data from {self.schema}.{table}.")
             logging.info(f"Query: {query.as_string(self.conn)}")
-            if json:
+            if js:
                 return json.loads(df.to_json(orient='records', date_format='iso'))
             else:
                 return df
@@ -126,6 +173,9 @@ class Database:
             return None
 
     def insert(self, table: str, values: list, columns: list = None) -> None:
+        
+        self.refresh_connection()
+        
         base_query = sql.SQL("INSERT INTO {schema}.{table}").format(
             schema=sql.Identifier(self.schema),
             table=sql.Identifier(table)
@@ -189,6 +239,9 @@ class Database:
 
 
     def update(self, table: str, set_columns: list, set_values: list, where: str) -> None:
+        
+        self.refresh_connection()
+        
         # Filter columns and values, allowing explicit NULLs
         clean_columns, clean_values = [], []
         for col, val in zip(set_columns, set_values):
@@ -240,6 +293,9 @@ class Database:
 
 
     def delete(self, table: str, where: str) -> None:
+        
+        self.refresh_connection()
+        
         query = sql.SQL("DELETE FROM {schema}.{table} WHERE {where}").format(
             schema=sql.Identifier(self.schema),
             table=sql.Identifier(table),
@@ -345,6 +401,9 @@ class Database:
     
 
     def batch_insert(self, table: str, values: list, columns: list = None) -> None:
+        
+        self.refresh_connection()
+        
         base_query = "INSERT INTO {schema}.{table}".format(
             schema=self.schema,
             table=table
