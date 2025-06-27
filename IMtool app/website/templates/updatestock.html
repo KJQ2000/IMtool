@@ -88,6 +88,14 @@
                                 <label for="stk_weight" class="form-label">Stock Weight (g)</label>
                                 <input type="number" step="0.01" class="form-control" id="stk_weight" name="stk_weight" value="{{ stock.stk_weight }}" required>
                             </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="stk_remark" class="form-label">Stock Description</label>
+                                <input type="text" class="form-control" id="stk_remark" name="stk_remark" value="{{ stock.stk_remark }}">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="stk_tag" class="form-label">Stock Tag (e.g.: tag1;tag2) ! Don't use , as separator !</label>
+                                <input type="text" class="form-control" id="stk_tag" name="stk_tag" value="{{ stock.stk_tag }}">
+                            </div>
                         </div>
                     </div>
 
@@ -145,10 +153,10 @@
                     <div class="mb-4" id="book-profit-section">
                         <h5 class="card-title">Sales and Profit</h5>
                         <div class="row">
-                            <div class="col-md-4 mb-3">
+                            <!-- <div class="col-md-4 mb-3">
                                 <label for="stk_book_date" class="form-label">Stock Booked Date</label>
                                 <input type="date" class="form-control" id="stk_book_date" name="stk_book_date" value="{{ stock.stk_book_date }}" disabled>
-                            </div>
+                            </div> -->
                             <div class="col-md-4 mb-3">
                                 <label for="stk_gold_book" class="form-label">Stock Gold Book</label>
                                 <input type="number" step="0.01" class="form-control" id="stk_gold_book" name="stk_gold_book" value="{{ stock.stk_gold_book }}" disabled>
