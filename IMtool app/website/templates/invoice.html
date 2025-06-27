@@ -1,81 +1,232 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice for Sale</title>
-    <style>
-        /* Add some custom styles for the invoice here */
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 8px; border: 1px solid #ddd; text-align: left; }
-        th { background-color: #f4f4f4; }
-        .btn-info { display: inline-block; margin-top: 20px; }
-    </style>
-</head>
-<body>
-    <h1>Invoice for Sale {{ sale.sale_receipt_no }}</h1>
-    
-    <!-- Print Button -->
-    <button type="button" class="btn btn-info" onclick="printInvoice()">Print Invoice</button>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Invoice for Sale {{ sale.sale_receipt_no }}</title>
+        <style>
+            body { 
+                font-family: Arial, sans-serif; 
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
 
-    <div id="invoiceSection">
-        <p><strong>Customer:</strong> {{ sale.sale_cust_id }}</p>
-        <p><strong>Sale Date:</strong> {{ sale.sale_sold_date }}</p>
-        <p><strong>Receipt Number:</strong> {{ sale.sale_receipt_no }}</p>
+            .invoice-container {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 20px;
+                border: 1px solid #eee;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Stock ID</th>
-                    <th>Gold Price</th>
-                    <th>Labor Price</th>
-                    <th>Weight (g)</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for stock_entry in stock_entries %}
-                <tr>
-                    <td>{{ stock_entry.stk_id }}</td>
-                    <td>{{ stock_entry.stk_gold_sell }}</td>
-                    <td>{{ stock_entry.stk_labor_sell }}</td>
-                    <td>{{ stock_entry.stk_weight_sell }}</td>
-                    <td>{{ stock_entry.sale_price }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+            .title-text{
+                font-weight: 700;
+                font-size: 20px;
+                margin-bottom: 5px;
+            }
 
-        <p><strong>Total Sale Price: {{ sale.sale_price }}</strong></p>
-    </div>
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 20px;
+            }
 
-    <script>
-        // Function to print the invoice section
-        function printInvoice() {
-            var content = document.getElementById('invoiceSection').innerHTML;  // Get the content of the invoice section
-            var printWindow = window.open('', '', 'height=800,width=1200');  // Open a new window for printing
+            .logo {
+                max-width: 150px;
+                max-height: 100px;
+            }
 
-            // Write the content to the print window
-            printWindow.document.write('<html><head><title>Invoice</title>');
-            
-            // Include the styles for the print window (inline CSS)
-            printWindow.document.write('<style>');
-            printWindow.document.write('body { font-family: Arial, sans-serif; margin: 20px; }');
-            printWindow.document.write('table { width: 100%; border-collapse: collapse; margin-top: 20px; }');
-            printWindow.document.write('th, td { padding: 8px; border: 1px solid #ddd; text-align: left; }');
-            printWindow.document.write('th { background-color: #f4f4f4; }');
-            printWindow.document.write('.btn-info { display: none; }'); // Hide the print button
-            printWindow.document.write('</style>');
-            
-            // Write the invoice content
-            printWindow.document.write('</head><body>');
-            printWindow.document.write(content);
-            printWindow.document.write('</body></html>');
-            
-            printWindow.document.close();  // Close the document
-            printWindow.print();  // Trigger the print dialog
-        }
-    </script>
-</body>
+            .invoice-title {
+                color: #444;
+                margin: 0;
+            }
+
+            .company-info {
+                text-align: right;
+                font-size: 14px;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                word-wrap: break-word;
+            }
+
+            th, td {
+                padding: 8px 12px;
+                border: 1px solid #ddd;
+                text-align: left;
+                word-break: break-word;
+                white-space: normal !important;
+            }
+
+            th {
+                background-color: #f4f4f4;
+                font-weight: bold;
+            }
+
+            .total-row {
+                font-weight: bold;
+                background-color: #f9f9f9;
+            }
+
+            .footer {
+                margin-top: 30px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+                text-align: center;
+                font-size: 12px;
+                color: #777;
+            }
+
+            .btn-info {
+                background-color: #17a2b8;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 20px 0;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+
+            .terms{
+                margin-top: 30px;
+            }
+
+            .terms div{
+                font-style: italic;
+                font-size: 15px;
+                color: #777;
+            }
+
+            .italic{
+                font-style: italic;
+            }
+            @media print {
+                @page {
+                    size: A4 landscape;
+                    margin: 10mm;
+                }
+                
+                .no-print {
+                    display: none;
+                }
+                body {
+                    padding: 0;
+                    -webkit-print-color-adjust: exact !important;
+                    print-color-adjust: exact !important;
+                }
+                .invoice-container {
+                    border: none;
+                    box-shadow: none;
+                    width: 98%;
+                    max-width: 98%;
+                }
+                table {
+                    width: 98% !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="invoice-container">
+            <!-- Header with Logo -->
+            <div class="header">
+                <div>
+                    <img src="your-logo.png" alt="Company Logo" class="logo">
+                    <h1 class="invoice-title">INVOICE</h1>
+                </div>
+                <div class="company-info">
+                    <h3 class="title-text italic">Kedai Emas Chop Kong Hin</h3>
+                    <div>150, Jalan Payamas, 84900,</div>
+                    <div>Tangkak, Johor</div>
+                    <div>Phone: 06-9781355</div>
+                    <div>Tel: 012-6516853</div>
+                </div>
+            </div>
+
+            <!-- Print Button -->
+            <button type="button" class="btn-info no-print" onclick="printInvoice()">Print Invoice</button>
+
+            <div id="invoiceSection">
+                <!-- Invoice Info -->
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <div>
+                        <p><strong>Customer:</strong> {{ customer.cust_name }}</p>
+                    </div>
+                    <div>
+                        <p><strong>Invoice #:</strong> {{ sale.sale_receipt_no }}</p>
+                        <p><strong>Purchase Date:</strong> {{ sale.sale_sold_date }}</p>
+                    </div>
+                </div>
+
+                <!-- Items Table -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item ID</th>
+                            <th>Description</th>
+                            <th>Gold Price</th>
+                            <th>Labor Price</th>
+                            <th>Weight (g)</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for stock_entry in stock_entries %}
+                        <tr>
+                            <td>{{ stock_entry.stk_id }}</td>
+                            <!-- <td>[Item Description]</td> -->
+                            <td><input type="text" name="sale_desc" value="{{ stock_entry.sale_desc }}" required></td>
+                            <td>{{ stock_entry.stk_gold_sell }}</td>
+                            <td>{{ stock_entry.stk_labor_sell }}</td>
+                            <td>{{ stock_entry.stk_weight_sell }}</td>
+                            <td>{{ stock_entry.sale_price }}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr class="total-row">
+                            <td colspan="5" style="text-align: right;">TOTAL</td>
+                            <td>{{ sale.sale_price }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Payment Terms -->
+                <div class="terms">
+                    <h3 class="title-text">Payment Terms</h3>
+                    <div>For any questions regarding this invoice, please contact our accounting department.</div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>Thank you for your business!</p>
+                <p>Kedai Emas Chop Kong Hin | 150, Jalan Payamas 84900, Thangkak, Johor, Malaysia</p>
+            </div>
+        </div>
+
+        <script>
+            // Function to print the invoice
+            function printInvoice() {
+                // Replace input with its value for printing
+                document.querySelectorAll('input[type="text"]').forEach(input => {
+                    const span = document.createElement('span');
+                    span.textContent = input.value;
+                    input.parentNode.replaceChild(span, input);
+                });
+                window.print();
+                // Optionally reload the page to bring back the inputs after printing
+                location.reload();
+            }
+        </script>
+    </body>
 </html>

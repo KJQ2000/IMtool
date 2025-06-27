@@ -246,8 +246,12 @@ def edit_stock(stock_id):
             pur_date_object = datetime.fromisoformat(stock[0].get('stk_pur_date').replace('Z', '+00:00'))
             # datetime.fromisoformat(pur_date_string.replace('Z', '+00:00'))
             stock[0]['stk_pur_date'] = pur_date_object.strftime('%Y-%m-%d')
-        if stock[0]['stk_sell_date']    :
-            stock[0]['stk_sell_date'] = datetime.fromisoformat(stock[0].get('stk_sell_date'))
+        if stock[0]['stk_sell_date']:
+            sale_date_object = datetime.fromisoformat(stock[0].get('stk_sell_date').replace('Z', '+00:00'))
+            stock[0]['stk_sell_date'] = sale_date_object.strftime('%Y-%m-%d')
+        # if stock[0]['stk_book_date']:
+        #     sale_date_object = datetime.fromisoformat(stock[0].get('stk_book_date').replace('Z', '+00:00'))
+        #     stock[0]['stk_book_date'] = sale_date_object.strftime('%Y-%m-%d')
         return render_template('updatestock.html', stock=stock[0], purchases=purchases)
     return redirect('login.html')
 
@@ -383,8 +387,9 @@ def edit_purchase(pur_id):
             pur_date_object = datetime.fromisoformat(purchase[0].get('pur_date').replace('Z', '+00:00'))
             # datetime.fromisoformat(pur_date_string.replace('Z', '+00:00'))
             purchase[0]['pur_date'] = pur_date_object.strftime('%Y-%m-%d')
-        if purchase[0]['pur_billing_date']    :
-            purchase[0]['pur_billing_date'] = datetime.fromisoformat(purchase[0].get('pur_billing_date'))
+        if purchase[0]['pur_billing_date']:
+            pur_billing_date_object = datetime.fromisoformat(purchase[0].get('pur_billing_date').replace('Z', '+00:00'))
+            purchase[0]['pur_billing_date'] = pur_billing_date_object.strftime('%Y-%m-%d')
         salesmen = db.select(table="salesman", js=True)
         return render_template('updatepurchase.html', purchase=purchase[0], salesmen=salesmen)
     return redirect('login.html')
@@ -1178,6 +1183,16 @@ def update_pattern_view():
         return render_template("patterns.html", patterns=patterns)
     return redirect('login.html')
 
+@app.route('/delete-pattern/<cpat_id>', methods=['POST'])
+def deletepattern(cpat_id):
+    if cpat_id:
+        db.delete('category_pattern_mapping',where="cpat_id='{cpat_id}'".format(cpat_id=cpat_id))
+        patterns = db.select('category_pattern_mapping', js=True)
+        if patterns:
+            return render_template("patterns.html", patterns=patterns)
+        return render_template("patterns.html")
+    return 'CPAT ID is missing', 400
+
 @app.route('/post-export-data', methods=['POST'])
 def handle_export_data():
     try:
@@ -1230,6 +1245,49 @@ def process_barcode_data():
 
     return jsonify({'status': 'success', 'data': processed_data}), 200
     
+# @app.route('/print-invoice/<sale_id>', methods=['GET'])
+# def print_invoice(sale_id):
+#     # Fetch sale details and stock entries from the database
+#     # sale = get_sale_by_id(sale_id)  # Replace with actual logic to get sale from the database
+#     # stock_entries = get_stock_entries_by_sale_id(sale_id)  # Replace with actual logic to get stock entries
+#     print('\n\nsale id\n\n')
+#     print(sale_id)
+
+#     sale = db.select(table='sale', where=f"sale_id='{sale_id}'")
+#     if sale[0]['sale_sold_date']:
+#         sale_date_object = datetime.fromisoformat(sale[0].get('sale_sold_date').replace('Z', '+00:00'))
+#         sale[0]['sale_sold_date'] = sale_date_object.strftime('%Y-%m-%d')
+#     customer = db.select(table="customer", where="cust_id='{sale_cust_id}'".format(sale_cust_id=sale[0]["sale_cust_id"])) 
+#     print(sale[0]["sale_cust_id"])
+#     print(sale_id)
+#     print(customer)
+#     query = f"""
+#             select 
+#             stk_id,
+#             CONCAT(stk_type, ' ', stk_pattern, ' ', COALESCE(stk_length::STRING, stk_size::STRING)) as sale_desc,
+#             stk_gold_sell , 
+#             stk_labor_sell ,
+#             stk_weight_sell, 
+#             stk_gold_sell * stk_weight_sell + stk_labor_sell as sale_price 
+#             from konghin.stock where stk_sale_id='{sale_id}'
+#         """
+
+#     stock_entries = db.select_raw(query)
+#     print('\n\nstock_entries\n\n')
+#     print(stock_entries)
+#     # stock_entries = db.select('stock', where="stk_sale_id='{sale_id}'".format(sale_id=sale_id))
+#     # for i in range(len(stock_entries)):
+#     #     stock_entries[i]['sale_price'] = (stock_entries[i]['stk_gold_sell']*stock_entries[i]['stk_weight_sell']) + stock_entries[i]['stk_labor_sell']
+
+#     # sold_stk_ids = [item['stk_id'] for item in stock_entries]
+#     # joined_ids = ', '.join(f"'{stk_id}'" for stk_id in sold_stk_ids)
+#     # stocks = db.select('stock', where=f"stk_status='IN STOCK' OR stk_id IN ({joined_ids})", js=True)
+#     # return render_template('updatesale.html', sale=sale[0], customers=customers, stocks=stocks, stock_entries=stock_entries)
+
+#     # Render the invoice template
+#     # return render_template('invoice.html', sale=sale[0], stock_entries=stock_entries)
+#     return render_template('invoice.html', sale=sale[0], stock_entries=stock_entries, customer=customer)
+
 @app.route('/print-invoice/<sale_id>', methods=['GET'])
 def print_invoice(sale_id):
     # Fetch sale details and stock entries from the database
@@ -1240,18 +1298,34 @@ def print_invoice(sale_id):
     if sale[0]['sale_sold_date']:
         sale_date_object = datetime.fromisoformat(sale[0].get('sale_sold_date').replace('Z', '+00:00'))
         sale[0]['sale_sold_date'] = sale_date_object.strftime('%Y-%m-%d')
-    customers = db.select(table="customer", js=True)
-    stock_entries = db.select('stock', where="stk_sale_id='{sale_id}'".format(sale_id=sale_id))
-    for i in range(len(stock_entries)):
-        stock_entries[i]['sale_price'] = (stock_entries[i]['stk_gold_sell']*stock_entries[i]['stk_weight_sell']) + stock_entries[i]['stk_labor_sell']
+    customer = db.select(table="customer", where="cust_id='{sale_cust_id}'".format(sale_cust_id=sale[0]["sale_cust_id"]), js=True) 
+    query = f"""
+            select 
+            stk_id,
+            CONCAT(stk_type, ' ', stk_pattern, ' ', COALESCE(stk_length::STRING, stk_size::STRING)) as sale_desc,
+            stk_gold_sell , 
+            stk_labor_sell ,
+            stk_weight_sell, 
+            stk_gold_sell * stk_weight_sell + stk_labor_sell as sale_price 
+            from konghin.stock where stk_sale_id='{sale_id}'
+        """
 
-    sold_stk_ids = [item['stk_id'] for item in stock_entries]
-    joined_ids = ', '.join(f"'{stk_id}'" for stk_id in sold_stk_ids)
-    stocks = db.select('stock', where=f"stk_status='IN STOCK' OR stk_id IN ({joined_ids})", js=True)
+    stock_entries = list(db.select_raw(query).to_dict(orient='records'))
+    # print('\n\nstock_entries select raw\n\n')
+    # print(stock_entries)
+    # print(type(stock_entries))
+
+    # stock_entries = db.select('stock', where="stk_sale_id='{sale_id}'".format(sale_id=sale_id))
+    # for i in range(len(stock_entries)):
+    #     stock_entries[i]['sale_price'] = (stock_entries[i]['stk_gold_sell']*stock_entries[i]['stk_weight_sell']) + stock_entries[i]['stk_labor_sell']
+    
+    # print('\n\nstock_entries\n\n')
+    # print(stock_entries)
+    # print(type(stock_entries))
     # return render_template('updatesale.html', sale=sale[0], customers=customers, stocks=stocks, stock_entries=stock_entries)
 
     # Render the invoice template
-    return render_template('invoice.html', sale=sale[0], stock_entries=stock_entries)
+    return render_template('invoice.html', sale=sale[0], stock_entries=stock_entries, customer=customer[0])
 
 
 if __name__ == "__main__":
