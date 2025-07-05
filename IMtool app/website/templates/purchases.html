@@ -58,7 +58,7 @@
                                 <th><input type="text" id="filter_pur_official_invoice" class="form-control" placeholder="Filter Official Invoice"></th>
                                 <th><input type="text" id="filter_pur_billing_date" class="form-control" placeholder="Filter Billing Date"></th>
                                 <th><input type="text" id="filter_pur_total_cash_amt" class="form-control" placeholder="Filter Cash Amount"></th>
-                                <th><input type="text" id="filter_put_total_trade_in_amt" class="form-control" placeholder="Filter Trade In Amount"></th>
+                                <th><input type="text" id="filter_pur_total_trade_in_amt" class="form-control" placeholder="Filter Trade In Amount"></th>
                                 <th><input type="text" id="filter_pur_total_amt" class="form-control" placeholder="Filter Total Amount"></th>
                                 <th><input type="text" id="filter_pur_payment_status" class="form-control" placeholder="Filter Payment Status"></th>
                                 <th>Actions</th>
@@ -95,7 +95,7 @@
                                 <td>{{ purchase.pur_official_invoice }}</td>
                                 <td>{{ purchase.pur_billing_date }}</td>
                                 <td>{{ purchase.pur_total_cash_amt }}</td>
-                                <td>{{ purchase.put_total_trade_in_amt }}</td>
+                                <td>{{ purchase.pur_total_trade_in_amt }}</td>
                                 <td>{{ purchase.pur_total_amt }}</td>
                                 <td>{{ purchase.pur_payment_status }}</td>
                                 <td>
@@ -143,7 +143,7 @@
         });
 
         // Apply filters when any filter input changes
-        $('#filter_pur_id, #filter_pur_invoice_no, #filter_pur_slm_id, #filter_pur_date, #filter_pur_weight, #filter_pur_gold_cost, #filter_pur_labor_cost, #filter_pur_method, #filter_pur_official_invoice, #filter_pur_billing_date, #filter_pur_total_cash_amt, #filter_put_total_trade_in_amt, #filter_pur_total_amt, #filter_pur_payment_status').on('keyup change', function() {
+        $('#filter_pur_id, #filter_pur_invoice_no, #filter_pur_slm_id, #filter_pur_date, #filter_pur_weight, #filter_pur_gold_cost, #filter_pur_labor_cost, #filter_pur_method, #filter_pur_official_invoice, #filter_pur_billing_date, #filter_pur_total_cash_amt, #filter_pur_total_trade_in_amt, #filter_pur_total_amt, #filter_pur_payment_status').on('keyup change', function() {
             var pur_id_filter = $('#filter_pur_id').val();
             var pur_invoice_no_filter = $('#filter_pur_invoice_no').val();
             var pur_slm_id_filter = $('#filter_pur_slm_id').val();
@@ -155,7 +155,7 @@
             var pur_official_invoice_filter = $('#filter_pur_official_invoice').val();
             var pur_billing_date_filter = $('#filter_pur_billing_date').val();
             var pur_total_cash_amt_filter = $('#filter_pur_total_cash_amt').val();
-            var put_total_trade_in_amt_filter = $('#filter_put_total_trade_in_amt').val();
+            var pur_total_trade_in_amt_filter = $('#filter_pur_total_trade_in_amt').val();
             var pur_total_amt_filter = $('#filter_pur_total_amt').val();
             var pur_payment_status_filter = $('#filter_pur_payment_status').val();
 
@@ -171,7 +171,7 @@
                 .columns(8).search(pur_official_invoice_filter, true, false) 
                 .columns(9).search(pur_billing_date_filter, true, false) 
                 .columns(10).search(pur_total_cash_amt_filter, true, false) 
-                .columns(11).search(put_total_trade_in_amt_filter, true, false) 
+                .columns(11).search(pur_total_trade_in_amt_filter, true, false) 
                 .columns(12).search(pur_total_amt_filter, true, false) 
                 .columns(13).search(pur_payment_status_filter, true, false)
                 .draw();  

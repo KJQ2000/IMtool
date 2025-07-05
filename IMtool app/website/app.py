@@ -14,6 +14,7 @@ from werkzeug.datastructures import ImmutableMultiDict
 import pandas as pd
 import numpy as np
 from decimal import Decimal
+from werkzeug.datastructures import MultiDict
 
 load_dotenv()
 
@@ -360,7 +361,38 @@ def add_purchases():
         if request.method == 'POST':
             # perform add purchase
             try:
-                db.insert(table='purchase',columns=list(request.form.keys()),values=list(request.form.values()))
+                form_dict = request.form.to_dict()
+                cash_amt = (form_dict.get('pur_total_cash_amt', 0))
+                trade_in_amt = (form_dict.get('pur_total_trade_in_amt', 0))
+                total_amt = (form_dict.get('pur_total_amt', 0))
+
+                if cash_amt:
+                    pass
+                else:
+                    cash_amt = 0
+
+                if trade_in_amt:
+                    pass
+                else:
+                    trade_in_amt = 0
+
+                if total_amt:
+                    pass
+                else:
+                    total_amt = 0
+                
+                if float(cash_amt) + float(trade_in_amt) >= float(total_amt):
+                    form_dict['pur_payment_status'] = 'PAID'
+                elif float(cash_amt) + float(trade_in_amt) == 0:
+                    form_dict['pur_payment_status'] = 'NOT PAID'
+                else:
+                    form_dict['pur_payment_status'] = 'IN PAYMENT'
+                
+                new_form = MultiDict(form_dict)
+
+                # Step 3: Convert it back to MultiDict
+                new_form = MultiDict(form_dict)
+                db.insert(table='purchase',columns=list(new_form.keys()),values=list(new_form.values()))
             except ValueError:
                 return "Invalid input. Please check your data and try again.", 400
             purchases = db.select('purchase', js=True)
@@ -396,9 +428,38 @@ def update_purchase_view():
     # print(request.form['pur_id'])
     if 'loggedin' in session:
         try:
-            db.update(table='purchase',set_columns=list(request.form.keys()),set_values=list(request.form.values()), where="pur_id='{pur_id}'".format(pur_id=request.form['pur_id']))
-        except ValueError:
-            return "Invalid input. Please check your data and try again.", 400
+            form_dict = request.form.to_dict()
+            cash_amt = (form_dict.get('pur_total_cash_amt', 0))
+            trade_in_amt = (form_dict.get('pur_total_trade_in_amt', 0))
+            total_amt = (form_dict.get('pur_total_amt', 0))
+
+            if cash_amt:
+                pass
+            else:
+                cash_amt = 0
+
+            if trade_in_amt:
+                pass
+            else:
+                trade_in_amt = 0
+
+            if total_amt:
+                pass
+            else:
+                total_amt = 0
+            
+            if float(cash_amt) + float(trade_in_amt) >= float(total_amt):
+                form_dict['pur_payment_status'] = 'PAID'
+            elif float(cash_amt) + float(trade_in_amt) == 0:
+                form_dict['pur_payment_status'] = 'NOT PAID'
+            else:
+                form_dict['pur_payment_status'] = 'IN PAYMENT'
+            
+            new_form = MultiDict(form_dict)
+            db.update(table='purchase',set_columns=list(new_form.keys()),set_values=list(new_form.values()), where="pur_id='{pur_id}'".format(pur_id=request.form['pur_id']))
+        except Exception as e:
+            return e
+            # return "Invalid input. Please check your data and try again.", 400
         purchases = db.select('purchase', js=True)
         if purchases:
             return render_template("purchases.html", purchases=purchases)
