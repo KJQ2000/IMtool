@@ -45,7 +45,7 @@ class Database:
         # self.cursor = self.conn.cursor()
         self.cursor = None
         self.schema = 'konghin'
-        self.conn.autocommit = True
+        self.conn.autocommit = False
     
     def refresh_connection(self):
         """

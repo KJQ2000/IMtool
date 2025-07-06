@@ -15,6 +15,7 @@ import pandas as pd
 import numpy as np
 from decimal import Decimal
 from werkzeug.datastructures import MultiDict
+import json
 
 load_dotenv()
 
@@ -218,7 +219,7 @@ def add_stock():
             # do here ... get the pur_date for the pur_id from purchase table to input into the stock table
             # stk_pur_date
             try:
-                db.conn.autocommit = False
+                # db.conn.autocommit = False
                 
                 db.insert(table='stock',columns=list(request.form.keys()),values=list(request.form.values()))
                 
@@ -229,8 +230,8 @@ def add_stock():
             except Exception as e:
                 db.conn.rollback()
                 return f"Error adding stock: {str(e)}", 500
-            finally:
-                db.conn.autocommit = True
+            # finally:
+        #        db.conn.autocommit = True
             
             
             stocks = db.select('stock', js=True)
@@ -269,7 +270,7 @@ def update_stock_view():
     # print(request.form)
     if 'loggedin' in session:
         try:
-            db.conn.autocommit = False
+            # db.conn.autocommit = False
             # db.refresh_connection()
             # do here ..., if the pur_id has updated then need to get the new pur_date from purchase table and update in stock table
             db.update(table='stock',set_columns=list(request.form.keys()),set_values=list(request.form.values()), where="stk_id='{stk_id}'".format(stk_id=request.form['stk_id']))
@@ -277,8 +278,8 @@ def update_stock_view():
         except ValueError:
             db.conn.rollback()
             return "Invalid input. Please check your data and try again.", 400
-        finally:
-            db.conn.autocommit = True
+        # finally:
+    #        db.conn.autocommit = True
         stocks = db.select('stock', js=True)
         if stocks:
             return render_template("stocks.html", stocks=stocks)
@@ -297,7 +298,7 @@ def deletestock(stock_id):
         #     db.session.delete(product)
         #     db.session.commit()
         try:
-            db.conn.autocommit = False
+            # db.conn.autocommit = False
             # db.refresh_connection()
             
             # After deletion, redirect to the stocks page or any other appropriate page
@@ -307,8 +308,8 @@ def deletestock(stock_id):
         except Exception as e:
             db.conn.rollback()
             return "Invalid input. Please check your data and try again. {e}", 400
-        finally:
-            db.conn.autocommit = True
+        # finally:
+    #        db.conn.autocommit = True
         stocks = db.select('stock', js=True)
         if stocks:
             return render_template("stocks.html", stocks=stocks)
@@ -421,7 +422,7 @@ def add_purchases():
                 # Step 3: Convert it back to MultiDict
                 new_form = MultiDict(form_dict)
                 
-                db.conn.autocommit = False
+                # db.conn.autocommit = False
                 # db.refresh_connection()
                 
                 db.insert(table='purchase',columns=list(new_form.keys()),values=list(new_form.values()))
@@ -430,8 +431,8 @@ def add_purchases():
             except Exception as e:
                 db.conn.rollback()
                 return f"Invalid input. Please check your data and try again. Error: {e}", 400
-            finally:
-                db.conn.autocommit = True
+            # finally:
+        #        db.conn.autocommit = True
                 
             purchases = db.select('purchase', js=True)
             if purchases:
@@ -495,7 +496,7 @@ def update_purchase_view():
             
             new_form = MultiDict(form_dict)
             
-            db.conn.autocommit = False
+            # db.conn.autocommit = False
             # db.refresh_connection()
             
             db.update(table='purchase',set_columns=list(new_form.keys()),set_values=list(new_form.values()), where="pur_id='{pur_id}'".format(pur_id=request.form['pur_id']))
@@ -503,8 +504,8 @@ def update_purchase_view():
         except Exception as e:
             db.conn.rollback()
             return f"Invalid input. Please check your data and try again. Error: {e}", 400
-        finally:
-            db.conn.autocommit = True
+        # finally:
+    #        db.conn.autocommit = True
             
         purchases = db.select('purchase', js=True)
         if purchases:
@@ -516,15 +517,15 @@ def update_purchase_view():
 def deletepurchase(pur_id):
     if pur_id:
         try:
-            db.conn.autocommit = False
+            # db.conn.autocommit = False
             # db.refresh_connection()
             db.delete('purchase',where="pur_id='{pur_id}'".format(pur_id=pur_id))
             db.conn.commit()
         except Exception as e:
             db.conn.rollback()
             return f"Invalid input. Please check your data and try again. Error: {e}", 400
-        finally:
-            db.conn.autocommit = True
+        # finally:
+    #        db.conn.autocommit = True
         purchases = db.select('purchase', js=True)
         if purchases:
             return render_template("purchases.html", purchases=purchases)
@@ -549,7 +550,7 @@ def add_sales():
             # perform add salesman
             try:
                 
-                db.conn.autocommit = False
+                # db.conn.autocommit = False
                 # db.refresh_connection()
                 
                 db.insert(table='sale',columns=list(request.form.keys()),values=list(request.form.values()))
@@ -580,8 +581,8 @@ def add_sales():
             except Exception as e:
                 db.conn.rollback()
                 return f"Invalid input. Please check your data and try again. {e}", 400
-            finally:
-                db.conn.autocommit = True
+            # finally:
+        #        db.conn.autocommit = True
             
             sales = db.select('sale', js=True)
             if sales:
@@ -630,7 +631,7 @@ def edit_sale(sale_id):
                 new_stk_id = set(stk_ids)
                 result = [item for item in old_stk_ids if item not in new_stk_id]
                 
-                db.conn.autocommit = False
+                # db.conn.autocommit = False
                 # db.refresh_connection()
                 
                 if len(result)>0:
@@ -658,8 +659,8 @@ def edit_sale(sale_id):
             except Exception as e:
                 db.conn.rollback()
                 return f"Invalid input. Please check your data and try again. {e}", 400
-            finally:
-                db.conn.autocommit = True
+            # finally:
+        #        db.conn.autocommit = True
             
             sales = db.select('sale', js=True)
             if sales:
@@ -684,18 +685,37 @@ def edit_sale(sale_id):
 
     return redirect('login.html')
 
-### Delete Sale need to add additional logic, to amend stock table also
 @app.route('/delete-sale/<sale_id>', methods=['POST'])
 def deletesale(sale_id):
     if sale_id:
         try:
-            db.conn.autocommit = False
+            # db.conn.autocommit = False
             # db.refresh_connection()
-            db.delete('sale',where="sale_id='{sale_id}'".format(sale_id=sale_id))
+            # db.delete('sale',where="sale_id='{sale_id}'".format(sale_id=sale_id))
+            
+            db.update('sale',set_columns=['sale_status'],set_values=['CANCELED'],where="sale_id='{sale_id}'".format(sale_id=sale_id))
+            
+            ## get booking id from stock table, if book_id is not null, change booking status and book payment status to canceled
+            book_id_df = db.select(columns=['stk_book_id'],table='stock',where="stk_sale_id='{stk_sale_id}'".format(stk_sale_id=sale_id))
+            book_id_df.drop_duplicates(inplace=True)
+
+            
+            if len(book_id_df) >0:
+                for i in range(len(book_id_df)):
+                    book_id = book_id_df['stk_book_id'][i]
+                    db.update(table='booking',set_columns=['book_status'],set_values=['CANCELED'],where="book_id='{book_id}'".format(book_id=book_id))
+                    db.update(table='book_payment',set_columns=['bp_status'],set_values=['CANCELED'],where="bp_book_id='{bp_book_id}'".format(bp_book_id=book_id))
+                
+            ## reset sale and book columns in stock to null
+            db.update(table='stock',set_columns=['stk_sale_id', 'stk_sell_date','stk_gold_sell','stk_profit','stk_weight_sell','stk_book_id','stk_weight_book','stk_labor_book','stk_gold_book','stk_book_price','stk_status'],set_values=[None,None,None,None,None,None,None,None,None,None,'IN STOCK'],where="stk_sale_id='{sale_id}'".format(sale_id=sale_id))
+            
             db.conn.commit()
         except Exception as e:
             db.conn.rollback()
             return f"Invalid input. Please check your data and try again. {e}", 400
+        # finally:
+    #        db.conn.autocommit = True
+            
         sales = db.select('sale', js=True)
         if sales:
             return render_template("sales.html", sales=sales)
@@ -720,15 +740,15 @@ def add_salesman():
         if request.method == 'POST':
             # perform add salesman
             try:
-                db.conn.autocommit = False
+                # db.conn.autocommit = False
                 # db.refresh_connection()
                 db.insert(table='salesman',columns=list(request.form.keys()),values=list(request.form.values()))
                 db.conn.commit()
             except Exception as e:
                 db.conn.rollback()
                 return f"Invalid input. Please check your data and try again. Error: {e}", 400
-            finally:
-                db.conn.autocommit = True
+            # finally:
+        #        db.conn.autocommit = True
             
             salesmen = db.select('salesman', js=True)
             if salesmen:
@@ -752,15 +772,15 @@ def edit_salesman(slm_id):
 def update_salesman_view():
     if 'loggedin' in session:
         try:
-            db.conn.autocommit = False
+            # db.conn.autocommit = False
             # db.refresh_connection()
             db.update(table='salesman',set_columns=list(request.form.keys()),set_values=list(request.form.values()), where="slm_id='{slm_id}'".format(slm_id=request.form['slm_id']))
             db.conn.commit()
         except Exception as e:
             db.conn.rollback()
             return f"Invalid input. Please check your data and try again. {e}", 400
-        finally:
-           db.conn.autocommit = True
+        # finally:
+   #        db.conn.autocommit = True
         salesmen = db.select('salesman', js=True)
         if salesmen:
             return render_template("salesmen.html", salesmen=salesmen)
@@ -771,15 +791,15 @@ def update_salesman_view():
 def deletesalesman(slm_id):
     if slm_id:
         try:
-            db.conn.autocommit = False
+            # db.conn.autocommit = False
             # db.refresh_connection()
             db.delete('salesman',where="slm_id='{slm_id}'".format(slm_id=slm_id))
             db.conn.commit()
         except Exception as e:
             db.conn.rollback()
             return f"Invalid input. Please check your data and try again. {e}", 400
-        finally:
-           db.conn.autocommit = True
+        # finally:
+   #        db.conn.autocommit = True
         
         salesmen = db.select('salesman', js=True)
         if salesmen:
@@ -806,15 +826,15 @@ def add_customer():
             # perform add salesman
             # print(request.form)
             try:
-                db.conn.autocommit = False
+                # db.conn.autocommit = False
                 # db.refresh_connection()
                 db.insert(table='customer',columns=list(request.form.keys()),values=list(request.form.values()))
                 db.conn.commit()
             except Exception as e:
                 db.conn.rollback()
                 return f"Invalid input. Please check your data and try again. {e}", 400
-            finally:
-                db.conn.autocommit = True
+            # finally:
+        #        db.conn.autocommit = True
             
             customers = db.select('customer', js=True)
             if customers:
@@ -838,15 +858,15 @@ def edit_customer(cust_id):
 def update_customer_view():
     if 'loggedin' in session:
         try:
-            db.conn.autocommit = False
+            # db.conn.autocommit = False
             # db.refresh_connection()
             db.update(table='customer',set_columns=list(request.form.keys()),set_values=list(request.form.values()), where="cust_id='{cust_id}'".format(cust_id=request.form['cust_id']))
             db.conn.commit()
         except Exception as e:
             db.conn.rollback()
             return f"Invalid input. Please check your data and try again. {e}", 400
-        finally:
-            db.conn.autocommit = True
+        # finally:
+    #        db.conn.autocommit = True
         customers = db.select('customer', js=True)
         if customers:
             return render_template("customers.html", customers=customers)
@@ -857,15 +877,15 @@ def update_customer_view():
 def deletecustomer(cust_id):
     if cust_id:
         try:
-            db.conn.autocommit = False
+            # db.conn.autocommit = False
             # db.refresh_connection()
             db.delete('customer',where="cust_id='{cust_id}'".format(cust_id=cust_id))
             db.conn.commit()
         except Exception as e:
             db.conn.rollback()
             return f"Invalid input. Please check your data and try again. {e}", 400
-        finally:
-            db.conn.autocommit = True
+        # finally:
+    #        db.conn.autocommit = True
         customers = db.select('customer', js=True)
         if customers:
             return render_template("customers.html", customers=customers)
@@ -925,7 +945,7 @@ def add_booking():
                 values_to_insert.append('BOOKED')
                 # Insert the data into the booking table
                 
-                db.conn.autocommit = False
+                # db.conn.autocommit = False
                 # db.refresh_connection()
                 
                 # insert all information to booking table
@@ -975,12 +995,12 @@ def add_booking():
 
                 
                 db.conn.commit()
-                db.conn.autocommit = True
+        #        db.conn.autocommit = True
             except ValueError:
                 db.conn.rollback()
                 return "Invalid input. Please check your data and try again.", 400
-            finally:
-                db.conn.autocommit = True
+            # finally:
+        #        db.conn.autocommit = True
             
             bookings = db.select('booking', js=True)
             if bookings:
@@ -1020,7 +1040,7 @@ def edit_book(book_id):
             result = [item for item in old_stk_ids if item not in new_stk_id]
             
             try:
-                db.conn.autocommit = False
+                # db.conn.autocommit = False
                 # db.refresh_connection()
                 
                 for stockID in result:
@@ -1055,8 +1075,8 @@ def edit_book(book_id):
             except Exception as e:
                 db.conn.rollback()
                 return f"Invalid input. Please check your data and try again. Error: {e}", 400
-            finally:
-                db.conn.autocommit = True
+            # finally:
+        #        db.conn.autocommit = True
             
             
             bookings = db.select('booking', js=True)
@@ -1079,21 +1099,24 @@ def edit_book(book_id):
             return render_template('updatebooking.html', booking=booking[0], customers=customers, stocks=stocks, stock_entries=stock_entries)
     return redirect('login.html')
 
-
-### to be discussed, need to delete booking or change status to cancel
 @app.route('/delete-booking/<book_id>', methods=['POST'])
 def deletebooking(book_id):
     if book_id:
         try:
-            db.conn.autocommit = False
-            # db.refresh_connection()
-            db.delete('booking',where="book_id='{book_id}'".format(book_id=book_id))
+            
+            db.update('booking',set_columns=['book_status'],set_values=['CANCELED'],where="book_id='{book_id}'".format(book_id=book_id))
+            
+            db.update(table='book_payment',set_columns=['bp_status'],set_values=['CANCELED'],where="bp_book_id='{bp_book_id}'".format(bp_book_id=book_id))
+                
+            ## reset sale and book columns in stock to null
+            db.update(table='stock',set_columns=['stk_book_id','stk_weight_book','stk_labor_book','stk_gold_book','stk_book_price','stk_status'],set_values=[None,None,None,None,None,'IN STOCK'],where="stk_book_id='{book_id}'".format(book_id=book_id))
+
             db.conn.commit()
         except Exception as e:
             db.conn.rollback()
             return f"Invalid input. Please check your data and try again. Error: {e}", 400
-        finally:
-            db.conn.autocommit = True
+        # finally:
+    #        db.conn.autocommit = True
         bookings = db.select('booking', js=True)
         if bookings:
             return render_template("bookings.html", bookings=bookings)
@@ -1143,7 +1166,7 @@ def add_bookpayments(book_id):
             # print(new_book_remaining)
 
             try:
-                db.conn.autocommit = False
+                # db.conn.autocommit = False
                 # db.refresh_connection()
 
                 db.insert(table='book_payment',columns=['bp_payment','bp_book_id','bp_payment_date','bp_status'],values=[float(bp_payment),book_id,bp_payment_date,'PAID'])
@@ -1155,8 +1178,8 @@ def add_bookpayments(book_id):
             except Exception as e:
                 db.conn.rollback()
                 return f"Invalid input. Please check your data and try again. Error: {e}", 400
-            finally:
-                db.conn.autocommit = True
+            # finally:
+        #        db.conn.autocommit = True
             
             
             bookpayments = db.select('book_payment', where="bp_book_id='{book_id}'".format(book_id=book_id), js=True)
@@ -1173,15 +1196,13 @@ def add_bookpayments(book_id):
     # User is not loggedin redirect to login page
     return redirect('login.html')
 
-
-### need to pass bp_id
 @app.route('/cancel-bookpayment/<bp_book_id>/<bp_id>', methods=['POST'])
 def cancelbookpayment(bp_book_id, bp_id):
     if bp_id:
 
         try:
             
-            db.conn.autocommit = False
+            # db.conn.autocommit = False
             # db.refresh_connection()
             
             db.update(table = 'book_payment',set_columns=['bp_status'],set_values=['CANCELLED'],where=f"bp_id = '{bp_id}'")
@@ -1195,8 +1216,8 @@ def cancelbookpayment(bp_book_id, bp_id):
         except Exception as e:
             db.conn.rollback()
             return f"Invalid input. Please check your data and try again. Error: {e}", 400
-        finally:
-            db.conn.autocommit = True
+        # finally:
+    #        db.conn.autocommit = True
 
         
         bookpayments = db.select('book_payment', where= f"bp_book_id ='{bp_book_id}'", js=True)
@@ -1206,15 +1227,13 @@ def cancelbookpayment(bp_book_id, bp_id):
         return render_template("bookpayments.html", bookings=bookings)
     return 'Book Payment ID is missing', 400
 
-
-
-### delete or cancel booking
 @app.route('/cancel-booking/<book_id>', methods=['POST'])
 def cancelbooking(book_id):
     if book_id:
         # do ...
         # update all book payments to cancelled
         # update the booking to cancelled
+        # update stock
         bookings = db.select('booking', js=True)
         if bookings:
             return render_template("bookings.html", bookings=bookings)
@@ -1222,12 +1241,13 @@ def cancelbooking(book_id):
     return 'Book ID is missing', 400
 
 
-### need to check what issue
 @app.route('/close-booking/<book_id>', methods=['GET'])
 def closebookpayment(book_id):    
-    remaining = float(db.select(table='booking',columns=['book_remaining'],where=f"book_id='{book_id}'")[0]['book_remaining'])
+    a = db.select(table='booking',columns=['book_remaining'],where=f"book_id='{book_id}'")
+
+    remaining = float(db.select(table='booking',columns=['book_remaining'],where=f"book_id='{book_id}'")['book_remaining'][0])
     try:
-        db.conn.autocommit = False
+        # db.conn.autocommit = False
         # db.refresh_connection()
         # add book payment
         db.insert(table='book_payment',columns=['bp_payment','bp_book_id','bp_payment_date','bp_status'],values=[remaining,book_id,datetime.now(),'PAID'])
@@ -1239,21 +1259,23 @@ def closebookpayment(book_id):
     except Exception as e:
         db.conn.rollback()
         return f"Invalid input. Please check your data and try again. Error: {e}", 400
-    finally:
-        db.conn.autocommit = True
+    # finally:
+#        db.conn.autocommit = True
     
     bookings = db.select('booking', where="book_id='{book_id}'".format(book_id=book_id), js=True)
     customers = db.select(table="customer", js=True)
     stock_entries = db.select('stock', where="stk_book_id='{book_id}'".format(book_id=book_id))
+    stock_entries['sale_price'] = 0
     for i in range(len(stock_entries)):
-        stock_entries[i]['sale_price'] = (stock_entries[i]['stk_gold_book']*stock_entries[i]['stk_weight_book']) + stock_entries[i]['stk_labor_book']
-    booked_stk_ids = [item['stk_id'] for item in stock_entries]
+        stock_entries['sale_price'][i] = (stock_entries['stk_gold_book'][i]*stock_entries['stk_weight_book'][i]) + stock_entries['stk_labor_book'][i]
+    
+    booked_stk_ids = [item for item in stock_entries['stk_id']]
     joined_ids = ', '.join(f"'{stk_id}'" for stk_id in booked_stk_ids)
+    stock_entries = stock_entries.to_json(orient='records', date_format='iso')
+    stock_entries = json.loads(stock_entries)
     stocks = db.select('stock', where=f"stk_status='IN STOCK' OR stk_id IN ({joined_ids})", js=True)
     return render_template('addsales(booking).html', booking=bookings[0], customers=customers, stocks=stocks, stock_entries=stock_entries)
 
-
-### need to test later, after close booking completed
 @app.route('/submit_sale', methods=['POST'])
 def submit_sale():
     # Get data from the form
@@ -1267,12 +1289,14 @@ def submit_sale():
         'sale_weight_total': sum(float(value) for value in sale_weight if value.strip()),
         'sale_price_total': sum(float(value) for value in sale_price if value.strip())
     }
-    columns = ['sale_official_receipt', 'sale_cust_id', 'sale_receipt_no', 'sale_sold_date', 'sale_gold_sell', 'sale_labor_sell', 'sale_weight', 'sale_price']
+    columns = ['sale_official_receipt', 'sale_cust_id', 'sale_receipt_no', 'sale_sold_date', 'sale_gold_sell', 'sale_labor_sell', 'sale_weight', 'sale_price', 'sale_status']
     values = []
     
     # prepare data for sale table
     for key in columns:
-        if key not in ['sale_labor_sell', 'sale_weight', 'sale_price']:
+        if key == 'sale_status':
+            values.append("SOLD")
+        elif key not in ['sale_labor_sell', 'sale_weight', 'sale_price']:
             values.append(request.form[key])
         else:
             values.append(sum_dict[f"{key}_total"])
@@ -1280,7 +1304,7 @@ def submit_sale():
     try:
         
         # db.refresh_connection()
-        db.conn.autocommit = False
+        # db.conn.autocommit = False
         
         db.insert(table='sale',columns=columns,values=values)
         # get data from sale table
@@ -1293,10 +1317,17 @@ def submit_sale():
                 'stk_labor_sell':sale_labor_sell[i],
                 'stk_weight_sell':sale_weight[i],
             }
-            stk_data = db.select('stock', columns=['stk_weight','stk_gold_cost','stk_labor_cost'], where=f"stk_id='{stk_ids[i]}'",js=True)
+            stk_data = db.select('stock', columns=['stk_weight','stk_gold_cost','stk_labor_cost'], where=f"stk_id='{stk_ids[i]}'")
+            stk_data.fillna(0,inplace=True)
             # calculate profit
             sold_price = sale_price[i]
-            stk_profit = float(sold_price) - ((float(stk_data[0]['stk_weight'])*float(stk_data[0]['stk_gold_cost']))+float(stk_data[0]['stk_labor_cost']))
+            print('sold_price:',sold_price)
+            print("stk_data['stk_weight'][0]:",stk_data['stk_weight'][0])
+            print("stk_data['stk_gold_cost'][0]:",stk_data['stk_gold_cost'][0])
+            print("stk_data['stk_labor_cost'][0]:",stk_data['stk_labor_cost'][0])
+            
+            
+            stk_profit = float(sold_price) - ((float(stk_data['stk_weight'][0])*float(stk_data['stk_gold_cost'][0]))+float(stk_data['stk_labor_cost'][0]))
             
             # add needed data to dictionary
             stk_dict['stk_status'] = 'SOLD'
@@ -1320,11 +1351,11 @@ def submit_sale():
     except ValueError:
         db.conn.rollback()
         return "Invalid input. Please check your data and try again.", 400
-    finally:
-            db.conn.autocommit = True
     # finally:
+    #        db.conn.autocommit = True
+    # # finally:
     #     if db.conn.closed == 0:  # check connection is still open
-    #         db.conn.autocommit = True
+    # #        db.conn.autocommit = True
     
     sales = db.select('sale', js=True)
     if sales:
@@ -1379,15 +1410,15 @@ def add_pattern():
                 values_to_insert.append(img_path_to_insert)
 
                 try:
-                    db.conn.autocommit = False
+                    # db.conn.autocommit = False
                     # db.refresh_connection()
                     db.insert(table='category_pattern_mapping',columns=columns_to_insert,values=values_to_insert)
                     db.conn.commit()
                 except Exception as e:
                     db.conn.rollback()
                     return f"Invalid input. Please check your data and try again. {e}", 400
-                finally:
-                    db.conn.autocommit = True
+                # finally:
+            #        db.conn.autocommit = True
                     
         return render_template("patterns.html")
     
@@ -1453,7 +1484,7 @@ def update_pattern_view():
                 # Save the image to the uploads folder
                 image.save(image_path_save)
                 
-                db.conn.autocommit = False
+                # db.conn.autocommit = False
                 # db.refresh_connection()
                 
                 db.update(table='category_pattern_mapping',set_columns=['cpat_image_path'],set_values=[image_path_store],where = "cpat_id='{cpat_id}'".format(cpat_id=request.form['cpat_id']))             
@@ -1464,8 +1495,8 @@ def update_pattern_view():
         except Exception as e:
             db.conn.rollback()
             return f"Invalid input. Please check your data and try again. Error: {e}", 400
-        finally:
-            db.conn.autocommit = True
+        # finally:
+    #        db.conn.autocommit = True
         patterns = db.select('category_pattern_mapping', js=True)
         return render_template("patterns.html", patterns=patterns)
     return redirect('login.html')
@@ -1474,7 +1505,7 @@ def update_pattern_view():
 def deletepattern(cpat_id):
     if cpat_id:
         try:
-            db.conn.autocommit = False
+            # db.conn.autocommit = False
             # db.refresh_connection()
             db.delete('category_pattern_mapping',where="cpat_id='{cpat_id}'".format(cpat_id=cpat_id))
             db.conn.commit()
@@ -1482,8 +1513,8 @@ def deletepattern(cpat_id):
             db.conn.rollback()
             return f"Invalid input. Please check your data and try again. Error: {e}", 400
 
-        finally:
-            db.conn.autocommit = True
+        # finally:
+    #        db.conn.autocommit = True
         patterns = db.select('category_pattern_mapping', js=True)
         if patterns:
             return render_template("patterns.html", patterns=patterns)
@@ -1534,7 +1565,7 @@ def process_barcode_data():
     # processed_data = barcode_export[['Stock ID','Stock Barcode', 'Stock Weight (g)','Stock Size','Stock Length (cm)','Stock Returned']].to_json(orient='records')
     try:
         
-        db.conn.autocommit = False
+        # db.conn.autocommit = False
         # db.refresh_connection()
         
         db.update(table='stock',set_columns=['stk_printed'],set_values=['1'],where = "stk_id in ({stk_id})".format(stk_id=stk_id_to_convert))
@@ -1544,8 +1575,8 @@ def process_barcode_data():
         db.conn.rollback()
         return f"Invalid input. Please check your data and try again. Error: {e}", 400
 
-    finally:
-        db.conn.autocommit = True
+    # finally:
+#        db.conn.autocommit = True
 
     processed_data = list(processed_data)
     

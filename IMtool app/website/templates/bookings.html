@@ -90,7 +90,7 @@
                                         <div class="btn btn-warning btn-sm"><i class="fas fa-edit edit-icon"></i></div>
                                     </a>
                                     {% if booking.book_status != "CANCELLED" %}
-                                    <form id="cancel-booking-{{ booking.book_id }}" action="/cancel-booking/{{ booking.book_id }}" method="post" style="display: inline;">
+                                    <form id="delete-booking-{{ booking.book_id }}" action="/delete-booking/{{ booking.book_id }}" method="post" style="display: inline;">
                                         <a onclick="confirmDelete('{{ booking.book_id }}')">
                                             <div class="btn btn-danger btn-sm"><i class="fas fa-minus"></i></div>
                                         </a>
@@ -244,7 +244,7 @@
     <script>
         function confirmDelete(bookingId) {
             if (confirm('Are you sure you want to cancel the booking with ID="' + bookingId + '"?')) {
-                document.getElementById('cancel-booking-' + bookingId).submit();
+                document.getElementById('delete-booking-' + bookingId).submit();
                 // document.getElementById('delete-form-' + bookingId).submit();
             }
         }

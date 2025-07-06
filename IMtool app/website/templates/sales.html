@@ -66,6 +66,7 @@
                                 <th>Sale Gold Price</th>
                                 <th>Sale Labor Price</th>
                                 <th>Sale Price</th>
+                                <th>Sale Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -80,6 +81,7 @@
                                 <td>{{ sale.sale_gold_sell }}</td>
                                 <td>{{ sale.sale_labor_sell }}</td>
                                 <td>{{ sale.sale_price }}</td>
+                                <td>{{ sale.sale_status }}</td>
                                 <td>
                                     <a href="/update-sale/{{ sale.sale_id }}">
                                         <div class="btn btn-warning btn-sm"><i class="fas fa-edit edit-icon"></i></div>
