@@ -106,7 +106,7 @@
                                         <div class="btn btn-success btn-sm"><i class="fas fa-plus"></i></div>
                                     </a>
                                     {% if bookpayment.bp_status != "CANCELLED" %}
-                                    <form id="cancel-bookpayment-{{ bookpayment.bp_book_id }}" action="/cancel-bookpayment/{{ bookpayment.bp_book_id }}" method="post" style="display: inline;">
+                                    <form id="cancel-bookpayment-{{ bookpayment.bp_book_id }}" action="/cancel-bookpayment/{{ bookpayment.bp_book_id }}/{{ bookpayment.bp_id }}" method="post" style="display: inline;">
                                         <a onclick="confirmDelete('{{ bookpayment.bp_book_id }}')">
                                             <div class="btn btn-danger btn-sm"><i class="fas fa-minus"></i></div>
                                         </a>
