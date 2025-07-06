@@ -1321,10 +1321,10 @@ def submit_sale():
             stk_data.fillna(0,inplace=True)
             # calculate profit
             sold_price = sale_price[i]
-            print('sold_price:',sold_price)
-            print("stk_data['stk_weight'][0]:",stk_data['stk_weight'][0])
-            print("stk_data['stk_gold_cost'][0]:",stk_data['stk_gold_cost'][0])
-            print("stk_data['stk_labor_cost'][0]:",stk_data['stk_labor_cost'][0])
+            # print('sold_price:',sold_price)
+            # print("stk_data['stk_weight'][0]:",stk_data['stk_weight'][0])
+            # print("stk_data['stk_gold_cost'][0]:",stk_data['stk_gold_cost'][0])
+            # print("stk_data['stk_labor_cost'][0]:",stk_data['stk_labor_cost'][0])
             
             
             stk_profit = float(sold_price) - ((float(stk_data['stk_weight'][0])*float(stk_data['stk_gold_cost'][0]))+float(stk_data['stk_labor_cost'][0]))
@@ -1594,9 +1594,9 @@ def process_barcode_data():
 #     print(sale_id)
 
 #     sale = db.select(table='sale', where=f"sale_id='{sale_id}'")
-#     if sale[0]['sale_sold_date']:
+#     if sale['sale_sold_date'][0]:
 #         sale_date_object = datetime.fromisoformat(sale[0].get('sale_sold_date').replace('Z', '+00:00'))
-#         sale[0]['sale_sold_date'] = sale_date_object.strftime('%Y-%m-%d')
+#         sale['sale_sold_date'][0] = sale_date_object.strftime('%Y-%m-%d')
 #     customer = db.select(table="customer", where="cust_id='{sale_cust_id}'".format(sale_cust_id=sale[0]["sale_cust_id"])) 
 #     print(sale[0]["sale_cust_id"])
 #     print(sale_id)
@@ -1635,9 +1635,9 @@ def print_invoice(sale_id):
     # stock_entries = get_stock_entries_by_sale_id(sale_id)  # Replace with actual logic to get stock entries
     
     sale = db.select('sale', where="sale_id='{sale_id}'".format(sale_id=sale_id),js=True)
-    if sale[0]['sale_sold_date']:
+    if sale['sale_sold_date'][0]:
         sale_date_object = datetime.fromisoformat(sale[0].get('sale_sold_date').replace('Z', '+00:00'))
-        sale[0]['sale_sold_date'] = sale_date_object.strftime('%Y-%m-%d')
+        sale['sale_sold_date'][0] = sale_date_object.strftime('%Y-%m-%d')
     customer = db.select(table="customer", where="cust_id='{sale_cust_id}'".format(sale_cust_id=sale[0]["sale_cust_id"]), js=True) 
     query = f"""
             select 
