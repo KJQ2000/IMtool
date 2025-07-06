@@ -35,15 +35,17 @@ PREFIX = {
 }
 
 
-log_file = dic.LOG_DIR+str(datetime.now().strftime("%Y_%m_%d"))+'.log'
-logging.basicConfig(filename=log_file,level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# log_file = dic.LOG_DIR+str(datetime.now().strftime("%Y_%m_%d"))+'.log'
+# logging.basicConfig(filename=log_file,level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class Database: 
     def __init__(self, database_url: str):
         self.database_url = database_url
         self.conn = psycopg2.connect(self.database_url)
-        self.cursor = self.conn.cursor()
+        # self.cursor = self.conn.cursor()
+        self.cursor = None
         self.schema = 'konghin'
+        self.conn.autocommit = True
     
     def refresh_connection(self):
         """
@@ -53,12 +55,12 @@ class Database:
         Returns:
             bool: True if the connection is valid or refreshed successfully, False otherwise.
         """
-        try:
-            if self.conn and self.conn.closed == 0:
-                # Connection is still open, no need to refresh
-                return True
-        except Exception as e:
-            logging.warning(f"Could not verify connection state: {e}")
+        # try:
+        #     if self.conn and self.conn.closed == 0:
+        #         # Connection is still open, no need to refresh
+        #         return True
+        # except Exception as e:
+        #     logging.warning(f"Could not verify connection state: {e}")
 
         try:
             if self.cursor:
@@ -97,7 +99,10 @@ class Database:
             pd.DataFrame or str: DataFrame of results or JSON if js=True.
         """
         try:
-            self.refresh_connection()
+            # self.refresh_connection()
+            
+            if self.cursor is None or self.cursor.closed:
+                self.cursor = self.conn.cursor()
             
             self.cursor.execute(query, params)
             results = self.cursor.fetchall()
@@ -133,7 +138,7 @@ class Database:
         Returns:
             pd.DataFrame or str: A DataFrame of the selected data or a JSON string if js is True. Returns None if an error occurs.
         """
-        self.refresh_connection()
+        # self.refresh_connection()
         
         if columns:
             query = sql.SQL("SELECT {columns} FROM {schema}.{table}").format(
@@ -151,6 +156,9 @@ class Database:
             query += sql.SQL(" WHERE {where}").format(where=sql.SQL(where))
 
         try:
+            if self.cursor is None or self.cursor.closed:
+                self.cursor = self.conn.cursor()
+            
             self.cursor.execute(query)
             results = self.cursor.fetchall()
             df = pd.DataFrame(np.array(results))
@@ -174,8 +182,8 @@ class Database:
 
     def insert(self, table: str, values: list, columns: list = None) -> None:
         
-        self.refresh_connection()
-        
+        # self.refresh_connection()
+
         base_query = sql.SQL("INSERT INTO {schema}.{table}").format(
             schema=sql.Identifier(self.schema),
             table=sql.Identifier(table)
@@ -221,26 +229,31 @@ class Database:
 
         
         try:
+            if self.cursor is None or self.cursor.closed:
+                self.cursor = self.conn.cursor()
+            
             self.cursor.execute(query, values)
-            self.conn.commit()
+            # self.conn.commit()
             logging.info(f"Successfully inserted data into {self.schema}.{table}.")
             logging.info(f"Query: {query.as_string(self.conn)}")
             logging.info(f"Values: {values}")
+            return pk
         except (psycopg2.Error, psycopg2.DatabaseError) as e:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
             logging.error(f"Error details: {e.diag.message_detail}")
             self.conn.rollback()
+            raise
         except Exception as e:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Unexpected error: {e}")
             self.conn.rollback()
-
+            raise
 
 
     def update(self, table: str, set_columns: list, set_values: list, where: str) -> None:
         
-        self.refresh_connection()
+        # self.refresh_connection()
         
         # Filter columns and values, allowing explicit NULLs
         clean_columns, clean_values = [], []
@@ -274,27 +287,33 @@ class Database:
         )
         
         try:
+            if self.cursor is None or self.cursor.closed:
+                self.cursor = self.conn.cursor()
+            
             # Filter out None values from clean_values, as they are not needed for placeholders
             clean_values_for_execute = [val for val in clean_values if val is not None]
             self.cursor.execute(query, clean_values_for_execute)
-            self.conn.commit()
+            # self.conn.commit()
             logging.info(f"Successfully updated data in {self.schema}.{table}.")
             logging.info(f"Query: {query.as_string(self.conn)}")
             logging.info(f"Values: {clean_values_for_execute}")
+            return True
         except psycopg2.Error as e:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
             logging.error(f"Error details: {e.diag.message_detail}")
             self.conn.rollback()
+            raise
         except Exception as e:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Unexpected error: {e}")
             self.conn.rollback()
+            raise
 
 
     def delete(self, table: str, where: str) -> None:
         
-        self.refresh_connection()
+        # self.refresh_connection()
         
         query = sql.SQL("DELETE FROM {schema}.{table} WHERE {where}").format(
             schema=sql.Identifier(self.schema),
@@ -303,19 +322,25 @@ class Database:
         )
 
         try:
+            if self.cursor is None or self.cursor.closed:
+                self.cursor = self.conn.cursor()
+            
             self.cursor.execute(query)
-            self.conn.commit() 
+            # self.conn.commit() 
             logging.info(f"Successfully deleted data from {self.schema}.{table}.")
             logging.info(f"Query: {query.as_string(self.conn)}")
+            return True
         except psycopg2.Error as e:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
             logging.error(f"Error details: {e.diag.message_detail}")
             self.conn.rollback()
+            raise
         except Exception as e:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Unexpected error: {e}")
             self.conn.rollback()
+            raise
 
     def get_nextval(self, sequence_name: str):
         query = sql.SQL("select nextval('{schema}.{seq}')").format(
@@ -324,6 +349,9 @@ class Database:
         )
 
         try:
+            if self.cursor is None or self.cursor.closed:
+                self.cursor = self.conn.cursor()
+            
             self.cursor.execute(query)
             result = self.cursor.fetchone()[0]
             logging.info(f"Next value of sequence {sequence_name}: {result}")
@@ -345,6 +373,9 @@ class Database:
         )
 
         try:
+            if self.cursor is None or self.cursor.closed:
+                self.cursor = self.conn.cursor()
+            
             self.cursor.execute(query)
             result = self.cursor.fetchone()[0]
             logging.info(f"current value of sequence {sequence_name}: {result}")
@@ -366,6 +397,9 @@ class Database:
         )
 
         try:
+            if self.cursor is None or self.cursor.closed:
+                self.cursor = self.conn.cursor()
+            
             self.cursor.execute(query)
             logging.info(f"sequence {sequence_name} dropped!")
             return True
@@ -386,6 +420,9 @@ class Database:
         )
 
         try:
+            if self.cursor is None or self.cursor.closed:
+                self.cursor = self.conn.cursor()
+            
             self.cursor.execute(query)
             logging.info(f"sequence {sequence_name} created!")
             return True
@@ -402,7 +439,7 @@ class Database:
 
     def batch_insert(self, table: str, values: list, columns: list = None) -> None:
         
-        self.refresh_connection()
+        # self.refresh_connection()
         
         base_query = "INSERT INTO {schema}.{table}".format(
             schema=self.schema,
@@ -447,8 +484,11 @@ class Database:
 
 
         try:
+            if self.cursor is None or self.cursor.closed:
+                self.cursor = self.conn.cursor()
+            
             self.cursor.execute(insert_query)
-            self.conn.commit()
+            # self.conn.commit()
             logging.info(f"Successfully inserted data into {self.schema}.{table}.")
             logging.info(f"Query: {insert_query}")
         except (psycopg2.Error, psycopg2.DatabaseError) as e:
