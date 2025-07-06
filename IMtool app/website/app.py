@@ -1206,8 +1206,8 @@ def cancelbookpayment(bp_book_id, bp_id):
             # db.refresh_connection()
             
             db.update(table = 'book_payment',set_columns=['bp_status'],set_values=['CANCELLED'],where=f"bp_id = '{bp_id}'")
-            old_rem_price = float(db.select(table='booking',columns=['book_remaining'],where=f"book_id='{bp_book_id}'")[0]['book_remaining'])
-            book_payment_price = float(db.select(table='book_payment',columns=['bp_payment'],where=f"bp_id = '{bp_id}'")[0]['bp_payment'])
+            old_rem_price = float(db.select(table='booking',columns=['book_remaining'],where=f"book_id='{bp_book_id}'")['book_remaining'][0])
+            book_payment_price = float(db.select(table='book_payment',columns=['bp_payment'],where=f"bp_id = '{bp_id}'")['bp_payment'][0])
             new_rem_price = old_rem_price+book_payment_price
             db.update(table='booking',set_columns=['book_remaining','book_status'],set_values=[new_rem_price,'BOOKED'],where=f"book_id='{bp_book_id}'")
 
