@@ -90,8 +90,8 @@
                                 <input type="number" step="0.01" class="form-control" id="pur_total_cash_amt" name="pur_total_cash_amt">
                             </div>
                             <div class="col-md-4 mb-3" id="trade_in_amount_div">
-                                <label for="put_total_trade_in_amt" class="form-label">Pay by Trade In Amount</label>
-                                <input type="number" step="0.01" class="form-control" id="put_total_trade_in_amt" name="put_total_trade_in_amt">
+                                <label for="pur_total_trade_in_amt" class="form-label">Pay by Trade In Amount</label>
+                                <input type="number" step="0.01" class="form-control" id="pur_total_trade_in_amt" name="pur_total_trade_in_amt">
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="pur_total_amt" class="form-label">Purchase Total Amount</label>
@@ -144,7 +144,7 @@
         const cashAmountDiv = document.getElementById('cash_amount_div');
         const tradeInAmountDiv = document.getElementById('trade_in_amount_div');
         const purTotalCashAmt = document.getElementById('pur_total_cash_amt');
-        const putTotalTradeInAmt = document.getElementById('put_total_trade_in_amt');
+        const putTotalTradeInAmt = document.getElementById('pur_total_trade_in_amt');
 
         if (purMethod === 'Cash') {
             cashAmountDiv.style.display = 'block';
@@ -169,15 +169,15 @@
         const purBillingDate = document.getElementById('pur_billing_date').value;
         const purMethod = document.getElementById('pur_method');
         const purTotalCashAmt = document.getElementById('pur_total_cash_amt');
-        const putTotalTradeInAmt = document.getElementById('put_total_trade_in_amt');
+        const putTotalTradeInAmt = document.getElementById('pur_total_trade_in_amt');
 
         if (!purBillingDate) {
-            // If pur_billing_date is empty, remove required from pur_method, pur_total_cash_amt, and put_total_trade_in_amt
+            // If pur_billing_date is empty, remove required from pur_method, pur_total_cash_amt, and pur_total_trade_in_amt
             purMethod.required = false;
             purTotalCashAmt.required = false;
             putTotalTradeInAmt.required = false;
         } else {
-            // If pur_billing_date is filled, ensure pur_method, pur_total_cash_amt, and put_total_trade_in_amt are required
+            // If pur_billing_date is filled, ensure pur_method, pur_total_cash_amt, and pur_total_trade_in_amt are required
             purMethod.required = true;
             toggleAmountFields(); // Reapply logic to handle visibility and required status based on method
         }
@@ -200,7 +200,7 @@
 
         // Trade-in method validation
         if (purMethod === 'Trade-in') {
-            const putTotalTradeInAmt = parseFloat(document.getElementById('put_total_trade_in_amt').value);
+            const putTotalTradeInAmt = parseFloat(document.getElementById('pur_total_trade_in_amt').value);
             if (putTotalTradeInAmt !== purTotalAmt) {
                 confirmationMessage = `The Pay by Trade-in Amount is ${putTotalTradeInAmt}, while the Purchase Total Amount is ${purTotalAmt}. Do you want to proceed with adding the purchase?`;
             }
@@ -209,7 +209,7 @@
         // Both method validation
         if (purMethod === 'Both') {
             const purTotalCashAmt = parseFloat(document.getElementById('pur_total_cash_amt').value);
-            const putTotalTradeInAmt = parseFloat(document.getElementById('put_total_trade_in_amt').value);
+            const putTotalTradeInAmt = parseFloat(document.getElementById('pur_total_trade_in_amt').value);
             const totalAmount = purTotalCashAmt + putTotalTradeInAmt;
             if (totalAmount !== purTotalAmt) {
                 confirmationMessage = `The total of Cash Amount and Trade-in Amount is ${totalAmount}, while the Purchase Total Amount is ${purTotalAmt}. Do you want to proceed with adding the purchase?`;
