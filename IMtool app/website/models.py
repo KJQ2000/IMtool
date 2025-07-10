@@ -39,9 +39,11 @@ PREFIX = {
 # logging.basicConfig(filename=log_file,level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class Database: 
-    def __init__(self, database_url: str):
-        self.database_url = database_url
-        self.conn = psycopg2.connect(self.database_url)
+    # def __init__(self, database_url: str):
+    def __init__(self, host: str,port: str,database: str,user: str,password: str):
+        # self.database_url = database_url
+        # self.conn = psycopg2.connect(self.database_url)
+        self.conn = psycopg2.connect(host=host,port=port,database=database,user=user,password=password)
         # self.cursor = self.conn.cursor()
         self.cursor = None
         self.schema = 'konghin'

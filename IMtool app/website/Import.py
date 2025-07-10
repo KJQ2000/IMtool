@@ -77,7 +77,14 @@ def process_import_files(import_dir, db, char_limit):
 def main():
     try:
         # db = Database(os.environ["DATABASE_URL"])
-        db = Database(os.environ["DEV_DATABASE_URL"])
+        # db = Database(os.environ["DEV_DATABASE_URL"])
+        db = Database(
+            host=os.environ("HOST"),
+            port=os.environ("PORT"),
+            database=os.environ("DATABASE"),
+            user=os.environ("USER"),
+            password=os.environ("PASSWORD")
+        )
         import_dir = dic.IMPORT_DIR
         char_limit = dic.BATCH_INSERT_LIMIT
 

@@ -37,8 +37,24 @@ logging.basicConfig(filename=log_file,level=logging.INFO, format='%(asctime)s - 
 # conn = psycopg2.connect(os.environ["DATABASE_URL"])
 # db = Database(os.environ["DATABASE_URL"])
 
-conn = psycopg2.connect(os.environ["DEV_DATABASE_URL"])
-db = Database(os.environ["DEV_DATABASE_URL"])
+# conn = psycopg2.connect(os.environ["DEV_DATABASE_URL"])
+# db = Database(os.environ["DEV_DATABASE_URL"])
+
+conn = psycopg2.connect(
+        host=os.environ["HOST"],
+        port=os.environ["PORT"],
+        database=os.environ["DATABASE"],
+        user=os.environ["USER"],
+        password=os.environ["PASSWORD"]
+    )
+
+db = Database(
+    host=os.environ["HOST"],
+    port=os.environ["PORT"],
+    database=os.environ["DATABASE"],
+    user=os.environ["USER"],
+    password=os.environ["PASSWORD"]
+    )
 
 @app.route("/")
 def home():
