@@ -48,44 +48,6 @@ class Database:
         self.cursor = None
         self.schema = 'konghin'
         self.conn.autocommit = False
-    
-    def refresh_connection(self):
-        """
-        Refreshes the database connection by closing and reopening it only if the
-        current connection is closed or invalid.
-
-        Returns:
-            bool: True if the connection is valid or refreshed successfully, False otherwise.
-        """
-        # try:
-        #     if self.conn and self.conn.closed == 0:
-        #         # Connection is still open, no need to refresh
-        #         return True
-        # except Exception as e:
-        #     logging.warning(f"Could not verify connection state: {e}")
-
-        try:
-            if self.cursor:
-                self.cursor.close()
-            if self.conn:
-                self.conn.close()
-            logging.info("Closed existing database connection.")
-        except Exception as e:
-            logging.warning(f"Error closing connection: {e}")
-
-        try:
-            self.conn = psycopg2.connect(self.database_url)
-            self.cursor = self.conn.cursor()
-            logging.info("Reconnected to database successfully.")
-            return True
-        except psycopg2.Error as e:
-            logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
-            if hasattr(e, 'diag') and e.diag.message_detail:
-                logging.error(f"Error details: {e.diag.message_detail}")
-            return False
-        except Exception as e:
-            logging.error(f"Unexpected error: {e}")
-            return False
 
         
     def select_raw(self, query: str, params: tuple = None, js: bool = False):
@@ -490,7 +452,7 @@ class Database:
                 self.cursor = self.conn.cursor()
             
             self.cursor.execute(insert_query)
-            # self.conn.commit()
+            self.conn.commit()
             logging.info(f"Successfully inserted data into {self.schema}.{table}.")
             logging.info(f"Query: {insert_query}")
         except (psycopg2.Error, psycopg2.DatabaseError) as e:

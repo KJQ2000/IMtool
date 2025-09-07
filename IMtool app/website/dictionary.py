@@ -25,3 +25,5 @@ BATCH_INSERT_LIMIT = 1000
 PY_IMPORT_FILE = os.path.join(os.path.abspath(os.getcwd()), 'website','Import.py')
 
 LOG_DIR = os.path.join(os.path.abspath(os.getcwd()), 'system_files','Log')
+
+APP_SECRET_KEY = b'k0ngh1n888'

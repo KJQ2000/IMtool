@@ -43,7 +43,7 @@ def process_import_files(import_dir, db, char_limit):
             if file.endswith('.csv'):
                 df = pd.read_csv(file)
             else:
-                df = pd.read_excel(file)
+                df = pd.read_excel(file, engine="openpyxl")
 
             table = TABLE.get(str(df.columns[0].split('_')[0]).lower())
             if not table:
@@ -79,12 +79,12 @@ def main():
         # db = Database(os.environ["DATABASE_URL"])
         # db = Database(os.environ["DEV_DATABASE_URL"])
         db = Database(
-            host=os.environ("HOST"),
-            port=os.environ("PORT"),
-            database=os.environ("DATABASE"),
-            user=os.environ("USER"),
-            password=os.environ("PASSWORD")
-        )
+            host=os.environ["HOST"],
+            port=os.environ["PORT"],
+            database=os.environ["DATABASE"],
+            user=os.environ["USER"],
+            password=os.environ["PASSWORD"]
+            )
         import_dir = dic.IMPORT_DIR
         char_limit = dic.BATCH_INSERT_LIMIT
 

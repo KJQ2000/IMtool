@@ -31,13 +31,13 @@ class BarcodeGenerator:
     @staticmethod
     def _labor_encryptor(labor):
         """Encrypts the labor value."""
-        labor = str(int(math.ceil(labor)))
-        result = int(
-            ''.join(
-                str(int(x) + 1)[-1] if x.isdigit() else x for x in labor
-            )
-        )
-        return f"{result:04}"
+        labor = int(math.ceil(labor))
+        # result = int(
+        #     ''.join(
+        #         str(int(x) + 1)[-1] if x.isdigit() else x for x in labor
+        #     )
+        # )
+        return f"{labor:04}"
     
     # def get_uk(self):
     #     unique_key = self.db.select(
