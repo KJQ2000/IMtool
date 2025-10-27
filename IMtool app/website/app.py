@@ -20,7 +20,7 @@ load_dotenv()
 ALLOWED_EXTENSIONS = {'csv','xlsx'}
 
 app = Flask(__name__)
-app.secret_key = APP_SECRET_KEY
+app.secret_key = b'k0ngh1n888'
 
 
 log_file = dic.LOG_DIR+str(datetime.now().strftime("%Y_%m_%d"))+'.log'
