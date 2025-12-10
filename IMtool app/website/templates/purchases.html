@@ -48,6 +48,7 @@
                         <thead>
                             <tr>
                                 <th><input type="text" id="filter_pur_id" class="form-control" placeholder="Filter Purchase ID"></th>
+                                <th><input type="text" id="filter_pur_code" class="form-control" placeholder="Filter Purchase Code"></th>
                                 <th><input type="text" id="filter_pur_invoice_no" class="form-control" placeholder="Filter Invoice No"></th>
                                 <th><input type="text" id="filter_pur_slm_id" class="form-control" placeholder="Filter Salesman ID"></th>
                                 <th><input type="text" id="filter_pur_date" class="form-control" placeholder="Filter Purchase Date"></th>
@@ -65,6 +66,7 @@
                             </tr>
                             <tr>
                                 <th>Purchase ID</th>
+                                <th>Purchase Code</th>
                                 <th>Purchase Invoice No</th>
                                 <th>Purchase Salesman ID</th>
                                 <th>Purchase Date</th>
@@ -85,6 +87,7 @@
                             {% for purchase in purchases %}
                             <tr>
                                 <td>{{ purchase.pur_id }}</td>
+                                <td>{{ purchase.pur_code }}</td>
                                 <td>{{ purchase.pur_invoice_no }}</td>
                                 <td>{{ purchase.pur_slm_id }}</td>
                                 <td>{{ purchase.pur_date }}</td>
@@ -143,8 +146,9 @@
         });
 
         // Apply filters when any filter input changes
-        $('#filter_pur_id, #filter_pur_invoice_no, #filter_pur_slm_id, #filter_pur_date, #filter_pur_weight, #filter_pur_gold_cost, #filter_pur_labor_cost, #filter_pur_method, #filter_pur_official_invoice, #filter_pur_billing_date, #filter_pur_total_cash_amt, #filter_pur_total_trade_in_amt, #filter_pur_total_amt, #filter_pur_payment_status').on('keyup change', function() {
+        $('#filter_pur_id,#filter_pur_code, #filter_pur_invoice_no, #filter_pur_slm_id, #filter_pur_date, #filter_pur_weight, #filter_pur_gold_cost, #filter_pur_labor_cost, #filter_pur_method, #filter_pur_official_invoice, #filter_pur_billing_date, #filter_pur_total_cash_amt, #filter_pur_total_trade_in_amt, #filter_pur_total_amt, #filter_pur_payment_status').on('keyup change', function() {
             var pur_id_filter = $('#filter_pur_id').val();
+            var pur_code_filter = $('#filter_pur_code').val();
             var pur_invoice_no_filter = $('#filter_pur_invoice_no').val();
             var pur_slm_id_filter = $('#filter_pur_slm_id').val();
             var pur_date_filter = $('#filter_pur_date').val();

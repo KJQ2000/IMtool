@@ -47,7 +47,6 @@ class Database:
         # self.cursor = self.conn.cursor()
         self.cursor = None
         self.schema = 'konghin'
-        self.conn.autocommit = False
 
         
     def select_raw(self, query: str, params: tuple = None, js: bool = False):
@@ -206,12 +205,12 @@ class Database:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
             logging.error(f"Error details: {e.diag.message_detail}")
-            self.conn.rollback()
+            # self.conn.rollback()
             raise
         except Exception as e:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Unexpected error: {e}")
-            self.conn.rollback()
+            # self.conn.rollback()
             raise
 
 
@@ -266,12 +265,12 @@ class Database:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
             logging.error(f"Error details: {e.diag.message_detail}")
-            self.conn.rollback()
+            # self.conn.rollback()
             raise
         except Exception as e:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Unexpected error: {e}")
-            self.conn.rollback()
+            # self.conn.rollback()
             raise
 
 
@@ -298,12 +297,12 @@ class Database:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
             logging.error(f"Error details: {e.diag.message_detail}")
-            self.conn.rollback()
+            # self.conn.rollback()
             raise
         except Exception as e:
             logging.error(f"Query: {query.as_string(self.conn)}")
             logging.error(f"Unexpected error: {e}")
-            self.conn.rollback()
+            # self.conn.rollback()
             raise
 
     def get_nextval(self, sequence_name: str):
@@ -318,6 +317,7 @@ class Database:
             
             self.cursor.execute(query)
             result = self.cursor.fetchone()[0]
+            # self.conn.commit() 
             logging.info(f"Next value of sequence {sequence_name}: {result}")
             return result
         except psycopg2.Error as e:
@@ -342,6 +342,7 @@ class Database:
             
             self.cursor.execute(query)
             result = self.cursor.fetchone()[0]
+            # self.conn.commit() 
             logging.info(f"current value of sequence {sequence_name}: {result}")
             return result
         except psycopg2.Error as e:
@@ -365,6 +366,7 @@ class Database:
                 self.cursor = self.conn.cursor()
             
             self.cursor.execute(query)
+            self.conn.commit() 
             logging.info(f"sequence {sequence_name} dropped!")
             return True
         except psycopg2.Error as e:
