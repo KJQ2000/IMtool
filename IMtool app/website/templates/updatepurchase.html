@@ -85,6 +85,12 @@
                                 <input type="number" step="0.01" class="form-control" id="pur_gold_cost" name="pur_gold_cost" value="{{ purchase.pur_gold_cost }}" required>
                             </div>
                             <div class="col-md-4 mb-3">
+                                <label for="pur_gold_cost_999" class="form-label">Purchase 999 Gold Cost</label>
+                                <input type="number" step="0.01" class="form-control" id="pur_gold_cost_999" name="pur_gold_cost_999" value="{{ purchase.pur_gold_cost_999 }}" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
                                 <label for="pur_labor_cost" class="form-label">Purchase Labor Cost</label>
                                 <input type="number" step="0.01" class="form-control" id="pur_labor_cost" name="pur_labor_cost" value="{{ purchase.pur_labor_cost }}" required>
                             </div>
@@ -93,7 +99,6 @@
                                 <input type="number" step="0.01" class="form-control" id="pur_weight" name="pur_weight" value="{{ purchase.pur_weight }}" required>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-md-4 mb-3" id="cash_amount_div">
                                 <label for="pur_total_cash_amt" class="form-label">Pay by Cash Amount</label>
@@ -105,7 +110,8 @@
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="pur_total_amt" class="form-label">Purchase Total Amount</label>
-                                <input type="number" step="0.01" class="form-control" id="pur_total_amt" name="pur_total_amt" value="{{ purchase.pur_total_amt }}" readonly>
+                                <input type="number" step="0.01" class="form-control" id="pur_total_amt" name="pur_total_amt" value="{{ purchase.pur_total_amt }}" required>
+                                <!-- <input type="number" step="0.01" class="form-control" id="pur_total_amt" name="pur_total_amt" value="{{ purchase.pur_total_amt }}" readonly> -->
                             </div>
                         </div>
                     </div>
@@ -132,19 +138,19 @@
     // });
 
     // Function to calculate total amount
-    function calculateTotal() {
-        const purGoldCost = parseFloat(document.getElementById('pur_gold_cost').value) || 0;
-        const purWeight = parseFloat(document.getElementById('pur_weight').value) || 0;
-        const purLaborCost = parseFloat(document.getElementById('pur_labor_cost').value) || 0;
+    // function calculateTotal() {
+    //     const purGoldCost = parseFloat(document.getElementById('pur_gold_cost').value) || 0;
+    //     const purWeight = parseFloat(document.getElementById('pur_weight').value) || 0;
+    //     const purLaborCost = parseFloat(document.getElementById('pur_labor_cost').value) || 0;
 
-        const purTotalAmt = (purGoldCost * purWeight) + purLaborCost;
-        document.getElementById('pur_total_amt').value = purTotalAmt.toFixed(2); // Set the total amount with 2 decimal places
-    }
+    //     const purTotalAmt = (purGoldCost * purWeight) + purLaborCost;
+    //     document.getElementById('pur_total_amt').value = purTotalAmt.toFixed(2); // Set the total amount with 2 decimal places
+    // }
 
-    // Add event listeners to the relevant input fields
-    document.getElementById('pur_gold_cost').addEventListener('input', calculateTotal);
-    document.getElementById('pur_weight').addEventListener('input', calculateTotal);
-    document.getElementById('pur_labor_cost').addEventListener('input', calculateTotal);
+    // // Add event listeners to the relevant input fields
+    // document.getElementById('pur_gold_cost').addEventListener('input', calculateTotal);
+    // document.getElementById('pur_weight').addEventListener('input', calculateTotal);
+    // document.getElementById('pur_labor_cost').addEventListener('input', calculateTotal);
 
     // Toggle visibility and required status of amount fields based on selected purchase method
     document.getElementById('pur_method').addEventListener('change', toggleAmountFields);

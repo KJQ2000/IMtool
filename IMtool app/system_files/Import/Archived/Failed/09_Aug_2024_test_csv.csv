@@ -1,0 +1,21 @@
+stk_type,stk_weight,stk_size,stk_length,stk_labor_cost,stk_labor_sell,stk_pur_date,stk_sell_date,stk_gold_cost,stk_gold_sell,stk_status,stk_profit,stk_pattern,stk_gold_type
+Bracelet,12.8,14.5,,120,,1/1/2024,,345,,IN STOCK,,cartier,916
+Necklace,23.45,,60,150,,2/1/2024,,340,,IN STOCK,,candy,916
+Ring,5.2,7,,80,,3/15/2024,,150,,IN STOCK,,diamond,916
+Earrings,4.8,10,,90,,3/25/2024,,120,,IN STOCK,,hoop,916
+Bracelet,15.6,16,,140,180,4/1/2024,4/15/2024,370,360,SOLD,-116,classic,916
+Necklace,30,,70,180,,4/10/2024,,400,,IN STOCK,,rope,916
+Ring,3.5,5.5,,70,,4/20/2024,,140,,IN STOCK,,solitaire,916
+Earrings,6.3,12,,100,120,4/30/2024,5/30/2024,160,170,SOLD,30,drop,916
+Pendant,7.5,,25,110,,5/1/2024,,175,,IN STOCK,,heart,916
+Bangle,14.9,15,,135,,5/10/2024,,320,,IN STOCK,,twisted,916
+Chain,25,,65,175,,5/20/2024,,390,,IN STOCK,,snake,916
+Ring,4.1,6.5,,85,120,5/30/2024,6/25/2024,155,200,SOLD,20,eternity,916
+Anklet,12.3,14,,120,,6/5/2024,,345,,IN STOCK,,beaded,916
+Necklace,35,,75,200,,6/15/2024,,420,,IN STOCK,,twisted,916
+Ring,2.9,5,,65,80,6/25/2024,7/31/2024,130,300,SOLD,15,infinity,916
+Bracelet,13.2,15,,125,,7/1/2024,,350,,IN STOCK,,charm,916
+Pendant,8,,28,115,,7/10/2024,,180,,IN STOCK,,floral,916
+Earrings,7.1,12.5,,105,120,7/20/2024,8/1/2024,165,220,SOLD,35,stud,916
+Bangle,16.8,16.5,,145,,7/30/2024,,375,,IN STOCK,,engraved,916
+Chain,27,,70,185,,8/1/2024,,400,,IN STOCK,,cable,916

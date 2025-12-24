@@ -457,15 +457,18 @@ class Database:
             self.conn.commit()
             logging.info(f"Successfully inserted data into {self.schema}.{table}.")
             logging.info(f"Query: {insert_query}")
+            return True
         except (psycopg2.Error, psycopg2.DatabaseError) as e:
             logging.error(f"Query: {insert_query}")
             logging.error(f"Database error: {e.pgcode} - {e.pgerror}")
             logging.error(f"Error details: {e.diag.message_detail}")
             self.conn.rollback()
+            return False
         except Exception as e:
             logging.error(f"Query: {insert_query}")
             logging.error(f"Unexpected error: {e}")
             self.conn.rollback()
+            return False
     
     def __del__(self):
         if self.cursor:

@@ -54,6 +54,7 @@
                                 <th><input type="text" id="filter_pur_date" class="form-control" placeholder="Filter Purchase Date"></th>
                                 <th><input type="text" id="filter_pur_weight" class="form-control" placeholder="Filter Weight (g)"></th>
                                 <th><input type="text" id="filter_pur_gold_cost" class="form-control" placeholder="Filter Gold Cost"></th>
+                                <th><input type="text" id="filter_pur_gold_cost_999" class="form-control" placeholder="Filter 999 Gold Cost"></th>
                                 <th><input type="text" id="filter_pur_labor_cost" class="form-control" placeholder="Filter Labor Cost"></th>
                                 <th><input type="text" id="filter_pur_method" class="form-control" placeholder="Filter Method"></th>
                                 <th><input type="text" id="filter_pur_official_invoice" class="form-control" placeholder="Filter Official Invoice"></th>
@@ -72,6 +73,7 @@
                                 <th>Purchase Date</th>
                                 <th>Purchase Weight (g)</th>
                                 <th>Purchase Gold Cost</th>
+                                <th>Purchase 999 Gold Cost</th>
                                 <th>Purchase Labor Cost</th>
                                 <th>Purchase Method</th>
                                 <th>Purchase Official Invoice</th>
@@ -93,6 +95,7 @@
                                 <td>{{ purchase.pur_date }}</td>
                                 <td>{{ purchase.pur_weight }}</td>
                                 <td>{{ purchase.pur_gold_cost }}</td>
+                                <td>{{ purchase.pur_gold_cost_999 }}</td>
                                 <td>{{ purchase.pur_labor_cost }}</td>
                                 <td>{{ purchase.pur_method }}</td>
                                 <td>{{ purchase.pur_official_invoice }}</td>
@@ -154,6 +157,7 @@
             var pur_date_filter = $('#filter_pur_date').val();
             var pur_weight_filter = $('#filter_pur_weight').val();
             var pur_gold_cost_filter = $('#filter_pur_gold_cost').val();
+            var pur_gold_cost_999_filter = $('#filter_pur_gold_cost_999').val();
             var pur_labor_cost_filter = $('#filter_pur_labor_cost').val();
             var pur_method_filter = $('#filter_pur_method').val();
             var pur_official_invoice_filter = $('#filter_pur_official_invoice').val();
@@ -165,19 +169,21 @@
 
             table
                 .columns(0).search(pur_id_filter, true, false) 
-                .columns(1).search(pur_invoice_no_filter, true, false) 
-                .columns(2).search(pur_slm_id_filter, true, false) 
-                .columns(3).search(pur_date_filter, true, false) 
-                .columns(4).search(pur_weight_filter, true, false) 
-                .columns(5).search(pur_gold_cost_filter, true, false) 
-                .columns(6).search(pur_labor_cost_filter, true, false) 
-                .columns(7).search(pur_method_filter, true, false) 
-                .columns(8).search(pur_official_invoice_filter, true, false) 
-                .columns(9).search(pur_billing_date_filter, true, false) 
-                .columns(10).search(pur_total_cash_amt_filter, true, false) 
-                .columns(11).search(pur_total_trade_in_amt_filter, true, false) 
-                .columns(12).search(pur_total_amt_filter, true, false) 
-                .columns(13).search(pur_payment_status_filter, true, false)
+                .columns(1).search(pur_code_filter, true, false) 
+                .columns(2).search(pur_invoice_no_filter, true, false) 
+                .columns(3).search(pur_slm_id_filter, true, false) 
+                .columns(4).search(pur_date_filter, true, false) 
+                .columns(5).search(pur_weight_filter, true, false) 
+                .columns(6).search(pur_gold_cost_filter, true, false) 
+                .columns(7).search(pur_gold_cost_999_filter, true, false) 
+                .columns(8).search(pur_labor_cost_filter, true, false) 
+                .columns(9).search(pur_method_filter, true, false) 
+                .columns(10).search(pur_official_invoice_filter, true, false) 
+                .columns(11).search(pur_billing_date_filter, true, false) 
+                .columns(12).search(pur_total_cash_amt_filter, true, false) 
+                .columns(13).search(pur_total_trade_in_amt_filter, true, false) 
+                .columns(14).search(pur_total_amt_filter, true, false) 
+                .columns(15).search(pur_payment_status_filter, true, false)
                 .draw();  
         });
     });

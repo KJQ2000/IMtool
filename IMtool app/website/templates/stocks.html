@@ -13,7 +13,7 @@
 
 {% block content %}
 <main>
-    
+    </div>
     <div class="container-fluid mt-4">
         <h1 class="mb-4">Stocks</h1>
         
@@ -32,11 +32,26 @@
                     </form>
                 </div>
             </div>
+            
             <!-- <button class="btn btn-secondary me-2" id="batchImportButton">Batch Import</button> -->
             <button class="btn btn-secondary" id="exportBtn">Export to csv</button>
             <button class="btn btn-secondary" id="exportBarcodeBtn">Export Barcode csv</button>
 
         </div>
+        <!-- <div id="messageModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeMessageModal">&times;</span>
+                <p id="messageText"></p>
+            </div>
+        </div> -->
+        <!-- Modal for displaying the message -->
+        <!-- <div id="messageModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeMessageModal">&times;</span>
+                <p id="messageText">{{ message }}</p>
+            </div>
+        </div> -->
+
         <!-- <div class="filter-container">
             <label><input style="margin:10px;" type="radio" name="filterCategory" value="status" onclick="toggleFilterCategory('status')">Stock Status</label>
             <label><input style="margin:10px;" type="radio" name="filterCategory" value="type" onclick="toggleFilterCategory('type')">Stock Type</label>
@@ -98,10 +113,27 @@
             <input type="text" id="searchInput" onkeyup="filterByTag()" placeholder="Search for tags...">
         </div> -->
         
-
+        
+        <!-- Modal for Error Message -->
         <!-- DataTable Card -->
         <div class="card mb-4">
             <div class="card-body">
+                <!-- {% if message %}
+                <div><p>{{ message }}</p></div>
+                {% endif %} -->
+                <!-- {% if message %}
+                    <div>
+                        <p>{{ message }}</p>
+                    </div>
+                {% endif %} -->
+                {% if message %}
+                    <div class="message-container {{ message_type }}">
+                        <p>{{ message }}</p>
+                        <button class="dismiss-button" onclick="this.parentElement.style.display='none'">Dismiss</button>
+                        <p> </p>
+                    </div>
+                {% endif %}
+
                 {% if stocks|length < 1 %}
                 <h4 class="text-center">There are no stocks. Add one above.</h4>
                 {% else %}
@@ -214,16 +246,20 @@
                             {% endfor %}
                         </tbody>
                     </table>
+                    
                 </div>
                 {% endif %}
             </div>
         </div>
-        
+    
+      
+    
     </div>
 
     <!-- jQuery and DataTables JS -->
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    
     <script>
         $(document).ready(function() {
             // Initialize DataTable
@@ -327,24 +363,46 @@
                 // ✅ Send to Flask for processing
                 sendDataToFlask1(barcodeData).then(function (processedData) {
                     let exportOrder = [
-                        "stk_id",
                         "stk_barcode",
                         "stk_weight",
+                        "stk_gold_type",
                         "stk_length_size", // Assuming this is combined length/size
                         "stk_returned",
                         "slm_name",
-                        "stk_pur_monthyear"
+                        "stk_pur_monthyear",
+                        "stk_barcode_text",
+                        "stk_barcode_2",
+                        "stk_weight_2",
+                        "stk_gold_type_2",
+                        "stk_length_size_2",
+                        "stk_returned_2",
+                        "slm_name_2",
+                        "stk_pur_monthyear_2",
+                        "stk_barcode_text_2"
+                    ];
+
+                    const textFields = [
+                        "stk_length_size",
+                        "stk_pur_monthyear",
+                        "stk_length_size_2",
+                        "stk_pur_monthyear_2"
                     ];
 
                     // ✅ Create CSV content with BOM
                     let csv = "\uFEFF" + exportOrder.join(",") + "\n"
                         + processedData.map(row => exportOrder.map(field => {
                             let cell = row[field] ?? "";
-                            if (typeof cell === 'string') {
+                            if (textFields.includes(field) && cell !== "") {
+                                cell = `="${cell}"`;   // 🔥 Excel-safe
+                            } else if (typeof cell === 'string') {
                                 cell = cell.replace(/"/g, '""');
-                            }
-                            if (String(cell).includes(",") || String(cell).includes('"') || String(cell).includes("\n")) {
-                                cell = `"${cell}"`;
+                                if (
+                                    cell.includes(",") ||
+                                    cell.includes('"') ||
+                                    cell.includes("\n")
+                                ) {
+                                    cell = `"${cell}"`;
+                                }
                             }
                             return cell;
                         }).join(",")).join("\n");
@@ -413,8 +471,8 @@
                 document.getElementById('delete-form-' + stkId).submit();
             }
         }
-        
-    </script>
+
+        </script>
     
 </main>
 {% endblock %}
