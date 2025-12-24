@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, session, redirect, flash, jsonify
+from werkzeug.datastructures import MultiDict
 import os, re, logging
 from datetime import datetime
 import psycopg2
@@ -14,6 +15,7 @@ from werkzeug.datastructures import ImmutableMultiDict
 import pandas as pd
 import numpy as np
 from decimal import Decimal
+import json
 
 load_dotenv()
 
@@ -170,7 +172,7 @@ def stocksFilter(category, pattern):
         # Handle the POST request
         if request.method == "POST":
             if category and pattern:
-                stocks = db.select(table='stock', where="stk_type='{category}' AND stk_pattern='{pattern}'".format(category=category, pattern=pattern), js=True)
+                stocks = db.select(table='stock', where="stk_type='{category}' AND stk_pattern=   '{pattern}'".format(category=category, pattern=pattern), js=True)
 
                 # Check if stocks exist after filtering
                 if stocks:
@@ -194,15 +196,42 @@ def add_stock():
         if request.method == 'POST':
 
             try:
-                db.insert(table='stock',columns=list(request.form.keys()),values=list(request.form.values()))
-                stk_id = str('STK_'+str(db.get_currval(dic.STOCK_SEQ)))
-                stk_pur_id = db.select(table='stock',columns=['stk_pur_id'],where="stk_id='{stk_id}'".format(stk_id=stk_id),js=True)[0]['stk_pur_id']
-                stk_pur_date = db.select(table='purchase',columns=['pur_date'],where="pur_id='{pur_id}'".format(pur_id=stk_pur_id),js=True)[0]['pur_date']
-                
+                # with the purchase code user input, get the purchase ID from purchase table
+                # Check if the key "pur_code" exists in the form data
+                pur_code_value = ""
+                if 'stk_pur_code' in request.form:
+                    pur_code_value = request.form['stk_pur_code']
+                stk_pur = db.select(table='purchase',columns=['pur_id', 'pur_date', 'pur_gold_cost', 'pur_gold_cost_999'],where="pur_code='{pur_code_value}'".format(pur_code_value=pur_code_value),js=True)[0]
+                stk_pur_id = stk_pur['pur_id']
+                stk_pur_date = stk_pur['pur_date']
                 stk_pur_date = datetime.fromisoformat(stk_pur_date.replace('Z', '+00:00'))
                 stk_pur_date = stk_pur_date.strftime('%Y-%m-%d')
                 
-                db.update(table='stock',set_columns=['stk_pur_date'],set_values=[stk_pur_date],where="stk_id='{stk_id}'".format(stk_id=stk_id))
+                # Create a copy of request.form as a mutable MultiDict
+                form_data = MultiDict(request.form)
+                if 'stk_pur_code' in form_data:
+                    form_data.pop('stk_pur_code')
+
+                if form_data['stk_gold_type'] == "999":
+                    form_data['stk_gold_cost'] = stk_pur['pur_gold_cost_999']
+                elif form_data['stk_gold_type'] == "916":
+                    form_data['stk_gold_cost'] = stk_pur['pur_gold_cost']
+                
+                # Add a new key-value pair
+                form_data['stk_pur_id'] = stk_pur_id
+                form_data['stk_pur_date'] = stk_pur_date
+                
+    
+                db.insert(table='stock',columns=list(form_data.keys()),values=list(form_data.values()))
+                
+                # stk_id = str('STK_'+str(db.get_currval(dic.STOCK_SEQ)))
+                
+                # stk_pur_date = db.select(table='purchase',columns=['pur_date'],where="pur_id='{pur_id}'".format(pur_id=stk_pur_id),js=True)[0]['pur_date']
+                
+                # stk_pur_date = datetime.fromisoformat(stk_pur_date.replace('Z', '+00:00'))
+                # stk_pur_date = stk_pur_date.strftime('%Y-%m-%d')
+                
+                # db.update(table='stock',set_columns=['stk_pur_date'],set_values=[stk_pur_date],where="stk_id='{stk_id}'".format(stk_id=stk_id))
                 
                 db.conn.commit()
             except ValueError:
@@ -244,8 +273,26 @@ def update_stock_view():
     # print(request.form)
     if 'loggedin' in session:
         try:
-            # do here ..., if the pur_id has updated then need to get the new pur_date from purchase table and update in stock table
-            db.update(table='stock',set_columns=list(request.form.keys()),set_values=list(request.form.values()), where="stk_id='{stk_id}'".format(stk_id=request.form['stk_id']))
+            pur_id = request.form['stk_pur_id']
+            
+            stk_pur = db.select(table='purchase',columns=['pur_id', 'pur_date', 'pur_gold_cost', 'pur_gold_cost_999'],where="pur_id='{pur_id}'".format(pur_id=pur_id),js=True)[0]
+            stk_pur_id = stk_pur['pur_id']
+            stk_pur_date = stk_pur['pur_date']
+            stk_pur_date = datetime.fromisoformat(stk_pur_date.replace('Z', '+00:00'))
+            stk_pur_date = stk_pur_date.strftime('%Y-%m-%d')
+            
+            # Create a copy of request.form as a mutable MultiDict
+            form_data = MultiDict(request.form)
+
+            if form_data['stk_gold_type'] == "999":
+                form_data['stk_gold_cost'] = stk_pur['pur_gold_cost_999']
+            elif form_data['stk_gold_type'] == "916":
+                form_data['stk_gold_cost'] = stk_pur['pur_gold_cost']
+            
+            # Add a new key-value pair
+            form_data['stk_pur_date'] = stk_pur_date
+            
+            db.update(table='stock',set_columns=list(form_data.keys()),set_values=list(form_data.values()), where="stk_id='{stk_id}'".format(stk_id=form_data['stk_id']))
             db.conn.commit()
         except ValueError:
             db.conn.rollback()
@@ -280,23 +327,120 @@ def deletestock(stock_id):
 def uploadFile():
     if request.method == 'POST':
         f = request.files.get('file')
- 
+
+        if not f:
+            return render_template("stocks.html", message="No file uploaded")
+
         data_filename = secure_filename(f.filename)
- 
-        f.save(os.path.join(dic.IMPORT_DIR,data_filename))
- 
-        session['uploaded_data_file_path'] = os.path.join(dic.IMPORT_DIR,data_filename)
-        result = subprocess.run(['python', dic.PY_IMPORT_FILE], capture_output=True, text=True)
-        # Log outputs
+        file_path = os.path.join(dic.IMPORT_DIR, data_filename)
+        f.save(file_path)
+
+        session['uploaded_data_file_path'] = file_path
+
+        result = subprocess.run(
+            ['python', dic.PY_IMPORT_FILE],
+            capture_output=True,
+            text=True
+        )
+
+        logging.info("STOCK IMPORT RETURN CODE: %s", result.returncode)
         logging.info("STOCK IMPORT STDOUT:\n%s", result.stdout)
+
         if result.stderr:
             logging.error("STOCK IMPORT STDERR:\n%s", result.stderr)
-        logging.info("STOCK IMPORT RETURN CODE: %s", result.returncode)
+
         stocks = db.select('stock', js=True)
-        if stocks:
-            return render_template("stocks.html", stocks=stocks)
-        return render_template("stocks.html")
-    return 'FAILED'
+
+        # ----------------------------
+        # Parse JSON safely
+        # ----------------------------
+        try:
+            response = json.loads(result.stdout)
+        except json.JSONDecodeError:
+            message = "Import failed: invalid response from importer"
+            return render_template(
+                "stocks.html",
+                message=message,
+                stocks=stocks
+            )
+
+        # ----------------------------
+        # Handle failure
+        # ----------------------------
+        if result.returncode != 0:
+            message = response.get("message", "Import failed")
+
+            return render_template(
+                "stocks.html",
+                message=message,
+                stocks=stocks
+            )
+
+        # ----------------------------
+        # Handle success
+        # ----------------------------
+        success_row = response.get("success_row", 0)
+        message = f"Successfully imported {success_row} stock record(s)"
+
+        return render_template(
+            "stocks.html",
+            message=message,
+            stocks=stocks
+        )
+
+    return "FAILED", 400
+
+## Original Code
+# @app.route('/batch-import-stock', methods=['GET', 'POST'])
+# def uploadFile():
+#     if request.method == 'POST':
+#         f = request.files.get('file')
+ 
+#         data_filename = secure_filename(f.filename)
+ 
+#         f.save(os.path.join(dic.IMPORT_DIR,data_filename))
+ 
+#         session['uploaded_data_file_path'] = os.path.join(dic.IMPORT_DIR,data_filename)
+#         result = subprocess.run(['python', dic.PY_IMPORT_FILE], capture_output=True, text=True)
+#         logging.debug('successfull inserted row = ',result)
+        
+#         # Check if there was an error
+        
+#         # Log outputs
+#         logging.info("STOCK IMPORT STDOUT:\n%s", result.stdout)
+#         if result.stderr:
+#             logging.error("STOCK IMPORT STDERR:\n%s", result.stderr)
+#         logging.info("STOCK IMPORT RETURN CODE: %s", result.returncode)
+#         stocks = db.select('stock', js=True)
+        
+#         if result.returncode == 1:
+#             # Something went wrong, send error message to frontend
+#             message = result.stderr
+            
+#             logging.info(message)
+#             if stocks:
+#                 return render_template("stocks.html", message=message, stocks=stocks)
+#             else:
+#                 return render_template("stocks.html", message=message)
+#             # return jsonify({'status': 'error', 'message': result.stderr})
+            
+#         else:
+#             # If successful, return the output
+#             # message=result.stdout
+#             success_record = json.loads(result.stdout.strip())  # Parse the JSON output
+#             message = f"Successfully imported stocks. Success Record: {success_record}"
+#             # message = "Successfully imported stocks"
+#             logging.info(message)
+#             if stocks:
+#                 return render_template("stocks.html", message=message, stocks=stocks)
+#             else:
+#                 return render_template("stocks.html", message=message)
+#             # return jsonify({'status': 'success', 'message': result.stdout})
+            
+#         # If subprocess itself fails, handle the exception
+#         # return jsonify({'status': 'error', 'message': str(e)})
+        
+#     return 'FAILED'
 
 @app.route('/batch-import-purchase', methods=['GET', 'POST'])
 def uploadPurchaseFile():
@@ -1423,13 +1567,14 @@ def process_barcode_data():
     
     query = """
         SELECT 
-            stk.stk_id,
             stk.stk_barcode,
-            stk.stk_weight,
-            COALESCE(stk.stk_length, stk.stk_size) AS stk_length_size,
+            stk.stk_weight || 'G' as stk_weight,
+            stk.stk_gold_type,
+            '(' || COALESCE(stk.stk_length, stk.stk_size) || ')' AS stk_length_size,
             stk.stk_returned,
             slm.slm_name,
-            '''' || TO_CHAR(p.pur_date, 'MMYY') AS stk_pur_monthyear
+            TO_CHAR(p.pur_date, 'MMYY') AS stk_pur_monthyear,
+            stk.stk_barcode AS stk_barcode_text
         FROM konghin.stock stk
         LEFT JOIN konghin.purchase p ON stk.stk_pur_id = p.pur_id
         LEFT JOIN konghin.salesman slm ON p.pur_slm_id = slm.slm_id
@@ -1438,7 +1583,20 @@ def process_barcode_data():
     
     # print(query)
 
-    processed_data = db.select_raw(query).to_dict(orient='records')
+    processed_data = db.select_raw(query)
+    
+    df = processed_data.copy()
+
+    # Step 1: Split the DataFrame into pairs of rows
+    df_even = df.iloc[::2].reset_index(drop=True)  # 0, 2, 4, ...
+    df_odd = df.iloc[1::2].reset_index(drop=True)  # 1, 3, 5, ...
+
+    # Step 2: Rename odd columns with suffix "_2"
+    df_odd = df_odd.add_suffix("_2")
+
+    # Step 3: Concatenate side by side
+    df_combined = pd.concat([df_even, df_odd], axis=1).to_dict(orient='records')
+    
     
     # processed_data = barcode_export[['Stock ID','Stock Barcode', 'Stock Weight (g)','Stock Size','Stock Length (cm)','Stock Returned']].to_json(orient='records')
     try:
@@ -1450,12 +1608,12 @@ def process_barcode_data():
         db.conn.rollback()
         return f"Invalid input. Please check your data and try again. Error: {e}", 400
 
-    processed_data = list(processed_data)
+    df_combined = list(df_combined)
     
     # print('\n\n\n PROCESSED DATA \n\n\n')
     # print(processed_data)
 
-    return jsonify({'status': 'success', 'data': processed_data}), 200
+    return jsonify({'status': 'success', 'data': df_combined}), 200
     
 # @app.route('/print-invoice/<sale_id>', methods=['GET'])
 # def print_invoice(sale_id):
