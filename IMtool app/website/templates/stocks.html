@@ -148,6 +148,7 @@
                                 <th><input type="text" id="filter_stk_weight" class="form-control" placeholder="Filter Stock Weight (g)"></th>
                                 <th><input type="text" id="filter_stk_size" class="form-control" placeholder="Filter Stock Size"></th>
                                 <th><input type="text" id="filter_stk_length" class="form-control" placeholder="Filter Stock Length (cm)"></th>
+                                <th><input type="text" id="filter_stk_width" class="form-control" placeholder="Filter Stock Width"></th>
                                 <th><input type="text" id="filter_stk_remark" class="form-control" placeholder="Filter Stock Description"></th>
                                 <th><input type="text" id="filter_stk_tag" class="form-control" placeholder="Filter Stock Tag"></th>
                                 <th><input type="text" id="filter_stk_returned" class="form-control" placeholder="Filter Stock Returned"></th>
@@ -178,6 +179,7 @@
                                 <th>Stock Weight (g)</th>
                                 <th>Stock Size</th>
                                 <th>Stock Length (cm)</th>
+                                <th>Stock Width</th>
                                 <th>Stock Description</th>
                                 <th>Stock Tag</th>
                                 <th>Stock Returned</th>
@@ -211,6 +213,7 @@
                                 <td>{{ stock.stk_weight }}</td>
                                 <td>{{ stock.stk_size }}</td>
                                 <td>{{ stock.stk_length }}</td>
+                                <td>{{ stock.stk_width }}</td>
                                 <td>{{ stock.stk_remark }}</td>
                                 <td>{{ stock.stk_tag }}</td>
                                 <td>{{ stock.stk_returned }}</td>
@@ -368,16 +371,14 @@
                         "stk_gold_type",
                         "stk_length_size", // Assuming this is combined length/size
                         "stk_returned",
-                        "slm_name",
-                        "stk_pur_monthyear",
+                        "pur_code",
                         "stk_barcode_text",
                         "stk_barcode_2",
                         "stk_weight_2",
                         "stk_gold_type_2",
                         "stk_length_size_2",
                         "stk_returned_2",
-                        "slm_name_2",
-                        "stk_pur_monthyear_2",
+                        "pur_code_2",
                         "stk_barcode_text_2"
                     ];
 

@@ -80,6 +80,10 @@
                                 <label for="stk_length" class="form-label">Stock Length</label>
                                 <input type="number" step="0.01" class="form-control" id="stk_length" name="stk_length" value="{{ stock.stk_length }}">
                             </div>
+                            <div class="col-md-6 mb-3" id="stk_width-section">
+                                <label for="stk_width" class="form-label">Stock Width</label>
+                                <input type="number" step="0.01" class="form-control" id="stk_width" name="stk_width" value="{{ stock.stk_width }}">
+                            </div>
                             <div class="col-md-6 mb-3">
                                 <label for="stk_pattern" class="form-label">Stock Pattern</label>
                                 <input type="text" class="form-control" id="stk_pattern" name="stk_pattern" value="{{ stock.stk_pattern }}" required>
@@ -190,6 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const bookProfitSection = document.getElementById('book-profit-section');
     const stkSizeSection = document.getElementById('stk_size-section');
     const stkLengthSection = document.getElementById('stk_length-section');
+    const stkWidthSection = document.getElementById('stk_width-section');
     const stkSellDate = document.getElementById('stk_sell_date');
     const stkGoldSell = document.getElementById('stk_gold_sell');
     const stkLaborSell = document.getElementById('stk_labor_sell');
@@ -248,15 +253,19 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show/Hide size/length based on stock type
         if (stockType === 'RING' || stockType === 'BANGLE') {
             stkSizeSection.style.display = 'block';
+            stkWidthSection.style.display = 'block';
             stkLengthSection.style.display = 'none';
         } else if (stockType === 'BRACELET' || stockType === 'NECKLACE' || stockType === 'ANKLET') {
             stkSizeSection.style.display = 'none';
+            stkWidthSection.style.display = 'block';
             stkLengthSection.style.display = 'block';
         } else if (stockType === 'EARRING' || stockType === 'PENDANT') {
             stkSizeSection.style.display = 'none';
+            stkWidthSection.style.display = 'block';
             stkLengthSection.style.display = 'none';
         } else {
             stkSizeSection.style.display = 'none';
+            stkWidthSection.style.display = 'block';
             stkLengthSection.style.display = 'none';
         }
     }

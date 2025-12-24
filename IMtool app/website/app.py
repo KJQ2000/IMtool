@@ -1450,7 +1450,7 @@ def add_pattern():
                     db.conn.rollback()
                     return f"Invalid input. Please check your data and try again. {e}", 400
                     
-        return render_template("patterns.html")
+        return render_template("addpatterns.html")
     
     # If not logged in, redirect to login page
     return redirect('/login')
@@ -1572,8 +1572,7 @@ def process_barcode_data():
             stk.stk_gold_type,
             '(' || COALESCE(stk.stk_length, stk.stk_size) || ')' AS stk_length_size,
             stk.stk_returned,
-            slm.slm_name,
-            TO_CHAR(p.pur_date, 'MMYY') AS stk_pur_monthyear,
+            p.pur_code,
             stk.stk_barcode AS stk_barcode_text
         FROM konghin.stock stk
         LEFT JOIN konghin.purchase p ON stk.stk_pur_id = p.pur_id
