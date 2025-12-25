@@ -1450,7 +1450,7 @@ def add_pattern():
                     db.conn.rollback()
                     return f"Invalid input. Please check your data and try again. {e}", 400
                     
-        return render_template("patterns.html")
+        return render_template("addpatterns.html")
     
     # If not logged in, redirect to login page
     return redirect('/login')
