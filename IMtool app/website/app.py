@@ -1408,7 +1408,9 @@ def dashboard():
             {'cpat_category': 'BANGLE', 'cpat_image_path': '.\static\pattern\goldbangle.jpg'},
             {'cpat_category': 'EARING', 'cpat_image_path': '.\static\pattern\goldearing.jpg'},
             {'cpat_category': 'PENDANT', 'cpat_image_path': '.\static\pattern\goldpendant.jpg'},
-            {'cpat_category': 'ANKLET', 'cpat_image_path': '.\static\pattern\goldanklet.jpg'}
+            {'cpat_category': 'ANKLET', 'cpat_image_path': '.\static\pattern\goldanklet.jpg'},
+            {'cpat_category': 'CHARM', 'cpat_image_path': '.\static\pattern\goldcharm.jpg'},
+            {'cpat_category': 'BEAD', 'cpat_image_path': '.\static\pattern\goldbead.jpg'}
             # Add more patterns as needed
         ]
         return render_template("dashboard.html", categories=categories)
